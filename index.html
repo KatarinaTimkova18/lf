@@ -308,13 +308,13 @@ function setQ(s,n,c){ const a=S.q[s]; S.q[s]=a.slice(0,n)+c+a.slice(n+1); }
 function addWrong(s,n){ const a=S.w[s]; const c=Math.min(9,(+a[n]||0)+1); S.w[s]=a.slice(0,n)+c+a.slice(n+1); }
 function subjStats(s){
   let m=0,k=0,w=0,seen=0;
-  for (const q of BANK[s]) { const c=qState(s,q[0]); if(c!=="0")seen++; if(c==="3")m++; else if(c==="2")k++; else if(c==="1")w++; }
+  for (const q of BANK[s]) { const c=qState(s,q[0]); if(c!=="0")seen++; if(c==="3"||c==="2")m++; else if(c==="1")w++; }
   return {m,k,w,seen,total:BANK[s].length};
 }
 function setInfo(s,k){
   const st = S.sets[s+k] || {};
   const nums = SETS[s][k]; let m=0,w=0;
-  for (const n of nums){ const c=qState(s,n); if(c==="3")m++; if(c==="1")w++; }
+  for (const n of nums){ const c=qState(s,n); if(c==="3"||c==="2")m++; if(c==="1")w++; }
   let status = "new";
   if (st.n) status = (st.s||0)>=2 ? "mastered" : (st.l/nums.length>=0.9 ? "good" : "weak");
   return {st, nums, m, w, status, last: st.n? Math.round(st.l/nums.length*100) : null};
@@ -352,12 +352,13 @@ function render(){
 function ring(pct, segs){
   const R=58, C=2*Math.PI*R; let off=0;
   const arcs = segs.map(([v,col])=>{ const len=v*C; const a=`<circle cx="66" cy="66" r="${R}" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" stroke-linecap="butt"/>`; off+=len; return a; }).join("");
-  return `<div class="ring"><svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>ovládam</span></div></div></div>`;
+  return `<div class="ring"><svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>správne</span></div></div></div>`;
 }
 function home(){
   const b=subjStats("bio"), c=subjStats("che");
-  const pct = Math.round((b.m+c.m)/TOTAL*100);
-  const line=(s,st)=>{ const t=st.total; return `<div class="sline"><div class="h"><b>${SUBJ[s].name}</b><span class="num muted">${Math.round(st.m/t*100)} % · ${st.m}/${t}</span></div>
+  const pf=v=>{ const x=v*100; return x>0&&x<10 ? x.toFixed(1).replace(".",",") : String(Math.round(x)); };
+  const pct = pf((b.m+c.m)/TOTAL);
+  const line=(s,st)=>{ const t=st.total; return `<div class="sline"><div class="h"><b>${SUBJ[s].name}</b><span class="num muted">${pf(st.m/t)} % · ${st.m}/${t}</span></div>
     <div class="track"><i style="width:${st.m/t*100}%;background:var(--${s})"></i><i style="width:${st.k/t*100}%;background:var(--${s});opacity:.4"></i><i style="width:${st.w/t*100}%;background:var(--bad);opacity:.55"></i></div></div>`; };
   const mastSets = ["bio","che"].reduce((a,s)=>a+SETS[s].filter((_,k)=>setInfo(s,k).status==="mastered").length,0);
   const allSets = SETS.bio.length+SETS.che.length;
@@ -368,11 +369,11 @@ function home(){
     <header class="top" style="align-items:flex-start">
       <div><div class="eyebrow">LF SZU · prijímačky jún 2027</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
     </header>
-    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov · zostáva ovládnuť ${TOTAL-b.m-c.m} otázok</small></span></div>
+    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov · správne máš ${b.m+c.m} z ${TOTAL} otázok</small></span></div>
     <section>
       <div class="hero">${ring(pct, [[b.m/TOTAL,"var(--bio)"],[c.m/TOTAL,"var(--che)"]])}
         <div class="subj">${line("bio",b)}${line("che",c)}
-          <div class="legend"><span><i style="background:var(--muted)"></i>ovládam</span><span><i style="background:var(--muted);opacity:.4"></i>raz správne</span><span><i style="background:var(--bad);opacity:.55"></i>naposledy zle</span></div></div>
+          <div class="legend"><span><i style="background:var(--muted)"></i>správne zodpovedané</span><span><i style="background:var(--bad);opacity:.55"></i>naposledy zle</span></div></div>
       </div>
       <div class="stats">
         <div><b>${mastSets}<span style="font-size:15px;color:var(--muted)"> / ${allSets}</span></b><span>sád zvládnutých na 100 %</span></div>
@@ -381,7 +382,6 @@ function home(){
       </div>
     </section>
     ${local.exam&&local.exam.list?`<section><button class="tcard" id="resumeEx" style="--c:var(--ink)"><span class="stripe"></span><span><span class="t">Rozpracovaný ostrý test</span><div class="s">${local.exam.picks.filter(p=>p.length).length}/160 zodpovedaných · pokračovať</div></span><span class="go">›</span></button></section>`:""}
-    ${rec.length?`<section><h3>Na dnes</h3><div class="today">${rec.map(r=>`<button class="tcard" data-s="${r.s}" data-k="${r.k}" style="--c:var(--${r.s})"><span class="stripe"></span><span><span class="t">${topic(r.s,r.k)}</span><div class="s">${SUBJ[r.s].name} · sada ${r.k+1} · otázky ${setRange(r.s,r.k)} · ${r.why}</div></span><span class="go">›</span></button>`).join("")}</div></section>`:""}
     <section><h3>Precvičovanie</h3>
       <div class="tiles">
         <button class="tile bio" data-go="bio"><b>Biológia</b><span>${SETS.bio.length} sád · ${b.total} otázok</span></button>
@@ -422,7 +422,7 @@ function subject(s){
     <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">${SUBJ[s].name}</span><span></span></div>
     <section class="${SUBJ[s].cls}">
       <h1 style="color:var(--c-deep)">${SUBJ[s].name}</h1>
-      <p class="lead">Ovládaš ${st.m} z ${st.total} otázok (${Math.round(st.m/st.total*100)} %). Sada je zvládnutá, keď ju dvakrát po sebe prejdeš bez chyby.</p>
+      <p class="lead">Správne máš ${st.m} z ${st.total} otázok (${Math.round(st.m/st.total*100)} %). Sada je zvládnutá, keď ju dvakrát po sebe prejdeš bez chyby.</p>
       <div class="seg" role="group" aria-label="Filter sád">
         <button data-f="all" aria-pressed="${filt==="all"}">Všetky</button>
         <button data-f="todo" aria-pressed="${filt==="todo"}">Nezvládnuté</button>
@@ -432,7 +432,7 @@ function subject(s){
         ${badge[i.status]}<span class="r">sada ${k+1} · ${setRange(s,k)}</span><span class="tn">${topic(s,k)}</span>
         <span class="p">${i.last!=null?i.last+'<small style="font-size:.5em"> %</small>':'<span class="muted" style="font-size:.8em">—</span>'}</span>
         <span class="bar"><i style="width:${i.m/i.nums.length*100}%"></i></span>
-        <span class="r">ovládam ${i.m}/${i.nums.length}</span></button>`).join("") || '<p class="muted">Tu zatiaľ nič nie je.</p>'}</div>
+        <span class="r">správne ${i.m}/${i.nums.length}</span></button>`).join("") || '<p class="muted">Tu zatiaľ nič nie je.</p>'}</div>
     </section>`;
   document.getElementById("back").onclick=()=>go({name:"home"});
   app.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{ view.f=b.dataset.f; render(); });
@@ -679,11 +679,11 @@ function transfer(){
 
 /* ---------- príklady & vzorce ---------- */
 const CORDER = {che:["mol","prvok","plyn","c","w","riedenie","rovnica","neutral","ph","teplo","rychlost","ks","k","osmo"], bio:["mendel","krv","hw","h2"]};
-function typeStats(t){ const T=CALCTYPES[t]; let m=0,w=0; for(const n of T.list){ const c=qState(T.s,n); if(c==="3")m++; if(c==="1")w++; } return {m,w,n:T.list.length}; }
+function typeStats(t){ const T=CALCTYPES[t]; let m=0,w=0; for(const n of T.list){ const c=qState(T.s,n); if(c==="3"||c==="2")m++; if(c==="1")w++; } return {m,w,n:T.list.length}; }
 function examples(){
   const all=[]; for(const s of ["che","bio"]) for(const t of CORDER[s]) if(CALCTYPES[t]) CALCTYPES[t].list.forEach(n=>all.push({s,n}));
   const row=t=>{ const T=CALCTYPES[t], g=GUIDES[t], st=typeStats(t); return `<div class="trow ${SUBJ[T.s].cls}">
-      <div class="tinfo"><b>${g?g.t:t}</b><span>${st.n} ${st.n===1?"príklad":st.n<5?"príklady":"príkladov"} · ovládam ${st.m}/${st.n}${st.w?` · <em>${st.w} zle</em>`:""}</span>
+      <div class="tinfo"><b>${g?g.t:t}</b><span>${st.n} ${st.n===1?"príklad":st.n<5?"príklady":"príkladov"} · správne ${st.m}/${st.n}${st.w?` · <em>${st.w} zle</em>`:""}</span>
       <span class="bar"><i style="width:${st.m/st.n*100}%"></i></span></div>
       <div class="tbtn"><button class="btn small" data-pr="${t}">Precvičiť</button><button class="btn ghost small" data-gd="${t}">Postup</button></div></div>`; };
   app.innerHTML = `
