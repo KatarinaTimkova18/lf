@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LF SZU</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LF SZU">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141211" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a calm single column like a study planner; summary first, then subjects as grids of sets, one question per screen in practice. */
+:root{
+  --bg:#f7f5f2; --surface:#ffffff; --ink:#1c1714; --muted:#7a6f66; --line:#e6e0d9; --soft:#efebe6;
+  --bio:#5f8f5a; --bio-soft:#e7f0e3; --bio-deep:#3f6b3b;
+  --che:#8a73b8; --che-soft:#eee9f6; --che-deep:#634f93;
+  --ok:#2f6b4a; --ok-soft:#e3efe7; --bad:#a23b36; --bad-soft:#f7e4e2;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px; --img-filter:none;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141211; --surface:#1d1a19; --ink:#f2ede8; --muted:#a3978d; --line:#35302c; --soft:#25211f;
+  --bio:#93c08c; --bio-soft:#1f2a1e; --bio-deep:#b5d9ae;
+  --che:#b9a6e3; --che-soft:#29233a; --che-deep:#d3c6f2;
+  --ok:#83c79f; --ok-soft:#1c2c23; --bad:#ee918a; --bad-soft:#3b2220; --img-filter:invert(.92) hue-rotate(180deg); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141211; --surface:#1d1a19; --ink:#f2ede8; --muted:#a3978d; --line:#35302c; --soft:#25211f;
+  --bio:#93c08c; --bio-soft:#1f2a1e; --bio-deep:#b5d9ae;
+  --che:#b9a6e3; --che-soft:#29233a; --che-deep:#d3c6f2;
+  --ok:#83c79f; --ok-soft:#1c2c23; --bad:#ee918a; --bad-soft:#3b2220; --img-filter:invert(.92) hue-rotate(180deg); color-scheme:dark}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-tap-highlight-color:transparent}
+.wrap{max-width:640px;margin:0 auto;padding-block:18px 56px;display:flex;flex-direction:column;gap:26px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,select:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+sub,sup{font-size:.7em;line-height:0}
+.fig{display:block;max-width:100%;height:auto;margin:8px 0 2px;filter:var(--img-filter);border-radius:6px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,10.5vw,54px);line-height:1.02;margin:6px 0 0;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic}
+h2{font-family:var(--display);font-weight:500;font-size:26px;margin:0;line-height:1.15;text-wrap:balance}
+h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
+.lead{color:var(--muted);margin:8px 0 0;max-width:48ch}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:13px 20px;border-radius:99px;font-weight:600;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn[disabled]{opacity:.35;cursor:default}
+.btn.wide{flex:1 1 140px}
+.link{border:0;background:none;padding:6px 0;color:var(--muted);font-size:15px}
+.sync{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.sync i{width:7px;height:7px;border-radius:50%;background:var(--line);display:inline-block}
+.sync.on i{background:var(--ok)}
+
+/* overview */
+.hero{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.ring{width:132px;height:132px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .c b{font-family:var(--display);font-size:36px;font-weight:500;line-height:1}
+.ring .c span{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.subj{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sline{display:flex;flex-direction:column;gap:5px}
+.sline .h{display:flex;justify-content:space-between;gap:8px;font-size:15px}
+.sline .h b{font-weight:600}
+.track{height:6px;border-radius:6px;background:var(--soft);overflow:hidden;display:flex}
+.track i{display:block;height:100%}
+.legend{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{width:10px;height:6px;border-radius:3px;display:inline-block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stats div{background:var(--surface);padding:12px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stats b{font-family:var(--display);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--muted);line-height:1.3}
+.today{display:flex;flex-direction:column;gap:8px}
+.tcard{display:grid;grid-template-columns:6px 1fr auto;gap:14px;align-items:center;padding:14px 16px 14px 0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);text-align:left;width:100%;overflow:hidden}
+.tcard .stripe{align-self:stretch;background:var(--c)}
+.tcard .t{font-weight:600}
+.tcard .s{font-size:13px;color:var(--muted)}
+.tcard .go{font-size:20px;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px;text-align:left;display:flex;flex-direction:column;gap:4px;min-height:96px}
+.tile b{font-family:var(--display);font-size:21px;font-weight:500;line-height:1.15}
+.tile span{font-size:13px;color:var(--muted)}
+.tile.bio{background:var(--bio-soft);border-color:transparent}
+.tile.bio b{color:var(--bio-deep)}
+.tile.che{background:var(--che-soft);border-color:transparent}
+.tile.che b{color:var(--che-deep)}
+.chart{display:flex;align-items:flex-end;gap:6px;height:110px;padding-top:6px;border-bottom:1px solid var(--line)}
+.chart div{flex:1;max-width:34px;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;height:100%;position:relative}
+.chart div i{display:block;border-radius:3px 3px 0 0}
+.chart div em{text-align:center;font-style:normal;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* subject sets */
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;gap:2px;background:var(--surface);flex-wrap:wrap}
+.seg button{border:0;background:none;padding:8px 14px;border-radius:99px;font-size:14px;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.set{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 12px 10px;text-align:left;display:flex;flex-direction:column;gap:6px;position:relative;min-width:0}
+.set .r{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.set .p{font-family:var(--display);font-size:24px;line-height:1;font-variant-numeric:tabular-nums}
+.set .bar{height:4px;border-radius:4px;background:var(--soft);overflow:hidden}
+.set .bar i{display:block;height:100%;background:var(--c)}
+.set.done{background:var(--c-soft);border-color:var(--c)}
+.set .badge{position:absolute;top:9px;right:9px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.set .badge.m{color:var(--c-deep)}
+.set .badge.w{color:var(--bad)}
+.set .badge.g{color:var(--muted)}
+.bio-c{--c:var(--bio);--c-soft:var(--bio-soft);--c-deep:var(--bio-deep)}
+.che-c{--c:var(--che);--c-soft:var(--che-soft);--c-deep:var(--che-deep)}
+
+/* forms */
+.field{display:flex;flex-direction:column;gap:8px}
+.field label,.field .lbl{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 12px;font-size:13px;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--c,var(--ink));border-color:var(--c,var(--ink));color:var(--bg)}
+.chip .dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-left:6px;vertical-align:middle}
+.info{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding:2px 0 2px 12px}
+
+/* quiz */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;white-space:nowrap}
+.prog{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--c,var(--ink));transition:width .25s}
+.qhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.qnum{font-family:var(--display);font-style:italic;font-size:20px;color:var(--c-deep,var(--ink))}
+.tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--c-soft);color:var(--c-deep)}
+.qtext{font-family:var(--display);font-size:clamp(21px,5.6vw,26px);line-height:1.32;margin:4px 0 0;font-weight:500;overflow-wrap:anywhere}
+.hint{font-size:13px;color:var(--muted)}
+.answers{display:flex;flex-direction:column;gap:10px}
+.ans{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;text-align:left;width:100%;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);transition:border-color .15s,background .15s}
+.ans .l{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:14px}
+.ans .tx{padding-top:4px;min-width:0;overflow-wrap:anywhere}
+.ans.sel{border-color:var(--ink)}
+.ans.sel .l{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+.ans.ok .l{background:var(--ok);color:var(--surface);border-color:var(--ok)}
+.ans.bad{border-color:var(--bad);background:var(--bad-soft)}
+.ans.bad .l{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.ans.miss{border-color:var(--ok);border-style:dashed}
+.ans.miss .l{border-color:var(--ok);color:var(--ok)}
+.ans[disabled]{cursor:default}
+.verdict{border-radius:var(--r);padding:14px 16px;font-weight:600;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.verdict.ok{background:var(--ok-soft);color:var(--ok)}
+.verdict.bad{background:var(--bad-soft);color:var(--bad)}
+.verdict span{font-weight:500}
+.flag{border:0;background:none;color:var(--muted);font-size:13px;padding:4px 0;text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
+.flag[aria-pressed="true"]{color:var(--bad)}
+.dock{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 78%,transparent);display:flex;gap:10px}
+.navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:5px}
+.navgrid button{border:1px solid var(--line);background:var(--surface);border-radius:8px;height:34px;font-size:12px;font-variant-numeric:tabular-nums;padding:0}
+.navgrid button.a{background:var(--soft);border-color:var(--muted)}
+.navgrid button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.timer{font-variant-numeric:tabular-nums;font-weight:600}
+.timer.low{color:var(--bad)}
+
+/* result */
+.big{font-family:var(--display);font-size:clamp(64px,19vw,96px);line-height:1;font-variant-numeric:tabular-nums}
+.big small{font-size:.38em;color:var(--muted)}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.list > div{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;display:grid;grid-template-columns:4.2em 1fr;gap:8px}
+.list b{font-family:var(--display);font-style:italic;font-weight:500;color:var(--c-deep)}
+.list em{font-style:normal;color:var(--muted);font-size:13px;display:block}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.split div{border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:2px}
+.split b{font-family:var(--display);font-size:30px;font-weight:500;font-variant-numeric:tabular-nums}
+.split span{font-size:13px}
+.foot{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+*,*::before,*::after{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"></div>
+
+<script src="data.js"></script>
+<script>
+"use strict";
+/* ---------- bank ---------- */
+const SUBJ = {
+  bio:{name:"Biológia", short:"Bio", cls:"bio-c"},
+  che:{name:"Chémia", short:"Chem", cls:"che-c"}
+};
+const BANK = window.BANK || {bio:[],che:[]};
+const BY = {bio:{}, che:{}};
+const SETS = {bio:[], che:[]};
+for (const s of ["bio","che"]) {
+  for (const q of BANK[s]) {
+    BY[s][q[0]] = q;
+    const k = Math.floor((q[0]-1)/50);
+    (SETS[s][k] = SETS[s][k] || []).push(q[0]);
+  }
+}
+const MAXN = {bio: Math.max(...BANK.bio.map(q=>q[0])), che: Math.max(...BANK.che.map(q=>q[0]))};
+const TOTAL = BANK.bio.length + BANK.che.length;
+const L = ["A","B","C","D"];
+function fmt(t){ return t.replace(/\[\[IMG:([\w]+)\]\]/g, '<img class="fig" src="img/$1.png" alt="vzorec" loading="lazy">'); }
+function setRange(s,k){ return `${k*50+1}–${Math.min((k+1)*50, MAXN[s])}`; }
+
+/* ---------- state ---------- */
+const LKEY = "szu-app-v1";
+function blank(){ return {v:1, t:0, q:{bio:"0".repeat(MAXN.bio+1), che:"0".repeat(MAXN.che+1)}, w:{bio:"0".repeat(MAXN.bio+1), che:"0".repeat(MAXN.che+1)}, sets:{}, exams:[], flags:[], days:{}}; }
+function normalize(x){
+  const b = blank(); if (!x || typeof x!=="object") return b;
+  for (const s of ["bio","che"]) {
+    if (x.q && typeof x.q[s]==="string") b.q[s] = (x.q[s] + b.q[s]).slice(0, MAXN[s]+1);
+    if (x.w && typeof x.w[s]==="string") b.w[s] = (x.w[s] + b.w[s]).slice(0, MAXN[s]+1);
+  }
+  b.sets = x.sets || {}; b.exams = Array.isArray(x.exams)?x.exams:[]; b.flags = Array.isArray(x.flags)?x.flags:[]; b.days = x.days || {}; b.t = x.t || 0;
+  return b;
+}
+let S = blank();
+try { S = normalize(JSON.parse(localStorage.getItem(LKEY) || "null")); } catch(e){}
+let local = {};
+try { local = JSON.parse(localStorage.getItem(LKEY+"-local") || "{}") || {}; } catch(e){}
+function saveLocal(){ try { localStorage.setItem(LKEY+"-local", JSON.stringify(local)); } catch(e){} }
+
+let synced=false;
+function touch(){
+  S.t = Date.now();
+  try { localStorage.setItem(LKEY, JSON.stringify(S)); } catch(e){}
+}
+function exportCode(){ return btoa(unescape(encodeURIComponent(JSON.stringify(S)))); }
+function importCode(code){
+  const x = JSON.parse(decodeURIComponent(escape(atob(code.trim()))));
+  if (!x || !x.q) throw new Error("bad");
+  S = normalize(x); S.t = Date.now(); try { localStorage.setItem(LKEY, JSON.stringify(S)); } catch(e){}
+}
+async function reportShared(){}
+/* ---------- derived stats ---------- */
+function qState(s,n){ return S.q[s][n] || "0"; }
+function setQ(s,n,c){ const a=S.q[s]; S.q[s]=a.slice(0,n)+c+a.slice(n+1); }
+function addWrong(s,n){ const a=S.w[s]; const c=Math.min(9,(+a[n]||0)+1); S.w[s]=a.slice(0,n)+c+a.slice(n+1); }
+function subjStats(s){
+  let m=0,k=0,w=0,seen=0;
+  for (const q of BANK[s]) { const c=qState(s,q[0]); if(c!=="0")seen++; if(c==="3")m++; else if(c==="2")k++; else if(c==="1")w++; }
+  return {m,k,w,seen,total:BANK[s].length};
+}
+function setInfo(s,k){
+  const st = S.sets[s+k] || {};
+  const nums = SETS[s][k]; let m=0,w=0;
+  for (const n of nums){ const c=qState(s,n); if(c==="3")m++; if(c==="1")w++; }
+  let status = "new";
+  if (st.n) status = (st.s||0)>=2 ? "mastered" : (st.l/nums.length>=0.9 ? "good" : "weak");
+  return {st, nums, m, w, status, last: st.n? Math.round(st.l/nums.length*100) : null};
+}
+function today(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function streakDays(){ let c=0; const d=new Date(); for(;;){ const k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); if(S.days[k]) { c++; d.setDate(d.getDate()-1);} else { if(c===0 && k===today()){ d.setDate(d.getDate()-1); continue;} break; } } return c; }
+function recommend(){
+  const out=[];
+  const cand=[];
+  for (const s of ["bio","che"]) SETS[s].forEach((nums,k)=>{ const i=setInfo(s,k); if(i.status!=="new"&&i.status!=="mastered") cand.push({s,k,i,score:(i.last||0) - (Date.now()-(i.st.d||0))/864e5*2}); });
+  cand.sort((a,b)=>a.score-b.score);
+  for (const c of cand.slice(0,2)) out.push({s:c.s,k:c.k,why: c.i.status==="weak" ? `naposledy ${c.i.last} % · opakovať` : `naposledy ${c.i.last} % · dotiahni na 100 %`});
+  for (const s of ["bio","che"]) { if (out.length>=3) break; const k=SETS[s].findIndex((_,k)=>setInfo(s,k).status==="new"); if (k>=0 && !out.some(o=>o.s===s&&o.k===k)) out.push({s,k,why:"nová sada"}); }
+  if (out.length<3) for (const s of ["bio","che"]) SETS[s].forEach((_,k)=>{ const i=setInfo(s,k); if(out.length<3 && i.status==="mastered" && Date.now()-(i.st.d||0)>7*864e5) out.push({s,k,why:"zvládnutá · osviež si ju"}); });
+  return out.slice(0,3);
+}
+
+/* ---------- views ---------- */
+const app = document.getElementById("app");
+let view = {name:"home"}; let run = null; let timerInt = null;
+function go(v){ view = v; if (v.name!=="quiz") { run = null; clearInterval(timerInt); } render(); window.scrollTo(0,0); }
+function render(){
+  if (view.name==="home") return home();
+  if (view.name==="subject") return subject(view.s);
+  if (view.name==="gen") return gen();
+  if (view.name==="exam") return examSetup();
+  if (view.name==="quiz") return quiz();
+  if (view.name==="result") return result();
+  if (view.name==="flags") return flags();
+  if (view.name==="transfer") return transfer();
+}
+function ring(pct, segs){
+  const R=58, C=2*Math.PI*R; let off=0;
+  const arcs = segs.map(([v,col])=>{ const len=v*C; const a=`<circle cx="66" cy="66" r="${R}" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" stroke-linecap="butt"/>`; off+=len; return a; }).join("");
+  return `<div class="ring"><svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>ovládam</span></div></div></div>`;
+}
+function home(){
+  const b=subjStats("bio"), c=subjStats("che");
+  const pct = Math.round((b.m+c.m)/TOTAL*100);
+  const line=(s,st)=>{ const t=st.total; return `<div class="sline"><div class="h"><b>${SUBJ[s].name}</b><span class="num muted">${Math.round(st.m/t*100)} % · ${st.m}/${t}</span></div>
+    <div class="track"><i style="width:${st.m/t*100}%;background:var(--${s})"></i><i style="width:${st.k/t*100}%;background:var(--${s});opacity:.4"></i><i style="width:${st.w/t*100}%;background:var(--bad);opacity:.55"></i></div></div>`; };
+  const mastSets = ["bio","che"].reduce((a,s)=>a+SETS[s].filter((_,k)=>setInfo(s,k).status==="mastered").length,0);
+  const allSets = SETS.bio.length+SETS.che.length;
+  const wrongN = b.w + c.w;
+  const rec = recommend();
+  const ex = S.exams.slice(-10);
+  app.innerHTML = `
+    <header class="top" style="align-items:flex-start">
+      <div><div class="eyebrow">LF SZU · prijímačky 2027</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
+    </header>
+    <section>
+      <div class="hero">${ring(pct, [[b.m/TOTAL,"var(--bio)"],[c.m/TOTAL,"var(--che)"]])}
+        <div class="subj">${line("bio",b)}${line("che",c)}
+          <div class="legend"><span><i style="background:var(--muted)"></i>ovládam</span><span><i style="background:var(--muted);opacity:.4"></i>raz správne</span><span><i style="background:var(--bad);opacity:.55"></i>naposledy zle</span></div></div>
+      </div>
+      <div class="stats">
+        <div><b>${mastSets}<span style="font-size:15px;color:var(--muted)"> / ${allSets}</span></b><span>sád zvládnutých na 100 %</span></div>
+        <div><b>${b.seen+c.seen}</b><span>otázok prejdených z ${TOTAL}</span></div>
+        <div><b>${streakDays()}</b><span>${streakDays()===1?"deň":"dní"} v rade učenia</span></div>
+      </div>
+    </section>
+    ${local.exam&&local.exam.list?`<section><button class="tcard" id="resumeEx" style="--c:var(--ink)"><span class="stripe"></span><span><span class="t">Rozpracovaný ostrý test</span><div class="s">${local.exam.picks.filter(p=>p.length).length}/160 zodpovedaných · pokračovať</div></span><span class="go">›</span></button></section>`:""}
+    ${rec.length?`<section><h3>Na dnes</h3><div class="today">${rec.map(r=>`<button class="tcard" data-s="${r.s}" data-k="${r.k}" style="--c:var(--${r.s})"><span class="stripe"></span><span><span class="t">${SUBJ[r.s].name} · sada ${r.k+1}</span><div class="s">otázky ${setRange(r.s,r.k)} · ${r.why}</div></span><span class="go">›</span></button>`).join("")}</div></section>`:""}
+    <section><h3>Precvičovanie</h3>
+      <div class="tiles">
+        <button class="tile bio" data-go="bio"><b>Biológia</b><span>${SETS.bio.length} sád · ${b.total} otázok</span></button>
+        <button class="tile che" data-go="che"><b>Chémia</b><span>${SETS.che.length} sád · ${c.total} otázok</span></button>
+        <button class="tile" data-go="gen"><b>Vlastný test</b><span>náhodné otázky z vybraných sád</span></button>
+        <button class="tile" data-go="exam"><b>Ostrý režim</b><span>80 biológia + 80 chémia</span></button>
+      </div>
+      ${wrongN?`<div class="row"><button class="btn wide" id="wrongAll">Opakovať moje chyby (${wrongN})</button></div>`:""}
+    </section>
+    ${ex.length?`<section><h3>Ostré testy</h3>
+      <div class="chart">${ex.map(e=>`<div title="${e.b+e.c}/160"><em>${Math.round((e.b+e.c)/1.6)}</em><i style="height:${e.c/160*100}%;background:var(--che)"></i><i style="height:${e.b/160*100}%;background:var(--bio)"></i></div>`).join("")}</div>
+      <div class="legend"><span><i style="background:var(--bio)"></i>biológia</span><span><i style="background:var(--che)"></i>chémia</span><span>posledných ${ex.length} testov, % zo 160</span></div></section>`:""}
+    <div class="foot">
+      <button class="link" id="transfer" style="text-align:left">Preniesť pokrok na iné zariadenie</button>
+      ${S.flags.length?`<button class="link" id="flags" style="text-align:left">Nahlásené otázky (${S.flags.length})</button>`:""}
+      <span>Pokrok sa ukladá v tomto zariadení.</span>
+    </div>`;
+  app.querySelectorAll(".tcard").forEach(el=>el.onclick=()=>startSet(el.dataset.s,+el.dataset.k));
+  app.querySelectorAll("[data-go]").forEach(el=>el.onclick=()=>{ const g=el.dataset.go; if(g==="bio"||g==="che") go({name:"subject",s:g}); else go({name:g}); });
+  const w=document.getElementById("wrongAll"); if(w) w.onclick=()=>{ const list=[]; for(const s of ["bio","che"]) for(const q of BANK[s]) if(qState(s,q[0])==="1") list.push({s,n:q[0]}); startRun({title:"Moje chyby", list:shuffle(list), mode:"practice"}); };
+  const rx=document.getElementById("resumeEx"); if(rx) rx.onclick=()=>{ run=local.exam; if(run.limit && Date.now()-run.started>run.limit*60000) return finishExam(); view={name:"quiz"}; render(); window.scrollTo(0,0); };
+  document.getElementById("transfer").onclick=()=>go({name:"transfer"});
+  const f=document.getElementById("flags"); if(f) f.onclick=()=>go({name:"flags"});
+}
+
+function subject(s){
+  const st=subjStats(s); const filt=view.f||"all";
+  const sets=SETS[s].map((nums,k)=>({k,i:setInfo(s,k)}));
+  const shown=sets.filter(x=>filt==="all"||(filt==="todo"&&x.i.status!=="mastered")||(filt==="weak"&&x.i.status==="weak"));
+  const badge={mastered:'<span class="badge m">✓ 100 %</span>', weak:'<span class="badge w">opakovať</span>', good:'<span class="badge g">skoro</span>', new:''};
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">${SUBJ[s].name}</span><span></span></div>
+    <section class="${SUBJ[s].cls}">
+      <h1 style="color:var(--c-deep)">${SUBJ[s].name}</h1>
+      <p class="lead">Ovládaš ${st.m} z ${st.total} otázok (${Math.round(st.m/st.total*100)} %). Sada je zvládnutá, keď ju dvakrát po sebe prejdeš bez chyby.</p>
+      <div class="seg" role="group" aria-label="Filter sád">
+        <button data-f="all" aria-pressed="${filt==="all"}">Všetky</button>
+        <button data-f="todo" aria-pressed="${filt==="todo"}">Nezvládnuté</button>
+        <button data-f="weak" aria-pressed="${filt==="weak"}">Na opakovanie</button>
+      </div>
+      <div class="grid">${shown.map(({k,i})=>`<button class="set ${i.status==="mastered"?"done":""}" data-k="${k}">
+        ${badge[i.status]}<span class="r">${setRange(s,k)}</span>
+        <span class="p">${i.last!=null?i.last+'<small style="font-size:.5em"> %</small>':'<span class="muted" style="font-size:.8em">—</span>'}</span>
+        <span class="bar"><i style="width:${i.m/i.nums.length*100}%"></i></span>
+        <span class="r">ovládam ${i.m}/${i.nums.length}</span></button>`).join("") || '<p class="muted">Tu zatiaľ nič nie je.</p>'}</div>
+    </section>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  app.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{ view.f=b.dataset.f; render(); });
+  app.querySelectorAll(".set").forEach(b=>b.onclick=()=>startSet(s,+b.dataset.k));
+}
+
+/* ---------- generator ---------- */
+let G = {s:"mix", count:50, src:"all", sel:{bio:[],che:[]}};
+try { G = Object.assign(G, JSON.parse(localStorage.getItem(LKEY+"-gen")||"{}")); } catch(e){}
+function gen(){
+  const subs = G.s==="mix"?["bio","che"]:[G.s];
+  const pool = genPool();
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Vlastný test</span><span></span></div>
+    <section><h1>Vlastný <em>test</em></h1><p class="lead">Náhodne vybrané otázky. Po každej odpovedi hneď vidíš, či je správna.</p></section>
+    <section>
+      <div class="field"><span class="lbl">Predmet</span><div class="seg">
+        <button data-s="bio" aria-pressed="${G.s==="bio"}">Biológia</button><button data-s="che" aria-pressed="${G.s==="che"}">Chémia</button><button data-s="mix" aria-pressed="${G.s==="mix"}">Spolu</button></div></div>
+      <div class="field"><span class="lbl">Počet otázok</span><div class="seg">
+        ${[10,20,30,50,100].map(n=>`<button data-c="${n}" aria-pressed="${G.count===n}">${n}</button>`).join("")}</div></div>
+      <div class="field"><span class="lbl">Odkiaľ</span><div class="seg">
+        <button data-src="all" aria-pressed="${G.src==="all"}">Zo všetkých</button><button data-src="sets" aria-pressed="${G.src==="sets"}">Z vybraných sád</button><button data-src="weak" aria-pressed="${G.src==="weak"}">Moje slabé</button><button data-src="new" aria-pressed="${G.src==="new"}">Neprejdené</button></div></div>
+      ${G.src==="sets"?subs.map(s=>`<div class="field ${SUBJ[s].cls}"><span class="lbl">${SUBJ[s].name} · sady</span><div class="chips">${SETS[s].map((_,k)=>{const i=setInfo(s,k);const dot=i.status==="mastered"?"var(--c)":i.status==="weak"?"var(--bad)":i.status==="good"?"var(--muted)":"transparent";return `<button class="chip" data-ss="${s}" data-k="${k}" aria-pressed="${G.sel[s].includes(k)}">${setRange(s,k)}<span class="dot" style="background:${dot}"></span></button>`;}).join("")}</div></div>`).join(""):""}
+      ${G.src==="weak"?`<p class="info">Otázky, ktoré si mala naposledy zle, a tie, čo si zatiaľ trafila len raz.</p>`:""}
+      <p class="info">K dispozícii: ${pool.length} otázok${pool.length<G.count?` · test bude mať ${pool.length}`:""}.</p>
+    </section>
+    <div class="dock"><button class="btn wide" id="startGen" ${pool.length?"":"disabled"}>Spustiť test</button></div>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  const upd=()=>{ try{localStorage.setItem(LKEY+"-gen",JSON.stringify(G));}catch(e){} render(); };
+  app.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{G.s=b.dataset.s;upd();});
+  app.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{G.count=+b.dataset.c;upd();});
+  app.querySelectorAll("[data-src]").forEach(b=>b.onclick=()=>{G.src=b.dataset.src;upd();});
+  app.querySelectorAll("[data-ss]").forEach(b=>b.onclick=()=>{const s=b.dataset.ss,k=+b.dataset.k,a=G.sel[s];const i=a.indexOf(k);i>=0?a.splice(i,1):a.push(k);upd();});
+  document.getElementById("startGen").onclick=()=>{
+    let list = shuffle(genPool());
+    if (G.s==="mix") { const bi=list.filter(x=>x.s==="bio"), ch=list.filter(x=>x.s==="che"); const hb=Math.min(bi.length,Math.ceil(G.count/2)); const hc=Math.min(ch.length,G.count-hb); list=shuffle(bi.slice(0,hb+(G.count-hb-hc)).concat(ch.slice(0,hc))); }
+    startRun({title:"Vlastný test", list:list.slice(0,G.count), mode:"practice"});
+  };
+}
+function genPool(){
+  const subs = G.s==="mix"?["bio","che"]:[G.s]; const out=[];
+  for (const s of subs) {
+    let nums;
+    if (G.src==="sets") nums = G.sel[s].flatMap(k=>SETS[s][k]||[]);
+    else nums = BANK[s].map(q=>q[0]);
+    if (G.src==="weak") nums = nums.filter(n=>{const c=qState(s,n);return c==="1"||c==="2";});
+    if (G.src==="new") nums = nums.filter(n=>qState(s,n)==="0");
+    for (const n of nums) out.push({s,n});
+  }
+  return out;
+}
+
+/* ---------- exam ---------- */
+let EX = {limit:0};
+function examSetup(){
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Ostrý režim</span><span></span></div>
+    <section><h1>Ostrý <em>režim</em></h1><p class="lead">80 otázok z biológie a 80 z chémie, náhodne z celej banky. Výsledok uvidíš až na konci, rovnako ako na prijímačkách. Za zlú odpoveď sa body nestrhávajú.</p></section>
+    <section><div class="field"><span class="lbl">Časový limit</span><div class="seg">
+      ${[[0,"bez limitu"],[90,"90 min"],[120,"120 min"],[150,"150 min"]].map(([v,t])=>`<button data-l="${v}" aria-pressed="${EX.limit===v}">${t}</button>`).join("")}</div></div>
+      <p class="info">Medzi otázkami sa môžeš voľne vracať. Rozpracovaný test sa uloží, aj keď appku zavrieš.</p></section>
+    <div class="dock"><button class="btn wide" id="startEx">Začať test</button></div>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  app.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{EX.limit=+b.dataset.l;render();});
+  document.getElementById("startEx").onclick=()=>{
+    const pick=s=>shuffle(BANK[s].map(q=>({s,n:q[0]}))).slice(0,80);
+    startRun({title:"Ostrý test", list:pick("bio").concat(pick("che")), mode:"exam", limit:EX.limit});
+  };
+}
+
+/* ---------- runs ---------- */
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function startSet(s,k){
+  const saved = local.resume && local.resume.set===s+k ? local.resume : null;
+  if (saved) { run = saved; view={name:"quiz"}; return render(); }
+  startRun({title:`${SUBJ[s].name} · sada ${k+1}`, list:SETS[s][k].map(n=>({s,n})), mode:"practice", set:s+k});
+}
+function startRun(o){
+  run = {title:o.title, list:o.list, mode:o.mode, set:o.set||null, i:0, picks:o.list.map(()=>[]), done:o.list.map(()=>false), right:0, wrong:[], limit:o.limit||0, started:Date.now(), redo:!!o.redo};
+  saveRun(); view={name:"quiz"}; render(); window.scrollTo(0,0);
+}
+function saveRun(){
+  if (!run) return;
+  if (run.mode==="exam") local.exam = run; else if (run.set && !run.redo) local.resume = run;
+  saveLocal();
+}
+function clearRun(){ if(!run) return; if(run.mode==="exam") delete local.exam; else if (local.resume && local.resume.set===run.set) delete local.resume; saveLocal(); }
+
+function quiz(){
+  if (!run) return go({name:"home"});
+  const it = run.list[run.i], q = BY[it.s][it.n], n = run.list.length, cls = SUBJ[it.s].cls;
+  const exam = run.mode==="exam";
+  const picked = new Set(run.picks[run.i]);
+  const flagged = S.flags.includes(it.s+"-"+it.n);
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← ${exam?"Prerušiť":"Späť"}</button><span class="eyebrow">${run.title}</span><span class="count">${exam?`<span class="timer" id="timer"></span> · `:""}${run.i+1} / ${n}</span></div>
+    <div class="prog ${cls}"><i style="width:${(run.i+(run.done[run.i]?1:0))/n*100}%"></i></div>
+    <section class="${cls}">
+      <div class="qhead"><span class="qnum">Otázka ${q[0]}.</span><span class="tag">${SUBJ[it.s].name}</span></div>
+      <div class="qtext">${fmt(q[1])}</div>
+      <div class="hint">Označ všetky správne odpovede.</div>
+    </section>
+    <div class="answers">${q[2].map((t,k)=>`<button class="ans${picked.has(L[k])?" sel":""}" data-k="${L[k]}"><span class="l">${L[k]}</span><span class="tx">${fmt(t)}</span></button>`).join("")}</div>
+    <div id="verdict"></div>
+    <button class="flag" id="flag" aria-pressed="${flagged}">${flagged?"Nahlásené ako chybná otázka · zrušiť":"Nahlásiť chybu v otázke"}</button>
+    ${exam?`<details><summary class="muted" style="cursor:pointer;font-size:14px">Prehľad otázok (${run.picks.filter(p=>p.length).length}/${n} zodpovedaných)</summary><div class="navgrid" style="margin-top:10px">${run.list.map((x,j)=>`<button data-j="${j}" class="${run.picks[j].length?"a":""} ${j===run.i?"cur":""}">${j+1}</button>`).join("")}</div></details>`:""}
+    <div class="dock">${exam
+      ? `<button class="btn ghost" id="prev" ${run.i?"":"disabled"}>‹</button><button class="btn wide" id="nextE">${run.i+1<n?"Ďalšia":"Odovzdať test"}</button>`
+      : `<button class="btn wide" id="go" ${picked.size?"":"disabled"}>Skontrolovať</button>`}</div>`;
+  const back=document.getElementById("back");
+  back.onclick=()=>{ saveRun(); go({name:"home"}); };
+  document.getElementById("flag").onclick=()=>{ const id=it.s+"-"+it.n; const i=S.flags.indexOf(id); if(i>=0)S.flags.splice(i,1); else S.flags.push(id); touch(); reportShared(it, i<0); const f=document.getElementById("flag"); const on=i<0; f.setAttribute("aria-pressed",on); f.textContent=on?"Nahlásené ako chybná otázka · zrušiť":"Nahlásiť chybu v otázke"; };
+  app.querySelectorAll(".ans").forEach(b=>b.onclick=()=>{
+    if (!exam && run.done[run.i]) return;
+    const k=b.dataset.k, arr=run.picks[run.i], j=arr.indexOf(k);
+    j>=0?arr.splice(j,1):arr.push(k); b.classList.toggle("sel");
+    if (exam) saveRun(); else document.getElementById("go").disabled = !arr.length;
+  });
+  if (exam) {
+    document.getElementById("prev").onclick=()=>{ run.i--; saveRun(); render(); window.scrollTo(0,0); };
+    document.getElementById("nextE").onclick=()=>{ if (run.i+1<n){ run.i++; saveRun(); render(); window.scrollTo(0,0);} else confirmSubmit(); };
+    app.querySelectorAll(".navgrid button").forEach(b=>b.onclick=()=>{ run.i=+b.dataset.j; saveRun(); render(); window.scrollTo(0,0); });
+    tick(); clearInterval(timerInt); timerInt=setInterval(tick,1000);
+  } else {
+    if (run.done[run.i]) showVerdict();
+    document.getElementById("go").onclick=()=> run.done[run.i] ? nextQ() : check();
+  }
+}
+function tick(){
+  if (!run || run.mode!=="exam") return clearInterval(timerInt);
+  const el=document.getElementById("timer"); if(!el) return;
+  const sec=Math.floor((Date.now()-run.started)/1000);
+  if (run.limit){ const left=run.limit*60-sec; if(left<=0){ clearInterval(timerInt); return finishExam(); } el.textContent=mmss(left); el.classList.toggle("low",left<300); }
+  else el.textContent=mmss(sec);
+}
+function mmss(s){ const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h?h+":"+String(m).padStart(2,"0"):m)+":"+String(x).padStart(2,"0"); }
+function confirmSubmit(){
+  const un = run.picks.filter(p=>!p.length).length;
+  const d=document.querySelector(".dock");
+  d.innerHTML = `<div style="display:flex;flex-direction:column;gap:10px;width:100%"><div class="info">${un?`Nezodpovedaných otázok: ${un}. `:""}Naozaj odovzdať test?</div><div class="row"><button class="btn ghost wide" id="no">Ešte nie</button><button class="btn wide" id="yes">Odovzdať</button></div></div>`;
+  document.getElementById("no").onclick=()=>render();
+  document.getElementById("yes").onclick=finishExam;
+}
+function grade(it, picks){ const c=BY[it.s][it.n][3]; return c.length===picks.length && picks.every(k=>c.includes(k)); }
+function record(it, ok){
+  const c=qState(it.s,it.n);
+  if (ok) setQ(it.s,it.n, c==="2"||c==="3" ? "3" : "2");
+  else { setQ(it.s,it.n,"1"); addWrong(it.s,it.n); }
+  S.days[today()] = (S.days[today()]||0)+1;
+}
+function check(){
+  const it=run.list[run.i]; const ok=grade(it, run.picks[run.i]);
+  run.done[run.i]=true; if(ok) run.right++; else run.wrong.push(it);
+  record(it, ok); touch();
+  run.i++; saveRun(); run.i--;
+  showVerdict();
+}
+function showVerdict(){
+  const it=run.list[run.i], q=BY[it.s][it.n]; const correct=q[3].split(""); const p=run.picks[run.i]; const ok=grade(it,p);
+  app.querySelectorAll(".ans").forEach(b=>{ const k=b.dataset.k; b.disabled=true; b.classList.remove("sel");
+    if (correct.includes(k)&&p.includes(k)) b.classList.add("ok"); else if(!correct.includes(k)&&p.includes(k)) b.classList.add("bad"); else if(correct.includes(k)) b.classList.add("miss"); });
+  document.getElementById("verdict").innerHTML=`<div class="verdict ${ok?"ok":"bad"}">${ok?"Správne":"Nesprávne"}<span>správne: ${correct.join(", ")}</span></div>`;
+  const g=document.getElementById("go"); g.disabled=false; g.textContent = run.i+1<run.list.length ? "Ďalšia otázka" : "Zobraziť výsledok";
+}
+function nextQ(){ run.i++; if (run.i<run.list.length){ saveRun(); render(); window.scrollTo(0,0); } else finishPractice(); }
+function finishPractice(){
+  const n=run.list.length;
+  if (run.set && !run.redo) {
+    const st=S.sets[run.set]=S.sets[run.set]||{};
+    st.n=(st.n||0)+1; st.l=run.right; st.b=Math.max(st.b||0,run.right); st.d=Date.now();
+    st.s = run.right===n ? (st.s||0)+1 : 0;
+    touch();
+  }
+  clearRun();
+  view={name:"result", r:{title:run.title, mode:"practice", right:run.right, n, wrong:run.wrong, set:run.set, redo:run.redo, mastered: run.set && !run.redo && S.sets[run.set].s>=2}};
+  run=null; render(); window.scrollTo(0,0);
+}
+function finishExam(){
+  clearInterval(timerInt);
+  let b=0,c=0; const wrong=[];
+  run.list.forEach((it,j)=>{ const p=run.picks[j]; const ok=grade(it,p); if(ok){ it.s==="bio"?b++:c++; } else wrong.push(it); if(p.length) record(it,ok); });
+  const t=Math.floor((Date.now()-run.started)/1000);
+  S.exams.push({d:Date.now(),b,c,t}); if(S.exams.length>40) S.exams=S.exams.slice(-40);
+  touch(); clearRun();
+  view={name:"result", r:{title:run.title, mode:"exam", b, c, t, n:run.list.length, right:b+c, wrong}};
+  run=null; render(); window.scrollTo(0,0);
+}
+function result(){
+  const r=view.r; const exam=r.mode==="exam"; const pct=Math.round(r.right/r.n*100);
+  const wl=r.wrong;
+  let msg;
+  if (exam) msg = `Trvalo ti to ${mmss(r.t)}. ${pct>=90?"Výborné, takto to vyzerá na prijatie.":pct>=75?"Dobrý základ. Zameraj sa na otázky nižšie.":"Prejdi si chyby a sady, ktoré svietia na opakovanie."}`;
+  else if (!wl.length) msg = r.mastered ? "Všetko správne a sada je zvládnutá na 100 %." : r.set && !r.redo ? "Všetko správne. Ešte raz bez chyby a sada je zvládnutá." : "Všetko správne.";
+  else msg = `Zle si mala ${wl.length} ${wl.length===1?"otázku":wl.length<5?"otázky":"otázok"}. Prejdi si ich znova, kým nebudú všetky správne.`;
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">${r.title}</span><span></span></div>
+    <section><div class="eyebrow">${exam?"Výsledok testu":r.redo?"Opakovanie chýb":"Výsledok"}</div>
+      <div class="big">${r.right}<small> / ${r.n}</small></div><p class="lead">${msg}</p></section>
+    ${exam?`<div class="split"><div style="background:var(--bio-soft)"><span style="color:var(--bio-deep)">Biológia</span><b style="color:var(--bio-deep)">${r.b}<small style="font-size:.5em"> / 80</small></b></div><div style="background:var(--che-soft)"><span style="color:var(--che-deep)">Chémia</span><b style="color:var(--che-deep)">${r.c}<small style="font-size:.5em"> / 80</small></b></div></div>`:""}
+    <div class="row">
+      ${wl.length?`<button class="btn wide" id="redo">Zopakovať chybné (${wl.length})</button>`:""}
+      ${r.set?`<button class="btn ghost wide" id="again">Celá sada znova</button>`:""}
+    </div>
+    ${wl.length?`<section><h3>Chybné otázky</h3><div class="list">${wl.map(it=>{const q=BY[it.s][it.n];return `<div class="${SUBJ[it.s].cls}"><b>${SUBJ[it.s].short} ${q[0]}</b><span>${fmt(q[1])}<em>správne: ${q[3].split("").join(", ")}</em></span></div>`;}).join("")}</div></section>`:""}`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  const rd=document.getElementById("redo"); if(rd) rd.onclick=()=>startRun({title:r.title.replace(/ · chyby$/,"")+" · chyby", list:wl, mode:"practice", set:r.set, redo:true});
+  const ag=document.getElementById("again"); if(ag) ag.onclick=()=>{ const s=r.set.slice(0,3), k=+r.set.slice(3); startRun({title:`${SUBJ[s].name} · sada ${k+1}`, list:SETS[s][k].map(n=>({s,n})), mode:"practice", set:r.set}); };
+}
+function flags(){
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Nahlásené</span><span></span></div>
+    <section><h2>Nahlásené otázky</h2><p class="lead">Otázky, pri ktorých si myslíš, že je chyba v kľúči alebo v texte. Pošli mi ich čísla v Claude a skontrolujem ich.</p></section>
+    <div class="list">${S.flags.map(id=>{const [s,n]=id.split("-");const q=BY[s]&&BY[s][n];if(!q)return"";return `<div class="${SUBJ[s].cls}"><b>${SUBJ[s].short} ${n}</b><span>${fmt(q[1])}<em>v kľúči: ${q[3].split("").join(", ")}</em></span></div>`;}).join("")}</div>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+}
+async function reportShared(it, on){
+  if (!db) return;
+  try { const ref=db.doc("reports/"+it.s+"-"+it.n); if(on) await ref.set({s:it.s,n:it.n,t:Date.now()}); else await ref.delete(); } catch(e){}
+}
+
+
+function transfer(){
+  const code=exportCode();
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Prenos pokroku</span><span></span></div>
+    <section><h2>Preniesť pokrok</h2><p class="lead">Na tomto zariadení skopíruj kód. Na druhom zariadení otvor tú istú stránku, choď sem a kód vlož. Pokrok na druhom zariadení sa nahradí týmto.</p></section>
+    <section><div class="field"><span class="lbl">Kód z tohto zariadenia</span>
+      <textarea id="out" readonly rows="4" style="width:100%;font:12px/1.4 ui-monospace,monospace;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface);color:var(--ink);resize:none">${code}</textarea></div>
+      <div class="row"><button class="btn wide" id="copy">Kopírovať kód</button></div></section>
+    <section><div class="field"><span class="lbl">Vložiť kód z iného zariadenia</span>
+      <textarea id="in" rows="4" placeholder="Sem vlož skopírovaný kód" style="width:100%;font:12px/1.4 ui-monospace,monospace;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface);color:var(--ink);resize:none"></textarea></div>
+      <div class="row"><button class="btn ghost wide" id="load">Načítať pokrok</button></div><p class="info" id="msg">Kód si pošli napríklad sama sebe cez správy alebo e-mail.</p></section>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  document.getElementById("copy").onclick=async()=>{ const o=document.getElementById("out"); try{ await navigator.clipboard.writeText(o.value); document.getElementById("copy").textContent="Skopírované"; }catch(e){ o.focus(); o.select(); document.getElementById("msg").textContent="Kód je označený, skopíruj ho podržaním prsta."; } };
+  document.getElementById("load").onclick=()=>{ const v=document.getElementById("in").value; try{ importCode(v); document.getElementById("msg").textContent="Pokrok načítaný."; setTimeout(()=>go({name:"home"}),700);}catch(e){ document.getElementById("msg").textContent="Tento kód sa nedá načítať. Skontroluj, či si skopírovala celý kód."; } };
+}
+
+/* resume an unfinished exam */
+render();
+if ("serviceWorker" in navigator) { window.addEventListener("load", ()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+</script>
+
+</body>
+</html>
