@@ -224,6 +224,18 @@ section{display:flex;flex-direction:column;gap:14px}
 .sheet{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .sheet-in{max-width:640px;margin:0 auto;padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
 
+.rings{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rcard{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px 14px;border-radius:var(--r);background:var(--c-soft)}
+.rcard .ring{width:min(132px,36vw);height:min(132px,36vw)}
+.rcard .ring .c b{color:var(--c-deep)}
+.rcard .ring .c span{color:var(--c-deep);letter-spacing:.06em}
+.rcard .ring svg circle:first-child{stroke:var(--surface)}
+.rsub{font-size:13px;color:var(--muted);text-align:center;line-height:1.4}
+.rbad{color:var(--bad)}
+.total{margin:0;font-size:14px;color:var(--muted);text-align:center}
+:root{--bad-ring:rgba(162,59,54,.45)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bad-ring:rgba(238,145,138,.5)}}
+:root[data-theme="dark"]{--bad-ring:rgba(238,145,138,.5)}
 *,*::before,*::after{box-sizing:border-box}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
@@ -349,10 +361,10 @@ function render(){
   if (view.name==="formulas") return formulas();
   if (view.name==="guide") return guidePage(view.t);
 }
-function ring(pct, segs){
+function ring(pct, segs, label){
   const R=58, C=2*Math.PI*R; let off=0;
   const arcs = segs.map(([v,col])=>{ const len=v*C; const a=`<circle cx="66" cy="66" r="${R}" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" stroke-linecap="butt"/>`; off+=len; return a; }).join("");
-  return `<div class="ring"><svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>správne</span></div></div></div>`;
+  return `<div class="ring"><svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>${label||"správne"}</span></div></div></div>`;
 }
 function home(){
   const b=subjStats("bio"), c=subjStats("che");
@@ -369,12 +381,12 @@ function home(){
     <header class="top" style="align-items:flex-start">
       <div><div class="eyebrow">LF SZU · prijímačky jún 2027</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
     </header>
-    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov · správne máš ${b.m+c.m} z ${TOTAL} otázok</small></span></div>
+    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov</small></span></div>
     <section>
-      <div class="hero">${ring(pct, [[b.m/TOTAL,"var(--bio)"],[c.m/TOTAL,"var(--che)"]])}
-        <div class="subj">${line("bio",b)}${line("che",c)}
-          <div class="legend"><span><i style="background:var(--muted)"></i>správne zodpovedané</span><span><i style="background:var(--bad);opacity:.55"></i>naposledy zle</span></div></div>
+      <div class="rings">
+        ${["bio","che"].map(sj=>{ const st=sj==="bio"?b:c; return `<div class="rcard ${SUBJ[sj].cls}">${ring(pf(st.m/st.total), [[st.m/st.total,"var(--"+sj+")"],[st.w/st.total,"var(--bad-ring)"]], SUBJ[sj].name)}<div class="rsub num">${st.m} / ${st.total} správne${st.w?`<br><span class="rbad">${st.w} naposledy zle</span>`:""}</div></div>`; }).join("")}
       </div>
+      <p class="total num">Spolu ${pct} % · ${b.m+c.m} z ${TOTAL} otázok</p>
       <div class="stats">
         <div><b>${mastSets}<span style="font-size:15px;color:var(--muted)"> / ${allSets}</span></b><span>sád zvládnutých na 100 %</span></div>
         <div><b>${b.seen+c.seen}</b><span>otázok prejdených z ${TOTAL}</span></div>
