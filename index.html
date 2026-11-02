@@ -180,6 +180,50 @@ section{display:flex;flex-direction:column;gap:14px}
 .split span{font-size:13px}
 .foot{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.countdown{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.countdown b{font-family:var(--display);font-size:40px;font-weight:500;line-height:1}
+.countdown span{font-weight:600;line-height:1.3}
+.countdown small{font-weight:400;color:var(--muted);font-size:13px}
+.tile.calc{background:var(--soft);border-color:transparent}
+.opts{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px}
+.opts small{font-size:13px}
+.switch{position:relative;width:48px;height:28px;border-radius:99px;border:0;background:var(--line);flex:none;padding:0}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--surface);transition:transform .2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.switch[aria-checked="true"]{background:var(--ink)}
+.switch[aria-checked="true"]::after{transform:translateX(20px)}
+.grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.set .tn{font-size:14px;font-weight:600;line-height:1.25;padding-right:44px;min-height:2.5em}
+.howto{display:flex;flex-direction:column;gap:2px;text-align:left;border:1px dashed var(--che);background:var(--che-soft);color:var(--che-deep);border-radius:var(--r);padding:12px 14px}
+.howto span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.howto b{font-weight:600}
+.tlist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.trow{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tinfo{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1 1 200px}
+.tinfo b{font-weight:600}
+.tinfo span{font-size:13px;color:var(--muted)}
+.tinfo em{font-style:normal;color:var(--bad)}
+.tinfo .bar{height:4px;border-radius:4px;background:var(--soft);overflow:hidden;max-width:220px}
+.tinfo .bar i{display:block;height:100%;background:var(--c)}
+.tbtn{display:flex;gap:6px}
+.btn.small{padding:8px 14px;font-size:13px}
+.ftable{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.ftable div{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ftable div:last-child{border-bottom:0}
+.ftable span{color:var(--muted);font-size:14px}
+.ftable b{font-weight:600;font-variant-numeric:tabular-nums}
+.ftable.two b{font-weight:500;font-size:15px}
+.masses{margin:0;line-height:1.9;font-variant-numeric:tabular-nums}
+.fx{display:flex;flex-direction:column;gap:8px}
+.fx div{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:17px;font-weight:600;overflow-wrap:anywhere}
+.steps,.exbox ol{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:10px}
+.steps li::marker{font-family:var(--display);font-style:italic;color:var(--muted)}
+.exbox{border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;background:var(--surface)}
+.exbox p{margin:0 0 10px;font-weight:600}
+.pit{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
+.pit li::marker{color:var(--bad)}
+.sheet{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.sheet-in{max-width:640px;margin:0 auto;padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+
 *,*::before,*::after{box-sizing:border-box}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
@@ -192,6 +236,7 @@ img{max-width:100%}
 <div class="wrap" id="app"></div>
 
 <script src="data.js"></script>
+<script src="guides.js"></script>
 <script>
 "use strict";
 /* ---------- bank ---------- */
@@ -245,6 +290,18 @@ function importCode(code){
   S = normalize(x); S.t = Date.now(); try { localStorage.setItem(LKEY, JSON.stringify(S)); } catch(e){}
 }
 async function reportShared(){}
+/* ---------- topics, calc types, options ---------- */
+const TOPICS = window.TOPICS || {bio:[],che:[]};
+function topic(s,k){ return (TOPICS[s] && TOPICS[s][k]) || `Sada ${k+1}`; }
+const GUIDES = window.GUIDES || {}, BASICS = window.BASICS || null;
+const CALCMAP = {}, CALCTYPES = {};
+(window.CALC||[]).forEach(([s,t,l])=>{ const list=l.filter(n=>BY[s][n]); CALCTYPES[t]={s,list}; list.forEach(n=>CALCMAP[s+n]=t); });
+let OPT = {shuf:true};
+try { OPT = Object.assign(OPT, JSON.parse(localStorage.getItem(LKEY+"-opt")||"{}")); } catch(e){}
+function saveOpt(){ try { localStorage.setItem(LKEY+"-opt", JSON.stringify(OPT)); } catch(e){} }
+const EXAM_DATE = new Date(2027,5,1);
+function daysLeft(){ return Math.max(0, Math.ceil((EXAM_DATE - new Date())/864e5)); }
+
 /* ---------- derived stats ---------- */
 function qState(s,n){ return S.q[s][n] || "0"; }
 function setQ(s,n,c){ const a=S.q[s]; S.q[s]=a.slice(0,n)+c+a.slice(n+1); }
@@ -288,6 +345,9 @@ function render(){
   if (view.name==="result") return result();
   if (view.name==="flags") return flags();
   if (view.name==="transfer") return transfer();
+  if (view.name==="examples") return examples();
+  if (view.name==="formulas") return formulas();
+  if (view.name==="guide") return guidePage(view.t);
 }
 function ring(pct, segs){
   const R=58, C=2*Math.PI*R; let off=0;
@@ -306,8 +366,9 @@ function home(){
   const ex = S.exams.slice(-10);
   app.innerHTML = `
     <header class="top" style="align-items:flex-start">
-      <div><div class="eyebrow">LF SZU · prijímačky 2027</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
+      <div><div class="eyebrow">LF SZU · prijímačky jún 2027</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
     </header>
+    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov · zostáva ovládnuť ${TOTAL-b.m-c.m} otázok</small></span></div>
     <section>
       <div class="hero">${ring(pct, [[b.m/TOTAL,"var(--bio)"],[c.m/TOTAL,"var(--che)"]])}
         <div class="subj">${line("bio",b)}${line("che",c)}
@@ -320,19 +381,24 @@ function home(){
       </div>
     </section>
     ${local.exam&&local.exam.list?`<section><button class="tcard" id="resumeEx" style="--c:var(--ink)"><span class="stripe"></span><span><span class="t">Rozpracovaný ostrý test</span><div class="s">${local.exam.picks.filter(p=>p.length).length}/160 zodpovedaných · pokračovať</div></span><span class="go">›</span></button></section>`:""}
-    ${rec.length?`<section><h3>Na dnes</h3><div class="today">${rec.map(r=>`<button class="tcard" data-s="${r.s}" data-k="${r.k}" style="--c:var(--${r.s})"><span class="stripe"></span><span><span class="t">${SUBJ[r.s].name} · sada ${r.k+1}</span><div class="s">otázky ${setRange(r.s,r.k)} · ${r.why}</div></span><span class="go">›</span></button>`).join("")}</div></section>`:""}
+    ${rec.length?`<section><h3>Na dnes</h3><div class="today">${rec.map(r=>`<button class="tcard" data-s="${r.s}" data-k="${r.k}" style="--c:var(--${r.s})"><span class="stripe"></span><span><span class="t">${topic(r.s,r.k)}</span><div class="s">${SUBJ[r.s].name} · sada ${r.k+1} · otázky ${setRange(r.s,r.k)} · ${r.why}</div></span><span class="go">›</span></button>`).join("")}</div></section>`:""}
     <section><h3>Precvičovanie</h3>
       <div class="tiles">
         <button class="tile bio" data-go="bio"><b>Biológia</b><span>${SETS.bio.length} sád · ${b.total} otázok</span></button>
         <button class="tile che" data-go="che"><b>Chémia</b><span>${SETS.che.length} sád · ${c.total} otázok</span></button>
         <button class="tile" data-go="gen"><b>Vlastný test</b><span>náhodné otázky z vybraných sád</span></button>
         <button class="tile" data-go="exam"><b>Ostrý režim</b><span>80 biológia + 80 chémia</span></button>
+        <button class="tile calc" data-go="examples"><b>Príklady</b><span>${Object.values(CALCTYPES).reduce((a,t)=>a+t.list.length,0)} výpočtov podľa typu</span></button>
+        <button class="tile calc" data-go="formulas"><b>Vzorce a postupy</b><span>krok po kroku pre každý typ</span></button>
       </div>
       ${wrongN?`<div class="row"><button class="btn wide" id="wrongAll">Opakovať moje chyby (${wrongN})</button></div>`:""}
     </section>
     ${ex.length?`<section><h3>Ostré testy</h3>
       <div class="chart">${ex.map(e=>`<div title="${e.b+e.c}/160"><em>${Math.round((e.b+e.c)/1.6)}</em><i style="height:${e.c/160*100}%;background:var(--che)"></i><i style="height:${e.b/160*100}%;background:var(--bio)"></i></div>`).join("")}</div>
       <div class="legend"><span><i style="background:var(--bio)"></i>biológia</span><span><i style="background:var(--che)"></i>chémia</span><span>posledných ${ex.length} testov, % zo 160</span></div></section>`:""}
+    <section><h3>Nastavenia</h3>
+      <div class="opts"><span>Zamiešať poradie odpovedí<br><small class="muted">A, B, C, D budú pri každej otázke v inom poradí</small></span>
+      <button class="switch" id="shufA" role="switch" aria-checked="${OPT.shuf}" aria-label="Zamiešať poradie odpovedí"></button></div></section>
     <div class="foot">
       <button class="link" id="transfer" style="text-align:left">Preniesť pokrok na iné zariadenie</button>
       ${S.flags.length?`<button class="link" id="flags" style="text-align:left">Nahlásené otázky (${S.flags.length})</button>`:""}
@@ -343,6 +409,7 @@ function home(){
   const w=document.getElementById("wrongAll"); if(w) w.onclick=()=>{ const list=[]; for(const s of ["bio","che"]) for(const q of BANK[s]) if(qState(s,q[0])==="1") list.push({s,n:q[0]}); startRun({title:"Moje chyby", list:shuffle(list), mode:"practice"}); };
   const rx=document.getElementById("resumeEx"); if(rx) rx.onclick=()=>{ run=local.exam; if(run.limit && Date.now()-run.started>run.limit*60000) return finishExam(); view={name:"quiz"}; render(); window.scrollTo(0,0); };
   document.getElementById("transfer").onclick=()=>go({name:"transfer"});
+  document.getElementById("shufA").onclick=e=>{ OPT.shuf=!OPT.shuf; e.currentTarget.setAttribute("aria-checked",OPT.shuf); saveOpt(); };
   const f=document.getElementById("flags"); if(f) f.onclick=()=>go({name:"flags"});
 }
 
@@ -362,7 +429,7 @@ function subject(s){
         <button data-f="weak" aria-pressed="${filt==="weak"}">Na opakovanie</button>
       </div>
       <div class="grid">${shown.map(({k,i})=>`<button class="set ${i.status==="mastered"?"done":""}" data-k="${k}">
-        ${badge[i.status]}<span class="r">${setRange(s,k)}</span>
+        ${badge[i.status]}<span class="r">sada ${k+1} · ${setRange(s,k)}</span><span class="tn">${topic(s,k)}</span>
         <span class="p">${i.last!=null?i.last+'<small style="font-size:.5em"> %</small>':'<span class="muted" style="font-size:.8em">—</span>'}</span>
         <span class="bar"><i style="width:${i.m/i.nums.length*100}%"></i></span>
         <span class="r">ovládam ${i.m}/${i.nums.length}</span></button>`).join("") || '<p class="muted">Tu zatiaľ nič nie je.</p>'}</div>
@@ -388,7 +455,7 @@ function gen(){
         ${[10,20,30,50,100].map(n=>`<button data-c="${n}" aria-pressed="${G.count===n}">${n}</button>`).join("")}</div></div>
       <div class="field"><span class="lbl">Odkiaľ</span><div class="seg">
         <button data-src="all" aria-pressed="${G.src==="all"}">Zo všetkých</button><button data-src="sets" aria-pressed="${G.src==="sets"}">Z vybraných sád</button><button data-src="weak" aria-pressed="${G.src==="weak"}">Moje slabé</button><button data-src="new" aria-pressed="${G.src==="new"}">Neprejdené</button></div></div>
-      ${G.src==="sets"?subs.map(s=>`<div class="field ${SUBJ[s].cls}"><span class="lbl">${SUBJ[s].name} · sady</span><div class="chips">${SETS[s].map((_,k)=>{const i=setInfo(s,k);const dot=i.status==="mastered"?"var(--c)":i.status==="weak"?"var(--bad)":i.status==="good"?"var(--muted)":"transparent";return `<button class="chip" data-ss="${s}" data-k="${k}" aria-pressed="${G.sel[s].includes(k)}">${setRange(s,k)}<span class="dot" style="background:${dot}"></span></button>`;}).join("")}</div></div>`).join(""):""}
+      ${G.src==="sets"?subs.map(s=>`<div class="field ${SUBJ[s].cls}"><span class="lbl">${SUBJ[s].name} · sady</span><div class="chips">${SETS[s].map((_,k)=>{const i=setInfo(s,k);const dot=i.status==="mastered"?"var(--c)":i.status==="weak"?"var(--bad)":i.status==="good"?"var(--muted)":"transparent";return `<button class="chip" data-ss="${s}" data-k="${k}" aria-pressed="${G.sel[s].includes(k)}">${setRange(s,k)} · ${topic(s,k)}<span class="dot" style="background:${dot}"></span></button>`;}).join("")}</div></div>`).join(""):""}
       ${G.src==="weak"?`<p class="info">Otázky, ktoré si mala naposledy zle, a tie, čo si zatiaľ trafila len raz.</p>`:""}
       <p class="info">K dispozícii: ${pool.length} otázok${pool.length<G.count?` · test bude mať ${pool.length}`:""}.</p>
     </section>
@@ -441,10 +508,10 @@ function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.flo
 function startSet(s,k){
   const saved = local.resume && local.resume.set===s+k ? local.resume : null;
   if (saved) { run = saved; view={name:"quiz"}; return render(); }
-  startRun({title:`${SUBJ[s].name} · sada ${k+1}`, list:SETS[s][k].map(n=>({s,n})), mode:"practice", set:s+k});
+  startRun({title:`${SUBJ[s].name} · ${topic(s,k)}`, list:SETS[s][k].map(n=>({s,n})), mode:"practice", set:s+k});
 }
 function startRun(o){
-  run = {title:o.title, list:o.list, mode:o.mode, set:o.set||null, i:0, picks:o.list.map(()=>[]), done:o.list.map(()=>false), right:0, wrong:[], limit:o.limit||0, started:Date.now(), redo:!!o.redo};
+  run = {title:o.title, list:o.list, mode:o.mode, set:o.set||null, i:0, picks:o.list.map(()=>[]), perm:o.list.map(()=>OPT.shuf?shuffle([0,1,2,3]):[0,1,2,3]), done:o.list.map(()=>false), right:0, wrong:[], limit:o.limit||0, started:Date.now(), redo:!!o.redo};
   saveRun(); view={name:"quiz"}; render(); window.scrollTo(0,0);
 }
 function saveRun(){
@@ -460,6 +527,8 @@ function quiz(){
   const exam = run.mode==="exam";
   const picked = new Set(run.picks[run.i]);
   const flagged = S.flags.includes(it.s+"-"+it.n);
+  const perm = (run.perm && run.perm[run.i]) || [0,1,2,3];
+  const ct = CALCMAP[it.s+it.n];
   app.innerHTML = `
     <div class="top"><button class="link" id="back">← ${exam?"Prerušiť":"Späť"}</button><span class="eyebrow">${run.title}</span><span class="count">${exam?`<span class="timer" id="timer"></span> · `:""}${run.i+1} / ${n}</span></div>
     <div class="prog ${cls}"><i style="width:${(run.i+(run.done[run.i]?1:0))/n*100}%"></i></div>
@@ -468,7 +537,8 @@ function quiz(){
       <div class="qtext">${fmt(q[1])}</div>
       <div class="hint">Označ všetky správne odpovede.</div>
     </section>
-    <div class="answers">${q[2].map((t,k)=>`<button class="ans${picked.has(L[k])?" sel":""}" data-k="${L[k]}"><span class="l">${L[k]}</span><span class="tx">${fmt(t)}</span></button>`).join("")}</div>
+    <div class="answers">${perm.map((o,j)=>`<button class="ans${picked.has(L[o])?" sel":""}" data-k="${L[o]}"><span class="l">${L[j]}</span><span class="tx">${fmt(q[2][o])}</span></button>`).join("")}</div>
+    ${ct&&GUIDES[ct]?`<button class="howto" id="howto"><span>Ako na to</span><b>${GUIDES[ct].t}</b></button>`:""}
     <div id="verdict"></div>
     <button class="flag" id="flag" aria-pressed="${flagged}">${flagged?"Nahlásené ako chybná otázka · zrušiť":"Nahlásiť chybu v otázke"}</button>
     ${exam?`<details><summary class="muted" style="cursor:pointer;font-size:14px">Prehľad otázok (${run.picks.filter(p=>p.length).length}/${n} zodpovedaných)</summary><div class="navgrid" style="margin-top:10px">${run.list.map((x,j)=>`<button data-j="${j}" class="${run.picks[j].length?"a":""} ${j===run.i?"cur":""}">${j+1}</button>`).join("")}</div></details>`:""}
@@ -477,6 +547,7 @@ function quiz(){
       : `<button class="btn wide" id="go" ${picked.size?"":"disabled"}>Skontrolovať</button>`}</div>`;
   const back=document.getElementById("back");
   back.onclick=()=>{ saveRun(); go({name:"home"}); };
+  const ht=document.getElementById("howto"); if(ht) ht.onclick=()=>openSheet(ct);
   document.getElementById("flag").onclick=()=>{ const id=it.s+"-"+it.n; const i=S.flags.indexOf(id); if(i>=0)S.flags.splice(i,1); else S.flags.push(id); touch(); reportShared(it, i<0); const f=document.getElementById("flag"); const on=i<0; f.setAttribute("aria-pressed",on); f.textContent=on?"Nahlásené ako chybná otázka · zrušiť":"Nahlásiť chybu v otázke"; };
   app.querySelectorAll(".ans").forEach(b=>b.onclick=()=>{
     if (!exam && run.done[run.i]) return;
@@ -525,9 +596,11 @@ function check(){
 }
 function showVerdict(){
   const it=run.list[run.i], q=BY[it.s][it.n]; const correct=q[3].split(""); const p=run.picks[run.i]; const ok=grade(it,p);
+  const perm=(run.perm && run.perm[run.i]) || [0,1,2,3];
+  const shown=perm.map((o,j)=>correct.includes(L[o])?L[j]:null).filter(Boolean);
   app.querySelectorAll(".ans").forEach(b=>{ const k=b.dataset.k; b.disabled=true; b.classList.remove("sel");
     if (correct.includes(k)&&p.includes(k)) b.classList.add("ok"); else if(!correct.includes(k)&&p.includes(k)) b.classList.add("bad"); else if(correct.includes(k)) b.classList.add("miss"); });
-  document.getElementById("verdict").innerHTML=`<div class="verdict ${ok?"ok":"bad"}">${ok?"Správne":"Nesprávne"}<span>správne: ${correct.join(", ")}</span></div>`;
+  document.getElementById("verdict").innerHTML=`<div class="verdict ${ok?"ok":"bad"}">${ok?"Správne":"Nesprávne"}<span>správne: ${shown.join(", ")}</span></div>`;
   const g=document.getElementById("go"); g.disabled=false; g.textContent = run.i+1<run.list.length ? "Ďalšia otázka" : "Zobraziť výsledok";
 }
 function nextQ(){ run.i++; if (run.i<run.list.length){ saveRun(); render(); window.scrollTo(0,0); } else finishPractice(); }
@@ -569,7 +642,7 @@ function result(){
       ${wl.length?`<button class="btn wide" id="redo">Zopakovať chybné (${wl.length})</button>`:""}
       ${r.set?`<button class="btn ghost wide" id="again">Celá sada znova</button>`:""}
     </div>
-    ${wl.length?`<section><h3>Chybné otázky</h3><div class="list">${wl.map(it=>{const q=BY[it.s][it.n];return `<div class="${SUBJ[it.s].cls}"><b>${SUBJ[it.s].short} ${q[0]}</b><span>${fmt(q[1])}<em>správne: ${q[3].split("").join(", ")}</em></span></div>`;}).join("")}</div></section>`:""}`;
+    ${wl.length?`<section><h3>Chybné otázky</h3><div class="list">${wl.map(it=>{const q=BY[it.s][it.n];return `<div class="${SUBJ[it.s].cls}"><b>${SUBJ[it.s].short} ${q[0]}</b><span>${fmt(q[1])}<em>správne: ${q[3].split("").map(k=>fmt(q[2][L.indexOf(k)])).join(" · ")}</em></span></div>`;}).join("")}</div></section>`:""}`;
   document.getElementById("back").onclick=()=>go({name:"home"});
   const rd=document.getElementById("redo"); if(rd) rd.onclick=()=>startRun({title:r.title.replace(/ · chyby$/,"")+" · chyby", list:wl, mode:"practice", set:r.set, redo:true});
   const ag=document.getElementById("again"); if(ag) ag.onclick=()=>{ const s=r.set.slice(0,3), k=+r.set.slice(3); startRun({title:`${SUBJ[s].name} · sada ${k+1}`, list:SETS[s][k].map(n=>({s,n})), mode:"practice", set:r.set}); };
@@ -578,7 +651,7 @@ function flags(){
   app.innerHTML = `
     <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Nahlásené</span><span></span></div>
     <section><h2>Nahlásené otázky</h2><p class="lead">Otázky, pri ktorých si myslíš, že je chyba v kľúči alebo v texte. Pošli mi ich čísla v Claude a skontrolujem ich.</p></section>
-    <div class="list">${S.flags.map(id=>{const [s,n]=id.split("-");const q=BY[s]&&BY[s][n];if(!q)return"";return `<div class="${SUBJ[s].cls}"><b>${SUBJ[s].short} ${n}</b><span>${fmt(q[1])}<em>v kľúči: ${q[3].split("").join(", ")}</em></span></div>`;}).join("")}</div>`;
+    <div class="list">${S.flags.map(id=>{const [s,n]=id.split("-");const q=BY[s]&&BY[s][n];if(!q)return"";return `<div class="${SUBJ[s].cls}"><b>${SUBJ[s].short} ${n}</b><span>${fmt(q[1])}<em>v kľúči: ${q[3].split("").map(k=>k+") "+fmt(q[2][L.indexOf(k)])).join(" · ")}</em></span></div>`;}).join("")}</div>`;
   document.getElementById("back").onclick=()=>go({name:"home"});
 }
 async function reportShared(it, on){
@@ -601,6 +674,66 @@ function transfer(){
   document.getElementById("back").onclick=()=>go({name:"home"});
   document.getElementById("copy").onclick=async()=>{ const o=document.getElementById("out"); try{ await navigator.clipboard.writeText(o.value); document.getElementById("copy").textContent="Skopírované"; }catch(e){ o.focus(); o.select(); document.getElementById("msg").textContent="Kód je označený, skopíruj ho podržaním prsta."; } };
   document.getElementById("load").onclick=()=>{ const v=document.getElementById("in").value; try{ importCode(v); document.getElementById("msg").textContent="Pokrok načítaný."; setTimeout(()=>go({name:"home"}),700);}catch(e){ document.getElementById("msg").textContent="Tento kód sa nedá načítať. Skontroluj, či si skopírovala celý kód."; } };
+}
+
+
+/* ---------- príklady & vzorce ---------- */
+const CORDER = {che:["mol","prvok","plyn","c","w","riedenie","rovnica","neutral","ph","teplo","rychlost","ks","k","osmo"], bio:["mendel","krv","hw","h2"]};
+function typeStats(t){ const T=CALCTYPES[t]; let m=0,w=0; for(const n of T.list){ const c=qState(T.s,n); if(c==="3")m++; if(c==="1")w++; } return {m,w,n:T.list.length}; }
+function examples(){
+  const all=[]; for(const s of ["che","bio"]) for(const t of CORDER[s]) if(CALCTYPES[t]) CALCTYPES[t].list.forEach(n=>all.push({s,n}));
+  const row=t=>{ const T=CALCTYPES[t], g=GUIDES[t], st=typeStats(t); return `<div class="trow ${SUBJ[T.s].cls}">
+      <div class="tinfo"><b>${g?g.t:t}</b><span>${st.n} ${st.n===1?"príklad":st.n<5?"príklady":"príkladov"} · ovládam ${st.m}/${st.n}${st.w?` · <em>${st.w} zle</em>`:""}</span>
+      <span class="bar"><i style="width:${st.m/st.n*100}%"></i></span></div>
+      <div class="tbtn"><button class="btn small" data-pr="${t}">Precvičiť</button><button class="btn ghost small" data-gd="${t}">Postup</button></div></div>`; };
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Príklady</span><span></span></div>
+    <section><h1>Príklady</h1><p class="lead">Všetky výpočtové otázky z banky, roztriedené podľa typu. Ku každému typu je postup krok po kroku. Všetky príklady sú prepočítané a súhlasia s kľúčom.</p>
+      <div class="row"><button class="btn wide" id="allEx">Precvičiť všetky príklady (${all.length})</button></div></section>
+    <section><h3>Chémia</h3><div class="tlist">${CORDER.che.filter(t=>CALCTYPES[t]).map(row).join("")}</div></section>
+    <section><h3>Biológia · genetika</h3><div class="tlist">${CORDER.bio.filter(t=>CALCTYPES[t]).map(row).join("")}</div></section>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  document.getElementById("allEx").onclick=()=>startRun({title:"Všetky príklady", list:shuffle(all), mode:"practice"});
+  app.querySelectorAll("[data-pr]").forEach(b=>b.onclick=()=>{ const t=b.dataset.pr, T=CALCTYPES[t]; startRun({title:GUIDES[t]?GUIDES[t].t:"Príklady", list:shuffle(T.list.map(n=>({s:T.s,n}))), mode:"practice"}); });
+  app.querySelectorAll("[data-gd]").forEach(b=>b.onclick=()=>go({name:"guide", t:b.dataset.gd, from:"examples"}));
+}
+function formulas(){
+  const B=BASICS;
+  const list=s=>CORDER[s].filter(t=>GUIDES[t]).map(t=>`<button class="tcard" data-gd="${t}" style="--c:var(--${s})"><span class="stripe"></span><span><span class="t">${GUIDES[t].t}</span><div class="s">${GUIDES[t].f[0]}</div></span><span class="go">›</span></button>`).join("");
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Vzorce a postupy</span><span></span></div>
+    <section><h1>Vzorce a <em>postupy</em></h1><p class="lead">Všetko, čo potrebuješ na príklady z testovnice, na jednom mieste. Ťukni na typ príkladu a uvidíš postup krok po kroku aj s vyriešeným príkladom.</p></section>
+    ${B?`<section><h3>Základné vzorce</h3><div class="ftable">${B.core.map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join("")}</div></section>
+    <section><h3>Konštanty</h3><div class="ftable">${B.consts.map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join("")}</div></section>
+    <section><h3>Jednotky</h3><div class="ftable two">${B.units.map(([a,b])=>`<div><b>${a}</b><b>${b}</b></div>`).join("")}</div></section>
+    <section><h3>Relatívne atómové hmotnosti (zaokrúhlené)</h3><p class="masses">${B.masses}</p></section>`:""}
+    <section><h3>Postupy · chémia</h3><div class="today">${list("che")}</div></section>
+    <section><h3>Postupy · genetika</h3><div class="today">${list("bio")}</div></section>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+  app.querySelectorAll("[data-gd]").forEach(b=>b.onclick=()=>go({name:"guide", t:b.dataset.gd, from:"formulas"}));
+}
+function guideBody(t){
+  const g=GUIDES[t]; if(!g) return "";
+  return `<section class="${SUBJ[g.s].cls}"><span class="tag" style="align-self:flex-start">${SUBJ[g.s].name}</span><h2>${g.t}</h2><p class="lead"><b>Ako ho spoznáš:</b> ${g.when}</p></section>
+    <section><h3>Vzorce</h3><div class="fx">${g.f.map(x=>`<div>${x}</div>`).join("")}</div></section>
+    <section><h3>Postup krok po kroku</h3><ol class="steps">${g.steps.map(x=>`<li>${x}</li>`).join("")}</ol></section>
+    ${g.ex?`<section><h3>Vyriešený príklad · otázka ${g.ex.n}</h3><div class="exbox"><p>${g.ex.q}</p><ol>${g.ex.sol.map(x=>`<li>${x}</li>`).join("")}</ol></div></section>`:""}
+    ${g.pit&&g.pit.length?`<section><h3>Pozor na</h3><ul class="pit">${g.pit.map(x=>`<li>${x}</li>`).join("")}</ul></section>`:""}`;
+}
+function guidePage(t){
+  const T=CALCTYPES[t];
+  app.innerHTML = `<div class="top"><button class="link" id="back">← ${view.from==="examples"?"Príklady":"Vzorce"}</button><span class="eyebrow">Postup</span><span></span></div>
+    ${guideBody(t)}
+    ${T?`<div class="dock"><button class="btn wide" id="prac">Precvičiť tento typ (${T.list.length})</button></div>`:""}`;
+  document.getElementById("back").onclick=()=>go({name:view.from||"formulas"});
+  const pr=document.getElementById("prac"); if(pr) pr.onclick=()=>startRun({title:GUIDES[t].t, list:shuffle(T.list.map(n=>({s:T.s,n}))), mode:"practice"});
+}
+function openSheet(t){
+  const d=document.createElement("div"); d.className="sheet"; d.setAttribute("role","dialog"); d.setAttribute("aria-modal","true");
+  d.innerHTML=`<div class="sheet-in"><div class="top"><span class="eyebrow">Ako na to</span><button class="link" id="closeSheet">Zavrieť ✕</button></div>${guideBody(t)}<div class="row"><button class="btn wide" id="closeSheet2">Späť na otázku</button></div></div>`;
+  document.body.appendChild(d); document.body.style.overflow="hidden";
+  const close=()=>{ d.remove(); document.body.style.overflow=""; };
+  d.querySelector("#closeSheet").onclick=close; d.querySelector("#closeSheet2").onclick=close;
 }
 
 /* resume an unfinished exam */
