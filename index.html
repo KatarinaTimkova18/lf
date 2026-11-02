@@ -185,7 +185,7 @@ section{display:flex;flex-direction:column;gap:14px}
 .countdown span{font-weight:600;line-height:1.3}
 .countdown small{font-weight:400;color:var(--muted);font-size:13px}
 .tile.calc{background:var(--soft);border-color:transparent}
-.opts{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px}
+.opts{display:flex;align-items:center;justify-content:space-between;gap:10px 12px;font-size:15px;flex-wrap:wrap}
 .opts small{font-size:13px}
 .switch{position:relative;width:48px;height:28px;border-radius:99px;border:0;background:var(--line);flex:none;padding:0}
 .switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--surface);transition:transform .2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
@@ -308,8 +308,15 @@ function topic(s,k){ return (TOPICS[s] && TOPICS[s][k]) || `Sada ${k+1}`; }
 const GUIDES = window.GUIDES || {}, BASICS = window.BASICS || null;
 const CALCMAP = {}, CALCTYPES = {};
 (window.CALC||[]).forEach(([s,t,l])=>{ const list=l.filter(n=>BY[s][n]); CALCTYPES[t]={s,list}; list.forEach(n=>CALCMAP[s+n]=t); });
-let OPT = {shuf:true};
+let OPT = {shuf:true, theme:"auto"};
 try { OPT = Object.assign(OPT, JSON.parse(localStorage.getItem(LKEY+"-opt")||"{}")); } catch(e){}
+function applyTheme(){
+  const r=document.documentElement;
+  if (OPT.theme==="light"||OPT.theme==="dark") r.setAttribute("data-theme",OPT.theme); else r.removeAttribute("data-theme");
+  const dark = OPT.theme==="dark" || (OPT.theme!=="light" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  document.querySelectorAll('meta[name="theme-color"]').forEach(m=>{ m.setAttribute("content", dark?"#141211":"#f7f5f2"); m.removeAttribute("media"); });
+}
+applyTheme();
 function saveOpt(){ try { localStorage.setItem(LKEY+"-opt", JSON.stringify(OPT)); } catch(e){} }
 const EXAM_DATE = new Date(2027,5,1);
 function daysLeft(){ return Math.max(0, Math.ceil((EXAM_DATE - new Date())/864e5)); }
@@ -410,7 +417,9 @@ function home(){
       <div class="legend"><span><i style="background:var(--bio)"></i>biológia</span><span><i style="background:var(--che)"></i>chémia</span><span>posledných ${ex.length} testov, % zo 160</span></div></section>`:""}
     <section><h3>Nastavenia</h3>
       <div class="opts"><span>Zamiešať poradie odpovedí<br><small class="muted">A, B, C, D budú pri každej otázke v inom poradí</small></span>
-      <button class="switch" id="shufA" role="switch" aria-checked="${OPT.shuf}" aria-label="Zamiešať poradie odpovedí"></button></div></section>
+      <button class="switch" id="shufA" role="switch" aria-checked="${OPT.shuf}" aria-label="Zamiešať poradie odpovedí"></button></div>
+      <div class="opts"><span>Vzhľad</span>
+      <div class="seg" role="group" aria-label="Vzhľad">${[["auto","Podľa telefónu"],["light","Svetlý"],["dark","Tmavý"]].map(([v,t])=>`<button data-th="${v}" aria-pressed="${OPT.theme===v}">${t}</button>`).join("")}</div></div></section>
     <div class="foot">
       <button class="link" id="transfer" style="text-align:left">Preniesť pokrok na iné zariadenie</button>
       ${S.flags.length?`<button class="link" id="flags" style="text-align:left">Nahlásené otázky (${S.flags.length})</button>`:""}
@@ -421,6 +430,7 @@ function home(){
   const w=document.getElementById("wrongAll"); if(w) w.onclick=()=>{ const list=[]; for(const s of ["bio","che"]) for(const q of BANK[s]) if(qState(s,q[0])==="1") list.push({s,n:q[0]}); startRun({title:"Moje chyby", list:shuffle(list), mode:"practice"}); };
   const rx=document.getElementById("resumeEx"); if(rx) rx.onclick=()=>{ run=local.exam; if(run.limit && Date.now()-run.started>run.limit*60000) return finishExam(); view={name:"quiz"}; render(); window.scrollTo(0,0); };
   document.getElementById("transfer").onclick=()=>go({name:"transfer"});
+  app.querySelectorAll("[data-th]").forEach(b=>b.onclick=()=>{ OPT.theme=b.dataset.th; saveOpt(); applyTheme(); render(); });
   document.getElementById("shufA").onclick=e=>{ OPT.shuf=!OPT.shuf; e.currentTarget.setAttribute("aria-checked",OPT.shuf); saveOpt(); };
   const f=document.getElementById("flags"); if(f) f.onclick=()=>go({name:"flags"});
 }
