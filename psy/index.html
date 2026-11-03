@@ -205,6 +205,23 @@ section{display:flex;flex-direction:column;gap:14px}
 textarea.code{width:100%;font:12px/1.4 ui-monospace,monospace;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface);color:var(--ink);resize:none}
 a{color:var(--rose-deep)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.ckcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:14px 16px}
+.ckcard b{font-weight:600}
+.ckcard .s{font-size:13px;color:var(--muted)}
+.ckcard .go{font-size:20px;color:var(--muted);grid-row:1/3;grid-column:2}
+.ckcard .track{grid-column:1;height:4px;border-radius:4px;background:var(--soft);overflow:hidden;margin-top:6px}
+.ckcard .track i{display:block;height:100%;background:var(--ckc)}
+.cklist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.ckrow{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-align:left;background:none;border-left:0;border-right:0;border-top:0;width:100%;align-items:start}
+.ckrow .box{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--muted);display:grid;place-items:center;font-size:14px;color:var(--surface);margin-top:1px}
+.ckrow[aria-checked="true"] .box{background:var(--ckc);border-color:var(--ckc)}
+.ckrow[aria-checked="true"] .t{text-decoration:line-through;color:var(--muted)}
+.ckrow .t{font-weight:600}
+.ckrow .n{font-size:14px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.ckrow .d{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ckc);margin-top:5px}
+.ckgroup{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:18px}
+.ckcard,.ckrow{--ckc:var(--rose)}
 </style>
 </head>
 <body>
@@ -215,11 +232,11 @@ a{color:var(--rose-deep)}
 "use strict";
 /* ---------- skupiny a predmety ---------- */
 const GROUPS = {
-  bio:{name:"Biológia", long:"Biologické základy", cls:"bio-c"},
+  bio:{name:"Bio a klinika", long:"Biológia a klinika", cls:"bio-c"},
   met:{name:"Metodológia", long:"Metodológia a štatistika", cls:"met-c"},
   psy:{name:"Psychológia", long:"Psychologické disciplíny", cls:"psy-c"}
 };
-const GOF = {bio:"bio", met:"met", st1:"met", st2:"met", dia:"met", az:"met"};
+const GOF = {bio:"bio", kli:"bio", met:"met", st1:"met", st2:"met", dia:"met", az:"met"};
 COURSES.forEach(c => c.g = GOF[c.id] || "psy");
 const CMAP = Object.fromEntries(COURSES.map(c => [c.id, c]));
 const QS = [];
@@ -288,6 +305,7 @@ function render(){
   else if (n === "examResult") examResult();
   else if (n === "info") info();
   else if (n === "transfer") transfer();
+  else if (n === "checklist") checklist();
 }
 const back = (label = "← Prehľad", to = {name:"home"}) => { const b = document.getElementById("back"); if (b) b.onclick = () => go(to); };
 
@@ -310,6 +328,7 @@ function home(){
     <header class="mast"><span class="mono-mark" aria-hidden="true">Ψ</span><div><div class="eyebrow">FiF UK · Mgr. psychológia ${y}</div></div></header>
     <h1 style="margin-top:-14px">Krok za krokom<br>k titulu <em>Mgr.</em></h1>
     ${EXAM ? `<button class="tile soft wideT" id="resumeEx"><b>Rozpracovaný test</b><span>${Object.keys(EXAM.ans).length}/${EXAM.list.length} zodpovedaných · pokračovať</span></button>` : ""}
+    ${ckCard()}
     <div class="hero-card">
       ${ring(pf(all.m / TOTAL), [[all.m / TOTAL, "var(--rose)"], [all.w / TOTAL, "var(--bad-ring)"]], "zvládnuté")}
       <div class="days"><span class="eyebrow" style="letter-spacing:.14em;white-space:nowrap">do prijímačiek</span><b class="num">${d}</b><span>${dword(d)}</span><small>${Math.floor(d / 7)} týždňov</small><small style="white-space:nowrap">${+da}. ${+mo}. ${y} · odhad</small></div>
@@ -351,6 +370,7 @@ function home(){
   const w = document.getElementById("wrongAll"); if (w) w.onclick = () => startRun("Moje chyby", QS.filter(q => S.q[q.id] && !S.q[q.id][2]));
   const rx = document.getElementById("resumeEx"); if (rx) rx.onclick = () => { if (Date.now() > EXAM.end) return finishExam(); go({name:"examQ"}); };
   document.getElementById("transfer").onclick = () => go({name:"transfer"});
+  document.getElementById("ckOpen").onclick = () => go({name:"checklist"});
   app.querySelectorAll("[data-th]").forEach(b => b.onclick = () => { OPT.theme = b.dataset.th; saveOpt(); applyTheme(); render(); });
 }
 function courseList(list){
@@ -586,6 +606,27 @@ function transfer(){
   back();
   document.getElementById("copy").onclick = async () => { const o = document.getElementById("out"); try { await navigator.clipboard.writeText(o.value); document.getElementById("copy").textContent = "Skopírované"; } catch(e){ o.focus(); o.select(); document.getElementById("msg").textContent = "Kód je označený, skopíruj ho podržaním prsta."; } };
   document.getElementById("load").onclick = () => { try { importCode(document.getElementById("in").value); document.getElementById("msg").textContent = "Pokrok načítaný."; setTimeout(() => go({name:"home"}), 700); } catch(e){ document.getElementById("msg").textContent = "Tento kód sa nedá načítať. Skontroluj, či si skopírovala celý."; } };
+}
+
+const CHECK = [{"g": "Prihláška", "items": [{"id": "p1", "t": "Podať elektronickú prihlášku", "n": "e-prihlaska.uniba.sk, Filozofická fakulta, Mgr. psychológia. Do jednej prihlášky sa dá uviesť iba jeden program. Poštou sa nič neposiela.", "d": "1. 3. – 30. 4."}, {"id": "p2", "t": "Zaplatiť poplatok 20 €", "n": "Po potvrdení prihlášky ti systém vygeneruje platobné údaje (variabilný a špecifický symbol) – použi tie. Pri stiahnutí prihlášky do 30. 4. sa poplatok vracia.", "d": "do 30. 4."}, {"id": "p3", "t": "Nahrať výpis výsledkov z Bc. štúdia", "n": "Za 1. – 5. semester, keďže študuješ na inej univerzite. Vypýtaj si ho na študijnom oddelení FF PU.", "d": "k prihláške"}]}, {"g": "Test a výsledky", "items": [{"id": "p4", "t": "Skontrolovať pozvánku na test", "n": "Príde e-mailom so všetkými informáciami – aj počtom otázok a časom.", "d": "máj"}, {"id": "p5", "t": "Písomný test v Moodle", "n": "V roku 2026 bol 29. mája. Náhradný termín fakulta neuvádza.", "d": "koniec mája"}, {"id": "p6", "t": "Rozhodnutie o prijatí", "n": "Fakulta ho posiela písomne.", "d": "jún"}]}, {"g": "Po štátniciach", "items": [{"id": "p7", "t": "Poslať overenú kópiu diplomu alebo vysvedčenia o štátnej skúške", "n": "Hneď ako ho dostaneš, najneskôr ho prines na zápis.", "d": "po štátniciach"}, {"id": "p8", "t": "Zápis", "n": "", "d": "september"}]}];
+const CK_TITLE = "Prihláška na <em>Mgr.</em>", CK_LEAD = "Postup podľa stránky FiF UK k prijímaciemu konaniu 2026. Termíny na rok 2027 si over, keď ich fakulta zverejní. Zaškrtnuté sa ukladá v tomto zariadení.", CK_NOTE = "Bližšie informácie: fphil.uniba.sk → Prijímacie konanie → Magisterské štúdium.";
+
+/* ---------- checklist ---------- */
+let CK = {};
+try { CK = JSON.parse(localStorage.getItem(LKEY + "-check") || "{}"); } catch(e){}
+function saveCK(){ try { localStorage.setItem(LKEY + "-check", JSON.stringify(CK)); } catch(e){} }
+function ckCount(){ return CHECK.reduce((a, g) => a + g.items.filter(it => CK[it.id]).length, 0); }
+function ckTotal(){ return CHECK.reduce((a, g) => a + g.items.length, 0); }
+function ckCard(){ const d = ckCount(), t = ckTotal(); const next = CHECK.flatMap(g => g.items).find(it => !CK[it.id]);
+  return `<button class="ckcard" id="ckOpen"><b>Čo treba vybaviť</b><span class="go">›</span><span class="s">${d}/${t} hotovo${next ? " · ďalej: " + esc(next.t) : " · všetko vybavené"}</span><span class="track"><i style="width:${d / t * 100}%"></i></span></button>`; }
+function checklist(){
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Čo treba vybaviť</span><span></span></div>
+    <section><h1>${CK_TITLE}</h1><p class="lead">${CK_LEAD}</p></section>
+    <div class="cklist">${CHECK.map(g => `<div class="ckgroup">${g.g}</div>` + g.items.map(it => `<button class="ckrow" role="checkbox" aria-checked="${!!CK[it.id]}" data-ck="${it.id}"><span class="box">${CK[it.id] ? "✓" : ""}</span><span><div class="t">${it.t}</div>${it.n ? `<div class="n">${it.n}</div>` : ""}${it.d ? `<span class="d">${it.d}</span>` : ""}</span></button>`).join("")).join("")}</div>
+    <p class="info">${CK_NOTE}</p>`;
+  document.getElementById("back").onclick = () => go({name:"home"});
+  app.querySelectorAll("[data-ck]").forEach(b => b.onclick = e => { if (e.target.closest("a")) return; const id = b.dataset.ck; CK[id] = !CK[id]; saveCK(); const y = window.scrollY; checklist(); window.scrollTo(0, y); });
 }
 
 render();

@@ -250,6 +250,23 @@ section{display:flex;flex-direction:column;gap:14px}
 body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
+
+.ckcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:14px 16px}
+.ckcard b{font-weight:600}
+.ckcard .s{font-size:13px;color:var(--muted)}
+.ckcard .go{font-size:20px;color:var(--muted);grid-row:1/3;grid-column:2}
+.ckcard .track{grid-column:1;height:4px;border-radius:4px;background:var(--soft);overflow:hidden;margin-top:6px}
+.ckcard .track i{display:block;height:100%;background:var(--ckc)}
+.cklist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.ckrow{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-align:left;background:none;border-left:0;border-right:0;border-top:0;width:100%;align-items:start}
+.ckrow .box{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--muted);display:grid;place-items:center;font-size:14px;color:var(--surface);margin-top:1px}
+.ckrow[aria-checked="true"] .box{background:var(--ckc);border-color:var(--ckc)}
+.ckrow[aria-checked="true"] .t{text-decoration:line-through;color:var(--muted)}
+.ckrow .t{font-weight:600}
+.ckrow .n{font-size:14px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.ckrow .d{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ckc);margin-top:5px}
+.ckgroup{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:18px}
+.ckcard,.ckrow{--ckc:var(--bio)}
 </style>
 </head>
 <body>
@@ -375,6 +392,7 @@ function render(){
   if (view.name==="flags") return flags();
   if (view.name==="transfer") return transfer();
   if (view.name==="info") return info();
+  if (view.name==="checklist") return checklist();
   if (view.name==="examples") return examples();
   if (view.name==="formulas") return formulas();
   if (view.name==="guide") return guidePage(view.t);
@@ -399,6 +417,7 @@ function home(){
     <header class="top" style="align-items:flex-start">
       <div><div class="eyebrow">LF SZU · prijímačky ${MESIACE[+examISO().slice(5,7)-1]} ${examISO().slice(0,4)}</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
     </header>
+    ${ckCard()}
     <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov · ${+examISO().slice(8,10)}. ${+examISO().slice(5,7)}. ${examISO().slice(0,4)} (odhad)</small></span><label class="cdate">Zmeniť termín<input type="date" id="examDate" value="${examISO()}"></label></div>
     <section>
       <div class="rings">
@@ -443,6 +462,7 @@ function home(){
   const rx=document.getElementById("resumeEx"); if(rx) rx.onclick=()=>{ run=local.exam; if(run.limit && Date.now()-run.started>run.limit*60000) return finishExam(); view={name:"quiz"}; render(); window.scrollTo(0,0); };
   document.getElementById("transfer").onclick=()=>go({name:"transfer"});
   document.getElementById("infoL").onclick=()=>go({name:"info"});
+  document.getElementById("ckOpen").onclick = () => go({name:"checklist"});
   document.getElementById("examDate").onchange=e=>{ if(e.target.value){ OPT.examDate=e.target.value; saveOpt(); render(); } };
   app.querySelectorAll("[data-th]").forEach(b=>b.onclick=()=>{ OPT.theme=b.dataset.th; saveOpt(); applyTheme(); render(); });
   document.getElementById("shufA").onclick=e=>{ OPT.shuf=!OPT.shuf; e.currentTarget.setAttribute("aria-checked",OPT.shuf); saveOpt(); };
@@ -795,6 +815,28 @@ function openSheet(t){
 }
 
 /* resume an unfinished exam */
+const CHECK = [{"g": "Prihláška", "items": [{"id": "m1", "t": "Vyplniť elektronickú prihlášku v MAIS", "n": "szumais.sk/eprihlaska – fakulta odporúča prehliadač Mozilla Firefox. Program: Všeobecné lekárstvo.", "d": "do 28. 2."}, {"id": "m2", "t": "Zadať známky z 1. – 3. ročníka strednej školy", "n": "Koncoročné známky bez správania. Z nich sa počítajú bonusové body za priemer.", "d": "do 28. 2."}, {"id": "m3", "t": "Zaplatiť poplatok 70 €", "n": "Iba prevodom. IBAN SK87 8180 0000 0070 0020 0522, VS 1001008401, do správy LF-VL a meno a priezvisko. Údaje si over v aktuálnych pokynoch.", "d": "do 28. 2."}, {"id": "m4", "t": "Nahrať do e-prihlášky životopis a potvrdenie o platbe", "n": "Štruktúrovaný životopis a doklad o zaplatení ako PDF. Tieto dva dokumenty sa už poštou neposielajú.", "d": "do 28. 2."}]}, {"g": "Dokumenty a pošta", "items": [{"id": "m5", "t": "Potvrdenie od všeobecného lekára", "n": "Potvrdenie o zdravotnej spôsobilosti na štúdium. Formulár a termín si over na fakulte.", "d": "k prihláške"}, {"id": "m6", "t": "Overená kópia maturitného vysvedčenia", "n": "Overenie u notára alebo na matrike.", "d": "k prihláške"}, {"id": "m7", "t": "Overené koncoročné vysvedčenia z 1. – 3. ročníka", "n": "Kvôli bonusovým bodom za priemer. Kto zmaturoval v skoršom roku, prikladá úradne overené vysvedčenia (škola známky na prihláške nepotvrdzuje).", "d": "k prihláške"}, {"id": "m8", "t": "Diplom z olympiády (ak ho máš)", "n": "Úradne overený diplom alebo potvrdenie o umiestnení z biológie, chémie, matematiky, fyziky alebo informatiky.", "d": "k prihláške"}, {"id": "m9", "t": "Vytlačiť, podpísať a poslať prihlášku poštou", "n": "S prílohami na adresu: Slovenská zdravotnícka univerzita v Bratislave, Pedagogický odbor, Limbová 12, 833 03 Bratislava. Odporúčam doporučene.", "d": "do 28. 2."}]}, {"g": "Pred skúškou a po nej", "items": [{"id": "m10", "t": "Začať očkovanie proti hepatitíde B", "n": "Pri zápise treba doklad aspoň o dvoch dávkach. Medzi dávkami býva odstup mesiac a viac, preto začni včas, ak ho ešte nemáš.", "d": "najneskôr na jar"}, {"id": "m11", "t": "Skontrolovať pozvánku a termín skúšky", "n": "Náhradný termín je len na písomnú žiadosť z vážnych dôvodov (napr. choroba alebo iné prijímačky).", "d": "jún"}, {"id": "m12", "t": "Zápis", "n": "Ak ťa prijmú: doklad o očkovaní proti hepatitíde B. Pri súbežnom štúdiu s Mgr. psychológiou počítaj so školným 1 000 € ročne.", "d": "leto"}]}];
+const CK_TITLE = "Prihláška na <em>medicínu</em>", CK_LEAD = "Postup podľa pokynov LF SZU na rok 2026/2027. Pred podaním si over, či sa na rok 2027/2028 niečo nezmenilo. Zaškrtnuté sa ukladá v tomto zariadení.", CK_NOTE = "Kontakt na fakultu: attila.sesztak@szu.sk · +421 947 924 182";
+
+/* ---------- checklist ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let CK = {};
+try { CK = JSON.parse(localStorage.getItem(LKEY + "-check") || "{}"); } catch(e){}
+function saveCK(){ try { localStorage.setItem(LKEY + "-check", JSON.stringify(CK)); } catch(e){} }
+function ckCount(){ return CHECK.reduce((a, g) => a + g.items.filter(it => CK[it.id]).length, 0); }
+function ckTotal(){ return CHECK.reduce((a, g) => a + g.items.length, 0); }
+function ckCard(){ const d = ckCount(), t = ckTotal(); const next = CHECK.flatMap(g => g.items).find(it => !CK[it.id]);
+  return `<button class="ckcard" id="ckOpen"><b>Čo treba vybaviť</b><span class="go">›</span><span class="s">${d}/${t} hotovo${next ? " · ďalej: " + esc(next.t) : " · všetko vybavené"}</span><span class="track"><i style="width:${d / t * 100}%"></i></span></button>`; }
+function checklist(){
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Čo treba vybaviť</span><span></span></div>
+    <section><h1>${CK_TITLE}</h1><p class="lead">${CK_LEAD}</p></section>
+    <div class="cklist">${CHECK.map(g => `<div class="ckgroup">${g.g}</div>` + g.items.map(it => `<button class="ckrow" role="checkbox" aria-checked="${!!CK[it.id]}" data-ck="${it.id}"><span class="box">${CK[it.id] ? "✓" : ""}</span><span><div class="t">${it.t}</div>${it.n ? `<div class="n">${it.n}</div>` : ""}${it.d ? `<span class="d">${it.d}</span>` : ""}</span></button>`).join("")).join("")}</div>
+    <p class="info">${CK_NOTE}</p>`;
+  document.getElementById("back").onclick = () => go({name:"home"});
+  app.querySelectorAll("[data-ck]").forEach(b => b.onclick = e => { if (e.target.closest("a")) return; const id = b.dataset.ck; CK[id] = !CK[id]; saveCK(); const y = window.scrollY; checklist(); window.scrollTo(0, y); });
+}
+
 render();
 if ("serviceWorker" in navigator) { window.addEventListener("load", ()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
 </script>
