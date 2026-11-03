@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Psychológia Mgr.</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Psychológia">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141211" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: rovnaký pokojný stĺpec ako appka na LF SZU – súhrn hore, potom predmety; jedna otázka na obrazovku. Farby skupín: bio zelená, metodológia fialová, psychológia púdrová. */
+:root{
+  --bg:#f7f5f2; --surface:#ffffff; --ink:#1c1714; --muted:#7a6f66; --line:#e6e0d9; --soft:#efebe6;
+  --bio:#5f8f5a; --bio-soft:#e7f0e3; --bio-deep:#3f6b3b;
+  --met:#8a73b8; --met-soft:#eee9f6; --met-deep:#634f93;
+  --psy:#c98a9b; --psy-soft:#f7e9ed; --psy-deep:#94505f;
+  --ok:#2f6b4a; --ok-soft:#e3efe7; --bad:#a23b36; --bad-soft:#f7e4e2; --bad-ring:rgba(162,59,54,.8);
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141211; --surface:#1d1a19; --ink:#f2ede8; --muted:#a3978d; --line:#35302c; --soft:#25211f;
+  --bio:#93c08c; --bio-soft:#1f2a1e; --bio-deep:#b5d9ae;
+  --met:#b9a6e3; --met-soft:#29233a; --met-deep:#d3c6f2;
+  --psy:#e5aebd; --psy-soft:#33232a; --psy-deep:#f3cdd6;
+  --ok:#83c79f; --ok-soft:#1c2c23; --bad:#ee918a; --bad-soft:#3b2220; --bad-ring:rgba(238,145,138,.85); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141211; --surface:#1d1a19; --ink:#f2ede8; --muted:#a3978d; --line:#35302c; --soft:#25211f;
+  --bio:#93c08c; --bio-soft:#1f2a1e; --bio-deep:#b5d9ae;
+  --met:#b9a6e3; --met-soft:#29233a; --met-deep:#d3c6f2;
+  --psy:#e5aebd; --psy-soft:#33232a; --psy-deep:#f3cdd6;
+  --ok:#83c79f; --ok-soft:#1c2c23; --bad:#ee918a; --bad-soft:#3b2220; --bad-ring:rgba(238,145,138,.85); color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+.wrap{max-width:640px;margin:0 auto;padding-block:18px 56px;display:flex;flex-direction:column;gap:26px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,10.5vw,54px);line-height:1.02;margin:6px 0 0;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic}
+h2{font-family:var(--display);font-weight:500;font-size:26px;margin:0;line-height:1.15;text-wrap:balance}
+h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
+.lead{color:var(--muted);margin:8px 0 0;max-width:48ch}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:13px 20px;border-radius:99px;font-weight:600;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn[disabled]{opacity:.35;cursor:default}
+.btn.wide{flex:1 1 140px}
+.btn.small{padding:8px 14px;font-size:13px}
+.link{border:0;background:none;padding:6px 0;color:var(--muted);font-size:15px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+.bio-c{--c:var(--bio);--c-soft:var(--bio-soft);--c-deep:var(--bio-deep)}
+.met-c{--c:var(--met);--c-soft:var(--met-soft);--c-deep:var(--met-deep)}
+.psy-c{--c:var(--psy);--c-soft:var(--psy-soft);--c-deep:var(--psy-deep)}
+
+/* prehľad */
+.countdown{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);flex-wrap:wrap}
+.countdown b{font-family:var(--display);font-size:40px;font-weight:500;line-height:1}
+.countdown span{font-weight:600;line-height:1.3;flex:1 1 160px}
+.countdown small{font-weight:400;color:var(--muted);font-size:13px}
+.countdown input{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:3px 6px;background:var(--bg);color:var(--ink)}
+.ring{width:132px;height:132px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .c b{font-family:var(--display);font-size:34px;font-weight:500;line-height:1}
+.ring .c span{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center}
+.hero .ring{width:min(150px,40vw);height:min(150px,40vw)}
+.hero .ring .c b{font-size:40px}
+.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rcard{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 0;min-width:0}
+.rcard .ring{width:min(104px,27vw);height:min(104px,27vw)}
+.rcard .ring .c b{color:var(--c-deep);font-size:clamp(20px,6vw,26px)}
+.rcard .ring .c span{color:var(--c-deep);font-size:10px}
+.rcard .ring svg circle:first-child{stroke:var(--c-soft)}
+.rsub{font-size:12px;color:var(--muted);text-align:center;line-height:1.35}
+.rbad{color:var(--bad)}
+.legend{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{width:10px;height:6px;border-radius:3px;display:inline-block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stats div{background:var(--surface);padding:12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stats b{font-family:var(--display);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--muted);line-height:1.3}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px;text-align:left;display:flex;flex-direction:column;gap:4px;min-height:96px}
+.tile b{font-family:var(--display);font-size:21px;font-weight:500;line-height:1.15}
+.tile span{font-size:13px;color:var(--muted)}
+.tile.g{background:var(--c-soft);border-color:transparent}
+.tile.g b{color:var(--c-deep)}
+.tile.soft{background:var(--soft);border-color:transparent}
+
+/* zoznam predmetov */
+.tlist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.trow{display:grid;grid-template-columns:4px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);text-align:left;background:none;border-left:0;border-right:0;border-top:0;width:100%}
+.trow .stripe{align-self:stretch;background:var(--c);border-radius:3px}
+.tinfo{display:flex;flex-direction:column;gap:4px;min-width:0}
+.tinfo b{font-weight:600}
+.tinfo span{font-size:13px;color:var(--muted)}
+.tinfo em{font-style:normal;color:var(--bad)}
+.track{height:5px;border-radius:5px;background:var(--soft);overflow:hidden;display:flex;max-width:260px}
+.track i{display:block;height:100%}
+.trow .p{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums;color:var(--c-deep)}
+.prof{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-deep);margin-left:6px}
+
+/* formuláre */
+.field{display:flex;flex-direction:column;gap:8px}
+.field .lbl{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 12px;font-size:13px;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--c,var(--ink));border-color:var(--c,var(--ink));color:var(--bg)}
+.info{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;gap:2px;background:var(--surface);flex-wrap:wrap}
+.seg button{border:0;background:none;padding:8px 14px;border-radius:99px;font-size:14px;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.opts{display:flex;align-items:center;justify-content:space-between;gap:10px 12px;font-size:15px;flex-wrap:wrap}
+.opts small{font-size:13px}
+
+/* otázka */
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;white-space:nowrap}
+.prog{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--c,var(--ink));transition:width .25s}
+.qhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.qnum{font-family:var(--display);font-style:italic;font-size:20px;color:var(--c-deep,var(--ink))}
+.tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--c-soft);color:var(--c-deep)}
+.qtext{font-family:var(--display);font-size:clamp(21px,5.6vw,26px);line-height:1.32;margin:4px 0 0;font-weight:500;overflow-wrap:anywhere}
+.answers{display:flex;flex-direction:column;gap:10px}
+.ans{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;text-align:left;width:100%;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);transition:border-color .15s,background .15s}
+.ans .l{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:14px}
+.ans .tx{padding-top:4px;min-width:0;overflow-wrap:anywhere}
+.ans.sel{border-color:var(--ink)}
+.ans.sel .l{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+.ans.ok .l{background:var(--ok);color:var(--surface);border-color:var(--ok)}
+.ans.bad{border-color:var(--bad);background:var(--bad-soft)}
+.ans.bad .l{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.ans[disabled]{cursor:default}
+.verdict{border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.verdict b{font-weight:600}
+.verdict.ok{background:var(--ok-soft)} .verdict.ok b{color:var(--ok)}
+.verdict.bad{background:var(--bad-soft)} .verdict.bad b{color:var(--bad)}
+.verdict span{font-size:15px}
+.flagb{border:0;background:none;color:var(--muted);font-size:13px;padding:4px 0;text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
+.flagb[aria-pressed="true"]{color:var(--bad)}
+.dock{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 78%,transparent);display:flex;gap:10px}
+.navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:5px}
+.navgrid button{border:1px solid var(--line);background:var(--surface);border-radius:8px;height:34px;font-size:12px;font-variant-numeric:tabular-nums;padding:0;position:relative}
+.navgrid button.a{background:var(--soft);border-color:var(--muted)}
+.navgrid button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.navgrid button.f::after{content:"";position:absolute;top:2px;right:2px;border-left:7px solid transparent;border-top:7px solid var(--bad)}
+.timer{font-variant-numeric:tabular-nums;font-weight:600}
+.timer.low{color:var(--bad)}
+.confirm{border:1px solid var(--ink);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--surface)}
+
+/* výsledok */
+.big{font-family:var(--display);font-size:clamp(64px,19vw,96px);line-height:1;font-variant-numeric:tabular-nums}
+.big small{font-size:.38em;color:var(--muted)}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.list > div{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;flex-direction:column;gap:3px}
+.list .q{font-weight:600}
+.list .you{color:var(--bad)} .list .right{color:var(--ok)}
+.list em{font-style:normal;color:var(--muted);font-size:13px}
+.ftable{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.ftable div{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ftable div:last-child{border-bottom:0}
+.ftable span{color:var(--muted);font-size:14px}
+.ftable b{font-weight:600;font-variant-numeric:tabular-nums}
+.ftable.facts span{color:var(--ink);font-size:15px;flex:1 1 220px}
+.ftable.facts b{flex:0 0 150px;font-size:14px}
+.topics{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.topics li::marker{font-family:var(--display);font-style:italic;color:var(--c-deep)}
+.foot{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+textarea.code{width:100%;font:12px/1.4 ui-monospace,monospace;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface);color:var(--ink);resize:none}
+a{color:var(--psy-deep)}
+@media (max-width:420px){.hero{grid-template-columns:1fr;justify-items:center;text-align:center}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script src="data.js"></script>
+<script>
+"use strict";
+/* ---------- skupiny a predmety ---------- */
+const GROUPS = {
+  bio:{name:"Biológia", long:"Biologické základy", cls:"bio-c"},
+  met:{name:"Metodológia", long:"Metodológia a štatistika", cls:"met-c"},
+  psy:{name:"Psychológia", long:"Psychologické disciplíny", cls:"psy-c"}
+};
+const GOF = {bio:"bio", met:"met", st1:"met", st2:"met", dia:"met", az:"met"};
+COURSES.forEach(c => c.g = GOF[c.id] || "psy");
+const CMAP = Object.fromEntries(COURSES.map(c => [c.id, c]));
+const QS = [];
+for (const c of COURSES) (BANK[c.id] || []).forEach((q, i) => QS.push({id: c.id + "-" + i, c: c.id, g: c.g, q: q[0], o: q[1], e: q[2]}));
+const QMAP = Object.fromEntries(QS.map(q => [q.id, q]));
+const TOTAL = QS.length;
+const L = ["A","B","C","D"];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pf = v => { const x = v * 100; return x > 0 && x < 10 ? x.toFixed(1).replace(".", ",") : String(Math.round(x)); };
+
+/* ---------- uloženie ---------- */
+const LKEY = "psy-fifuk-v1";
+function blank(){ return {v:1, q:{}, exams:[], days:{}, flags:[], examDate:"2027-05-28"}; }
+let S = blank();
+try { const raw = localStorage.getItem(LKEY); if (raw) S = Object.assign(blank(), JSON.parse(raw)); } catch(e){}
+let OPT = {theme:"auto"};
+try { const o = localStorage.getItem(LKEY + "-opt"); if (o) OPT = Object.assign(OPT, JSON.parse(o)); } catch(e){}
+let EXAM = null;
+try { const x = localStorage.getItem(LKEY + "-exam"); if (x) EXAM = JSON.parse(x); } catch(e){}
+function save(){ try { localStorage.setItem(LKEY, JSON.stringify(S)); } catch(e){} }
+function saveOpt(){ try { localStorage.setItem(LKEY + "-opt", JSON.stringify(OPT)); } catch(e){} }
+function saveExam(){ try { if (EXAM) localStorage.setItem(LKEY + "-exam", JSON.stringify(EXAM)); else localStorage.removeItem(LKEY + "-exam"); } catch(e){} }
+function today(){ const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
+function record(id, ok){
+  const r = S.q[id] || [0,0,0]; r[0]++; if (ok) r[1]++; r[2] = ok ? 1 : 0; S.q[id] = r;
+  S.days[today()] = (S.days[today()] || 0) + 1; save();
+}
+function streakDays(){ let c = 0; const d = new Date(); let first = true;
+  for (;;){ const k = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+    if (S.days[k]){ c++; d.setDate(d.getDate() - 1); first = false; }
+    else if (first){ first = false; d.setDate(d.getDate() - 1); }
+    else break; }
+  return c; }
+function stats(filter){
+  let total = 0, m = 0, w = 0, seen = 0;
+  for (const q of QS){ if (!filter(q)) continue; total++; const r = S.q[q.id]; if (r){ seen++; if (r[2]) m++; else w++; } }
+  return {total, m, w, seen};
+}
+function exportCode(){ return btoa(unescape(encodeURIComponent(JSON.stringify(S)))); }
+function importCode(code){ const x = JSON.parse(decodeURIComponent(escape(atob(code.trim())))); if (!x || typeof x.q !== "object") throw new Error("bad"); S = Object.assign(blank(), x); save(); }
+
+function applyTheme(){
+  const r = document.documentElement;
+  if (OPT.theme === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", OPT.theme);
+  const dark = OPT.theme === "dark" || (OPT.theme !== "light" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", dark ? "#141211" : "#f7f5f2"));
+}
+applyTheme();
+
+/* ---------- navigácia ---------- */
+const app = document.getElementById("app");
+let view = {name:"home"}; let run = null; let timerId = null;
+function go(v){ view = v; render(); window.scrollTo(0, 0); }
+function render(){
+  clearInterval(timerId);
+  const n = view.name;
+  if (n === "home") home();
+  else if (n === "group") group(view.g);
+  else if (n === "course") course(view.c);
+  else if (n === "custom") custom();
+  else if (n === "examSetup") examSetup();
+  else if (n === "quiz") quiz();
+  else if (n === "result") result();
+  else if (n === "examQ") examQ();
+  else if (n === "examResult") examResult();
+  else if (n === "info") info();
+  else if (n === "transfer") transfer();
+}
+const back = (label = "← Prehľad", to = {name:"home"}) => { const b = document.getElementById("back"); if (b) b.onclick = () => go(to); };
+
+/* ---------- koliečko ---------- */
+function ring(pct, segs, label){
+  const R = 58, C = 2 * Math.PI * R; let off = 0;
+  const arcs = segs.map(([v, col]) => { const len = v * C; const a = `<circle cx="66" cy="66" r="${R}" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-off}"/>`; off += len; return a; }).join("");
+  return `<div class="ring"><svg viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>${label}</span></div></div></div>`;
+}
+function daysLeft(){ return Math.max(0, Math.ceil((new Date(S.examDate + "T08:00:00") - new Date()) / 864e5)); }
+const dword = n => n === 1 ? "deň" : n >= 2 && n <= 4 ? "dni" : "dní";
+
+/* ---------- PREHĽAD ---------- */
+function home(){
+  const all = stats(() => true);
+  const gs = Object.fromEntries(Object.keys(GROUPS).map(g => [g, stats(q => q.g === g)]));
+  const segsAll = Object.keys(GROUPS).map(g => [gs[g].m / TOTAL, `var(--${g})`]);
+  const wrongN = all.w; const d = daysLeft(); const st = streakDays();
+  const [y, mo, da] = S.examDate.split("-");
+  app.innerHTML = `
+    <header><div class="eyebrow">FiF UK · prijímačky na Mgr. ${y}</div><h1>Tvoja cesta na <em>magistra</em></h1></header>
+    <div class="countdown"><b class="num">${d}</b><span>${dword(d)} do prijímačiek<br><small>${Math.floor(d / 7)} týždňov · odhad ${+da}. ${+mo}. ${y}</small></span>
+      <label class="muted" style="font-size:12px">Zmeniť termín<br><input type="date" id="examDate" value="${S.examDate}"></label></div>
+    ${EXAM ? `<button class="tile soft" id="resumeEx" style="min-height:0"><b>Rozpracovaný test</b><span>${Object.keys(EXAM.ans).length}/${EXAM.list.length} zodpovedaných · pokračovať</span></button>` : ""}
+    <section>
+      <div class="hero">
+        ${ring(pf(all.m / TOTAL), segsAll.concat([[all.w / TOTAL, "var(--bad-ring)"]]), "spolu")}
+        <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+          <h2>${all.m} z ${TOTAL} otázok máš zvládnutých</h2>
+          <p class="muted" style="margin:0;font-size:14px">Otázka je zvládnutá, keď si ju naposledy zodpovedala správne.${wrongN ? ` <span class="rbad">${wrongN} naposledy zle.</span>` : ""}</p>
+          <div class="legend">${Object.keys(GROUPS).map(g => `<span><i style="background:var(--${g})"></i>${GROUPS[g].name.toLowerCase()}</span>`).join("")}</div>
+        </div>
+      </div>
+      <div class="rings">${Object.keys(GROUPS).map(g => { const s = gs[g]; return `<button class="rcard ${GROUPS[g].cls}" data-g="${g}" style="border:0;background:none">${ring(pf(s.m / s.total), [[s.m / s.total, `var(--${g})`], [s.w / s.total, "var(--bad-ring)"]], GROUPS[g].name)}<div class="rsub num">${s.m} / ${s.total}${s.w ? `<br><span class="rbad">${s.w} zle</span>` : ""}</div></button>`; }).join("")}</div>
+      <div class="stats">
+        <div><b>${all.m}</b><span>zvládnutých z ${TOTAL}</span></div>
+        <div><b>${all.seen}</b><span>prejdených otázok</span></div>
+        <div><b>${st}</b><span>${dword(st)} v rade učenia</span></div>
+      </div>
+    </section>
+    <section><h3>Precvičovanie</h3>
+      <div class="tiles">
+        ${Object.keys(GROUPS).map(g => { const n = COURSES.filter(c => c.g === g).length; return `<button class="tile g ${GROUPS[g].cls}" data-g="${g}"><b>${GROUPS[g].long}</b><span>${n} ${n === 1 ? "predmet" : n < 5 ? "predmety" : "predmetov"} · ${gs[g].total} otázok</span></button>`; }).join("")}
+        <button class="tile" data-go="custom"><b>Vlastný mix</b><span>náhodné otázky z vybraných predmetov</span></button>
+        <button class="tile" data-go="examSetup"><b>Simulácia testu</b><span>ako v Moodle, so stopkami</span></button>
+        <button class="tile soft" data-go="info"><b>O prijímačkách</b><span>čo fakulta zverejnila</span></button>
+      </div>
+      ${wrongN ? `<div class="row"><button class="btn wide" id="wrongAll">Opakovať moje chyby (${wrongN})</button></div>` : ""}
+    </section>
+    <section><h3>Všetky predmety</h3>${courseList(COURSES)}</section>
+    <section><h3>Nastavenia</h3>
+      <div class="opts"><span>Vzhľad</span>
+      <div class="seg" role="group" aria-label="Vzhľad">${[["auto","Podľa telefónu"],["light","Svetlý"],["dark","Tmavý"]].map(([v,t]) => `<button data-th="${v}" aria-pressed="${OPT.theme === v}">${t}</button>`).join("")}</div></div></section>
+    <div class="foot">
+      <button class="link" id="transfer" style="text-align:left">Preniesť pokrok na iné zariadenie</button>
+      ${S.flags.length ? `<span>Nahlásené otázky: ${S.flags.length} (pošli mi ich čísla: ${S.flags.map(esc).join(", ")})</span>` : ""}
+      <span>Pokrok sa ukladá v tomto zariadení.</span>
+    </div>`;
+  document.getElementById("examDate").onchange = e => { if (e.target.value){ S.examDate = e.target.value; save(); render(); } };
+  app.querySelectorAll("[data-g]").forEach(el => el.onclick = () => go({name:"group", g: el.dataset.g}));
+  app.querySelectorAll("[data-go]").forEach(el => el.onclick = () => go({name: el.dataset.go}));
+  bindCourseList();
+  const w = document.getElementById("wrongAll"); if (w) w.onclick = () => startRun("Moje chyby", QS.filter(q => S.q[q.id] && !S.q[q.id][2]));
+  const rx = document.getElementById("resumeEx"); if (rx) rx.onclick = () => { if (Date.now() > EXAM.end) return finishExam(); go({name:"examQ"}); };
+  document.getElementById("transfer").onclick = () => go({name:"transfer"});
+  app.querySelectorAll("[data-th]").forEach(b => b.onclick = () => { OPT.theme = b.dataset.th; saveOpt(); applyTheme(); render(); });
+}
+function courseList(list){
+  return `<div class="tlist">${list.map(c => { const s = stats(q => q.c === c.id); return `<button class="trow ${GROUPS[c.g].cls}" data-c="${c.id}">
+    <span class="stripe"></span>
+    <span class="tinfo"><b>${esc(c.name)}${c.prof ? '<span class="prof">profil</span>' : ""}</b><span>${c.code} · ${c.sem} · ${s.m}/${s.total}${s.w ? ` · <em>${s.w} zle</em>` : ""}</span>
+      <span class="track"><i style="width:${s.m / s.total * 100}%;background:var(--c)"></i><i style="width:${s.w / s.total * 100}%;background:var(--bad);opacity:.55"></i></span></span>
+    <span class="p">${Math.round(s.m / s.total * 100)}<small style="font-size:.5em"> %</small></span></button>`; }).join("")}</div>`;
+}
+function bindCourseList(){ app.querySelectorAll("[data-c]").forEach(el => el.onclick = () => go({name:"course", c: el.dataset.c})); }
+
+/* ---------- skupina ---------- */
+function group(g){
+  const G = GROUPS[g]; const s = stats(q => q.g === g); const cs = COURSES.filter(c => c.g === g);
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">${G.name}</span><span></span></div>
+    <section class="${G.cls}">
+      <h1 style="color:var(--c-deep)">${G.long}</h1>
+      <p class="lead">Správne máš ${s.m} z ${s.total} otázok (${pf(s.m / s.total)} %).</p>
+      <div class="row"><button class="btn wide" id="all">Precvičiť všetko (${s.total})</button>${s.w ? `<button class="btn ghost wide" id="wr">Moje chyby (${s.w})</button>` : ""}</div>
+      ${courseList(cs)}
+    </section>`;
+  back(); bindCourseList();
+  document.getElementById("all").onclick = () => startRun(G.long, QS.filter(q => q.g === g));
+  const wr = document.getElementById("wr"); if (wr) wr.onclick = () => startRun(G.long + " · chyby", QS.filter(q => q.g === g && S.q[q.id] && !S.q[q.id][2]));
+}
+
+/* ---------- predmet + okruhy ---------- */
+function course(cid){
+  const c = CMAP[cid]; const G = GROUPS[c.g]; const s = stats(q => q.c === cid);
+  const qs = QS.filter(q => q.c === cid);
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← ${G.name}</button><span class="eyebrow">${c.code}</span><span></span></div>
+    <section class="${G.cls}">
+      <div class="eyebrow" style="color:var(--c-deep)">${G.long}${c.prof ? " · profilový predmet" : ""}</div>
+      <h1 style="color:var(--c-deep);font-size:clamp(32px,9vw,46px)">${esc(c.name)}</h1>
+      <p class="lead">${c.sem} Bc. štúdia na FiF UK · správne ${s.m} z ${s.total}${s.w ? `, <span class="rbad">${s.w} naposledy zle</span>` : ""}.</p>
+      <div class="row"><button class="btn wide" id="all">Precvičiť (${s.total})</button>${s.seen < s.total ? `<button class="btn ghost wide" id="nw">Nové (${s.total - s.seen})</button>` : ""}${s.w ? `<button class="btn ghost wide" id="wr">Chyby (${s.w})</button>` : ""}</div>
+    </section>
+    <section class="${G.cls}"><h3>Okruhy podľa informačného listu</h3><ol class="topics">${c.topics.map(t => `<li>${esc(t)}</li>`).join("")}</ol></section>`;
+  back("", {name:"group", g: c.g});
+  document.getElementById("all").onclick = () => startRun(c.name, qs);
+  const nw = document.getElementById("nw"); if (nw) nw.onclick = () => startRun(c.name + " · nové", qs.filter(q => !S.q[q.id]));
+  const wr = document.getElementById("wr"); if (wr) wr.onclick = () => startRun(c.name + " · chyby", qs.filter(q => S.q[q.id] && !S.q[q.id][2]));
+}
+
+/* ---------- vlastný mix ---------- */
+let mixSel = new Set(COURSES.map(c => c.id)), mixN = 20, mixF = "all";
+function custom(){
+  const pool = () => QS.filter(q => mixSel.has(q.c)).filter(q => mixF === "new" ? !S.q[q.id] : mixF === "wrong" ? (S.q[q.id] && !S.q[q.id][2]) : true);
+  const n = pool().length;
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Vlastný mix</span><span></span></div>
+    <section><h1>Vlastný <em>mix</em></h1><p class="lead">Vyber predmety a počet otázok. Najprv dostaneš tie, ktoré si ešte nevidela alebo máš zle.</p></section>
+    ${Object.keys(GROUPS).map(g => `<div class="field ${GROUPS[g].cls}"><span class="lbl" style="color:var(--c-deep)">${GROUPS[g].long}</span><div class="chips">${COURSES.filter(c => c.g === g).map(c => `<button class="chip" data-c="${c.id}" aria-pressed="${mixSel.has(c.id)}">${esc(c.name)}</button>`).join("")}</div></div>`).join("")}
+    <div class="row"><button class="btn ghost small" id="selAll">Vybrať všetky</button><button class="btn ghost small" id="selNone">Zrušiť výber</button></div>
+    <div class="field"><span class="lbl">Ktoré otázky</span><div class="chips">${[["all","Všetky"],["new","Ešte nevidené"],["wrong","Naposledy zle"]].map(([k,t]) => `<button class="chip" data-f="${k}" aria-pressed="${mixF === k}">${t}</button>`).join("")}</div></div>
+    <div class="field"><span class="lbl">Počet</span><div class="chips">${[10,20,40,80].map(k => `<button class="chip" data-n="${k}" aria-pressed="${mixN === k}">${k}</button>`).join("")}</div></div>
+    <div class="row"><button class="btn wide" id="start" ${n ? "" : "disabled"}>Začať · ${Math.min(n, mixN)} otázok</button></div>
+    <p class="info">${n} otázok zodpovedá výberu.</p>`;
+  back();
+  app.querySelectorAll("[data-c]").forEach(b => b.onclick = () => { const id = b.dataset.c; mixSel.has(id) ? mixSel.delete(id) : mixSel.add(id); custom(); });
+  app.querySelectorAll("[data-f]").forEach(b => b.onclick = () => { mixF = b.dataset.f; custom(); });
+  app.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { mixN = +b.dataset.n; custom(); });
+  document.getElementById("selAll").onclick = () => { mixSel = new Set(COURSES.map(c => c.id)); custom(); };
+  document.getElementById("selNone").onclick = () => { mixSel = new Set(); custom(); };
+  document.getElementById("start").onclick = () => {
+    const pr = q => { const r = S.q[q.id]; return !r ? 0 : r[2] ? 2 : 1; };
+    const list = shuffle(pool()).sort((a, b) => pr(a) - pr(b)).slice(0, mixN);
+    startRun("Vlastný mix", list);
+  };
+}
+
+/* ---------- precvičovanie ---------- */
+function startRun(title, list){
+  if (!list.length) return;
+  run = {title, items: shuffle(list).map(q => ({id: q.id, order: shuffle([0,1,2,3])})), i: 0, ok: 0, picked: null, from: view};
+  go({name:"quiz"});
+}
+function quiz(){
+  const R = run; const it = R.items[R.i]; const q = QMAP[it.id]; const c = CMAP[q.c]; const G = GROUPS[c.g];
+  const done = R.picked !== null; const flagged = S.flags.includes(q.id);
+  app.innerHTML = `
+    <div class="top"><button class="link" id="quit">← Ukončiť</button><span class="count">${R.i + 1} / ${R.items.length} · správne ${R.ok}</span></div>
+    <div class="prog ${G.cls}"><i style="width:${(R.i + (done ? 1 : 0)) / R.items.length * 100}%"></i></div>
+    <section class="${G.cls}">
+      <div class="qhead"><span class="tag">${esc(c.name)}</span></div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="answers">${it.order.map((oi, k) => { let cl = ""; if (done){ if (oi === 0) cl = "ok"; else if (k === R.picked) cl = "bad"; } return `<button class="ans ${cl}" data-k="${k}" ${done ? "disabled" : ""}><span class="l">${L[k]}</span><span class="tx">${esc(q.o[oi])}</span></button>`; }).join("")}</div>
+      ${done ? `<div class="verdict ${it.order[R.picked] === 0 ? "ok" : "bad"}"><b>${it.order[R.picked] === 0 ? "Správne" : "Nesprávne · správne je " + L[it.order.indexOf(0)]}</b><span>${esc(q.e)}</span></div>
+        <button class="flagb" id="flag" aria-pressed="${flagged}">${flagged ? "Nahlásená ako chybná otázka" : "Nahlásiť chybu v otázke"}</button>` : ""}
+    </section>
+    ${done ? `<div class="dock"><button class="btn wide" id="next">${R.i + 1 >= R.items.length ? "Zobraziť výsledok" : "Ďalšia otázka"}</button></div>` : ""}`;
+  document.getElementById("quit").onclick = () => { R.items = R.items.slice(0, R.i + (done ? 1 : 0)); if (!R.items.length) return go(R.from || {name:"home"}); go({name:"result"}); };
+  app.querySelectorAll(".ans").forEach(b => b.onclick = () => { if (R.picked !== null) return; R.picked = +b.dataset.k; const ok = it.order[R.picked] === 0; if (ok) R.ok++; record(q.id, ok); quiz(); });
+  const nx = document.getElementById("next"); if (nx){ nx.focus({preventScroll:true}); nx.onclick = () => { R.i++; R.picked = null; if (R.i >= R.items.length) go({name:"result"}); else { quiz(); window.scrollTo(0, 0); } }; }
+  const fl = document.getElementById("flag"); if (fl) fl.onclick = () => { const i = S.flags.indexOf(q.id); if (i >= 0) S.flags.splice(i, 1); else S.flags.push(q.id); save(); quiz(); };
+}
+function result(){
+  const R = run; const pct = Math.round(R.ok / R.items.length * 100);
+  const wrong = R.items.filter(it => S.q[it.id] && !S.q[it.id][2]);
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">${esc(R.title)}</span><span></span></div>
+    <section><div class="big">${pct}<small> %</small></div><h2>${R.ok} z ${R.items.length} správne</h2></section>
+    <div class="row"><button class="btn wide" id="again">Znova to isté</button>${wrong.length ? `<button class="btn ghost wide" id="wr">Iba chyby (${wrong.length})</button>` : ""}</div>`;
+  back();
+  document.getElementById("again").onclick = () => startRun(R.title, R.items.map(it => QMAP[it.id]));
+  const wr = document.getElementById("wr"); if (wr) wr.onclick = () => startRun(R.title + " · chyby", wrong.map(it => QMAP[it.id]));
+}
+document.addEventListener("keydown", e => {
+  if (view.name !== "quiz" || e.target.tagName === "INPUT") return;
+  const k = ["a","b","c","d"].indexOf(e.key.toLowerCase());
+  if (k >= 0 && run.picked === null){ const b = app.querySelector(`.ans[data-k="${k}"]`); if (b) b.click(); }
+  else if (e.key === "Enter" && run.picked !== null){ const n = document.getElementById("next"); if (n){ e.preventDefault(); n.click(); } }
+});
+
+/* ---------- simulácia testu ---------- */
+let exN = 60, exMin = 60;
+function examSetup(){
+  const hist = S.exams.slice(-10);
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Simulácia testu</span><span></span></div>
+    <section><h1>Simulácia <em>testu</em></h1><p class="lead">Náhodný výber zo všetkých predmetov, rovnomerne rozložený. Výsledky uvidíš až po odovzdaní, ako v Moodle.</p>
+      <p class="info">Fakulta nezverejňuje počet otázok ani čas – tie budú v pozvánke. Nastav si ich sama.</p></section>
+    <div class="field"><span class="lbl">Počet otázok</span><div class="chips">${[30,60,100,150].map(n => `<button class="chip" data-n="${n}" aria-pressed="${exN === n}">${n}</button>`).join("")}</div></div>
+    <div class="field"><span class="lbl">Čas</span><div class="chips">${[30,45,60,90,120].map(m => `<button class="chip" data-m="${m}" aria-pressed="${exMin === m}">${m} min</button>`).join("")}</div></div>
+    <div class="row"><button class="btn wide" id="start">Spustiť test</button></div>
+    ${hist.length ? `<section><h3>Moje testy</h3><div class="ftable">${hist.slice().reverse().map(h => `<div><span>${h.date} · ${h.n} otázok</span><b>${h.pct} %</b></div>`).join("")}</div></section>` : ""}`;
+  back();
+  app.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { exN = +b.dataset.n; examSetup(); });
+  app.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { exMin = +b.dataset.m; examSetup(); });
+  document.getElementById("start").onclick = () => {
+    const byC = shuffle(COURSES).map(c => shuffle(QS.filter(q => q.c === c.id)));
+    const picked = []; const n = Math.min(exN, TOTAL);
+    for (let r = 0; picked.length < n; r++) for (const arr of byC) if (arr[r] && picked.length < n) picked.push(arr[r]);
+    EXAM = {list: shuffle(picked).map(q => ({id: q.id, order: shuffle([0,1,2,3])})), ans: {}, flag: {}, i: 0, start: Date.now(), end: Date.now() + exMin * 60000};
+    saveExam(); go({name:"examQ"});
+  };
+}
+const fmtT = ms => { const s = Math.max(0, Math.ceil(ms / 1000)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
+function examQ(){
+  const E = EXAM; const it = E.list[E.i]; const q = QMAP[it.id]; const sel = E.ans[E.i];
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="timer" id="timer">${fmtT(E.end - Date.now())}</span></div>
+    <div class="prog"><i style="width:${Object.keys(E.ans).length / E.list.length * 100}%"></i></div>
+    <section>
+      <div class="qhead"><span class="qnum">Otázka ${E.i + 1}</span><span class="count">z ${E.list.length}</span></div>
+      <p class="qtext">${esc(q.q)}</p>
+      <div class="answers">${it.order.map((oi, k) => `<button class="ans ${sel === k ? "sel" : ""}" data-k="${k}"><span class="l">${L[k]}</span><span class="tx">${esc(q.o[oi])}</span></button>`).join("")}</div>
+      <button class="flagb" id="fl" aria-pressed="${!!E.flag[E.i]}">${E.flag[E.i] ? "Označená na neskôr" : "Označiť na neskôr"}</button>
+    </section>
+    <div class="dock"><button class="btn ghost" id="prev" ${E.i === 0 ? "disabled" : ""}>‹</button>${E.i + 1 < E.list.length ? `<button class="btn wide" id="nx">Ďalšia</button>` : `<button class="btn wide" id="sub2">Odovzdať test</button>`}</div>
+    <section><h3>Navigácia</h3>
+      <div class="navgrid">${E.list.map((_, j) => `<button data-j="${j}" class="${E.ans[j] !== undefined ? "a" : ""} ${E.flag[j] ? "f" : ""} ${j === E.i ? "cur" : ""}">${j + 1}</button>`).join("")}</div>
+      <p class="info">Zodpovedané ${Object.keys(E.ans).length} z ${E.list.length}. Ťuknutím na vybranú odpoveď ju zrušíš.</p>
+      <div class="row"><button class="btn ghost wide" id="sub">Odovzdať test</button></div>
+      <div id="conf"></div></section>`;
+  back();
+  app.querySelectorAll(".ans").forEach(b => b.onclick = () => { const k = +b.dataset.k; if (E.ans[E.i] === k) delete E.ans[E.i]; else E.ans[E.i] = k; saveExam(); examQ(); });
+  app.querySelectorAll("[data-j]").forEach(b => b.onclick = () => { E.i = +b.dataset.j; saveExam(); examQ(); window.scrollTo(0, 0); });
+  document.getElementById("fl").onclick = () => { E.flag[E.i] = !E.flag[E.i]; saveExam(); examQ(); };
+  document.getElementById("prev").onclick = () => { E.i--; saveExam(); examQ(); window.scrollTo(0, 0); };
+  const nx = document.getElementById("nx"); if (nx) nx.onclick = () => { E.i++; saveExam(); examQ(); window.scrollTo(0, 0); };
+  const ask = () => { const miss = E.list.length - Object.keys(E.ans).length;
+    const cf = document.getElementById("conf");
+    cf.innerHTML = `<div class="confirm"><b>Odovzdať test?</b><span class="muted">${miss ? `Nezodpovedané: ${miss}. ` : ""}Potom už odpovede nezmeníš.</span><div class="row"><button class="btn wide" id="yes">Odovzdať</button><button class="btn ghost wide" id="no">Späť</button></div></div>`;
+    document.getElementById("yes").onclick = finishExam; document.getElementById("no").onclick = () => cf.innerHTML = "";
+    cf.scrollIntoView({behavior:"smooth", block:"center"}); };
+  document.getElementById("sub").onclick = ask; const s2 = document.getElementById("sub2"); if (s2) s2.onclick = ask;
+  timerId = setInterval(() => { const left = E.end - Date.now(); const t = document.getElementById("timer"); if (t){ t.textContent = fmtT(left); t.classList.toggle("low", left < 300000); } if (left <= 0) finishExam(); }, 1000);
+}
+let lastExam = null;
+function finishExam(){
+  const E = EXAM; if (!E) return; clearInterval(timerId);
+  let ok = 0; const per = {}; const wrong = [];
+  E.list.forEach((it, j) => { const a = E.ans[j]; const good = a !== undefined && it.order[a] === 0; if (good) ok++; else wrong.push({it, j, a});
+    record(it.id, good); const g = QMAP[it.id].g; (per[g] = per[g] || [0,0]); per[g][1]++; if (good) per[g][0]++; });
+  const pct = Math.round(ok / E.list.length * 100); const d = new Date();
+  S.exams.push({date: `${d.getDate()}. ${d.getMonth()+1}.`, n: E.list.length, ok, pct}); save();
+  lastExam = {ok, n: E.list.length, pct, per, wrong, time: fmtT(Math.min(Date.now(), E.end) - E.start)};
+  EXAM = null; saveExam(); go({name:"examResult"});
+}
+function examResult(){
+  const X = lastExam; if (!X) return go({name:"home"});
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Výsledok testu</span><span></span></div>
+    <section><div class="big">${X.pct}<small> %</small></div><h2>${X.ok} z ${X.n} správne</h2><p class="muted" style="margin:0">čas ${X.time}</p></section>
+    <div class="rings">${Object.keys(GROUPS).filter(g => X.per[g]).map(g => { const [a, n] = X.per[g]; return `<div class="rcard ${GROUPS[g].cls}">${ring(Math.round(a / n * 100), [[a / n, `var(--${g})`]], GROUPS[g].name)}<div class="rsub num">${a} / ${n}</div></div>`; }).join("")}</div>
+    <p class="info">Prijíma sa podľa poradia, nie podľa pevnej hranice. Rozhoduje, ako dopadnú ostatní.</p>
+    <section><h3>Chybné a nezodpovedané (${X.wrong.length})</h3>
+      <div class="list">${X.wrong.map(({it, j, a}) => { const q = QMAP[it.id]; return `<div><em>${j + 1}. ${esc(CMAP[q.c].name)}</em><span class="q">${esc(q.q)}</span>${a !== undefined ? `<span class="you">Tvoja: ${esc(q.o[it.order[a]])}</span>` : `<span class="you">Bez odpovede</span>`}<span class="right">Správne: ${esc(q.o[0])}</span><em>${esc(q.e)}</em></div>`; }).join("") || '<div class="muted">Všetko správne.</div>'}</div></section>
+    <div class="row"><button class="btn wide" id="new">Nový test</button>${X.wrong.length ? `<button class="btn ghost wide" id="wr">Precvičiť chyby</button>` : ""}</div>`;
+  back();
+  document.getElementById("new").onclick = () => go({name:"examSetup"});
+  const wr = document.getElementById("wr"); if (wr) wr.onclick = () => startRun("Chyby z testu", X.wrong.map(w => QMAP[w.it.id]));
+}
+
+/* ---------- info ---------- */
+function info(){
+  const F = (k, v) => `<div><b>${k}</b><span>${v}</span></div>`;
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">O prijímačkách</span><span></span></div>
+    <section><h1>Čo vieme o <em>teste</em></h1><p class="lead">Podľa stránky FiF UK a odpovedí Katedry psychológie z Dňa otvorených dverí 2025.</p></section>
+    <div class="ftable facts">
+      ${F("Forma", "Písomný test v Moodle. Každý dostane rovnaký počet náhodne generovaných otázok z databázy.")}
+      ${F("Otázky", "S výberom možností, iba v slovenčine. Počet možností fakulta neuvádza; appka používa štyri.")}
+      ${F("Obsah", "Profilové a povinné kurzy Bc. psychológie na FiF UK, okruhy podľa informačných listov.")}
+      ${F("Počet a čas", "Nezverejňujú sa, prídu v pozvánke.")}
+      ${F("Staré testy", "Katedra ich nezverejňuje.")}
+      ${F("Prijatie", "Podľa poradia, približne 85–90 ľudí. Vlastní a cudzí absolventi sa nerozlišujú.")}
+      ${F("Záujem o Mgr.", "2023/24: 180 prihlásených, 87 prijatých.")}
+      ${F("Ich 3. ročník Bc.", "Do Bc. v 2024/25 prijali 62 z 981 uchádzačov. Títo ľudia teraz končia Bc. a pôjdu na rovnaké prijímačky ako ty.")}
+      ${F("Termíny 2026", "Prihláška do 30. 4., test 29. 5., výsledky v júni. Termíny na 2027 ešte nie sú.")}
+    </div>
+    <p class="info">Otázky v appke nie sú zo skutočnej databázy fakulty. Sú napísané podľa osnov v informačných listoch, aby pokryli rovnaké témy.</p>
+    <section><h3>Odkazy</h3><div class="foot" style="font-size:15px">
+      <a href="https://fphil.uniba.sk/pk/mgr/informacia-o-prijimacich-skuskach-na-magistersky-studijny-program-psychologia/" target="_blank" rel="noopener">Informácia o prijímacích skúškach</a>
+      <a href="https://ais2.uniba.sk/repo2/repository/default/ais/informacnelisty/2023-2024/FiF/SK/boPS.pdf" target="_blank" rel="noopener">Informačné listy predmetov (PDF)</a>
+      <a href="https://ais2.uniba.sk/repo2/repository/default/ais/studijneplany/2023-2024/FiF/SK/boPS.xml" target="_blank" rel="noopener">Študijný plán boPS</a>
+    </div></section>`;
+  back();
+}
+
+/* ---------- prenos ---------- */
+function transfer(){
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Prenos pokroku</span><span></span></div>
+    <section><h2>Preniesť pokrok</h2><p class="lead">Na tomto zariadení skopíruj kód. Na druhom otvor tú istú stránku, choď sem a kód vlož. Pokrok na druhom zariadení sa nahradí týmto.</p></section>
+    <section><div class="field"><span class="lbl">Kód z tohto zariadenia</span><textarea class="code" id="out" readonly rows="4">${exportCode()}</textarea></div>
+      <div class="row"><button class="btn wide" id="copy">Kopírovať kód</button></div></section>
+    <section><div class="field"><span class="lbl">Vložiť kód z iného zariadenia</span><textarea class="code" id="in" rows="4" placeholder="Sem vlož skopírovaný kód"></textarea></div>
+      <div class="row"><button class="btn ghost wide" id="load">Načítať pokrok</button></div><p class="info" id="msg">Kód si pošli napríklad sama sebe cez správy alebo e-mail.</p></section>`;
+  back();
+  document.getElementById("copy").onclick = async () => { const o = document.getElementById("out"); try { await navigator.clipboard.writeText(o.value); document.getElementById("copy").textContent = "Skopírované"; } catch(e){ o.focus(); o.select(); document.getElementById("msg").textContent = "Kód je označený, skopíruj ho podržaním prsta."; } };
+  document.getElementById("load").onclick = () => { try { importCode(document.getElementById("in").value); document.getElementById("msg").textContent = "Pokrok načítaný."; setTimeout(() => go({name:"home"}), 700); } catch(e){ document.getElementById("msg").textContent = "Tento kód sa nedá načítať. Skontroluj, či si skopírovala celý."; } };
+}
+
+render();
+if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {})); }
+</script>
+</body>
+</html>
