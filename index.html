@@ -184,6 +184,15 @@ section{display:flex;flex-direction:column;gap:14px}
 .countdown b{font-family:var(--display);font-size:40px;font-weight:500;line-height:1}
 .countdown span{font-weight:600;line-height:1.3}
 .countdown small{font-weight:400;color:var(--muted);font-size:13px}
+.countdown{flex-wrap:wrap}
+.countdown > span{flex:1 1 170px}
+.cdate{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+.cdate input{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;background:var(--bg);color:var(--ink)}
+.ftable.facts div{flex-direction:column;gap:2px}
+.ftable.facts span{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.ftable.facts b{font-weight:500;font-size:15px}
+.links{display:flex;flex-direction:column;gap:8px;font-size:15px}
+.links a{color:var(--ink)}
 .tile.calc{background:var(--soft);border-color:transparent}
 .opts{display:flex;align-items:center;justify-content:space-between;gap:10px 12px;font-size:15px;flex-wrap:wrap}
 .opts small{font-size:13px}
@@ -318,8 +327,9 @@ function applyTheme(){
 }
 applyTheme();
 function saveOpt(){ try { localStorage.setItem(LKEY+"-opt", JSON.stringify(OPT)); } catch(e){} }
-const EXAM_DATE = new Date(2027,5,1);
-function daysLeft(){ return Math.max(0, Math.ceil((EXAM_DATE - new Date())/864e5)); }
+function examISO(){ return OPT.examDate || "2027-06-01"; }
+function daysLeft(){ return Math.max(0, Math.ceil((new Date(examISO()+"T08:00:00") - new Date())/864e5)); }
+const MESIACE = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
 
 /* ---------- derived stats ---------- */
 function qState(s,n){ return S.q[s][n] || "0"; }
@@ -364,6 +374,7 @@ function render(){
   if (view.name==="result") return result();
   if (view.name==="flags") return flags();
   if (view.name==="transfer") return transfer();
+  if (view.name==="info") return info();
   if (view.name==="examples") return examples();
   if (view.name==="formulas") return formulas();
   if (view.name==="guide") return guidePage(view.t);
@@ -386,9 +397,9 @@ function home(){
   const ex = S.exams.slice(-10);
   app.innerHTML = `
     <header class="top" style="align-items:flex-start">
-      <div><div class="eyebrow">LF SZU · prijímačky jún 2027</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
+      <div><div class="eyebrow">LF SZU · prijímačky ${MESIACE[+examISO().slice(5,7)-1]} ${examISO().slice(0,4)}</div><h1>Tvoja cesta<br>na <em>medicínu</em></h1></div>
     </header>
-    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov</small></span></div>
+    <div class="countdown"><b class="num">${daysLeft()}</b><span>${daysLeft()===1?"deň":daysLeft()<5?"dni":"dní"} do prijímačiek<br><small>${Math.floor(daysLeft()/7)} týždňov · ${+examISO().slice(8,10)}. ${+examISO().slice(5,7)}. ${examISO().slice(0,4)} (odhad)</small></span><label class="cdate">Zmeniť termín<input type="date" id="examDate" value="${examISO()}"></label></div>
     <section>
       <div class="rings">
         ${["bio","che"].map(sj=>{ const st=sj==="bio"?b:c; return `<div class="rcard ${SUBJ[sj].cls}">${ring(pf(st.m/st.total), [[st.m/st.total,"var(--"+sj+")"],[st.w/st.total,"var(--bad-ring)"]], SUBJ[sj].name)}<div class="rsub num">${st.m} / ${st.total} správne${st.w?`<br><span class="rbad">${st.w} naposledy zle</span>`:""}</div></div>`; }).join("")}
@@ -421,6 +432,7 @@ function home(){
       <div class="opts"><span>Vzhľad</span>
       <div class="seg" role="group" aria-label="Vzhľad">${[["auto","Podľa telefónu"],["light","Svetlý"],["dark","Tmavý"]].map(([v,t])=>`<button data-th="${v}" aria-pressed="${OPT.theme===v}">${t}</button>`).join("")}</div></div></section>
     <div class="foot">
+      <button class="link" id="infoL" style="text-align:left">O prijímačkách a odkazy</button>
       <button class="link" id="transfer" style="text-align:left">Preniesť pokrok na iné zariadenie</button>
       ${S.flags.length?`<button class="link" id="flags" style="text-align:left">Nahlásené otázky (${S.flags.length})</button>`:""}
       <span>Pokrok sa ukladá v tomto zariadení.</span>
@@ -430,6 +442,8 @@ function home(){
   const w=document.getElementById("wrongAll"); if(w) w.onclick=()=>{ const list=[]; for(const s of ["bio","che"]) for(const q of BANK[s]) if(qState(s,q[0])==="1") list.push({s,n:q[0]}); startRun({title:"Moje chyby", list:shuffle(list), mode:"practice"}); };
   const rx=document.getElementById("resumeEx"); if(rx) rx.onclick=()=>{ run=local.exam; if(run.limit && Date.now()-run.started>run.limit*60000) return finishExam(); view={name:"quiz"}; render(); window.scrollTo(0,0); };
   document.getElementById("transfer").onclick=()=>go({name:"transfer"});
+  document.getElementById("infoL").onclick=()=>go({name:"info"});
+  document.getElementById("examDate").onchange=e=>{ if(e.target.value){ OPT.examDate=e.target.value; saveOpt(); render(); } };
   app.querySelectorAll("[data-th]").forEach(b=>b.onclick=()=>{ OPT.theme=b.dataset.th; saveOpt(); applyTheme(); render(); });
   document.getElementById("shufA").onclick=e=>{ OPT.shuf=!OPT.shuf; e.currentTarget.setAttribute("aria-checked",OPT.shuf); saveOpt(); };
   const f=document.getElementById("flags"); if(f) f.onclick=()=>go({name:"flags"});
@@ -681,6 +695,28 @@ async function reportShared(it, on){
   try { const ref=db.doc("reports/"+it.s+"-"+it.n); if(on) await ref.set({s:it.s,n:it.n,t:Date.now()}); else await ref.delete(); } catch(e){}
 }
 
+
+function info(){
+  const F=(k,v)=>`<div><span>${k}</span><b>${v}</b></div>`;
+  app.innerHTML = `
+    <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">O prijímačkách</span><span></span></div>
+    <section><h1>Čo vieme o <em>prijímačkách</em></h1><p class="lead">Podľa informácií LF SZU k prijímaciemu konaniu na akademický rok 2026/2027. Na rok 2027/2028 sa môžu zmeniť, sleduj stránku fakulty.</p></section>
+    <div class="ftable facts">
+      ${F("Test","160 otázok – 80 z biológie a 80 z chémie, učivo strednej školy. Čas 150 minút, najviac 640 bodov.")}
+      ${F("Bonusové body","Najviac 55 bodov za priemer známok a olympiády, spolu teda najviac 695 bodov.")}
+      ${F("Poradie","Prijíma sa podľa celkového počtu bodov. Výsledky sa zverejňujú pod náhodne prideleným kódom.")}
+      ${F("Počet miest","Plánovane 80 študentov (slovenský program).")}
+      ${F("Prihláška","Do 28. februára, poplatok 70 €.")}
+      ${F("Skúška","V roku 2026 od 8. júna, náhradný termín 18. júna. Presné dni závisia od počtu uchádzačov.")}
+      ${F("Školné","Denné štúdium v štandardnej dĺžke je bezplatné. Pri prekročení dĺžky alebo pri súbežnom štúdiu je to 1 000 € ročne.")}
+      ${F("Materiály","Prípravné materiály pošle fakulta v PDF na e-mail po podaní prihlášky a zaplatení poplatku.")}
+    </div>
+    <section><h3>Odkazy</h3><div class="links">
+      <a href="https://eszu.sk/wp-content/uploads/Informacie-o-PK-LF.pdf" target="_blank" rel="noopener">Informácie o prijímacom konaní LF SZU (PDF)</a>
+      <a href="https://eszu.sk/" target="_blank" rel="noopener">Slovenská zdravotnícka univerzita – eszu.sk</a>
+    </div></section>`;
+  document.getElementById("back").onclick=()=>go({name:"home"});
+}
 
 function transfer(){
   const code=exportCode();
