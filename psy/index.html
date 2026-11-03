@@ -11,55 +11,58 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Psychológia">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141211" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f8f2f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161013" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap">
 <style>
-/* Layout: rovnaký pokojný stĺpec ako appka na LF SZU – súhrn hore, potom predmety; jedna otázka na obrazovku. Farby skupín: bio zelená, metodológia fialová, psychológia púdrová. */
+/* Layout: tichý luxus – úzky stĺpec, jedna hlavná karta s koliečkom a odpočtom, jemné vlasové linky namiesto rámikov; skupiny: bio šalviová, metodológia levanduľová, psychológia púdrová. */
 :root{
-  --bg:#f7f5f2; --surface:#ffffff; --ink:#1c1714; --muted:#7a6f66; --line:#e6e0d9; --soft:#efebe6;
-  --bio:#5f8f5a; --bio-soft:#e7f0e3; --bio-deep:#3f6b3b;
-  --met:#8a73b8; --met-soft:#eee9f6; --met-deep:#634f93;
-  --psy:#c98a9b; --psy-soft:#f7e9ed; --psy-deep:#94505f;
-  --ok:#2f6b4a; --ok-soft:#e3efe7; --bad:#a23b36; --bad-soft:#f7e4e2; --bad-ring:rgba(162,59,54,.8);
-  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
-  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --r:16px;
+  --bg:#f8f2f2; --surface:#fffbfa; --ink:#2b1a21; --muted:#8a6f78; --line:#ecdde0; --soft:#f2e5e8;
+  --rose:#b8667e; --rose-deep:#7e3d55; --rose-soft:#f6e3e8; --blush:#fbeef1;
+  --bio:#7c9a78; --bio-soft:#eaf0e7; --bio-deep:#4f6d4b;
+  --met:#9585bd; --met-soft:#efebf6; --met-deep:#62538f;
+  --psy:#d09aa9; --psy-soft:#f8e8ec; --psy-deep:#9a5167;
+  --ok:#3f7a5a; --ok-soft:#e6f1ea; --bad:#a8434a; --bad-soft:#f8e4e4; --bad-ring:rgba(168,67,74,.75);
+  --display:"Cormorant Garamond","Cormorant","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Avenir Next","Futura",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#141211; --surface:#1d1a19; --ink:#f2ede8; --muted:#a3978d; --line:#35302c; --soft:#25211f;
-  --bio:#93c08c; --bio-soft:#1f2a1e; --bio-deep:#b5d9ae;
-  --met:#b9a6e3; --met-soft:#29233a; --met-deep:#d3c6f2;
-  --psy:#e5aebd; --psy-soft:#33232a; --psy-deep:#f3cdd6;
-  --ok:#83c79f; --ok-soft:#1c2c23; --bad:#ee918a; --bad-soft:#3b2220; --bad-ring:rgba(238,145,138,.85); color-scheme:dark}}
+  --bg:#161013; --surface:#20171b; --ink:#f6eaee; --muted:#b29aa2; --line:#3a2a31; --soft:#2a1f24;
+  --rose:#e3a1b4; --rose-deep:#f1c3d0; --rose-soft:#3a2530; --blush:#2a1b22;
+  --bio:#a3c39e; --bio-soft:#1f2a1f; --bio-deep:#c3dcbe;
+  --met:#bcaee6; --met-soft:#28233a; --met-deep:#d8cdf3;
+  --psy:#e8b3c1; --psy-soft:#35232b; --psy-deep:#f4d0da;
+  --ok:#8bcaa5; --ok-soft:#1c2c23; --bad:#ef9a95; --bad-soft:#3b2222; --bad-ring:rgba(239,154,149,.8); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#141211; --surface:#1d1a19; --ink:#f2ede8; --muted:#a3978d; --line:#35302c; --soft:#25211f;
-  --bio:#93c08c; --bio-soft:#1f2a1e; --bio-deep:#b5d9ae;
-  --met:#b9a6e3; --met-soft:#29233a; --met-deep:#d3c6f2;
-  --psy:#e5aebd; --psy-soft:#33232a; --psy-deep:#f3cdd6;
-  --ok:#83c79f; --ok-soft:#1c2c23; --bad:#ee918a; --bad-soft:#3b2220; --bad-ring:rgba(238,145,138,.85); color-scheme:dark}
+  --bg:#161013; --surface:#20171b; --ink:#f6eaee; --muted:#b29aa2; --line:#3a2a31; --soft:#2a1f24;
+  --rose:#e3a1b4; --rose-deep:#f1c3d0; --rose-soft:#3a2530; --blush:#2a1b22;
+  --bio:#a3c39e; --bio-soft:#1f2a1f; --bio-deep:#c3dcbe;
+  --met:#bcaee6; --met-soft:#28233a; --met-deep:#d8cdf3;
+  --psy:#e8b3c1; --psy-soft:#35232b; --psy-deep:#f4d0da;
+  --ok:#8bcaa5; --ok-soft:#1c2c23; --bad:#ef9a95; --bad-soft:#3b2222; --bad-ring:rgba(239,154,149,.8); color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html,body{background:var(--bg)}
-body{margin:0;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+body{margin:0;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;font-weight:400;
+  padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));
   -webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
-.wrap{max-width:640px;margin:0 auto;padding-block:18px 56px;display:flex;flex-direction:column;gap:26px}
+.wrap{max-width:620px;margin:0 auto;padding-block:22px 64px;display:flex;flex-direction:column;gap:30px}
 button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
-h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,10.5vw,54px);line-height:1.02;margin:6px 0 0;letter-spacing:-.01em;text-wrap:balance}
-h1 em{font-style:italic}
-h2{font-family:var(--display);font-weight:500;font-size:26px;margin:0;line-height:1.15;text-wrap:balance}
-h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
-.lead{color:var(--muted);margin:8px 0 0;max-width:48ch}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(40px,11vw,58px);line-height:1;margin:8px 0 0;letter-spacing:-.005em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--rose-deep);font-weight:500}
+h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0;line-height:1.15;text-wrap:balance}
+h3{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:500}
+.lead{color:var(--muted);margin:8px 0 0;max-width:46ch}
 .muted{color:var(--muted)}
-.num{font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums lining-nums}
 section{display:flex;flex-direction:column;gap:14px}
 .row{display:flex;gap:10px;flex-wrap:wrap}
-.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:13px 20px;border-radius:99px;font-weight:600;font-size:15px}
+.btn{border:1px solid var(--rose-deep);background:var(--rose-deep);color:var(--surface);padding:13px 22px;border-radius:99px;font-weight:500;font-size:15px;letter-spacing:.02em}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn[disabled]{opacity:.35;cursor:default}
 .btn.wide{flex:1 1 140px}
@@ -71,83 +74,94 @@ section{display:flex;flex-direction:column;gap:14px}
 .met-c{--c:var(--met);--c-soft:var(--met-soft);--c-deep:var(--met-deep)}
 .psy-c{--c:var(--psy);--c-soft:var(--psy-soft);--c-deep:var(--psy-deep)}
 
-/* prehľad */
-.countdown{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);flex-wrap:wrap}
-.countdown b{font-family:var(--display);font-size:40px;font-weight:500;line-height:1}
-.countdown span{font-weight:600;line-height:1.3;flex:1 1 160px}
-.countdown small{font-weight:400;color:var(--muted);font-size:13px}
-.countdown input{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:3px 6px;background:var(--bg);color:var(--ink)}
-.ring{width:132px;height:132px;position:relative}
+/* hlavička */
+.mast{display:flex;align-items:center;gap:12px}
+.mono-mark{width:40px;height:40px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;font-family:var(--display);font-size:22px;color:var(--rose-deep);flex:none}
+
+/* hlavná karta */
+.hero-card{background:linear-gradient(160deg,var(--blush),var(--surface) 70%);border:1px solid var(--line);border-radius:26px;padding:22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center}
+.ring{width:min(140px,36vw);height:min(140px,36vw);position:relative}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
-.ring .c b{font-family:var(--display);font-size:34px;font-weight:500;line-height:1}
-.ring .c span{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center}
-.hero .ring{width:min(150px,40vw);height:min(150px,40vw)}
-.hero .ring .c b{font-size:40px}
-.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.rcard{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 0;min-width:0}
-.rcard .ring{width:min(104px,27vw);height:min(104px,27vw)}
-.rcard .ring .c b{color:var(--c-deep);font-size:clamp(20px,6vw,26px)}
-.rcard .ring .c span{color:var(--c-deep);font-size:10px}
-.rcard .ring svg circle:first-child{stroke:var(--c-soft)}
-.rsub{font-size:12px;color:var(--muted);text-align:center;line-height:1.35}
+.ring .c b{font-family:var(--display);font-size:clamp(30px,9vw,44px);font-weight:500;line-height:1;color:var(--rose-deep)}
+.ring .c span{font-size:10px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.hero-card .days{display:flex;flex-direction:column;gap:2px;min-width:0}
+.hero-card .days b{font-family:var(--display);font-size:clamp(44px,13vw,60px);font-weight:500;line-height:.95}
+.hero-card .days span{font-size:14px}
+.hero-card .days small{color:var(--muted);font-size:13px}
+.hero-card .sub{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
+.hero-card input{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:10px;padding:4px 8px;background:var(--surface);color:var(--ink)}
+@media (max-width:340px){.hero-card{grid-template-columns:1fr;justify-items:center;text-align:center}.hero-card .days{align-items:center}.hero-card .sub{justify-content:center}}
 .rbad{color:var(--bad)}
-.legend{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
-.legend span{display:inline-flex;gap:6px;align-items:center}
-.legend i{width:10px;height:6px;border-radius:3px;display:inline-block}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.stats div{background:var(--surface);padding:12px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.stats b{font-family:var(--display);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
-.stats span{font-size:12px;color:var(--muted);line-height:1.3}
+
+/* čísla */
+.stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.stats div{padding:4px 14px;display:flex;flex-direction:column;gap:0;min-width:0;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats b{font-family:var(--display);font-size:32px;font-weight:500;line-height:1.1;font-variant-numeric:lining-nums tabular-nums}
+.stats span{font-size:12px;color:var(--muted);line-height:1.35}
+
+/* skupiny */
+.groups{display:flex;flex-direction:column;gap:14px}
+.gline{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:baseline;background:none;border:0;padding:0;text-align:left;width:100%}
+.gline .n{display:flex;align-items:center;gap:10px;font-weight:500}
+.gline .n i{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+.gline .v{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.gline .track{grid-column:1/-1}
+.track{height:4px;border-radius:4px;background:var(--soft);overflow:hidden;display:flex}
+.track i{display:block;height:100%}
+
+/* dlaždice */
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px;text-align:left;display:flex;flex-direction:column;gap:4px;min-height:96px}
-.tile b{font-family:var(--display);font-size:21px;font-weight:500;line-height:1.15}
+.tile{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px 16px 14px;text-align:left;display:flex;flex-direction:column;gap:4px;min-height:104px;position:relative}
+.tile b{font-family:var(--display);font-size:22px;font-weight:500;line-height:1.1}
 .tile span{font-size:13px;color:var(--muted)}
 .tile.g{background:var(--c-soft);border-color:transparent}
 .tile.g b{color:var(--c-deep)}
-.tile.soft{background:var(--soft);border-color:transparent}
+.tile.g::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c);margin-bottom:6px}
+.tile.soft{background:var(--rose-soft);border-color:transparent}
+.tile.soft b{color:var(--rose-deep)}
+.tile.wideT{grid-column:1/-1;min-height:0}
 
 /* zoznam predmetov */
 .tlist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.trow{display:grid;grid-template-columns:4px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);text-align:left;background:none;border-left:0;border-right:0;border-top:0;width:100%}
-.trow .stripe{align-self:stretch;background:var(--c);border-radius:3px}
-.tinfo{display:flex;flex-direction:column;gap:4px;min-width:0}
-.tinfo b{font-weight:600}
+.trow{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);text-align:left;background:none;border-left:0;border-right:0;border-top:0;width:100%}
+.trow .stripe{width:9px;height:9px;border-radius:50%;background:var(--c);align-self:start;margin-top:7px}
+.tinfo{display:flex;flex-direction:column;gap:5px;min-width:0}
+.tinfo b{font-weight:500}
 .tinfo span{font-size:13px;color:var(--muted)}
 .tinfo em{font-style:normal;color:var(--bad)}
-.track{height:5px;border-radius:5px;background:var(--soft);overflow:hidden;display:flex;max-width:260px}
-.track i{display:block;height:100%}
-.trow .p{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums;color:var(--c-deep)}
-.prof{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-deep);margin-left:6px}
+.tinfo .track{max-width:240px;height:3px}
+.trow .p{font-family:var(--display);font-size:24px;font-variant-numeric:lining-nums tabular-nums;color:var(--c-deep)}
+.prof{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-left:8px;vertical-align:2px}
 
 /* formuláre */
 .field{display:flex;flex-direction:column;gap:8px}
-.field .lbl{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.field .lbl{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 12px;font-size:13px;font-variant-numeric:tabular-nums}
-.chip[aria-pressed="true"]{background:var(--c,var(--ink));border-color:var(--c,var(--ink));color:var(--bg)}
-.info{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:0}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 13px;font-size:13px;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--c,var(--rose-deep));border-color:var(--c,var(--rose-deep));color:var(--surface)}
+.info{font-size:14px;color:var(--muted);border-left:1px solid var(--rose);padding:2px 0 2px 14px;margin:0}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;gap:2px;background:var(--surface);flex-wrap:wrap}
-.seg button{border:0;background:none;padding:8px 14px;border-radius:99px;font-size:14px;font-weight:600;color:var(--muted)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.seg button{border:0;background:none;padding:8px 14px;border-radius:99px;font-size:14px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--rose-soft);color:var(--rose-deep);font-weight:500}
 .opts{display:flex;align-items:center;justify-content:space-between;gap:10px 12px;font-size:15px;flex-wrap:wrap}
-.opts small{font-size:13px}
 
 /* otázka */
 .count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;white-space:nowrap}
-.prog{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
-.prog i{display:block;height:100%;background:var(--c,var(--ink));transition:width .25s}
+.prog{height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--c,var(--rose));transition:width .25s}
 .qhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
-.qnum{font-family:var(--display);font-style:italic;font-size:20px;color:var(--c-deep,var(--ink))}
-.tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--c-soft);color:var(--c-deep)}
-.qtext{font-family:var(--display);font-size:clamp(21px,5.6vw,26px);line-height:1.32;margin:4px 0 0;font-weight:500;overflow-wrap:anywhere}
+.qnum{font-family:var(--display);font-style:italic;font-size:22px;color:var(--rose-deep)}
+.tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--c-soft);color:var(--c-deep)}
+.qtext{font-family:var(--display);font-size:clamp(24px,6.2vw,30px);line-height:1.25;margin:4px 0 0;font-weight:500;overflow-wrap:anywhere}
 .answers{display:flex;flex-direction:column;gap:10px}
 .ans{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;text-align:left;width:100%;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);transition:border-color .15s,background .15s}
-.ans .l{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:14px}
+.ans .l{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-size:17px}
 .ans .tx{padding-top:4px;min-width:0;overflow-wrap:anywhere}
-.ans.sel{border-color:var(--ink)}
-.ans.sel .l{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ans:hover:not([disabled]){border-color:var(--rose)}
+.ans.sel{border-color:var(--rose-deep);background:var(--rose-soft)}
+.ans.sel .l{background:var(--rose-deep);color:var(--surface);border-color:var(--rose-deep)}
 .ans.ok{border-color:var(--ok);background:var(--ok-soft)}
 .ans.ok .l{background:var(--ok);color:var(--surface);border-color:var(--ok)}
 .ans.bad{border-color:var(--bad);background:var(--bad-soft)}
@@ -162,35 +176,34 @@ section{display:flex;flex-direction:column;gap:14px}
 .flagb[aria-pressed="true"]{color:var(--bad)}
 .dock{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 78%,transparent);display:flex;gap:10px}
 .navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:5px}
-.navgrid button{border:1px solid var(--line);background:var(--surface);border-radius:8px;height:34px;font-size:12px;font-variant-numeric:tabular-nums;padding:0;position:relative}
-.navgrid button.a{background:var(--soft);border-color:var(--muted)}
-.navgrid button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.navgrid button{border:1px solid var(--line);background:var(--surface);border-radius:10px;height:34px;font-size:12px;font-variant-numeric:tabular-nums;padding:0;position:relative}
+.navgrid button.a{background:var(--rose-soft);border-color:var(--rose)}
+.navgrid button.cur{outline:2px solid var(--rose-deep);outline-offset:1px}
 .navgrid button.f::after{content:"";position:absolute;top:2px;right:2px;border-left:7px solid transparent;border-top:7px solid var(--bad)}
-.timer{font-variant-numeric:tabular-nums;font-weight:600}
+.timer{font-variant-numeric:tabular-nums;font-weight:500;color:var(--rose-deep)}
 .timer.low{color:var(--bad)}
-.confirm{border:1px solid var(--ink);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--surface)}
+.confirm{border:1px solid var(--rose);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--rose-soft)}
 
 /* výsledok */
-.big{font-family:var(--display);font-size:clamp(64px,19vw,96px);line-height:1;font-variant-numeric:tabular-nums}
-.big small{font-size:.38em;color:var(--muted)}
+.big{font-family:var(--display);font-size:clamp(72px,20vw,104px);line-height:1;font-variant-numeric:lining-nums tabular-nums;color:var(--rose-deep)}
+.big small{font-size:.36em;color:var(--muted)}
+.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .list > div{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;flex-direction:column;gap:3px}
-.list .q{font-weight:600}
+.list .q{font-weight:500}
 .list .you{color:var(--bad)} .list .right{color:var(--ok)}
 .list em{font-style:normal;color:var(--muted);font-size:13px}
-.ftable{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
-.ftable div{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.ftable div:last-child{border-bottom:0}
+.ftable{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.ftable div{display:flex;justify-content:space-between;gap:6px 16px;padding:12px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .ftable span{color:var(--muted);font-size:14px}
-.ftable b{font-weight:600;font-variant-numeric:tabular-nums}
-.ftable.facts span{color:var(--ink);font-size:15px;flex:1 1 220px}
-.ftable.facts b{flex:0 0 150px;font-size:14px}
-.topics{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.ftable b{font-weight:500;font-variant-numeric:tabular-nums}
+.ftable.facts span{color:var(--ink);font-size:15px;flex:1 1 240px}
+.ftable.facts b{flex:0 0 140px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.topics{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:7px;font-size:15px}
 .topics li::marker{font-family:var(--display);font-style:italic;color:var(--c-deep)}
 .foot{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
 textarea.code{width:100%;font:12px/1.4 ui-monospace,monospace;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface);color:var(--ink);resize:none}
-a{color:var(--psy-deep)}
-@media (max-width:420px){.hero{grid-template-columns:1fr;justify-items:center;text-align:center}}
+a{color:var(--rose-deep)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -253,7 +266,7 @@ function applyTheme(){
   const r = document.documentElement;
   if (OPT.theme === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", OPT.theme);
   const dark = OPT.theme === "dark" || (OPT.theme !== "light" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
-  document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", dark ? "#141211" : "#f7f5f2"));
+  document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", dark ? "#161013" : "#f8f2f2"));
 }
 applyTheme();
 
@@ -281,8 +294,8 @@ const back = (label = "← Prehľad", to = {name:"home"}) => { const b = documen
 /* ---------- koliečko ---------- */
 function ring(pct, segs, label){
   const R = 58, C = 2 * Math.PI * R; let off = 0;
-  const arcs = segs.map(([v, col]) => { const len = v * C; const a = `<circle cx="66" cy="66" r="${R}" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-off}"/>`; off += len; return a; }).join("");
-  return `<div class="ring"><svg viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="9"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>${label}</span></div></div></div>`;
+  const arcs = segs.map(([v, col]) => { const len = v * C; const a = `<circle cx="66" cy="66" r="${R}" fill="none" stroke="${col}" stroke-width="7" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-off}"/>`; off += len; return a; }).join("");
+  return `<div class="ring"><svg viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--soft)" stroke-width="7"/>${arcs}</svg><div class="c"><div><b class="num">${pct}<small style="font-size:.5em">%</small></b><br><span>${label}</span></div></div></div>`;
 }
 function daysLeft(){ return Math.max(0, Math.ceil((new Date(S.examDate + "T08:00:00") - new Date()) / 864e5)); }
 const dword = n => n === 1 ? "deň" : n >= 2 && n <= 4 ? "dni" : "dní";
@@ -291,46 +304,44 @@ const dword = n => n === 1 ? "deň" : n >= 2 && n <= 4 ? "dni" : "dní";
 function home(){
   const all = stats(() => true);
   const gs = Object.fromEntries(Object.keys(GROUPS).map(g => [g, stats(q => q.g === g)]));
-  const segsAll = Object.keys(GROUPS).map(g => [gs[g].m / TOTAL, `var(--${g})`]);
   const wrongN = all.w; const d = daysLeft(); const st = streakDays();
   const [y, mo, da] = S.examDate.split("-");
   app.innerHTML = `
-    <header><div class="eyebrow">FiF UK · prijímačky na Mgr. ${y}</div><h1>Tvoja cesta na <em>magistra</em></h1></header>
-    <div class="countdown"><b class="num">${d}</b><span>${dword(d)} do prijímačiek<br><small>${Math.floor(d / 7)} týždňov · odhad ${+da}. ${+mo}. ${y}</small></span>
-      <label class="muted" style="font-size:12px">Zmeniť termín<br><input type="date" id="examDate" value="${S.examDate}"></label></div>
-    ${EXAM ? `<button class="tile soft" id="resumeEx" style="min-height:0"><b>Rozpracovaný test</b><span>${Object.keys(EXAM.ans).length}/${EXAM.list.length} zodpovedaných · pokračovať</span></button>` : ""}
-    <section>
-      <div class="hero">
-        ${ring(pf(all.m / TOTAL), segsAll.concat([[all.w / TOTAL, "var(--bad-ring)"]]), "spolu")}
-        <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
-          <h2>${all.m} z ${TOTAL} otázok máš zvládnutých</h2>
-          <p class="muted" style="margin:0;font-size:14px">Otázka je zvládnutá, keď si ju naposledy zodpovedala správne.${wrongN ? ` <span class="rbad">${wrongN} naposledy zle.</span>` : ""}</p>
-          <div class="legend">${Object.keys(GROUPS).map(g => `<span><i style="background:var(--${g})"></i>${GROUPS[g].name.toLowerCase()}</span>`).join("")}</div>
-        </div>
-      </div>
-      <div class="rings">${Object.keys(GROUPS).map(g => { const s = gs[g]; return `<button class="rcard ${GROUPS[g].cls}" data-g="${g}" style="border:0;background:none">${ring(pf(s.m / s.total), [[s.m / s.total, `var(--${g})`], [s.w / s.total, "var(--bad-ring)"]], GROUPS[g].name)}<div class="rsub num">${s.m} / ${s.total}${s.w ? `<br><span class="rbad">${s.w} zle</span>` : ""}</div></button>`; }).join("")}</div>
-      <div class="stats">
-        <div><b>${all.m}</b><span>zvládnutých z ${TOTAL}</span></div>
-        <div><b>${all.seen}</b><span>prejdených otázok</span></div>
-        <div><b>${st}</b><span>${dword(st)} v rade učenia</span></div>
-      </div>
+    <header class="mast"><span class="mono-mark" aria-hidden="true">Ψ</span><div><div class="eyebrow">FiF UK · Mgr. psychológia ${y}</div></div></header>
+    <h1 style="margin-top:-14px">Krok za krokom<br>k titulu <em>Mgr.</em></h1>
+    ${EXAM ? `<button class="tile soft wideT" id="resumeEx"><b>Rozpracovaný test</b><span>${Object.keys(EXAM.ans).length}/${EXAM.list.length} zodpovedaných · pokračovať</span></button>` : ""}
+    <div class="hero-card">
+      ${ring(pf(all.m / TOTAL), [[all.m / TOTAL, "var(--rose)"], [all.w / TOTAL, "var(--bad-ring)"]], "zvládnuté")}
+      <div class="days"><span class="eyebrow" style="letter-spacing:.14em;white-space:nowrap">do prijímačiek</span><b class="num">${d}</b><span>${dword(d)}</span><small>${Math.floor(d / 7)} týždňov</small><small style="white-space:nowrap">${+da}. ${+mo}. ${y} · odhad</small></div>
+      <div class="sub"><span><span class="num">${all.m}</span> z ${TOTAL} otázok${wrongN ? ` · <span class="rbad">${wrongN} naposledy zle</span>` : ""}</span>
+        <label>Termín <input type="date" id="examDate" value="${S.examDate}"></label></div>
+    </div>
+    <div class="stats">
+      <div><b>${all.seen}</b><span>prejdených otázok</span></div>
+      <div><b>${all.m}</b><span>zvládnutých</span></div>
+      <div><b>${st}</b><span>${dword(st)} v rade</span></div>
+    </div>
+    <section><h3>Oblasti</h3>
+      <div class="groups">${Object.keys(GROUPS).map(g => { const s = gs[g]; return `<button class="gline ${GROUPS[g].cls}" data-g="${g}">
+        <span class="n"><i></i>${GROUPS[g].long}</span><span class="v">${pf(s.m / s.total)} % · ${s.m}/${s.total}</span>
+        <span class="track"><i style="width:${s.m / s.total * 100}%;background:var(--c)"></i><i style="width:${s.w / s.total * 100}%;background:var(--bad);opacity:.5"></i></span></button>`; }).join("")}</div>
     </section>
     <section><h3>Precvičovanie</h3>
       <div class="tiles">
-        ${Object.keys(GROUPS).map(g => { const n = COURSES.filter(c => c.g === g).length; return `<button class="tile g ${GROUPS[g].cls}" data-g="${g}"><b>${GROUPS[g].long}</b><span>${n} ${n === 1 ? "predmet" : n < 5 ? "predmety" : "predmetov"} · ${gs[g].total} otázok</span></button>`; }).join("")}
-        <button class="tile" data-go="custom"><b>Vlastný mix</b><span>náhodné otázky z vybraných predmetov</span></button>
-        <button class="tile" data-go="examSetup"><b>Simulácia testu</b><span>ako v Moodle, so stopkami</span></button>
-        <button class="tile soft" data-go="info"><b>O prijímačkách</b><span>čo fakulta zverejnila</span></button>
+        ${Object.keys(GROUPS).map(g => { const n = COURSES.filter(c => c.g === g).length; return `<button class="tile g ${GROUPS[g].cls}" data-g="${g}"><b>${GROUPS[g].name}</b><span>${n} ${n === 1 ? "predmet" : n < 5 ? "predmety" : "predmetov"} · ${gs[g].total} otázok</span></button>`; }).join("")}
+        <button class="tile" data-go="custom"><b>Vlastný mix</b><span>vyber si predmety</span></button>
+        <button class="tile soft wideT" data-go="examSetup"><b>Simulácia testu</b><span>náhodný výber ako v Moodle, so stopkami</span></button>
       </div>
       ${wrongN ? `<div class="row"><button class="btn wide" id="wrongAll">Opakovať moje chyby (${wrongN})</button></div>` : ""}
     </section>
-    <section><h3>Všetky predmety</h3>${courseList(COURSES)}</section>
+    <section><h3>Predmety</h3>${courseList(COURSES)}</section>
     <section><h3>Nastavenia</h3>
       <div class="opts"><span>Vzhľad</span>
       <div class="seg" role="group" aria-label="Vzhľad">${[["auto","Podľa telefónu"],["light","Svetlý"],["dark","Tmavý"]].map(([v,t]) => `<button data-th="${v}" aria-pressed="${OPT.theme === v}">${t}</button>`).join("")}</div></div></section>
     <div class="foot">
+      <button class="link" data-go="info" style="text-align:left">O prijímačkách a zdrojoch</button>
       <button class="link" id="transfer" style="text-align:left">Preniesť pokrok na iné zariadenie</button>
-      ${S.flags.length ? `<span>Nahlásené otázky: ${S.flags.length} (pošli mi ich čísla: ${S.flags.map(esc).join(", ")})</span>` : ""}
+      ${S.flags.length ? `<span>Nahlásené otázky: ${S.flags.length} (${S.flags.map(esc).join(", ")})</span>` : ""}
       <span>Pokrok sa ukladá v tomto zariadení.</span>
     </div>`;
   document.getElementById("examDate").onchange = e => { if (e.target.value){ S.examDate = e.target.value; save(); render(); } };
@@ -527,7 +538,7 @@ function examResult(){
   app.innerHTML = `
     <div class="top"><button class="link" id="back">← Prehľad</button><span class="eyebrow">Výsledok testu</span><span></span></div>
     <section><div class="big">${X.pct}<small> %</small></div><h2>${X.ok} z ${X.n} správne</h2><p class="muted" style="margin:0">čas ${X.time}</p></section>
-    <div class="rings">${Object.keys(GROUPS).filter(g => X.per[g]).map(g => { const [a, n] = X.per[g]; return `<div class="rcard ${GROUPS[g].cls}">${ring(Math.round(a / n * 100), [[a / n, `var(--${g})`]], GROUPS[g].name)}<div class="rsub num">${a} / ${n}</div></div>`; }).join("")}</div>
+    <div class="groups">${Object.keys(GROUPS).filter(g => X.per[g]).map(g => { const [a, n] = X.per[g]; return `<div class="gline ${GROUPS[g].cls}"><span class="n"><i></i>${GROUPS[g].long}</span><span class="v">${Math.round(a / n * 100)} % · ${a}/${n}</span><span class="track"><i style="width:${a / n * 100}%;background:var(--c)"></i></span></div>`; }).join("")}</div>
     <p class="info">Prijíma sa podľa poradia, nie podľa pevnej hranice. Rozhoduje, ako dopadnú ostatní.</p>
     <section><h3>Chybné a nezodpovedané (${X.wrong.length})</h3>
       <div class="list">${X.wrong.map(({it, j, a}) => { const q = QMAP[it.id]; return `<div><em>${j + 1}. ${esc(CMAP[q.c].name)}</em><span class="q">${esc(q.q)}</span>${a !== undefined ? `<span class="you">Tvoja: ${esc(q.o[it.order[a]])}</span>` : `<span class="you">Bez odpovede</span>`}<span class="right">Správne: ${esc(q.o[0])}</span><em>${esc(q.e)}</em></div>`; }).join("") || '<div class="muted">Všetko správne.</div>'}</div></section>
