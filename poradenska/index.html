@@ -87,6 +87,7 @@ small.muted,.muted{color:var(--muted)}
 </header>
 <nav id="nav">
  <button data-only="zpp" data-t="plan" class="on">🎯 Plán na A</button>
+ <button data-only="zpp" data-t="cheat">⚡ Ťahák</button>
  <button data-only="zpp" data-t="lessons">💡 Ako to pochopiť</button>
  <button data-only="zpp" data-t="tl">🗓️ Časová os</button>
  <button data-only="zpp" data-t="quiz">✅ Test</button>
@@ -218,6 +219,14 @@ small.muted,.muted{color:var(--muted)}
 <p class="muted">Napíš alebo povedz nahlas celú odpoveď a až potom si pozri kostru. Ohodnoť sa poctivo. Cieľom je, aby si mala všetko z kostry.</p>
 <div class="row" id="oTopics"></div>
 <div class="card" id="oCard"></div>
+</section>
+
+<!-- ===== ŤAHÁK ===== -->
+<section id="cheat">
+<h2>Ťahák – témy 1 – 5 na jednej strane</h2>
+<p class="muted">Rýchly „kuk“: všetkých 5 tém, mnemotechniky a pasce na jednom mieste. Na mobile idú témy pod sebou, na počítači v 3 stĺpcoch.</p>
+<p><a href="skripta/tahak.html" target="_blank" rel="noopener">↗ Otvoriť ťahák na celú obrazovku</a> · pri tlači vyjde presne na 1 stranu A4</p>
+<iframe id="cheatFrame" class="cheatF" title="Ťahák"></iframe>
 </section>
 
 <!-- ===== SKRIPTÁ ===== -->
@@ -380,7 +389,7 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(M
 document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{
  document.querySelectorAll("#nav button").forEach(x=>x.classList.toggle("on",x===b));
  document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===b.dataset.t));
- if(b.dataset.t==="notes")loadNotes(); if(b.dataset.t==="plan")stats(); window.scrollTo(0,0)});
+ if(b.dataset.t==="notes")loadNotes(); if(b.dataset.t==="cheat"&&!$("#cheatFrame").src)$("#cheatFrame").src="skripta/tahak.html"; if(b.dataset.t==="plan")stats(); window.scrollTo(0,0)});
 // ===== filtre tém =====
 function topicChips(el,key,cb){const sel=new Set(S.get(key,[1,2,3,4,5]));el.innerHTML="";
  [1,2,3,4,5].forEach(t=>{const c=document.createElement("button");c.className="chip"+(sel.has(t)?" on":"");c.textContent=t+" · "+TOPICS[t].split(" ")[0]+"…";c.title=TOPICS[t];
@@ -500,9 +509,9 @@ function applyTheme(){const t=S.get("theme","auto");const r=document.documentEle
  if(t==="auto")delete r.dataset.theme;else r.dataset.theme=t;$("#themeBtn").textContent=TLAB[t];
  const dark=t==="dark"||(t==="auto"&&matchMedia("(prefers-color-scheme: dark)").matches);
  const mc=document.querySelector('meta[name="theme-color"]');if(mc)mc.content=dark?"#17141a":"#faf7f3";
- try{const d=$("#notesFrame").contentDocument;if(d&&d.documentElement){if(t==="auto")delete d.documentElement.dataset.theme;else d.documentElement.dataset.theme=t}}catch(e){}}
+ ["#notesFrame","#cheatFrame"].forEach(id=>{try{const d=$(id).contentDocument;if(d&&d.documentElement){if(t==="auto")delete d.documentElement.dataset.theme;else d.documentElement.dataset.theme=t}}catch(e){}})}
 $("#themeBtn").onclick=()=>{const t=S.get("theme","auto");S.set("theme",THEMES[(THEMES.indexOf(t)+1)%3]);applyTheme()};
-$("#notesFrame").addEventListener("load",applyTheme);
+$("#notesFrame").addEventListener("load",applyTheme);$("#cheatFrame").addEventListener("load",applyTheme);
 try{matchMedia("(prefers-color-scheme: dark)").addEventListener("change",applyTheme)}catch(e){}
 applyTheme();
 

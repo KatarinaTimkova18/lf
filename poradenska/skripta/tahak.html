@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ťahák poradenská</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#faf7f3;--surface:#fff;--fg:#24202a;--muted:#6b6470;--line:#e5ddd3;
+  --gold:#94680f;--plum:#8a3a6c;--green:#2e6a4e;--red:#a33a3a;--amber:#a8660c;--blue:#2d5d8e;--slate:#566070;--mark:#f6e7b8;
+  --serif:"Libre Baskerville",Georgia,serif;--sans:"IBM Plex Sans",system-ui,Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs:13px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17141a;--surface:#211d25;--fg:#ece6ef;--muted:#a69daa;--line:#3a3341;--gold:#d9ae55;--plum:#d98bbb;--green:#7cc4a0;--red:#e58a8a;--amber:#e8a952;--blue:#86b4e6;--slate:#a8b2c2;--mark:#5a4a1c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17141a;--surface:#211d25;--fg:#ece6ef;--muted:#a69daa;--line:#3a3341;--gold:#d9ae55;--plum:#d98bbb;--green:#7cc4a0;--red:#e58a8a;--amber:#e8a952;--blue:#86b4e6;--slate:#a8b2c2;--mark:#5a4a1c;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--fs);line-height:1.32}
+.page{max-width:1180px;margin:0 auto;padding:20px 16px 40px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--gold);padding-bottom:5px;margin-bottom:8px}
+header h1{font-family:var(--serif);font-size:20px;margin:0;line-height:1.1}
+header h1 em{color:var(--plum);font-style:normal}
+header .meta{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.08em;text-align:right}
+.mono-badge{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:30px;line-height:1}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.t{break-inside:avoid-column;margin:0 0 7px;border:1px solid var(--line);border-top:3px solid var(--tc);border-radius:4px;background:var(--surface);padding:5px 7px 6px}
+.t h2{font-family:var(--serif);font-size:13px;margin:0 0 3px;color:var(--fg)}
+.t h2 span{font-family:var(--mono);font-size:10px;color:var(--tc);margin-right:5px;letter-spacing:.06em}
+h3{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:5px 0 1px;font-weight:600}
+p{margin:1px 0}
+ul,ol{margin:1px 0;padding-left:13px}
+li{margin:0}
+li::marker{color:var(--gold)}
+.k{color:var(--plum);font-weight:600}.a{color:var(--green);font-weight:600}.x{color:var(--red);font-weight:600}
+.y{font-family:var(--mono);font-size:.9em;color:var(--gold);font-weight:600}
+.h{background:var(--mark);padding:0 2px;border-radius:2px}
+.m{font-family:var(--mono);font-weight:600;color:var(--amber)}
+table{width:100%;border-collapse:collapse;margin:2px 0}
+td,th{padding:1px 3px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+td:first-child{font-weight:600}
+table.tl td:first-child{width:27%}
+.warn{border-left:3px solid var(--red);padding:1px 5px;background:color-mix(in srgb,var(--red) 7%,var(--surface));margin:3px 0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media print{
+  @page{size:A4;margin:6mm 7mm}
+  :root{--bg:#fff;--surface:#fff;--fs:6.85pt}
+  .page{max-width:none;padding:0}
+  header h1{font-size:12.5pt}.mono-badge{font-size:18pt}header .meta{font-size:6pt}
+  header{padding-bottom:2px;margin-bottom:4px}
+  .cols{display:block!important;columns:3;column-gap:3.2mm;column-fill:auto;height:274mm}
+  .col{display:contents}
+  .t{break-inside:auto}
+  .t h2,h3{break-after:avoid}
+  tr,li,.row{break-inside:avoid}
+  .t{padding:2.5px 4px 3px;margin-bottom:3.5px;border-top-width:2px}
+  .t h2{font-size:8pt;margin-bottom:1px}.t h2 span{font-size:6.3pt}
+  h3{font-size:6.1pt;margin:2.5px 0 0}
+  th{font-size:5.8pt}
+  ul,ol{padding-left:9px}
+}
+</style></head><body><div class="page">
+
+<header>
+<div><div class="meta">ŤAHÁK · ZÁPOČET · TÉMY 1–5</div><h1>Základy poradenskej <em>psychológie</em></h1></div>
+<div class="mono-badge">ZPP</div>
+</header>
+
+<div class="cols">
+<div class="col">
+<section class="t" style="--tc:var(--plum)">
+<h2><span>01</span>Poradenstvo a poradenská činnosť</h2>
+<p><span class="k">Poradenská ψ</span> = <b>aplikovaná</b> disciplína; cítenie, prežívanie, správanie; špecifické soc. prostredie, zložité život. okolnosti. <span class="k">Poradenstvo (counselling)</span> = komplexné, <b>doprevádza klienta v kríze</b>.</p>
+<p><span class="a">Nelson-Jones</span> – humanista, dôraz na <b>vzťah</b>, „<span class="h">tu a teraz</span>“; poradenstvo = psychologické poradenstvo.</p>
+<h3>6 pohľadov na poradenstvo</h3>
+<ol>
+<li><b>Pomáhajúci vzťah</b> (Nelson-Jones; Dryden &amp; Woolfe) – <span class="m">E-A-K</span>: <b>e</b>mpatia, <b>a</b>kceptácia, <b>k</b>ongruencia (+ aktívne počúvanie)</li>
+<li><b>Súbor intervencií</b> (<span class="a">Corsini</span>) – KTO → AKO → KOMU; 7 techník <span class="m">REAKcia Na STres</span>: racionálne (direktívne: persuázia, asertivita, sokratovský dialóg, padajúci šíp) · empatické · abreaktívne (relaxácia, ventilácia) · korektívne (náprava, regulujú návyky) · nácvikové (hranie rolí) · sugestívne a hypnotické · transteoretické (eklektické)</li>
+<li><b>Psychologický proces</b> (Nelson-Jones) – <span class="x">nie statický</span>, dynamický; zmena aj medzi stretnutiami („aha moment“); teórie psychologické; výskum</li>
+<li><b>Ciele</b> – <b>nápravné</b> (regulovať správanie) vs. <b>rastu/vývinové</b> (vývinové úlohy: SŠ, partner, práca, staroba)</li>
+<li><b>Osoby</b> (Nelson-Jones) – profesionáli · vyškolení dobrovoľníci (peer) · povolania s por. zručnosťami (lekár, učiteľ, hasič) · informačné služby</li>
+<li><b>Vzťah k psychoterapii</b> – kontinuum <b>normalita (výchova) → edukatívna forma → poradenská prevencia → terapeutická/klinická forma → porucha (terapia)</b></li>
+</ol>
+<p><b>Drydenov kruhový model:</b> klient → 1. pomoc (rodina, priatelia) → predprofesné (učiteľ, kňaz, lekár) → profesionálne (psychológ).</p>
+<table>
+<tr><th></th><th>Poradenstvo</th><th>Terapia</th></tr>
+<tr><td>Dôvod</td><td>subjektívne zaťažujúci problém</td><td>chronický stav, osobnosť</td></tr>
+<tr><td>Trvanie</td><td><span class="h">krátkodobé</span></td><td><span class="h">dlhodobá</span></td></tr>
+<tr><td>Práca s</td><td>vedomím, <b>súčasnosťou</b></td><td><b>minulosťou</b>, viac počúva</td></tr>
+</table>
+<p>Výchova: do dospelosti, socializácia. Spoločné: rovnaké teórie, empatia, <b>klient aktívny</b>, zodpovedný za zmenu.</p>
+<p><b>NIE JE</b> (<span class="a">Sanders</span>): recipročný, rodinný ani priateľský vzťah, vzťah s lekárom, kurz, predurčenie cesty, len dávanie rád.</p>
+<p><b>GROW:</b> Goal → Reality → Options → Will.</p>
+</section>
+<section class="t" style="--tc:var(--green)">
+<h2><span>02</span>Vývoj poradenstva historicky</h2>
+<p><b><span class="a">Koščo</span> – 4 stupne:</b> komunikácia človek–človek → rola v spoločenstve (kňaz, šaman) → aspekt moderných profesií → <b>samostatná profesia</b>.</p>
+<p><b>Pre koho:</b> škola, rodičia, špeciálne výchovné, voľba povolania (kariérne), partnerstvo, inter-/intrapersonálne, <b>ludické</b> (voľný čas, životný štýl).</p>
+<h3>Etapy</h3>
+<p><b>a) Orientácia (guidance), 19.–20. st.</b> – mládež, voľba povolania:</p>
+<ul>
+<li><span class="a">Galton</span> (Londýn) – antropometrické lab., <b>1. psychologická výchovná poradňa</b></li>
+<li><span class="a">Witmer</span> (Philadelphia) – <b>1. poradenská klinika v USA</b>, náprava pravopisu</li>
+<li><span class="a">Parsons</span> (Boston, <span class="y">1908</span>) – <b>otec poradenstva pre voľbu povolania</b>; model <b>črty a faktora</b> (črty ⇄ požiadavky práce)</li>
+</ul>
+<p><b>b) Liečebné a rehabilitačné</b> – starostlivosť o narušené deti. <b>c) Diagnostické (20.–30. r.)</b> – <span class="a">Williamson</span> (<span class="y">1939</span>), 6 krokov: analýza, syntéza, diagnóza, prognóza, konzultácia, preverenie – <span class="x">kritizovaný za jednostrannosť</span>. <b>d) Medicínsky model</b> – diagnóza, deficity, ale aj pozitíva; anamnéza.</p>
+<p><b>Prelom 40.–50. r.:</b> humanizmus, behaviorizmus, geštalt; koncepcie výchovná, vývinová, sociálno-psychologická.</p>
+<table>
+<tr><td>Prevencia</td><td><span class="a">Rappaport</span> – primárna, sekundárna, terciárna</td></tr>
+<tr><td>Aktívna orientácia</td><td><span class="a">Menacker</span> – sociálne a materiálne podmienky</td></tr>
+<tr><td>Kooperatívne</td><td><span class="a">Peavy</span> – peer, svojpomocné skupiny, recipročné</td></tr>
+<tr><td>Kariérne</td><td>Super, Hall, Holland – <b>RIASEC</b> (psychológ = S)</td></tr>
+<tr><td>Nástroj rastu</td><td><span class="a">Wiegersma</span> – 5 úrovní: info → ciele → konflikt → generalizovaná úzkosť → narušená integrita</td></tr>
+<tr><td>Ďalšie</td><td>biodromálne (životné), telefonické, internetové (anonymný len klient)</td></tr>
+</table>
+<p><b>Dnešný prístup:</b> interdisciplinárny, multisférový, profesionálny, inštitucionálny, biodromálny, edukačný, personálny, štruktúrovaný.</p>
+</section>
+</div>
+<div class="col">
+<section class="t" style="--tc:var(--gold)">
+<h2><span>03</span>Poradenská ψ na Slovensku</h2>
+<p><span class="m">V-K-B · D-P-R</span> – vznik → kult → budovanie → sebadefinovanie → sebapotvrdzovanie → redefinícia</p>
+<table class="tl">
+<tr><td>Vznik poradní</td><td>poradne pre voľbu povolania; <span class="a">Stavěl</span> = 1. riaditeľ, <b>1. docent</b> ψ na SK; <span class="a">Jurovský</span> = <b>1. univerzitný profesor</b>; funkcie: inform., poradenská, sprostredkovateľská, rozmiestňovacia</td></tr>
+<tr><td><span class="y">1948–1953</span></td><td><b>kult osobnosti a dogmatizmu</b> – ψ = „<span class="x">paveda</span>“, neakceptácia až degradácia</td></tr>
+<tr><td><span class="y">2. pol. 50. – 1. pol. 60.</span></td><td><b>budovanie pracovísk</b> – <span class="a">Bažány</span> (PVK BA, 1. riaditeľ VÚDPaP)<br><span class="y">1955</span> Psych. laboratórium SAV<br><span class="y">1957</span> <span class="h">PVK v BA</span> (deti a mládež, klinická populácia) + Psych. ústav UK (Jurovský)</td></tr>
+<tr><td><span class="y">2. pol. 60. – 1. pol. 70.</span></td><td><b>sebadefinovanie</b> – okresné poradne, predmanželské a manželské poradne; zmizla „klinika“ → <b>zdravá populácia</b></td></tr>
+<tr><td><span class="y">2. pol. 70. – 1989</span></td><td><b>sebapotvrdzovanie</b> – zlučovanie poradní; <span class="y">1980</span> PVK → <b>PPP</b> (pedagogika na 1. mieste); výchovní poradcovia; boj proti pedagogizácii</td></tr>
+<tr><td>Redefinícia</td><td>rodina: CPPS → RPPS → ROPO → Poradne komplexnej pomoci · škola: PPP → CPPPaP → <b>CPaP</b></td></tr>
+</table>
+<p><b>5 stupňov podpory:</b> učiteľ → OZ a ŠPT v škole → OZ v CPaP → komplexná starostlivosť v CPaP → <b>ŠCPaP</b> (zdravotné postihnutie).</p>
+<p><b>Poradenský psychológ:</b> rozvoj osobnosti, kedykoľvek na životnej ceste, poradňa, najvyššia angažovanosť; nehľadá diagnózu; menej klientov, dlhodobejšia práca. Identita: VŠ → prax → vzdelávanie → atestácia.</p>
+</section>
+<section class="t" style="--tc:var(--red)">
+<h2><span>04</span>Etika v poradenskom procese</h2>
+<p><span class="k">Etika</span> (gr. <i>ethos</i>) = morálka, zvyk. Filozofická disciplína + praktická filozofia.</p>
+<p><b>Princípy I. rádu (<span class="a">Blocher</span>, 2001)</b> – najvyšší je život: teizmus · morálny racionalizmus · morálny imperatív · utilitarizmus (hedonizmus) · etický egoizmus · morálny intuitivizmus · sociálna spravodlivosť.</p>
+<p><b>Princípy II. rádu:</b> rešpekt k <b>životu, pravde, súkromiu, slobode, záväzkom</b> + záujem o <b>slabých, rast, poškodzovaných, dôstojnosť, vďačnosť</b>.</p>
+<p><b>Etický kódex:</b> verejný návod, od pol. 20. st., <span class="x">nie právna</span>, ale <span class="h">mravná záväznosť</span>. SKP prijala EK <span class="y">11. 3. 2016</span> (podľa EFPA); medzinárodne APA.</p>
+<p><span class="m">B-N-A-S</span> – <b>b</b>eneficiencia (dobro) · <b>n</b>onmaleficiencia (neublížiť) · <b>a</b>utonómia · <b>s</b>pravodlivosť</p>
+<p><b>EK – kľúčové:</b> dobro klienta je priorita; služby bez ohľadu na rasu, vieru…; výhrada svedomia; nekoná mimo kompetencie; <span class="h">informovaný súhlas</span>; žiadny intímny vzťah; <b>povinnosť oznámiť týranie</b>; podnet na kontrolný výbor SKP.</p>
+<p><b>Neetický poradca:</b> ignoruje štandardy, prekračuje kompetencie, je necitlivý, zneužíva, nezodpovedný, vyhorený, racionalizuje, donútený situáciou.</p>
+<p><b>Informovaný súhlas:</b> prístup · praktické otázky · <b>mlčanlivosť a jej hranice</b>.</p>
+<div class="row">
+<div><b>Privilegovaná</b> – lekár, porušiť <b>len súd</b></div>
+<div><b>Neprivilegovaná</b> – <span class="h">psychológ</span>, porušiť ak treba</div>
+</div>
+<p><b>Prelomenie mlčanlivosti:</b> ohrozenie života · záznamy pre odborníkov · nahrávanie · dlžné poplatky · súd.</p>
+<p><b>Ochrana:</b> supervízia · osobná terapia · trvalý profesný rozvoj.</p>
+<p><span class="k">Etická dilema</span> = rozpor medzi presvedčeniami. <b><span class="a">Kopčanová</span>:</b> odmietanie spolupráce, kriminalita, škola, zanedbávanie, sex. zneužívanie, utajovanie, NRS, neadekvátna podpora kolegu. Zodpovedá psychológ + <b>supervízor</b>.</p>
+</section>
+</div>
+<div class="col">
+<section class="t" style="--tc:var(--blue)">
+<h2><span>05</span>Psychologický problém a jeho zdroje</h2>
+<p><span class="k">PP</span> = myslenie, cítenie, konanie, ktoré <b>spôsobuje utrpenie</b> alebo <b>bráni fungovaniu</b>; <span class="x">≠</span> duševná porucha; je to <b>kontinuum</b>.</p>
+<div class="row">
+<div><b>Internalizované</b> (dnu): strach, úzkosť, smútok, depresia, neistota</div>
+<div><b>Externalizované</b> (von): hyperaktivita, impulzivita, vzdor, antisociálne správanie, závislosti</div>
+</div>
+<h3>Dôvody k poradenstvu (<span class="a">Džuka</span>) – D-Z-K-K</h3>
+<ol>
+<li><b>Dezorientácia</b> – chýbajú/chybné informácie, chybná implicitná teória, „štrbina“, „tunelový pocit“</li>
+<li><b>Neadekvátna záťaž</b> – normálna → problémová → <span class="h">zaťažujúca (od 3. → poradca)</span> → preťažujúca → extrémne preťažujúca · <b>zľahčovanie</b> = bagatelizácia („úžernícky spôsob života“)</li>
+<li><b>Konflikty</b> – inter- / intrapersonálne</li>
+<li><b>Akútne ťažkosti a krízy</b> → krízové poradenstvo</li>
+</ol>
+<h3>Zdroje problémov</h3>
+<p><b>Exogénne</b> (<span class="m">R-Š-Ž-S</span>): <b>rodina</b> (neúplná, rozvod, alkohol, týranie, financie) · <b>škola</b> (deficit učiteľa, rigidita inštitúcie, kolektív) · <b>život dospelých</b> (nevera, bossing, mobbing) · <b>spoločnosť</b>.</p>
+<table>
+<tr><th>Rodičia</th><th>Dieťa</th></tr>
+<tr><td>málo opory + prísnosť</td><td>nízka sebadôvera, agresia, úteky</td></tr>
+<tr><td>rozmaznávanie</td><td>pasivita, egocentrizmus</td></tr>
+<tr><td>málo kontroly</td><td>impulzivita, slabá sebaregulácia</td></tr>
+<tr><td>nadmerná kontrola</td><td>nesamostatnosť, vzdor alebo rezignácia</td></tr>
+</table>
+<p><b>Endogénne:</b> <b>dispozície</b> (vrodené/nadobudnuté, nevedomé, stabilné) vs. <b>pozície</b> (vlastná tvorba, vedomé, dočasné). <span class="h">Poradenstvo pracuje s pozíciami.</span> Chybné pozície pochádzajú z rodiny.</p>
+</section>
+<section class="t" style="--tc:var(--red)">
+<h2><span>!</span>Pasce</h2>
+<ul>
+<li><b>Stavěl</b> = 1. docent · <b>Jurovský</b> = 1. profesor</li>
+<li><b>Galton</b> = 1. výchovná poradňa · <b>Witmer</b> = 1. klinika v USA · <b>Parsons</b> = otec voľby povolania</li>
+<li><b>1957</b> = PVK v BA; <b>1980</b> = PVK → PPP</li>
+<li>Poradenstvo = <b>krátkodobé, súčasnosť</b>; terapia = dlhodobá, minulosť</li>
+<li>Psychológ = <b>neprivilegovaná</b> komunikácia</li>
+<li>Poradca je potrebný už od <b>3. stupňa</b> záťaže</li>
+<li>Poradenstvo pracuje s <b>pozíciami</b>, nie s dispozíciami</li>
+</ul>
+</section>
+</div>
+</div>
+</div></body></html>
