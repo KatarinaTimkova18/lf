@@ -75,6 +75,23 @@ iframe{width:100%;height:78vh;border:1px solid var(--line);border-radius:12px;ba
 .subj button.on{border-color:var(--plum);background:color-mix(in srgb,var(--plum) 14%,var(--paper))}
 .themebtn{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:99px;padding:6px 12px;font:600 13px var(--sans);cursor:pointer;white-space:nowrap}
 small.muted,.muted{color:var(--muted)}
+.spsets{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.spsets .chip small{font:500 10.5px var(--mono);opacity:.75;margin-left:4px}
+.spsets .chip .ok{color:var(--green);margin-left:4px}.spsets .chip.on .ok{color:#fff}
+.spbar{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.spboard{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:10px;margin-top:6px}
+.spcol{display:grid;gap:8px;align-content:start}
+.spc{width:100%;text-align:left;min-height:52px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:10px 12px;font:15px/1.35 var(--sans);cursor:pointer;min-width:0;overflow-wrap:break-word;hyphens:auto}
+.spcol.l .spc{font-weight:600}
+.spc.mn{font:600 14.5px/1.3 var(--mono);color:var(--gold)}
+.spc.sel{border-color:var(--plum);background:color-mix(in srgb,var(--plum) 12%,var(--paper))}
+.spc.done{border-color:transparent;background:color-mix(in srgb,var(--green) 14%,var(--paper));color:var(--green);cursor:default}
+.spc.bad{border-color:var(--red);background:color-mix(in srgb,var(--red) 10%,var(--paper));animation:spsh .3s}
+@keyframes spsh{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){.spc.bad{animation:none}}
+.spmiss{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px;font-size:14.5px}
+.spmiss li{border-left:3px solid var(--red);background:color-mix(in srgb,var(--red) 8%,var(--paper));padding:5px 10px;border-radius:0 6px 6px 0}
+@media (max-width:520px){.spboard{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:7px}.spc{font-size:14px;padding:9px;min-height:48px}.spc.mn{font-size:13px}}
 </style>
 </head>
 <body>
@@ -90,6 +107,7 @@ small.muted,.muted{color:var(--muted)}
  <button data-only="zpp" data-t="cheat">⚡ Ťahák</button>
  <button data-only="zpp" data-t="lessons">💡 Ako to pochopiť</button>
  <button data-only="zpp" data-t="tl">🗓️ Časová os</button>
+ <button data-only="zpp" data-t="match">🧩 Spájačka</button>
  <button data-only="zpp" data-t="quiz">✅ Test</button>
  <button data-only="zpp" data-t="cards">🃏 Kartičky</button>
  <button data-only="zpp" data-t="oral">🎤 Ústna</button>
@@ -189,6 +207,22 @@ small.muted,.muted{color:var(--muted)}
 
 <h3>4 · Povedz nahlas (záverečná skúška z osi)</h3>
 <div class="box b"><span class="lab">Bez pozerania</span>Zakry obrazovku a povedz nahlas všetkých 6 etáp s obdobím a ku každej jednu inštitúciu alebo rok. Potom otvor os a skontroluj sa. Keď to 2× za sebou dáš bez chyby, máš to. Ráno to zopakuj raz.</div>
+</section>
+
+<!-- ===== SPÁJAČKA ===== -->
+<section id="match">
+<h2>Spájačka – témy 1 až 5</h2>
+<p class="muted">Ťukni na pojem vľavo a potom na správnu odpoveď vpravo. V kole je najviac 6 dvojíc, poradie sa vždy zamieša. Na konci uvidíš, čo si popletla, a môžeš si zopakovať len to.</p>
+<div class="spsets" id="spSets"></div>
+<div class="card">
+ <div class="spbar"><span class="meta" id="spName"></span><span class="meta">chyby <b id="spErr">0</b> · spojené <b id="spCnt">0/0</b></span></div>
+ <div class="bar"><i id="spProg"></i></div>
+ <div class="spboard" id="spBoard"><div class="spcol l" id="spL"></div><div class="spcol" id="spR"></div></div>
+ <div id="spEnd"></div>
+</div>
+<div class="box g"><span class="lab">Bažány – čo o ňom vedieť</span>Doc. <b>Miroslav Teofil Bažány</b> = kľúčová osobnosť etapy <b>budovania pracovísk</b> (2. pol. 50. – 1. pol. 60. r.).
+<div class="yrs" style="--c:var(--green);grid-template-columns:96px 1fr"><b>od 1948</b><span>riaditeľ Československého ústavu práce</span><b>1957</b><span>Psychologická výchovná klinika (PVK) v Bratislave</span><b>od 1964</b><span><b>1. riaditeľ VÚDPaP</b> + n. p. Psychodiagnostika</span><b>1968–1989</b><span>expert pre UNESCO</span><b>1991–1997</b><span>dekan PdF UK v Bratislave</span><b>1995</b><span>dôstojník Rádu akademických paliem</span><b>30. 1. 1998</b><span>zomrel</span></div>
+Poradie si zapamätáš ako <b>úrad → klinika → výskum → svet → fakulta → vyznamenanie</b>. Na skúške: Bažány = <mark>PVK a VÚDPaP</mark>.</div>
 </section>
 
 <!-- ===== TEST ===== -->
@@ -727,6 +761,52 @@ function drill(){cur=DRILL[Math.floor(Math.random()*DRILL.length)];document.getE
   else{b.classList.add("bad");streak=0;document.getElementById("drFb").innerHTML='<div class="box r"><span class="lab">Nie</span>Správne: <b>'+cur[1]+'</b>. Pozri si háčik v osi a skús znova.</div>'}
   document.getElementById("drStreak").textContent=streak;setTimeout(drill,o===cur[1]?700:2200)};box.appendChild(b)})}
 drill();
+
+// ===== SPÁJAČKA =====
+(function(){
+const SETS=[
+ {id:"bazany",name:"Bažány",tag:"T3",mn:1,pairs:[["od 1948","riaditeľ Československého ústavu práce"],["1957","Psychologická výchovná klinika (PVK) v Bratislave"],["od 1964","1. riaditeľ VÚDPaP + n. p. Psychodiagnostika"],["1968–1989","expert pre UNESCO"],["1991–1997","dekan PdF UK v Bratislave"],["1995","dôstojník Rádu akademických paliem"],["30. 1. 1998","zomrel"]]},
+ {id:"sk",name:"Roky · Slovensko",tag:"T3",mn:1,pairs:[["1948–1953","kult osobnosti a dogmatizmu, psychológia = „paveda“"],["2. pol. 50. – 1. pol. 60.","budovanie psychologických pracovísk"],["1955","Psychologické laboratórium SAV"],["1957","PVK v Bratislave + Psychologický ústav UK"],["2. pol. 60. – 1. pol. 70.","sebadefinovanie: zmizne „klinika“, zdravá populácia"],["2. pol. 70. – 1989","sebapotvrdzovanie: zlučovanie poradní, boj proti pedagogizácii"],["1980","PVK premenovaná na PPP"]]},
+ {id:"etapy",name:"Etapy · Slovensko",tag:"T3",pairs:[["Vznik poradní","poradne pre voľbu povolania, Stavěl a Jurovský"],["Kult osobnosti","psychológia ako „paveda“, neakceptácia až degradácia"],["Budovanie","Bažány, laboratórium SAV, PVK pre klinickú populáciu"],["Sebadefinovanie","„kto som?“ – okresné a manželské poradne"],["Sebapotvrdzovanie","„potvrdím sa“ – PPP, výchovní poradcovia"],["Redefinícia","dve línie: rodina (CPPS → …) a škola (PPP → … → CPaP)"]]},
+ {id:"osoby3",name:"Osoby · Slovensko",tag:"T3",pairs:[["Jozef Stavěl","1. riaditeľ poradne pre voľbu povolania, 1. docent psychológie na SK"],["Anton Jurovský","1. univerzitný profesor psychológie, 1. riaditeľ Psychologického ústavu UK"],["M. T. Bažány","1. riaditeľ VÚDPaP, kľúčová osobnosť budovania pracovísk"],["CPPS → RPPS → ROPO","línia pre rodinu („rodina ide na úrad“)"],["PPP → CPPPaP → CPaP","línia pre deti a školu („dieťa do centra“)"],["ŠCPaP","5. stupeň podpory – deti so zdravotným postihnutím"]]},
+ {id:"autori1",name:"Autori · poradenstvo a história",tag:"T1–2",pairs:[["Nelson-Jones","6 pohľadov na poradenstvo, „tu a teraz“"],["Corsini","7 druhov intervencií (REAKcia Na STres)"],["Sanders","čo poradenstvo nie je"],["Dryden","kruhový model poradenskej činnosti"],["Koščo","4 stupne poradenstva ako činnosti"],["Galton","1. psychologická výchovná poradňa, antropometrické laboratórium"],["Witmer","1. psychologická poradenská klinika v USA"],["Parsons","otec poradenstva pre voľbu povolania, model črty a faktora"],["Williamson","diagnostický model – 6 krokov"]]},
+ {id:"autori2",name:"Autori · koncepcie, etika, problém",tag:"T2–5",pairs:[["Rappaport","poradenstvo ako prevencia"],["Menacker","poradenstvo ako aktívna orientácia (sociálne podmienky)"],["Peavy","kooperatívne poradenstvo (peer, recipročné)"],["Holland","typológia RIASEC"],["Wiegersma","5-úrovňový model práce poradcu"],["Blocher","princípy I. rádu"],["Kopčanová","kategórie etických dilem (VÚDPaP)"],["Džuka","dôvody (podnety) k poradenstvu"]]},
+ {id:"roky",name:"Roky · ostatné",tag:"T2, T4",mn:1,pairs:[["19.–20. st.","orientácia (guidance) – voľba povolania"],["1908","Parsons zakladá poradňu v Bostone"],["20.–30. roky","diagnostické a psychometrické koncepcie"],["1939","Williamsonov diagnostický model"],["40.–50. roky","prelom: humanizmus, behaviorizmus, geštalt"],["2001","Blocher – princípy I. rádu"],["11. 3. 2016","SKP prijala Etický kódex psychológa"]]},
+ {id:"pojmy",name:"Pojmy · etika a problém",tag:"T4–5",pairs:[["Beneficiencia","konať pre dobro klienta"],["Nonmaleficiencia","neublížiť"],["Autonómia","nerozhodovať za klienta"],["Privilegovaná komunikácia","mlčanlivosť poruší len súd (lekár)"],["Neprivilegovaná komunikácia","mlčanlivosť možno prelomiť, ak treba (psychológ)"],["Etická dilema","rozpor medzi presvedčeniami"],["Internalizované problémy","dovnútra – úzkosť, smútok, neistota"],["Externalizované problémy","navonok – vzdor, impulzivita, antisociálne správanie"],["Dispozície","vrodené alebo nadobudnuté, nevedomé, stabilné"],["Pozície","vedomé, dočasné – s nimi pracuje poradenstvo"],["Tunelový pocit","pocit slepej uličky pri dezorientácii"],["Úžernícky spôsob života","zľahčovanie dôležitých vecí"]]},
+ {id:"mnemo",name:"Mnemotechniky",tag:"T1–5",mn:1,pairs:[["E-A-K","empatia, akceptácia, kongruencia"],["REAKcia Na STres","7 Corsiniho intervencií"],["V-K-B · D-P-R","6 etáp poradenstva na Slovensku"],["B-N-A-S","4 etické princípy pomáhajúceho"],["D-Z-K-K","dôvody k poradenstvu (Džuka)"],["R-Š-Ž-S","exogénne zdroje problémov"],["GROW","Goal → Reality → Options → Will"]]}
+];
+const MIX={id:"mix",name:"Všetko premiešané",tag:"mix",pairs:[]};
+SETS.forEach(z=>z.pairs.forEach(p=>MIX.pairs.push([p[0],p[1],z.mn])));
+const g=id=>document.getElementById(id);
+const mix=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let set,rounds,ri,sel,errs,tot,matched,missed;
+function chips(){const all=[...SETS,MIX],best=S.get("spbest",{});
+ g("spSets").innerHTML=all.map(z=>`<button class="chip${set&&set.id===z.id?" on":""}" data-id="${z.id}">${z.name}<small>${z.tag}</small>${best[z.id]===0?'<span class="ok">✓</span>':""}</button>`).join("");
+ g("spSets").querySelectorAll("button").forEach(b=>b.onclick=()=>start(all.find(z=>z.id===b.dataset.id)))}
+function start(z){set=z;const pool=z.id==="mix"?mix(z.pairs).slice(0,18):mix(z.pairs);
+ rounds=[];const n=Math.ceil(pool.length/6),size=Math.ceil(pool.length/n);for(let i=0;i<pool.length;i+=size)rounds.push(pool.slice(i,i+size));
+ ri=0;tot=0;missed=[];g("spEnd").innerHTML="";g("spBoard").hidden=false;chips();round()}
+function round(){sel=null;errs=0;matched=0;const r=rounds[ri];
+ g("spL").innerHTML=mix(r.map((p,i)=>[p[0],i,p[2]??set.mn])).map(x=>`<button class="spc${x[2]?" mn":""}" data-k="${x[1]}" data-s="l">${x[0]}</button>`).join("");
+ g("spR").innerHTML=mix(r.map((p,i)=>[p[1],i])).map(x=>`<button class="spc" data-k="${x[1]}" data-s="r">${x[0]}</button>`).join("");
+ g("spBoard").querySelectorAll(".spc").forEach(b=>b.onclick=()=>pick(b));upd()}
+function upd(){const all=rounds.reduce((a,r)=>a+r.length,0),done=rounds.slice(0,ri).reduce((a,r)=>a+r.length,0)+matched;
+ g("spErr").textContent=tot+errs;g("spCnt").textContent=done+"/"+all;g("spProg").style.width=(done/all*100)+"%";
+ g("spName").textContent=set.name+(rounds.length>1?" · kolo "+(ri+1)+"/"+rounds.length:"")}
+function pick(b){if(b.classList.contains("done"))return;g("spBoard").querySelectorAll(".bad").forEach(x=>x.classList.remove("bad"));
+ if(!sel||sel.dataset.s===b.dataset.s){if(sel)sel.classList.remove("sel");sel=b;b.classList.add("sel");return}
+ const a=sel;sel=null;a.classList.remove("sel");
+ if(a.dataset.k===b.dataset.k){[a,b].forEach(x=>x.classList.add("done"));matched++;upd();if(matched===rounds[ri].length)setTimeout(next,350)}
+ else{errs++;[a,b].forEach(x=>x.classList.add("bad"));const l=a.dataset.s==="l"?a:b,p=rounds[ri][+l.dataset.k];if(!missed.some(m=>m[0]===p[0]))missed.push(p);upd()}}
+function next(){tot+=errs;errs=0;if(ri<rounds.length-1){ri++;round();return}
+ g("spBoard").hidden=true;upd();const best=S.get("spbest",{});if(best[set.id]===undefined||tot<best[set.id]){best[set.id]=tot;S.set("spbest",best)}
+ g("spEnd").innerHTML=`<div class="box ${tot?"r":"g"}"><span class="lab">${tot?"Hotovo":"Výborne!"}</span>${tot?"Počet chýb: "+tot+". Tieto dvojice si zopakuj:":"Bez jedinej chyby."}
+ ${missed.length?`<ul class="spmiss">${missed.map(m=>`<li><b>${m[0]}</b> – ${m[1]}</li>`).join("")}</ul>`:""}</div>
+ <div class="row"><button class="btn" id="spAgain">Znova túto sadu</button>${missed.length?'<button class="btn ghost" id="spWeak">Len chybné dvojice</button>':""}</div>`;
+ chips();g("spAgain").onclick=()=>start(set);
+ if(g("spWeak"))g("spWeak").onclick=()=>start({id:set.id+"-weak",name:set.name+" · chyby",tag:"opak.",mn:set.mn,pairs:missed.slice()})}
+start(SETS[0]);
+})();
 
 // ===== SKRIPTÁ =====
 // ===== PREDMETY =====
