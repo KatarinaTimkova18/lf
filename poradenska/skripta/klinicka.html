@@ -1,0 +1,1407 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Základy klinickej psychológie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#faf7f3;--paper:#fffdf9;--ink:#2a2420;--muted:#7a6d62;--line:#e7ddd2;
+  --gold:#b08433;--gold-soft:#f6ecd8;
+  --def:#6b4fa0;--def-bg:#f1ecf8;
+  --aut:#2f7a55;--aut-bg:#e8f3ec;
+  --warn:#b23a35;--warn-bg:#fbe9e7;
+  --mne:#b9770e;--mne-bg:#fdf1dc;
+  --sch:#2f6aa3;--sch-bg:#e7f0f9;
+  --q:#5f5a55;--q-bg:#f0eeeb;
+  --hl:#fff1a8;
+  --serif:"Libre Baskerville",Georgia,serif;--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#171412;--paper:#201c19;--ink:#efe7de;--muted:#a99b8e;--line:#3a332d;
+  --gold:#d9ad5c;--gold-soft:#3a2f1c;
+  --def:#b9a0e6;--def-bg:#2a2336;--aut:#7fc9a0;--aut-bg:#1d2c24;--warn:#ef8b84;--warn-bg:#3a2221;
+  --mne:#f0b75a;--mne-bg:#3a2e18;--sch:#8fbbe8;--sch-bg:#1c2836;--q:#c9c2bb;--q-bg:#2a2622;--hl:#5a4c12}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#171412;--paper:#201c19;--ink:#efe7de;--muted:#a99b8e;--line:#3a332d;
+  --gold:#d9ad5c;--gold-soft:#3a2f1c;
+  --def:#b9a0e6;--def-bg:#2a2336;--aut:#7fc9a0;--aut-bg:#1d2c24;--warn:#ef8b84;--warn-bg:#3a2221;
+  --mne:#f0b75a;--mne-bg:#3a2e18;--sch:#8fbbe8;--sch-bg:#1c2836;--q:#c9c2bb;--q-bg:#2a2622;--hl:#5a4c12}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans)}
+.wrap{max-width:920px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--serif);font-weight:700;line-height:1.2}
+h1{font-size:34px;margin:6px 0 4px}
+h2{font-size:24px;margin:0}
+h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:22px 0 8px;padding-left:10px;border-left:3px solid var(--gold)}
+h4{font-size:14.5px;margin:14px 0 6px}
+p{margin:6px 0}
+ul,ol{margin:4px 0 6px;padding-left:20px}
+li{margin:2px 0}
+.hero{position:relative;border-bottom:2px solid var(--gold);padding-bottom:16px;margin-bottom:16px}
+.mono{position:absolute;right:0;top:-6px;font-family:var(--serif);font-weight:700;font-size:64px;color:var(--gold);letter-spacing:-.02em;line-height:1}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.sub{color:var(--muted);margin:4px 0 10px;max-width:60ch}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11.5px;padding:3px 10px;border-radius:99px;background:var(--gold-soft);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;margin:10px 0 4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.toc{columns:2;gap:24px;font-size:14px;margin:8px 0 0;padding:12px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.toc a{color:var(--ink);text-decoration:none}
+.toc div{break-inside:avoid;margin:2px 0}
+.toc b{font-family:var(--mono);color:var(--gold);margin-right:6px}
+.topic{margin-top:34px}
+.thead{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.tn{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;white-space:nowrap}
+.date{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.box{border-left:4px solid;border-radius:6px;padding:8px 12px;margin:8px 0;position:relative}
+.box>.lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;font-weight:600;display:block;margin-bottom:2px}
+.def{border-color:var(--def);background:var(--def-bg)}.def>.lab{color:var(--def)}
+.aut{border-color:var(--aut);background:var(--aut-bg)}.aut>.lab{color:var(--aut)}
+.warn{border-color:var(--warn);background:var(--warn-bg)}.warn>.lab{color:var(--warn)}
+.mne{border-color:var(--mne);background:var(--mne-bg)}.mne>.lab{color:var(--mne)}
+.sch{border-color:var(--sch);background:var(--sch-bg)}.sch>.lab{color:var(--sch)}
+.q{border-color:var(--q);background:var(--q-bg)}.q>.lab{color:var(--q)}
+mark{background:var(--hl);color:inherit;padding:0 2px;border-radius:2px}
+.k{color:var(--def);font-weight:700}
+.a{color:var(--aut);font-weight:700}
+.y{font-family:var(--mono);color:var(--gold);font-weight:600;font-size:.94em}
+.no{color:var(--warn);font-weight:600}
+.acr{font-family:var(--mono);font-weight:700;letter-spacing:.08em}
+table{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:13.5px;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--gold-soft);font-weight:600}
+tr{break-inside:avoid}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 16px}
+@media (max-width:640px){.cols,.cols3{grid-template-columns:1fr}.toc{columns:1}.mono{font-size:44px}}
+.steps{list-style:none;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:5px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;break-inside:avoid}
+.steps li::before{content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font:600 12px/22px var(--mono);text-align:center}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;break-inside:avoid}
+.flow span{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:13px}
+.flow b{color:var(--gold)}
+.tl{border-left:2px solid var(--gold);padding-left:14px;margin:6px 0}
+.tl div{position:relative;margin:4px 0;break-inside:avoid}
+.tl div::before{content:"";position:absolute;left:-19px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.ladder{display:flex;flex-direction:column;gap:3px;margin:6px 0}
+.ladder div{background:var(--gold-soft);border-radius:4px;padding:4px 10px}
+.trap{border-left:4px solid var(--warn);background:var(--warn-bg);border-radius:6px;padding:8px 12px 8px 40px;margin:6px 0;position:relative;break-inside:avoid}
+.trap::before{content:attr(data-n);position:absolute;left:10px;top:8px;font:700 15px var(--mono);color:var(--warn)}
+.part{margin:34px 0 0;padding:12px 16px;border-radius:10px;background:var(--gold-soft);font-family:var(--serif);font-size:20px}
+svg text{fill:var(--ink);font-family:var(--sans)}
+/* infographic components */
+.path{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:8px 0;break-inside:avoid}
+.path .st{flex:1 1 140px;min-width:0;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--c,var(--gold));border-radius:10px;padding:8px 10px;font-size:13px}
+.path .st .n{display:block;font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--c,var(--gold));text-transform:uppercase;margin-bottom:2px}
+.path .st b{display:block;font-size:13.5px;margin-bottom:2px}
+.path .ar{align-self:center;color:var(--gold);font-weight:700;font-size:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:7px;margin:8px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c,var(--gold));border-radius:8px;padding:7px 10px;font-size:13px;break-inside:avoid;min-width:0}
+.card .n{font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--c,var(--gold));text-transform:uppercase;display:block}
+.card b{display:block;font-size:13.5px}
+.c-def{--c:var(--def)}.c-aut{--c:var(--aut)}.c-warn{--c:var(--warn)}.c-mne{--c:var(--mne)}.c-sch{--c:var(--sch)}.c-q{--c:var(--q)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:stretch;margin:8px 0;break-inside:avoid}
+.vs>div{border-radius:10px;padding:9px 12px;min-width:0}
+.vs .l{background:var(--aut-bg);border:1px solid var(--aut)}.vs .r{background:var(--warn-bg);border:1px solid var(--warn)}
+.vs .mid{align-self:center;font:700 14px var(--mono);color:var(--muted);padding:0}
+.tw{overflow-x:auto}.cmp td,.cmp th{font-size:13px}
+.fig{display:block;margin:8px auto;max-width:100%;height:auto;break-inside:avoid}
+.figcap{font-size:12px;color:var(--muted);text-align:center;margin-top:-4px}
+@media (max-width:640px){.vs{grid-template-columns:1fr}.vs .mid{text-align:center}}
+
+.small{font-size:12.5px;color:var(--muted)}
+@media print{
+  @page{size:A4;margin:9mm}
+  .path .st,.card{font-size:7.8pt}.path .st b,.card b{font-size:8.2pt}
+  body{font-size:8.3pt;line-height:1.4;background:#fff}
+  .wrap{max-width:none;padding:0}
+  h1{font-size:22pt}h2{font-size:14pt}h3{font-size:8pt;margin:10px 0 4px}h4{font-size:8.6pt;margin:7px 0 3px}
+  .mono{font-size:40pt}
+  .topic{margin-top:14px}
+  .box{padding:4px 8px;margin:4px 0;break-inside:avoid}
+  table{font-size:7.6pt;margin:3px 0 6px}th,td{padding:2px 5px}
+  h2,h3,h4,.thead{break-after:avoid}
+  .toc{font-size:8pt;padding:6px 10px}
+  .steps li,.flow,.tl div,svg,.trap{break-inside:avoid}
+  a{color:inherit}
+}
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <div class="mono">ZKP</div>
+  <div class="meta">Prešovská univerzita · Psychológia · Bc. 3. ročník · ZS 2025/2026</div>
+  <h1>Základy klinickej psychológie</h1>
+  <p class="sub">Učebný materiál k skúške – všetko na jednom mieste.</p>
+  <div class="pills"><span class="pill">10 tém</span><span class="pill">Skúškové pasce: 24</span></div>
+  <div class="legend">
+    <span><i style="background:var(--def)"></i>definícia / pojem</span>
+    <span><i style="background:var(--aut)"></i>autor / teória</span>
+    <span><i style="background:var(--warn)"></i>pozor</span>
+    <span><i style="background:var(--mne)"></i>mnemotechnika</span>
+    <span><i style="background:var(--sch)"></i>schéma</span>
+    <span><i style="background:var(--q)"></i>otázka zo seminára</span>
+  </div>
+  <p class="small">V texte: <mark>žlté</mark> = dôležité na skúšku · <span class="k">fialový</span> = kľúčový pojem · <span class="a">zelený</span> = autor · <span class="y">1977</span> = rok/číslo · <span class="no">červená</span> = protiklad / „nie“.</p>
+  <nav class="toc">
+    <div><a href="#t1"><b>01</b>Čo je klinická psychológia</a></div>
+    <div><a href="#t2"><b>02</b>História klinickej psychológie</a></div>
+    <div><a href="#t3"><b>03</b>Integratívny prístup v KP</a></div>
+    <div><a href="#t4"><b>04</b>Biológia pre klinickú psychológiu</a></div>
+    <div><a href="#t5"><b>05</b>Stres</a></div>
+    <div><a href="#t6"><b>06</b>Etiológia a psychodiagnostika</a></div>
+    <div><a href="#t7"><b>07</b>Prevencia a intervencie</a></div>
+    <div><a href="#t8"><b>08</b>Klasifikácia duševných porúch</a></div>
+    <div><a href="#t9"><b>09</b>Základná psychopatológia</a></div>
+    <div><a href="#t10"><b>10</b>Symptomatológia podľa MKCH-10 / MKCH-11</a></div>
+    <div><a href="#pasce"><b>!!</b>Najčastejšie skúškové pasce</a></div>
+  </nav>
+</header>
+
+<!-- ============ 01 ============ -->
+<section class="topic" id="t1">
+<div class="thead"><span class="tn">TÉMA 01</span><h2>Čo je klinická psychológia</h2><span class="date">25. 9. 2025</span></div>
+
+<h3>Predmet klinickej psychológie</h3>
+<div class="box aut"><span class="lab">AUTORI · DEFINÍCIE</span>
+<b class="a">Kondáš</b> – „vedecká disciplína, ktorá sa zaoberá duševným životom, resp. <mark>psychickou reguláciou správania z hľadiska choroby a dysadaptácie</mark>“.<br>
+<b class="a">Plante</b> – „zameriava sa na <mark>diagnostiku, liečbu a porozumenie</mark> psychickým a behaviorálnym problémom a poruchám“.<br>
+<b class="a">Heretik</b> – „tvorí ju <mark>teória a prax pomoci</mark> ľuďom so psychickými a psychosomatickými poruchami, ale aj s <mark>problémami všedného dňa, ktoré presahujú hranice zvládania jednotlivca</mark>“.</div>
+<p>KP sa teda nevzťahuje len na duševné ochorenia, ale aj na psychosomatické poruchy a bežné problémy, ktoré už človek nezvláda vlastnými silami.</p>
+
+<h3>Miesto v systéme psychologických vied</h3>
+<p><span class="k">Aplikovaná</span> vedná disciplína, opiera sa o poznatky:</p>
+<div class="cols">
+<div><b>Základných disciplín</b> – všeobecná, vývinová, kognitívna psychológia, psychológia osobnosti, sociálna, biologická, metodológia + štatistika.</div>
+<div><b>Špeciálnych disciplín</b> – klinická, pedagogická, poradenská, vojenská, neuropsychológia, dopravná…</div>
+</div>
+<p>V praxi spolupracuje najmä s <b>lekármi, špeciálnymi a liečebnými pedagógmi, sociálnymi pracovníkmi</b>.</p>
+
+<h3>Oblasti a užšie špecializácie (8)</h3>
+<div class="cards">
+<div class="card c-def"><span class="n">01</span><b>Psychopatológia</b>psychické poruchy – príznaky, príčiny, vznik, priebeh</div>
+<div class="card c-def"><span class="n">02</span><b>Patopsychológia</b>zmeny psychických procesov a funkcií pri ochoreniach a poškodeniach</div>
+<div class="card c-sch"><span class="n">03</span><b>Psychodiagnostika</b>poznávanie a hodnotenie stavu, schopností a osobnosti odbornými metódami</div>
+<div class="card c-aut"><span class="n">04</span><b>Psychoterapia</b>psychologickými metódami zmierňuje ťažkosti, mení nefunkčné vzorce, zlepšuje kvalitu života</div>
+<div class="card c-mne"><span class="n">05</span><b>Psychosomatika, psychológia zdravia</b>psychika ↔ telesné zdravie (oboma smermi)</div>
+<div class="card c-sch"><span class="n">06</span><b>Neuropsychológia</b>mozog ↔ psychické procesy a správanie</div>
+<div class="card c-aut"><span class="n">07</span><b>Rehabilitácia</b>obnova / zlepšenie funkcií po chorobe, úraze, poškodení mozgu</div>
+<div class="card c-aut"><span class="n">08</span><b>Reedukácia</b>opätovné osvojovanie a precvičovanie narušených schopností</div>
+</div>
+<div class="box warn"><span class="lab">POZOR</span><span class="k">Psychopatológia</span> = poruchy samotné (príznaky, príčiny, priebeh). <span class="k">Patopsychológia</span> = ako sa pri chorobe <i>menia psychické funkcie</i>.</div>
+
+<h3>Úlohy klinického psychológa (6)</h3>
+<div class="cards">
+<div class="card c-aut"><span class="n">1 · Prevencia</span>psychológia zdravia, psychohygiena, preventívne programy</div>
+<div class="card c-sch"><span class="n">2 · Diagnostika</span>vstupná a diferenciálna (definitívna) diagnostika</div>
+<div class="card c-def"><span class="n">3 · Terapia</span>bazálna terapia, špecifické metódy a prístupy</div>
+<div class="card c-mne"><span class="n">4 · Posudková</span>psychická spôsobilosť na výkon niektorých činností</div>
+<div class="card c-warn"><span class="n">5 · Znalecká</span>znalecká činnosť</div>
+<div class="card c-q"><span class="n">6 · Výskum</span>vedecko-výskumná činnosť</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">P-D-T-P-Z-V</span> → „<b>P</b>sychológ <b>D</b>obre <b>T</b>erapeuticky <b>P</b>osudzuje, <b>Z</b>nalecky <b>V</b>ýskumne.“</div>
+
+<h3>Kto je klinický psychológ – cesta k špecializácii</h3>
+<div class="path">
+<div class="st c-def"><span class="n">krok 1</span><b>Mgr. psychológia</b>jednoodborové štúdium</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">krok 2</span><b>Zdravotnícke zariadenie</b>zamestnanie na polovičný alebo celý úväzok</div><span class="ar">→</span>
+<div class="st c-q"><span class="n">krok 2b</span><b>Príprava na prácu v zdravotníctve</b><span class="y">6</span> mesiacov</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">krok 3</span><b>Registrácia v SKP</b>Slovenská komora psychológov</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">krok 4</span><b>Špecializačné štúdium</b>SZU / UK, <mark>min. <span class="y">3</span> roky</mark>; zaradenie k <span class="y">1. 10.</span> alebo <span class="y">1. 2.</span></div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">cieľ</span><b>Klinický psychológ</b>diagnostika, liečba, prevencia v zdraví aj chorobe</div>
+</div>
+<h4>Psychológ vs. klinický psychológ vs. psychoterapeut</h4>
+<div class="tw"><table class="cmp">
+<tr><th style="width:17%"></th><th style="background:var(--sch-bg)">Psychológ</th><th style="background:var(--aut-bg)">Klinický psychológ</th><th style="background:var(--def-bg)">Psychoterapeut</th></tr>
+<tr><td><b>Kto to je?</b></td><td>absolvent Mgr. štúdia psychológie</td><td>psychológ so <b>špecializáciou</b> v klinickej psychológii</td><td>odborník s absolvovaným <b>psychoterapeutickým vzdelávaním / certifikáciou</b></td></tr>
+<tr><td><b>Čomu sa venuje?</b></td><td>psychologické poradenstvo, základná diagnostika, prevencia, intervencie podľa oblasti pôsobenia</td><td>klinická psychodiagnostika, <b>diferenciálna diagnostika</b>, prevencia a liečebná psychologická starostlivosť</td><td>psychoterapia – systematická práca s psychickými ťažkosťami a poruchami psychoterapeutickými metódami</td></tr>
+<tr><td><b>Kde pracuje?</b></td><td>školstvo, poradenstvo, firmy, výskum, zdravotníctvo…</td><td>najmä <b>zdravotníctvo</b> – ambulancie, nemocnice, kliniky</td><td>podľa svojej základnej profesie a kvalifikácie</td></tr>
+<tr><td><b>Predpisuje lieky?</b></td><td class="no" style="font-size:16px">✗</td><td class="no" style="font-size:16px">✗</td><td><span class="no" style="font-size:16px">✗</span>* <span class="small">* lieky môže predpísať len lekár (napr. psychiater, ktorý je zároveň psychoterapeut)</span></td></tr>
+</table></div>
+<h4>Minimálny štandard pre špecializačný študijný program „Klinická psychológia“</h4>
+<p>a) KP = špecializačný odbor psychológie zameraný na <b>diagnostickú, liečebnú a preventívnu</b> starostlivosť o človeka v zdraví a chorobe. Štúdium trvá <mark>najmenej <span class="y">3</span> roky</mark> a nadväzuje na Mgr. štúdium psychológie.</p>
+<div class="cols">
+<div>
+<b>A. Minimálny počet zdravotných výkonov</b>
+<table>
+<tr><td>zisťovanie psychologickej anamnézy</td><td class="y">100</td></tr>
+<tr><td>vyšetrenie intelektových schopností (z toho aspoň 50 komplexnými viacdimenzionálnymi metódami)</td><td class="y">100</td></tr>
+<tr><td>vyšetrenie psychických funkcií (pamäť, pozornosť, myslenie, vnímanie, exekutívne funkcie, emocionalita)</td><td class="y">100</td></tr>
+<tr><td>vyšetrenie osobnosti dotazníkmi a inventármi</td><td class="y">50</td></tr>
+<tr><td>vyšetrenie osobnosti empiricky overenými projektívnymi metódami</td><td class="y">100</td></tr>
+<tr><td>skúmanie interpersonálnych vzťahov</td><td class="y">20</td></tr>
+<tr><td>neuropsychodiagnostické vyšetrenie</td><td class="y">30</td></tr>
+<tr><td>vyšetrenie pomocou hodnotiacich škál</td><td class="y">30</td></tr>
+<tr><td>kompletné vyšetrenie podľa diagnóz MKCH-10 (F00–F98), 10 pre každú skupinu, pre F80,90 spolu 10</td><td class="y">90</td></tr>
+<tr><td>psychoterapeutické výkony v rámci bazálnej psychoterapie</td><td class="y">15</td></tr>
+<tr><td>kazuistické spracovanie priebehu terapie / intervencie</td><td class="y">2</td></tr>
+</table></div>
+<div>
+<b>B. Praktické skúsenosti – uchádzač ovláda:</b>
+<ol>
+<li>efektívnu komunikáciu s pacientom, klientom</li>
+<li>komunikáciu a spoluprácu s inými medicínskymi odborníkmi</li>
+<li>zostavenie diagnostického plánu podľa diagnózy, veku a medicínskeho odboru</li>
+<li>administráciu a interpretáciu metód v súlade s etickými a profesnými zásadami</li>
+<li>diferenciálnu psychologickú diagnostiku</li>
+<li>psychologický nález – štruktúra, obsah, typ, forma, komunikácia pre rôzne zdravotnícke profesie</li>
+<li>indikovať a uplatniť psychoterapeutické metódy, techniky a iné intervencie vrátane klinického poradenstva a psychoedukácie</li>
+<li>psychoterapeutický plán – bazálna psychoterapia, identifikácia problému, ujasnenie cieľa, voľba metódy, postup, odporúčanie inému terapeutovi, supervízia</li>
+</ol>
+<div class="box sch"><span class="lab">ODBORNÁ PRAX · 36 MESIACOV</span><svg viewBox="0 0 360 26" width="100%" class="fig" style="margin:2px 0"><rect x="0" y="4" width="360" height="18" rx="4" fill="var(--sch-bg)" stroke="var(--sch)"/><rect x="0" y="4" width="30" height="18" rx="4" fill="var(--warn)"/><rect x="30" y="4" width="30" height="18" fill="var(--mne)"/><text x="66" y="17" font-size="9">3 m psychiatria + 3 m voliteľné odbory · zvyšok vlastné pracovisko</text></svg>z toho:
+<ul><li>psychiatria – <mark><span class="y">3</span> mesiace</mark></li>
+<li>voliteľné odbory – <mark><span class="y">3</span> mesiace</mark> (min. 2 týždne v aspoň 3 odboroch, napr. pediatria, geriatria, neurológia, interná medicína, onkológia; pod supervíziou klinického psychológa)</li></ul></div>
+</div></div>
+
+<h3>Mýty – čo sa o klinických psychológoch hovorí</h3>
+<div class="cards">
+<div class="card c-warn"><span class="n">mýtus</span><b>„iba počúva (a radí)“</b></div>
+<div class="card c-warn"><span class="n">mýtus</span><b>„predpisuje lieky“</b></div>
+<div class="card c-warn"><span class="n">mýtus</span><b>„pracuje len s psychicky chorými“</b></div>
+<div class="card c-warn"><span class="n">mýtus</span><b>„idem k nemu, až keď som v kríze“</b></div>
+<div class="card c-warn"><span class="n">mýtus</span><b>„na prvý pohľad vie, kto je normálny“</b></div>
+</div>
+
+<h3>Čo je norma? – 3 základné koncepcie</h3>
+<div class="cols3">
+<div class="box def"><span class="lab">1 · ŠTATISTICKÁ</span>norma = priemer; odchýlka od priemeru (<b>Gaussova krivka</b>)</div>
+<div class="box def"><span class="lab">2 · SOCIÁLNO-NORMATÍVNA</span>norma = to, čo spoločnosť považuje za prijateľné</div>
+<div class="box def"><span class="lab">3 · ADAPTAČNO-FUNKČNÁ</span>norma = schopnosť fungovať a prispôsobiť sa</div>
+</div>
+<svg viewBox="0 0 420 110" width="100%" style="max-width:420px;display:block;margin:2px auto" aria-label="Gaussova krivka">
+<path d="M10 95 C 120 95, 150 10, 210 10 S 300 95, 410 95" fill="none" stroke="var(--sch)" stroke-width="2"/>
+<line x1="210" y1="10" x2="210" y2="98" stroke="var(--gold)" stroke-dasharray="3 3"/>
+<line x1="10" y1="98" x2="410" y2="98" stroke="var(--muted)"/>
+<text x="196" y="108" font-size="10">priemer</text><text x="22" y="85" font-size="10">odchýlka</text><text x="345" y="85" font-size="10">odchýlka</text>
+</svg>
+<p class="figcap">Gaussova krivka – štatistická koncepcia normy</p>
+<div class="vs">
+<div class="l"><b>Kritériá normality (10)</b><ol><li>subjektívne uspokojenie</li><li>správne sebahodnotenie</li><li>cit identity</li><li>sebarealizácia</li><li>autonómia</li><li>integrácia osobnosti</li><li>odolnosť voči stresu</li><li>adekvátna percepcia reality</li><li>schopnosť prežitia</li><li>sociálna adaptácia</li></ol></div>
+<div class="mid">vs.</div>
+<div class="r"><b>Kritériá abnormality (6)</b><ol><li>subjektívne utrpenie – kvalita života</li><li>neprispôsobivosť</li><li>porušovanie sociálnych noriem</li><li>nezvyčajnosť / bizarnosť</li><li>strata kontroly</li><li>diskomfort pozorovateľa</li></ol></div>
+</div>
+<div class="box def"><span class="lab">DEFINÍCIA · DUŠEVNÁ PORUCHA (APA, 2015)</span>= <b>syndróm</b> charakterizovaný významným narušením jedinca v oblasti <mark>kognície, regulácie emócií alebo správania</mark>, ktoré odráža dysfunkciu psychických, biologických a vývojových procesov zabezpečujúcich chod duševných funkcií. Spája sa s <b>klinicky významnou nepohodou</b> alebo <b>funkčným narušením</b> v spoločenskej, pracovnej alebo inej dôležitej oblasti.</div>
+<div class="box q"><span class="lab">OTÁZKA ZO SEMINÁRA · „NENORMÁLNE“ SPRÁVANIE = DUŠEVNÁ PORUCHA?</span>
+<div class="cards" style="margin:4px 0">
+<div class="card c-q"><b>Človek smúti mesiac po smrti partnera</b>očakávaná reakcia na stratu <span class="no">nie je</span> porucha (APA, 2013)</div>
+<div class="card c-q"><b>Extrémne introvertný človek</b>osobnostná črta, bez utrpenia a dysfunkcie <span class="no">nie je</span> porucha</div>
+<div class="card c-q"><b>Verí v manifestáciu a silu kameňov</b>kultúrne / spoločensky odlišné presvedčenie bez dysfunkcie <span class="no">nie je</span> porucha</div>
+</div>Rozhoduje: klinicky významná nepohoda alebo funkčné narušenie + dysfunkcia v jedincovi.</div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="topic" id="t2">
+<div class="thead"><span class="tn">TÉMA 02</span><h2>História klinickej psychológie</h2><span class="date">2. 10. 2025</span></div>
+<p>Historicky sa najprv vnímalo <b>fyzické</b> zdravie, až potom <b>psychické</b>. Dnes: <mark>zdravie <span class="no">≠</span> neprítomnosť choroby</mark>.</p>
+<h3>Definície zdravia</h3>
+<div class="tl">
+<div><span class="y">WHO 1948</span> – stav úplnej telesnej, psychickej a sociálnej pohody</div>
+<div><span class="y">WHO 1984</span> – zdravie ako <b>zdroj</b>, ktorý umožňuje adekvátne zvládať požiadavky denného fungovania</div>
+<div><span class="a">Antonovsky</span> <span class="y">1979</span> – koncept <span class="k">salutogenézy</span>; zdravie ako kontinuum zdravie–choroba</div>
+<div><span class="a">Bircher</span> <span class="y">2005</span> – dynamický stav pohody s fyzickým a duševným potenciálom, ktorý uspokojuje nároky života primerané veku a kultúre</div>
+<div><span class="a">Huber</span> <span class="y">2011</span> – dôraz na schopnosť prispôsobiť sa a fungovať pri sociálnych, emocionálnych a fyzických výzvach</div>
+</div>
+
+<h3>Ako sa menilo vnímanie duševných ťažkostí</h3>
+<div class="path">
+<div class="st c-q"><span class="n">pred 1000 rokmi</span><b>Duchovné vysvetlenie</b>rozhoduje región, kultúra, rodina, postavenie<br><i>pomoc:</i> modlitba, rastliny, rodina, izolácia</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">pred 500 rokmi</span><b>Posadnutie, démoni</b>duchovná skúška, čarodejníctvo<br><i>pomoc:</i> modlitba, spoveď, exorcizmus</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">pred 100 rokmi</span><b>Psychiatrické vnímanie</b>Kraepelin – dementia praecox, Bleuler – schizofrénia<br><i>pomoc:</i> ústav, režimová liečba</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">dnes</span><b>Komplexné hodnotenie</b>forma/obsah, frekvencia, náhľad, dôsledky, látky, somatika, trauma, kultúra<br><i>pomoc:</i> farmakoterapia, psychologické intervencie, rehabilitácia, komunitná starostlivosť</div>
+</div>
+
+<div class="box q"><span class="lab">PRÍKLAD · „ČLOVEK POČUJE HLASY A VERÍ, ŽE HO SLEDUJÚ DÉMONI“ – DNES PODĽA MKCH-11</span>
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:4px 0">
+<div class="card c-sch"><span class="n">1</span>prítomnosť halucinácií?</div>
+<div class="card c-sch"><span class="n">2</span>prítomnosť bludov?</div>
+<div class="card c-sch"><span class="n">3</span>sú zážitky mimo kultúrne / nábožensky akceptovaných presvedčení?</div>
+<div class="card c-sch"><span class="n">4</span>ako dlho trvajú?</div>
+<div class="card c-sch"><span class="n">5</span>sú prítomné ďalšie psychotické symptómy?</div>
+<div class="card c-sch"><span class="n">6</span>aký je vplyv na fungovanie?</div>
+<div class="card c-sch"><span class="n">7</span>nedajú sa lepšie vysvetliť inou poruchou, látkou alebo somatickým stavom?</div>
+</div></div>
+<h3>Čo viedlo ku vzniku KP – vývoj</h3>
+<div class="tl">
+<div><b>Prehistória</b> – <span class="k">animizmus</span> (svet obývaný duchmi), porucha = vstup zlého ducha/démona; <b>šamani</b> = kňaz + lekár + psychológ, „magický prístup“ bez rozlišovania tela a duše.</div>
+<div><b>Mezopotámia, Egypt</b> – „chrámové liečiteľstvo“, magický prístup. <b>Ebersov papyrus</b> – klinická depresia = „zmrštenie srdca“, strata radosti, ťažoba v hrudi.</div>
+<div><b>India</b> – najstaršie rukopisy <b>Rgvéda a Ajurvéda</b>: magické výklady (hnev bohov) + organické a psychologické príčiny (strava, nezvládnuté vášne); liečba podľa príčiny.</div>
+<div><b>Čína</b> – narušenie rovnováhy <b>jin a jang</b>; liečba nerastmi, rastlinnými výťažkami, akupunktúrou.</div>
+<div><b>Starý Izrael</b> – Starý zákon: ťažkosti = boží trest; umenie výkladu (aj snov – prvé počiatky).</div>
+<div><b>Antické Grécko</b> (naturalistické vysvetľovanie) – <span class="a">Sokrates</span>: racionalita a náhľad, metóda rozhovoru (<b>sokratovský rozhovor</b> – dnes v KBT). <span class="a">Hippokrates</span>: <b>humorálna typológia</b> (sanguis – krv, cholé – žlč, flegma – hlien, melancholé – čierna žlč) = temperament aj vznik porúch → <mark>prvá veľká zmena paradigmy</mark>.</div>
+<div><b>Starý Rím</b> – <span class="a">Theofrastos</span>: „O charaktere“, <span class="y">30</span> charakterov podľa osobnostných čŕt. <span class="a">Aesklepiades</span>: akútne/chronické choroby = <i>insania</i>, opis bludov a halucinácií, psychogénne faktory (trauma), psychoterapeutické postupy. <span class="a">Galenos</span>: centrum mentálnych funkcií = <b>mozog</b>; mentálne aj fyzikálne príčiny.</div>
+<div><b>Stredovek</b> – vplyv kresťanstva, medicína redukovaná na somatiku, viera nahrádza rozum, <b>démonologická koncepcia</b>, <b>azylový prístup</b>. Koexistencia s medicínskou tradíciou (byzantskí a islamskí lekári).</div>
+<div><b>Renesancia a osvietenstvo</b> – návrat k antike, pretrváva azylová starostlivosť; dualizmus (<span class="a">Descartes</span>), „tabula rasa“ (<span class="a">Locke</span>), rozum, empirické overovanie.</div>
+<div><b>Vznik azylov</b> – azyl = útočisko a ochrana (alternatíva k ulici či väzeniu). <span class="a">W. Tuke</span> – <b>York Retreat</b>: rešpekt, pokoj, bezpečie, práca ako terapeutický nástroj. <span class="a">P. Pinel</span> – <b>humanizácia psychiatrie</b>, humánna morálna terapia, zamestnával ľudí s duševnými ťažkosťami (odkaz: netreba sa ich báť). Pinel a Tuke: človek profituje z humánneho, pokojného a štruktúrovaného prostredia.</div>
+<div><b>19. storočie</b> – psychiatrické <b>ústavníctvo</b> (veľké ústavy), psychiatria rovnocenný medicínsky odbor, klasická deskriptívna psychopatológia – <span class="a">Kraepelin</span> a <span class="a">Bleuler</span> (klasifikačný systém). <span class="a">F. J. Gall</span> – frenológia: tvar lebky → psychické vlastnosti. <span class="a">Broca</span> a <span class="a">Wernicke</span> – oblasti mozgu pre jazyk a reč. <mark><span class="y">1879</span> – <span class="a">W. Wundt</span>, prvé psychologické laboratórium v Lipsku</mark>.</div>
+</div>
+
+<h4>Ako sa psychológovia dostali do klinickej praxe – L. Witmer</h4>
+<div class="tl">
+<div><span class="y">1896</span> – <span class="a">L. Witmer</span> prednášal na zasadaní APA o klinickej metóde (kazuistiky); založil <mark>1. psychologickú kliniku</mark> – pomoc deťom s vývinovými poruchami</div>
+<div><span class="y">1907</span> – prvý odborný časopis <b>The Psychological Clinic</b></div>
+<div><span class="y">1909</span> – <b>tímový prístup</b> (lekári, sociálni pracovníci a ďalší, ktorí administrovali testy)</div>
+<div><span class="y">1917</span> – pre frustráciu a nedostatok podpory APA vzniká <b>AACP</b> (Americká asociácia klinických psychológov); <span class="y">1919</span> zlúčené s APA</div>
+<div><span class="y">1937</span> – <b>AAAP</b> (Americká asociácia aplikovanej psychológie)</div>
+<div><b>Binet a Simon</b> – povinné vzdelávanie vo Francúzsku, niektoré deti zaostávali → <span class="y">1905</span> prvá praktická škála inteligencie. <b>H. Goddard</b> – popularizácia v USA. <b>L. Terman</b> – <b>Stanford-Binet Intelligence Scale</b> (inteligencia ako stabilná črta).</div>
+</div>
+<div class="box warn"><span class="lab">DARK SIDE · EUGENIKA (F. GALTON)</span>Ak sa vlastnosti dedia, „zlepšíme“ populáciu podporou reprodukcie jedných a obmedzením iných. Psychológovia sa podieľali testovaním ľudí. <b>H. Goddard</b> – Binetova škála v USA použitá na testovanie <b>imigrantov</b>.</div>
+<h4>Svetové vojny</h4>
+<div class="cols">
+<div><b>1. svetová vojna</b> – testovanie inteligencie vojakov: <b>Army Alpha</b> (verbálny) a <b>Army Beta</b> (neverbálny). Medzi vojnami rozvoj psychodiagnostiky – projektívne testy; psychoanalytickú terapiu robili psychiatri.</div>
+<div><b>2. svetová vojna</b> – ďalšie testové metódy, tlak na konzultácie a psychoterapiu; vojnoví veteráni → viac klinických psychológov.</div>
+</div>
+<h4>Formálne vzdelávanie klinických psychológov</h4>
+<div class="path">
+<div class="st c-q"><span class="n">1947</span><b>Komisia APA</b>správa o vzdelávaní v KP</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">1949 · Boulder</span><b>Scientist-practitioner</b>University of Colorado</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">1955 · 1958 · 1965</span><b>Nespokojnosť</b>Stanford, Miami, Chicago</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">1973 · Vail</span><b>Odborno-praktický model</b>titul <b>PsyD</b>, dôraz na prax</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">BOULDER = BÁDATEĽ</span> (vedec-praktik, 1949) · <span class="acr">VAIL = VÝKON</span> (prax, PsyD, 1973)</div>
+
+<h4>Alternatívy k psychoanalýze</h4>
+<ul>
+<li><b>1. pol. 20. st.</b> – psychoanalýza (<span class="a">Freud</span>: potlačené myšlienky, túžby, psychosexuálna koncepcia; voľné asociácie, analýza snov; <span class="k">prenos / protiprenos</span> – čo prenáša klient na terapeuta a terapeut na klienta) a klasický behaviorizmus (<span class="a">Watson</span>, správanie).</li>
+<li><b>2. pol. 20. st.</b> – humanistický (<span class="a">Maslow</span> – hierarchia potrieb, <span class="a">Rogers</span>), adleriánsky, kognitívny prístup (mentálne procesy) a rozvoj KP ako takej.</li>
+<li><b>Od 50. rokov – deinštitucionalizácia</b>; komunitné hnutie za duševné zdravie, psychotropné lieky a výskum psychedelík pri liečbe duševných ťažkostí.</li>
+<li>Rozvoj <b>bio-psycho-sociálneho prístupu</b> (20. storočie).</li>
+</ul>
+<div class="box def"><span class="lab">DEINŠTITUCIONALIZÁCIA</span>pokles dlhodobých hospitalizácií · rozvoj komunitnej a ambulantnej starostlivosti · psychofarmaká umožnili liečbu mimo ústavov · cieľ: žiť v prirodzenom prostredí · <span class="no">bez kvalitných komunitných služieb</span> → opakované hospitalizácie, sociálne vylúčenie</div>
+
+<h3>Determinanty zdravia – 4 skupiny faktorov <span class="small" style="text-transform:none;letter-spacing:0">(podľa Dankulincová a kol., 2023)</span></h3>
+<div class="cols">
+<div><ol><li><b>zdravotná starostlivosť</b> (dostupnosť, kvalita)</li><li><b>fyzické prostredie</b> (zastavané prostredie, kvalita živ. prostredia)</li><li><b>sociálne a ekonomické prostredie</b> (vzdelanie, povolanie, príjem, sociálna podpora, bezpečnosť komunity)</li><li><b>so zdravím súvisiace správanie</b> (výživa, fyzická aktivita, fajčenie, alkohol, sexuálne správanie)</li></ol></div>
+<div class="box sch"><span class="lab">SCHÉMA · RELATÍVNY PODIEL FAKTOROV (PARK A KOL., 2015)</span>
+<svg viewBox="0 0 300 170" class="fig" width="100%" style="max-width:330px">
+<g transform="translate(78,85)">
+<circle r="55" fill="none" stroke="#e9c46a" stroke-width="40" stroke-dasharray="138.2 345.6" transform="rotate(-90)"/>
+<circle r="55" fill="none" stroke="#f4a582" stroke-width="40" stroke-dasharray="103.7 345.6" stroke-dashoffset="-138.2" transform="rotate(-90)"/>
+<circle r="55" fill="none" stroke="#92b4d8" stroke-width="40" stroke-dasharray="69.1 345.6" stroke-dashoffset="-241.9" transform="rotate(-90)"/>
+<circle r="55" fill="none" stroke="#9fcf8f" stroke-width="40" stroke-dasharray="34.6 345.6" stroke-dashoffset="-311" transform="rotate(-90)"/>
+<text x="-20" y="4" font-size="11" font-weight="700">ZDRAVIE</text></g>
+<g font-size="10"><rect x="158" y="22" width="10" height="10" fill="#e9c46a"/><text x="173" y="31"><tspan font-weight="700">40 %</tspan> socio-ekonomické</text>
+<text x="173" y="43" font-size="8.5">príjem, zamestnanie, vzdelanie 10 % · bezpečnosť, opora 5 %</text>
+<rect x="158" y="56" width="10" height="10" fill="#f4a582"/><text x="173" y="65"><tspan font-weight="700">30 %</tspan> správanie</text>
+<text x="173" y="77" font-size="8.5">fajčenie, strava/pohyb 10 % · alkohol, sex 5 %</text>
+<rect x="158" y="90" width="10" height="10" fill="#92b4d8"/><text x="173" y="99"><tspan font-weight="700">20 %</tspan> zdravotná starostlivosť</text>
+<text x="173" y="111" font-size="8.5">dostupnosť 10 % · kvalita 10 %</text>
+<rect x="158" y="124" width="10" height="10" fill="#9fcf8f"/><text x="173" y="133"><tspan font-weight="700">10 %</tspan> prostredie</text>
+<text x="173" y="145" font-size="8.5">kvalita živ. prostredia · zastavané (po 5 %)</text></g>
+</svg></div>
+</div>
+<h3>Zhrnutie histórie KP</h3>
+<div class="path">
+<div class="st c-q"><span class="n">korene</span><b>Prehistória → osvietenstvo</b>starovek, stredovek, renesancia</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">19. storočie</span><b>Vedecké základy</b>W. Wundt, 1879</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">vlastná história KP</span><b>Witmer, Freud</b></div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">vojny</span><b>Diagnostika a starostlivosť</b>medzivojnové a povojnové obdobie</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">2. pol. 20. st.</span><b>Rozvoj smerov</b></div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">súčasnosť</span><b>BPS model, integrácia</b></div>
+</div>
+<h3>KP a jej aktuálne výzvy</h3>
+<div class="cols">
+<ul><li>samostatná špecializácia v psychológii aj zdravotníctve</li><li><mark>dôraz na vedecky overené fakty</mark> (kľúčové pre adekvátnu starostlivosť)</li><li>rozvoj psychodiagnostických metód (je to dosť?)</li><li>integrovaná starostlivosť</li><li>prevencia (nielen patológia) a včasná intervencia</li></ul>
+<ul><li>destigmatizácia</li><li>digitalizácia</li><li>personalizovaná starostlivosť</li><li>využívanie AI</li></ul>
+</div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="topic" id="t3">
+<div class="thead"><span class="tn">TÉMA 03</span><h2>Integratívny prístup v KP</h2><span class="date">9. 10. 2025</span></div>
+
+<h3>Prínos jednotlivých psychologických smerov</h3>
+<table>
+<tr><th style="width:24%">Smer / autor</th><th>Prínos</th></tr>
+<tr><td class="a">Psychoanalýza – S. Freud</td><td>štruktúra osobnosti (<b>ID, EGO, SUPEREGO</b>), obranné mechanizmy · psychosexuálny vývin (<b>orálne, análne, falické, genitálne</b>) · topografický model (<b>vedomie, predvedomie, nevedomie</b>) · význam raných zážitkov · analýza prenosu/protiprenosu · voľné asociácie · <mark>konflikt ako základ psychopatológie</mark></td></tr>
+<tr><td class="a">C. G. Jung</td><td><b>3 úrovne</b> – vedomie, osobné a kolektívne nevedomie · <b>prospektívny</b> pohľad (na rozdiel od Freuda) · typológia extrovert / introvert</td></tr>
+<tr><td class="a">A. Adler</td><td>dôraz na <b>vedomie</b> · holistický pohľad, životný štýl · účelovosť správania · poradie narodenia, štýl výchovy (rozmaznávajúci, zanedbávajúci) · prvá spomienka</td></tr>
+<tr><td class="a">A. Freudová</td><td>adaptívna funkcia obrán</td></tr>
+<tr><td class="a">H. Hartmann</td><td>formatívny vplyv prostredia na osobnosť</td></tr>
+<tr><td class="a">R. Spitz</td><td>bez citového prepojenia s druhou osobou nie je možný rozvoj vrodeného psychického potenciálu dieťaťa</td></tr>
+<tr><td class="a">Behaviorálny prístup</td><td>teória učenia a podmieňovanie · postupný odklon ku kognitívnemu prístupu</td></tr>
+<tr><td class="a">KBT</td><td>spojenie behaviorálneho prístupu (učenie, podmieňovanie) a kognitívneho prístupu (Beck, Ellis – automatické myšlienky, presvedčenia, interpretácia udalostí); pozri tabuľku smerov nižšie</td></tr>
+<tr><td class="a">Humanistický prístup</td><td>potenciál človeka · empatia, kongruencia</td></tr>
+</table>
+
+
+<h4>Ako jednotlivé smery vysvetľujú psychické ťažkosti</h4>
+<table>
+<tr><th>Smer</th><th>Kľúčové pojmy</th><th>Psychické ťažkosti =</th></tr>
+<tr><td><b>Psychoanalýza</b> (Freud)</td><td>nevedomie, vnútorný konflikt, obranné mechanizmy, prenos/protiprenos</td><td>dôsledok nevedomých konfliktov, potlačených potrieb a skúseností z raného detstva</td></tr>
+<tr><td><b>Behaviorizmus</b> (Watson, Skinner)</td><td>pozorovateľné správanie, učenie, podnet–reakcia</td><td>problémové správanie naučené podmieňovaním a posilňovaním</td></tr>
+<tr><td><b>Humanistický</b> (Rogers, Maslow)</td><td>subjektívna skúsenosť, autenticita, sebarealizácia</td><td>blokovaný rast, nesúlad prežívania a self, nedostatok prijatia</td></tr>
+<tr><td><b>Kognitívny</b> (Beck, Ellis)</td><td>automatické myšlienky, presvedčenia, interpretácia</td><td>emócie a správanie ovplyvňujú maladaptívne myšlienky a presvedčenia</td></tr>
+</table>
+
+<h3>Prečo jeden prístup nestačí?</h3>
+<p>Každý prístup prispel niečím cenným, ale vždy ide o <mark>redukciu reality</mark> → snaha o <b>integráciu, eklektizmus</b> – zjednocovanie biologických, psychologických a sociálnych faktorov.</p>
+<svg viewBox="0 0 420 250" class="fig" width="100%" style="max-width:440px" aria-label="Bio-psycho-sociálny model">
+<circle cx="150" cy="95" r="80" fill="var(--aut)" fill-opacity=".14" stroke="var(--aut)"/>
+<circle cx="270" cy="95" r="80" fill="var(--def)" fill-opacity=".14" stroke="var(--def)"/>
+<circle cx="210" cy="170" r="80" fill="var(--sch)" fill-opacity=".14" stroke="var(--sch)"/>
+<g font-size="11" font-weight="700"><text x="85" y="55">BIOLOGICKÉ</text><text x="250" y="55">PSYCHOLOGICKÉ</text><text x="180" y="232">SOCIÁLNE</text></g>
+<g font-size="8.5"><text x="80" y="72">gény, dedičnosť</text><text x="80" y="84">mozog, NS, hormóny</text><text x="80" y="96">vek, telesný stav</text><text x="80" y="108">ochorenia, spánok, výživa</text>
+<text x="262" y="72">myšlienky, emócie</text><text x="262" y="84">stres a úzkosť</text><text x="262" y="96">osobnosť, správanie</text><text x="262" y="108">zvládanie záťaže</text>
+<text x="160" y="190">rodina, priatelia, partner</text><text x="160" y="202">práca a škola</text><text x="160" y="214">ekonomika, životné podmienky</text></g>
+<text x="194" y="132" font-size="10" font-weight="700">človek</text>
+</svg>
+
+<div class="cards">
+<div class="card c-aut"><span class="n">BPS model zdravia · biologické</span>genetika · neurobiológia · telesné ochorenia · spánok</div>
+<div class="card c-def"><span class="n">psychologické</span>osobnosť · zvládacie stratégie · behaviorálne stratégie · emočné prežívanie</div>
+<div class="card c-sch"><span class="n">sociálne</span>politiky · socio-ekonomický status · vzdelanie · sociálne vzťahy</div>
+</div>
+<h3>Integratívny model (4)</h3>
+<div class="cols">
+<div class="box def"><span class="lab">A · DIATÉZO-STRESOVÝ MODEL</span>pôvodne z medicíny a psychiatrie; choroba = vrodená (získaná) <b>zraniteľnosť (diatéza) × stres</b></div>
+<div class="box def"><span class="lab">B · RECIPROČNE-GENETICKÉ PRÍSTUPY</span>gény ovplyvňujú aj to, ako človek reaguje na prostredie</div>
+<div class="box def"><span class="lab">C · PSYCHOSOCIÁLNE VPLYVY NA BIOLÓGIU</span>psychické a sociálne procesy menia biologické funkcie</div>
+<div class="box aut"><span class="lab">D · BIO-PSYCHO-SOCIÁLNY PRÍSTUP</span><span class="a">Engel</span> <span class="y">1977</span> – BPSP ako <mark>optimálny model chápania a liečby chorôb</mark></div>
+</div>
+
+<h3>Teoretická integrácia a eklektizmus</h3>
+<ul>
+<li>neexistuje jedna dominantná teória; KP prepája viac rámcov, aby pochopila komplexné fungovanie človeka</li>
+<li>výber nástrojov nie je dogmatický – závisí od <b>cieľa vyšetrenia, stavu klienta a klinickej otázky</b> (nie sú „správne/nesprávne“ postupy)</li>
+<li><span class="k">Funkčný eklektizmus</span> – nejde len o teóriu, ale aj o to, ktoré postupy z rôznych smerov použijeme pre konkrétny problém (napr. depresia: biologické faktory, kognitívne skreslenia, interpersonálne vzťahy)</li>
+</ul>
+<div class="box def"><span class="lab">INTEGRATÍVNY PRÍSTUP · 4 STRATÉGIE INTEGRÁCIE (BENICKÝ)</span>= zohľadnenie viacerých teoretických a empirických perspektív, ich prepájanie vedie ku koherentnému klinickému vysvetleniu.
+<ol style="margin-bottom:0"><li><b>Teoretická integrácia</b> – syntéza konceptov z rôznych škôl</li><li><b>Technický eklektizmus</b> – výber postupov podľa indikácie a účinnosti</li><li><b>Asimilatívna integrácia</b> – dominantný rámec + vybrané prvky iných</li><li><b>Spoločné faktory</b> – procesy pôsobiace naprieč orientáciami</li></ol></div>
+
+<h3>Model spoločných faktorov</h3>
+<p>Ktoré prvky sú účinné naprieč všetkými prístupmi: <mark>kvalita vzťahu, dôvera, empatia, motivácia, očakávanie zmeny</mark>. Preto môžu mať dvaja terapeuti s rôznymi metódami rovnako úspešných klientov – rozhoduje napr. kvalita vzťahu psychológ–klient.</p>
+<div class="box sch"><span class="lab">SCHÉMA · LAMBERT (1992) – PODIEL NA ÚČINNOSTI PSYCHOLOGICKEJ POMOCI</span>
+<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+<svg viewBox="0 0 120 120" width="120" height="120" aria-label="Lambert koláč">
+<circle r="50" cx="60" cy="60" fill="none" stroke="#9cc79a" stroke-width="40" stroke-dasharray="125.66 314.16" transform="rotate(-90 60 60)"/>
+<circle r="50" cx="60" cy="60" fill="none" stroke="#6b8e23" stroke-width="40" stroke-dasharray="94.25 314.16" stroke-dashoffset="-125.66" transform="rotate(-90 60 60)"/>
+<circle r="50" cx="60" cy="60" fill="none" stroke="#a9bfdc" stroke-width="40" stroke-dasharray="47.12 314.16" stroke-dashoffset="-219.91" transform="rotate(-90 60 60)"/>
+<circle r="50" cx="60" cy="60" fill="none" stroke="#e8c840" stroke-width="40" stroke-dasharray="47.12 314.16" stroke-dashoffset="-267.04" transform="rotate(-90 60 60)"/>
+</svg>
+<div><span class="y">40 %</span> mimoterapeutické faktory (vlastnosti klienta, životné okolnosti, sociálna podpora, voľný čas, odolnosť – na to psychológ nemá úplný dopad)<br>
+<span class="y">30 %</span> terapeutický vzťah (empatia, dôvera, prijatie, spolupráca)<br>
+<span class="y">15 %</span> očakávania a placebo (nádej na zlepšenie)<br>
+<span class="y">15 %</span> techniky a prístupy (konkrétne metódy)<br>
+<span class="small">Ide o orientačné odhady, nie presne dokázané percentá.</span></div></div></div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">40-30-15-15</span> → „<b>Ž</b>ivot – <b>V</b>zťah – <b>V</b>iera – <b>T</b>echnika“ (od najväčšieho)</div>
+<div class="box def"><span class="lab">EVIDENCE-BASED PRACTICE V KP</span>klinické rozhodovanie prepája <b>3 zložky</b>: najlepšie dostupné vedecké dôkazy · klinickú expertízu psychológa · charakteristiky, hodnoty a preferencie pacienta · + štandardy na prácu</div>
+
+<h3>Súčasné prístupy – komprehenzívny, integratívny, biopsychosociálny</h3>
+<div class="box q"><span class="lab">VÝCHODISKOVÝ PRÍPAD · PACIENTKA A A PACIENTKA B</span>
+<div class="cols">
+<div><b>Pacientka A</b> – náhle epizódy intenzívneho strachu, búšenie srdca, tlak na hrudi, závraty, nedostatok vzduchu; bojí sa, že dostane <b>infarkt a zomrie</b>; vyhýba sa <b>MHD</b> (strach, že jej nikto nepomôže).</div>
+<div><b>Pacientka B</b> – náhle epizódy strachu, búšenie srdca, tras, závraty, <b>derealizácia</b>; bojí sa, že <b>stratí kontrolu alebo sa „zblázni“</b>; vyhýba sa <b>pracovisku</b> (záchvat pred kolegami).</div>
+</div>Obe spĺňajú panickú poruchu (MKCH-10 F41.0, MKCH-11 6B01). <b>V čom sa líšia?</b> Biologické mechanizmy sa prekrývajú, ale <mark>subjektívny význam symptómov a vzorce správania sú odlišné</mark> → samotná diagnóza nestačí.</div>
+<div class="box def"><span class="lab">ČO NÁM HOVORÍ DIAGNÓZA (A ČO NIE)</span><b>Diagnóza</b> = súbor klinicky významných symptómov podľa vymedzených kritérií. Informuje o symptomatológii, priebehu, často aj prognóze. <span class="no">Sama neurčuje príčinu ani mechanizmus udržiavania ťažkostí.</span><br><b>Syndróm</b> = súbor symptómov (depresívny syndróm) · <b>symptóm</b> = príznak (anhedónia).</div>
+<p>Príklad v materiáloch – <b>panická porucha</b>:</p>
+<div class="cols">
+<div class="small"><b>MKCH-10, F41.0</b> (epizodická záchvatová úzkosť): opakované nápory veľkej úzkosti, neviazané na situáciu → nepredvídateľné; náhle palpitácie, bolesť na hrudi, dusenie, závrat, depersonalizácia/derealizácia; sekundárny strach zo smrti, straty sebaovládania, zošalenia. Nemá byť hlavnou diagnózou, ak má pacient v čase záchvatu depresiu (ataky sú vtedy sekundárne). Nepatrí sem panická porucha s agorafóbiou (F40.01).</div>
+<div class="small"><b>MKCH-11, 6B01</b>: opakujúce sa neočakávané záchvaty paniky (búšenie srdca, potenie, tras, dýchavičnosť, bolesť na hrudi, závrat, zimnica, návaly tepla, strach zo smrti) + <b>pretrvávajúce obavy</b> z ich opakovania a <b>vyhýbavé správanie</b> → zhoršenie kvality života. Nie sú prejavom iného ochorenia ani účinku látky.</div>
+</div>
+<h4>Pohľad KP – 3 otázky</h4>
+<ol class="steps"><li><span><b>ČO</b> pozorujeme – symptomatológia a funkčné narušenie</span></li><li><span><b>PREČO a AKO</b> to vzniká / pretrváva – klinické hypotézy</span></li><li><span><b>ČO</b> môžeme bezpečne ovplyvniť – indikácia, ciele a monitorovanie intervencie</span></li></ol>
+<div class="box def"><span class="lab">KOMPREHENZÍVNA KP</span>komplexné, multidimenzionálne, kontextualizované chápanie – nielen diagnostika porúch, ale širšie porozumenie človeku. Posudzujeme ťažkosti, <b>zachované schopnosti</b>, osobnosť, vývin a prostredie; časový priebeh, dopad na fungovanie, somatické súvislosti.</div>
+<div class="cols">
+<div><b>Klinické hodnotenie</b><ul><li>aktuálne symptómy – začiatok, trvanie, frekvencia, intenzita, spúšťače</li><li>osobná a vývinová anamnéza, <mark>psychická aj somatická komorbidita</mark></li><li>kognitívne, emočné, behaviorálne, interpersonálne fungovanie</li><li>funkčný dopad, riziko, potreby a preferencie</li></ul></div>
+<div><b>Zdroje informácií</b><ul><li>rozhovor – subjektívne prežívanie a význam symptómov</li><li>pozorovanie</li><li>štandardizované metódy</li><li>zdravotná dokumentácia (+ heteroanamnéza)</li></ul><div class="box warn" style="margin-top:4px"><span class="lab">POZOR</span>Viac metód <span class="no">neznamená</span> automaticky vyššiu validitu!</div></div>
+</div>
+<h4>Formulácia prípadu (4 kroky)</h4>
+<div class="path">
+<div class="st c-def"><span class="n">1</span><b>Definícia problému</b>a jeho funkčných dôsledkov</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">2</span><b>Súvislosti a kontext</b></div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">3</span><b>Spúšťače</b>a udržiavajúce procesy</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">4</span><b>Klinická hypotéza</b>predbežný, <b>overiteľný</b> predpoklad o povahe, príčine, mechanizmoch</div>
+</div>
+<div class="cards">
+<div class="card c-def"><span class="n">P1 · predispozičné</span>dlhodobá vulnerabilita pred vznikom problému</div>
+<div class="card c-warn"><span class="n">P2 · precipitujúce</span>okolnosti časovo súvisiace so začiatkom</div>
+<div class="card c-mne"><span class="n">P3 · perpetujúce</span>čo prispieva k pretrvávaniu</div>
+<div class="card c-aut"><span class="n">P4 · protektívne</span>zdroje a faktory, ktoré pomáhajú</div>
+</div>
+<div class="box q"><span class="lab">4P NA PRÍKLADE PACIENTKY A</span><b>predisponujúce</b> – zvýšená anxiózna senzitivita, úzkostné poruchy v rodine (?) · <b>precipitujúce</b> – prvá intenzívna epizóda · <b>perpetuujúce</b> – katastrofická interpretácia, interoceptívna hypervigilancia, únik · <b>protektívne</b> – spolupracujúci partner, motivácia, fungovanie</div>
+<div class="box sch"><span class="lab">SCHÉMA · PREČO VYHÝBANIE UDRŽIAVA ÚZKOSŤ</span>
+<div class="flow"><span>telesný pocit</span><b>→</b><span>ohrozujúce hodnotenie (↑ úzkosť)</span><b>→</b><span>únik → krátkodobo ↓ distres (<b>negatívne posilnenie</b>)</span><b>→</b><span>úľava podporuje opakované vyhýbanie</span><b>→</b><span>nemožno overiť ohrozujúce očakávanie</span></div></div>
+<p><b>BPS model na príklade:</b> biologická úroveň – zvýšená autonómna reaktivita, genetická vulnerabilita · psychologická – katastrofická interpretácia telesných pocitov, úzkostlivosť · sociálna – pracovná záťaž, reakcie partnera, dostupnosť pomoci. <span class="no">BPS model sám neodpovedá na otázku, ktoré faktory ťažkosti spôsobujú alebo udržiavajú!</span></p>
+<p><b>Prečo nestačí biomedicínsky model</b> (= biologická dysfunkcia): biologické mechanizmy sa môžu prekrývať, ale subjektívny význam symptómov a vzorce správania sú odlišné.</p>
+<div class="cols">
+<div class="box def"><span class="lab">EKVIFINALITA</span>rovnaký výsledok – <b>rôzne cesty</b><br><span class="small">A: rozchod → strata opory → izolácia, koniec obľúbených aktivít · B: chronická bolesť, nespavosť, obmedzené fungovanie → <b>u oboch depresívna symptomatológia</b></span></div>
+<div class="box def"><span class="lab">MULTIFINALITA</span>obdobná záťaž <b>nemusí viesť k rovnakému výsledku</b></div>
+</div>
+<p class="small">Výsledok závisí od kombinácie rizík, protektívnych zdrojov a vývinu. Korelácia <span class="no">≠</span> kauzalita.</p>
+<h4>Ako pristupovať k pacientke A – postup KP</h4>
+<div class="path">
+<div class="st c-sch"><span class="n">diagnosticky</span><b>Spĺňa kritériá?</b>panická porucha? agorafóbia?</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">komprehenzívne</span><b>Celý človek</b>anamnéza, zdravie, fungovanie, životný kontext</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">biopsychosociálne</span><b>Ktoré faktory?</b>biologické, psychologické, sociálne</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">formulácia</span><b>Čo spúšťa a udržiava?</b></div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">rozhodnutie</span><b>Intervencia</b>akú indikovať a ako vyhodnotiť účinok</div>
+</div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="topic" id="t4">
+<div class="thead"><span class="tn">TÉMA 04</span><h2>Biológia pre klinickú psychológiu</h2><span class="date">9. 10. 2025</span></div>
+<h3>Imunitný systém</h3>
+<p>„Obranný systém“ orgánov, buniek a bielkovín, ktoré spolupracujú na odstránení patogénov. Komunikuje s mozgom a endokrinným systémom → ovplyvňuje <b>náladu, správanie, prežívanie</b>.</p>
+<div class="path">
+<div class="st c-def"><span class="n">1</span><b>Imunitné bunky</b>T-bunky, makrofágy sa aktivujú</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">2</span><b>Zápalové markery</b>cytokíny (IL-1, IL-6, TNF-α)</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">3</span><b>Pôsobenie na CNS</b>hypotalamus → „sickness behavior“</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">4</span><b>HPA os</b>CRH → ACTH → kortizol</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">5</span><b>Účinky kortizolu</b>zvládanie stresu, energia, tlmí nadmernú imunitnú reakciu</div>
+</div>
+<ul>
+<li><span class="k">Kortizol</span> = stresový, protizápalový hormón; pri nadbytku sa telo oslabuje.</li>
+<li><span class="k">Sickness behavior</span> = ↓ energia, ↓ sociálna aktivita, ↓ chuť do jedla, ↑ citlivosť na bolesť (obraz podobný depresívnej symptomatológii). V akútnej fáze užitočné; psychológovi pomôže rozlíšiť, či ťažkosti súvisia s ochorením.</li>
+</ul>
+<h3>Endokrinný systém</h3>
+<p>Sieť žliaz s vnútorným vylučovaním, ktorých hormóny prenášajú informácie po tele.</p>
+<svg viewBox="0 0 420 150" class="fig" width="100%" style="max-width:440px" aria-label="Osi hypotalamus-hypofýza">
+<rect x="150" y="6" width="120" height="26" rx="6" fill="var(--gold-soft)" stroke="var(--gold)"/><text x="178" y="23" font-size="11" font-weight="700">hypotalamus</text>
+<rect x="150" y="48" width="120" height="26" rx="6" fill="var(--gold-soft)" stroke="var(--gold)"/><text x="186" y="65" font-size="11" font-weight="700">hypofýza</text>
+<line x1="210" y1="32" x2="210" y2="48" stroke="var(--gold)" stroke-width="2"/>
+<g stroke="var(--muted)" stroke-width="1.5"><line x1="190" y1="74" x2="70" y2="98"/><line x1="210" y1="74" x2="210" y2="98"/><line x1="230" y1="74" x2="350" y2="98"/></g>
+<rect x="10" y="98" width="120" height="44" rx="6" fill="var(--warn-bg)" stroke="var(--warn)"/><text x="18" y="114" font-size="10.5" font-weight="700">HPA · nadobličky</text><text x="18" y="132" font-size="9.5">kortizol</text>
+<rect x="150" y="98" width="120" height="44" rx="6" fill="var(--sch-bg)" stroke="var(--sch)"/><text x="158" y="114" font-size="10.5" font-weight="700">HPT · štítna žľaza</text><text x="158" y="132" font-size="9.5">T3, T4 – metabolizmus, energia</text>
+<rect x="290" y="98" width="120" height="44" rx="6" fill="var(--def-bg)" stroke="var(--def)"/><text x="298" y="114" font-size="10.5" font-weight="700">HPG · gonády</text><text x="298" y="132" font-size="9.5">estrogén, progesterón, testosterón</text>
+</svg>
+<div class="cols3">
+<div><b>Melatonín</b> – epifýza, reguluje cyklus spánku a bdenia (cirkadiánne rytmy), tvorí sa v reakcii na tmu</div>
+<div><b>Oxytocín</b> – neurohormón z hypotalamu, „hormón lásky / objatia“</div>
+<div><b>Vazopresín</b> – uvedený bez bližšieho popisu</div>
+</div>
+<h3>Nervový systém</h3>
+<ul>
+<li>riadiaci a integračný systém · <b>CNS</b> = mozog a miecha</li>
+<li><b>ANS</b> = základ emočnej regulácie: <b>sympatikus</b> aktivuje, <b>parasympatikus</b> upokojuje</li>
+<li>dynamická rovnováha – ukazovateľ <span class="k">HRV</span> (heart rate variability) = variabilita intervalov medzi údermi srdca; <b>biofeedback / EEG biofeedback</b> – nástroj na zvládanie záťaže</li>
+</ul>
+<h4>Neurotransmitery – chemický prenos medzi neurónmi</h4>
+<table>
+<tr><th>Neurotransmiter</th><th>Funkcia</th><th>Súvisiace poruchy</th></tr>
+<tr><td class="k">Noradrenalín</td><td>nálada, bdelosť, krvný tlak</td><td>depresívna, panická porucha</td></tr>
+<tr><td class="k">Sérotonín</td><td>správanie, nálada, spánok, príjem potravy</td><td>depresia, úzkosť</td></tr>
+<tr><td class="k">Dopamín</td><td>motivácia, odmeňovanie, pozornosť</td><td>závislosti, psychózy, Parkinson</td></tr>
+<tr><td class="k">GABA</td><td><mark>hlavný inhibičný</mark> – ↓ úzkosť, napätie, podporuje spánok</td><td>–</td></tr>
+<tr><td class="k">Glutamát</td><td><mark>hlavný excitačný</mark> – učenie, pamäť</td><td>schizofrénia, závislosť</td></tr>
+<tr><td class="k">Acetylcholín</td><td>pamäť, pozornosť, učenie; prenos na svaly</td><td>Alzheimerova choroba</td></tr>
+</table>
+<h3>Genetické a epigenetické vplyvy</h3>
+<div class="cols">
+<div>
+<p><span class="k">Gén</span> – základná jednotka dedičnosti, zachováva štruktúrnu identitu z generácie na generáciu; v chromozómoch, 2 alternatívne formy = <b>alely</b>.</p>
+<p><span class="k">DNA</span> – deoxyribonukleová kyselina, zdvojená štruktúra, vzor pre syntézu RNA.</p>
+<p><span class="k">RNA</span> – ribonukleová kyselina, vzor pre syntézu proteínov, ktoré určujú rozvoj a funkcie organizmu.</p>
+<p><span class="k">Genotyp</span> – genetická výbava (zapísané v DNA) · <span class="k">fenotyp</span> – súbor prejavených znakov.</p>
+</div>
+<div>
+<p><span class="k">Endofenotyp</span> – medzistupeň medzi génom a správaním / symptómom; vnútorný biologický alebo kognitívny znak spájajúci gény s prejavom poruchy.</p>
+<p>Väčšina porúch nemá jednoduchú genetickú príčinu:<br><span class="k">oligogénny prenos</span> – prispieva niekoľko génov súčasne<br><span class="k">polygénny prenos</span> – množstvo génov, každý s nízkym príspevkom</p>
+<p><span class="k">Epigenetika</span> – ako prostredie (a iné faktory) doslova mení fungovanie génov.</p>
+</div></div>
+<div class="cols">
+<div class="box def"><span class="lab">TEMPLÁTOVÁ FUNKCIA DNA</span>zaisťuje kontinuitu druhu; DNA = templát (vzorka), každé vlákno je predlohou nového komplementárneho vlákna → zachovanie genetickej informácie pri delení buniek</div>
+<div class="box def"><span class="lab">TRANSKRIPČNÁ FUNKCIA DNA</span>DNA = predloha na tvorbu RNA → stavebné a funkčné proteíny. Ovplyvňuje ju vnútorné aj vonkajšie prostredie: a) kolísanie hormónov, b) sociálne učenie → zmeny <b>neuronálnej plasticity</b> (mení sa stavba aj funkcia mozgu)</div>
+</div>
+<h3>Dedičnosť psychických ochorení</h3>
+<ul class="cols"><li>poruchy sú <b>polygénne</b></li><li>gény sa prekrývajú (schizofrénia a BAP, BAP a depresia)</li><li>genetické riziko sa prekrýva aj s telesným (imunitné, metabolické dráhy)</li><li><mark>genetika <span class="no">neznamená</span> determináciu!</mark></li></ul>
+<table>
+<tr><th>Porucha</th><th>Rodinné riziko</th><th>Dedičnosť</th></tr>
+<tr><td class="k">Schizofrénia</td><td>1 rodič <span class="y">10–15 %</span> · obaja rodičia <span class="y">35–46 %</span> · súrodenec <span class="y">9 %</span> · teta, strýko, babka <span class="y">2–4 %</span></td><td class="y">cca 81 %</td></tr>
+<tr><td class="k">Bipolárna porucha</td><td>príbuzní 1. stupňa <span class="y">5–10 %</span>; <span class="y">3×</span> vyššie riziko</td><td class="y">70–85 %</td></tr>
+<tr><td class="k">Depresia</td><td><span class="y">2×</span> vyššie riziko pri príbuzných 1. stupňa</td><td class="y">30–40 %</td></tr>
+<tr><td class="k">Úzkosť</td><td><span class="y">2×</span> vyššie riziko pri príbuzných 1. stupňa</td><td class="y">30–50 %</td></tr>
+</table>
+<div class="box sch"><span class="lab">DEDIČNOSŤ V GRAFE</span>
+<svg viewBox="0 0 360 96" width="100%" class="fig" style="max-width:420px;margin:2px 0">
+<g font-size="10"><text x="0" y="16">schizofrénia</text><text x="0" y="38">bipolárna p.</text><text x="0" y="60">úzkosť</text><text x="0" y="82">depresia</text></g>
+<rect x="80" y="6" width="210" height="14" rx="3" fill="var(--warn)"/><text x="296" y="17" font-size="10" font-weight="700">~81 %</text>
+<rect x="80" y="28" width="182" height="14" rx="3" fill="var(--mne)"/><rect x="262" y="28" width="39" height="14" rx="3" fill="var(--mne)" fill-opacity=".45"/><text x="306" y="39" font-size="10" font-weight="700">70–85 %</text>
+<rect x="80" y="50" width="78" height="14" rx="3" fill="var(--sch)"/><rect x="158" y="50" width="52" height="14" rx="3" fill="var(--sch)" fill-opacity=".45"/><text x="216" y="61" font-size="10" font-weight="700">30–50 %</text>
+<rect x="80" y="72" width="78" height="14" rx="3" fill="var(--def)"/><rect x="158" y="72" width="26" height="14" rx="3" fill="var(--def)" fill-opacity=".45"/><text x="190" y="83" font-size="10" font-weight="700">30–40 %</text>
+</svg></div>
+<p class="small">Graf vyšetrených osôb podľa diagnóz (2009–2024, na 10 000 obyvateľov): najčastejšie <b>afektívne poruchy (F30–F39)</b> a <b>neurotické, stresom podmienené poruchy (F40–F48)</b>. <mark>Najviac zastúpená veková kategória: 15–19 rokov.</mark></p>
+
+<h3>Kandelove princípy (2002) – vzťah tela a mysle</h3>
+<ol class="steps">
+<li><span>Všetky duševné procesy, aj tie najzložitejšie, <b>vyplývajú z činnosti mozgu</b>. Behaviorálne poruchy pri duševných chorobách sú <b>poruchami funkcie mozgu</b> – aj keď sú príčiny zreteľne vonkajšie.</span></li>
+<li><span><b>Gény a ich bielkovinové produkty</b> určujú prepojenia neurónov a ich fungovanie; najmä kombinácia génov kontroluje správanie → jedna zložka závažných porúch je <b>genetická</b>.</span></li>
+<li><span>Poškodené gény samy nevysvetľujú všetko – veľkou mierou prispievajú <b>sociálne a vývinové faktory</b> cez <b>modifikáciu génovej expresie</b>, a tým ovplyvňujú fungovanie nervových buniek.</span></li>
+<li><span><b>Zmeny génovej expresie indukované učením</b> vedú k zmenám neurónových spojov; tie sa podieľajú na iniciácii a udržaní abnormálneho správania vyvolaného sociálnymi vplyvmi.</span></li>
+<li><span>Ak sú <mark>psychoterapia alebo poradenstvo účinné</mark>, deje sa to <b>cestou učenia</b> – zmenou génovej expresie, ktorá mení <b>pevnosť synaptických spojov</b>, a štrukturálnymi zmenami anatomického usporiadania spojení medzi neurónmi.</span></li>
+</ol>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="topic" id="t5">
+<div class="thead"><span class="tn">TÉMA 05</span><h2>Stres</h2><span class="date">16. 10. 2025</span></div>
+<div class="box def"><span class="lab">DEFINÍCIE</span><b>Stres</b> = fyziologická reakcia organizmu na nadmernú záťaž (<b>adaptívny mechanizmus</b>).<br><b>Biomedicínsky pohľad</b> – organizmus a jeho reakcia na nepríjemný podnet · <b>psychologický pohľad</b> – <mark>interakcia jedinca a prostredia</mark>.<br>Úloha stresu: reakcia na hrozbu – viac nám záleží, viac pozornosti, nabudenie. Súvisí s nervovým, endokrinným a imunitným systémom; <mark>dôležitý je VÝZNAM situácie pre pacienta</mark>.</div>
+
+<div class="box def"><span class="lab">STRES ≠ UDALOSŤ</span>rovnaký stresor – rôzne individuálne reakcie; aj bez zjavnej vonkajšej udalosti môže človek prežívať vysokú záťaž</div>
+<div class="vs">
+<div class="l"><b>Študentka A</b> – tá istá skúška<br><i>„Bude to náročné, ale som pripravená.“</i><br>→ mierne napätie → plánovanie a spánok</div>
+<div class="mid">vs.</div>
+<div class="r"><b>Študent B</b> – tá istá skúška<br><i>„Ak zlyhám, je to katastrofa.“</i><br>→ ruminácia, nespavosť, vyhýbanie</div>
+</div>
+<h3>Teórie stresu</h3>
+<div class="tl">
+<div><span class="a">W. B. Cannon</span> – <b>fight or flight</b>, akútne ohrozenie → mobilizácia, sympatikus; zaviedol pojem <span class="k">homeostáza</span>.</div>
+<div><span class="a">H. Selye</span> – hormóny nadobličiek (ACTH, (nor)adrenalín) ako biologická reakcia na stresor; stres = <b>nešpecifická</b> odpoveď na požiadavky; <span class="k">stresor</span> ohrozuje homeostázu; <span class="k">distres</span> (negatívny) vs. <span class="k">eustres</span> (pozitívny); <b>Všeobecný adaptačný syndróm</b>.</div>
+<div><span class="a">L. Levi</span> – <b>psychosociálny stres</b> = nesúlad medzi nárokmi prostredia a zdrojmi človeka.</div>
+<div><span class="a">T. Holmes, R. Rahe</span> – <b>životné udalosti</b> vyžadujúce prispôsobenie môžu spôsobiť psychický aj fyzický stres.</div>
+<div><span class="a">R. S. Lazarus a S. Folkmanová</span> – kognitívne hodnotenie, interakcia človek–prostredie, coping.</div>
+<div><span class="a">B. McEwen</span> (<span class="a">P. Sterling, J. Eyer</span>) – stres = neustály adaptívny proces vyrovnávania sa s meniacim sa prostredím, umožňuje predvídať a zvládať budúce výzvy; <b>alostáza, alostatická záťaž</b>.</div>
+</div>
+<div class="path">
+<div class="st c-sch"><span class="n">Cannon</span><b>Fyziologická reakcia</b>fight or flight, sympatikus</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">Selye</span><b>Všeobecný adaptačný syndróm</b>nešpecifická odpoveď organizmu</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">Lazarus, Folkman</span><b>Interakcia človek–prostredie</b>hodnotenie a coping</div>
+</div>
+
+<h4>Všeobecný adaptačný syndróm (GAS) – Selye</h4>
+<svg viewBox="0 0 420 140" class="fig" width="100%" style="max-width:460px" aria-label="Krivka GAS">
+<rect x="40" y="10" width="95" height="105" fill="var(--warn-bg)"/><rect x="135" y="10" width="170" height="105" fill="var(--aut-bg)"/><rect x="305" y="10" width="105" height="105" fill="var(--def-bg)"/>
+<line x1="40" y1="78" x2="410" y2="78" stroke="var(--muted)" stroke-dasharray="4 3"/><text x="342" y="74" font-size="8.5">bežná odolnosť</text>
+<path d="M40 78 C 60 78, 70 100, 85 100 S 115 40, 135 38 L 300 38 C 330 40, 340 95, 405 110" fill="none" stroke="var(--ink)" stroke-width="2.2"/>
+<line x1="40" y1="115" x2="410" y2="115" stroke="var(--muted)"/><line x1="40" y1="10" x2="40" y2="115" stroke="var(--muted)"/>
+<g font-size="10" font-weight="700"><text x="46" y="132">1 · poplach</text><text x="180" y="132">2 · odolnosť</text><text x="315" y="132">3 · vyčerpanie</text></g>
+<g font-size="8.5"><text x="46" y="24">mobilizácia,</text><text x="46" y="35">útok / útek</text><text x="150" y="24">adaptácia pri trvajúcej záťaži</text><text x="312" y="24">zdroje sa neobnovujú</text></g>
+<text x="2" y="62" font-size="8.5" transform="rotate(-90 10 62)">odolnosť</text>
+</svg>
+<p class="figcap">Všeobecný adaptačný syndróm (Selye) – poplach → odolnosť (rezistencia) → vyčerpanie</p>
+
+<h4>Holmes &amp; Rahe – Social Readjustment Rating Scale (body LCU)</h4>
+<table style="font-size:12px">
+<tr><td>Smrť manžela/manželky <b>100</b></td><td>Tehotenstvo <b>40</b></td><td>Problémy s príbuznými partnera <b>29</b></td><td>Zmena v náboženských aktivitách <b>19</b></td></tr>
+<tr><td>Rozvod <b>73</b></td><td>Sexuálne ťažkosti <b>39</b></td><td>Výnimočný osobný úspech <b>28</b></td><td>Zmena spoločenských aktivít <b>18</b></td></tr>
+<tr><td>Manželská separácia <b>65</b></td><td>Príchod nového člena rodiny <b>39</b></td><td>Začiatok/koniec prac. pomeru <b>26</b></td><td>Menšia pôžička/hypotéka (pod 10 000 €) <b>17</b></td></tr>
+<tr><td>Väzenie <b>63</b></td><td>Zmena finančnej situácie <b>38</b></td><td>Začiatok/ukončenie školy <b>26</b></td><td>Zmena spánkových návykov <b>16</b></td></tr>
+<tr><td>Smrť blízkeho člena rodiny <b>63</b></td><td>Smrť blízkeho priateľa <b>37</b></td><td>Zmena životných podmienok <b>25</b></td><td>Zmena v počte rodinných stretnutí <b>15</b></td></tr>
+<tr><td>Vážne zranenie/choroba <b>53</b></td><td>Zmena pracovných povinností <b>36</b></td><td>Zmena osobných návykov <b>24</b></td><td>Zmena stravovacích návykov <b>15</b></td></tr>
+<tr><td>Manželstvo <b>50</b></td><td>Zmena počtu hádok s partnerom <b>35</b></td><td>Problémy s nadriadeným <b>23</b></td><td>Dovolenka <b>13</b></td></tr>
+<tr><td>Prepustenie z práce <b>47</b></td><td>Hypotéka/pôžička nad 10 000 € <b>31</b></td><td>Zmena prac. času/podmienok <b>20</b></td><td>Vianoce alebo iné sviatky <b>12</b></td></tr>
+<tr><td>Manželský zmier <b>45</b></td><td>Zhabanie majetku <b>30</b></td><td>Zmena bývania <b>20</b></td><td>Menšia dopravná nehoda / priestupok <b>11</b></td></tr>
+<tr><td>Odchod do dôchodku <b>45</b></td><td>Zmena pracovnej zodpovednosti <b>29</b></td><td>Zmena školy <b>20</b></td><td></td></tr>
+<tr><td>Zmena zdravia člena rodiny <b>44</b></td><td>Odchod dieťaťa z domu <b>29</b></td><td>Zmena vo voľnočasových aktivitách <b>19</b></td><td></td></tr>
+</table>
+<div class="cols">
+<table><tr><th>Súčet LCU</th><th>Riziko</th></tr>
+<tr><td class="y">0–149</td><td>nízke, malá pravdepodobnosť zdravotných ťažkostí</td></tr>
+<tr><td class="y">150–299</td><td>stredné (cca <b>50 %</b> pravdepodobnosť problémov)</td></tr>
+<tr><td class="y">300+</td><td>vysoké (cca <b>80 %</b> pravdepodobnosť ochorenia/preťaženia)</td></tr></table>
+<div><b>Kritika škály</b><ul><li>kultúrne odlišnosti (vznikla v <span class="y">60. rokoch</span> v USA)</li><li>nezohľadňuje chronický stres a drobné každodenné záťaže</li><li>niektoré stresory dnes nie sú relevantné, iné chýbajú</li><li><mark>neberie do úvahy subjektívne hodnotenie udalostí</mark> – kľúčové</li></ul></div>
+</div>
+
+<h4>Fázy reakcie na stres (R. Rahe)</h4>
+<div class="path">
+<div class="st c-q"><span class="n">1</span><b>Uvedomenie</b>situáciu interpretujem ako stresujúcu</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">2</span><b>Psychické obrany</b>popieranie, izolácia</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">3</span><b>Fyziologické reakcie</b></div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">4</span><b>Zvládanie</b>coping</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">5</span><b>Prvé príznaky</b>chorobné príznaky stresu</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">6</span><b>Diagnostikovanie</b>najmä psychosomatické poruchy</div>
+</div>
+<h4>Znaky stresových situácií (Atkinson)</h4>
+<ol type="a"><li>neovplyvniteľnosť situácie</li><li>nepredvídateľnosť vzniku</li><li>subjektívne neprimerané, nadmerné nároky</li><li>náhla životná zmena vyžadujúca značné prispôsobenie</li><li>subjektívne neriešiteľné vnútorné konflikty (rozpor hodnôt, potrieb, rolí)</li></ol>
+
+<h4>Lazarus a Folkmanová – kognitívne hodnotenie a coping</h4>
+<div class="path">
+<div class="st c-q"><span class="n">situácia</span><b>Stresor</b></div><span class="ar">→</span>
+<div class="st c-def"><span class="n">primárne hodnotenie</span><b>Čo to pre mňa znamená?</b>strata · ohrozenie · výzva</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">sekundárne hodnotenie</span><b>Čo s tým urobím?</b>aké mám zdroje</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">coping</span><b>Zvládanie</b>na problém · na emócie · na význam</div><span class="ar">↺</span>
+<div class="st c-mne"><span class="n">prehodnotenie</span><b>Nové informácie</b>menia význam aj coping</div>
+</div>
+<div class="cols">
+<div class="box aut"><span class="lab">R. LAZARUS</span><b>Primárne hodnotenie</b> – čo sa deje a aký to má význam? Je to pre mňa hrozivé? → <b>strata / ohrozenie / výzva</b><br><b>Sekundárne hodnotenie</b> – čo môžem urobiť, aké mám zdroje?<br><b>Prehodnotenie</b> – nové informácie menia význam aj coping</div>
+<div class="box aut"><span class="lab">S. FOLKMANOVÁ · COPING NIE JE JEDNA STRATÉGIA</span><b>na problém</b> – aktívne riešenie, informácie, plánovanie, zmena podmienok<br><b>na emócie</b> – regulácia prežívania, prijatie, opora, kognitívne prehodnotenie<br><b>na význam</b> – hľadanie zmyslu, nové ciele, nádej pri dlhej záťaži<br><span class="small">Žiadna stratégia nie je adaptívna bez ohľadu na kontext, kontrolu a čas.</span></div>
+</div>
+<div class="box q"><span class="lab">LAZARUSOV MODEL NA KLINICKOM PRÍKLADE</span>Pacientka sa dozvie, že jej zamestnávateľ nemusí predĺžiť zmluvu.
+<div class="path" style="margin:4px 0"><div class="st c-def"><span class="n">primárne</span>„Ohrozuje to moje bývanie a schopnosť zabezpečiť deti.“</div><span class="ar">→</span><div class="st c-sch"><span class="n">sekundárne</span>„Aké mám úspory, podporu, pracovné možnosti a práva?“</div><span class="ar">→</span><div class="st c-aut"><span class="n">prehodnotenie</span>po získaní informácií a pomoci hodnotí situáciu inak</div></div>
+<span class="no">Zmena hodnotenia ≠ zmena objektívnej dostupnosti zdrojov.</span></div>
+<table><tr><th colspan="2">Adaptívny coping závisí od kontroly nad stresom</th></tr>
+<tr><td><b>Vysoká ovplyvniteľnosť</b> (blížiaci sa termín)</td><td>plánovanie, priority, práca po krokoch</td></tr>
+<tr><td><b>Nízka ovplyvniteľnosť</b> (nezvratná strata)</td><td>prijatie, regulácia emócií, podpora, práca s hodnotami</td></tr>
+<tr><td><b>Kombinovaná záťaž</b> (finančná neistota)</td><td>realistické riešenie + regulácia distresu + sociálna pomoc</td></tr></table>
+<div class="box q"><span class="lab">KLINICKÉ OTÁZKY NA MAPOVANIE COPINGU</span><b>Situácia:</b> „Čo sa stalo a čo z toho viete reálne ovplyvniť?“ · <b>Stratégia:</b> „Čo zvyčajne urobíte, keď sa napätie zvyšuje?“ · <b>Účinok:</b> „Čo vám krátkodobo uľaví? A čo sa stane o týždeň?“ · <b>Zdroje:</b> „Kto alebo čo vám môže pomôcť? Čo vám v tom bráni?“</div>
+<p><b>Dynamická slučka</b> = stresor + interpretácia + reakcia; úspešné riešenie zvyšuje vnímanú kontrolu; <mark>reakcia spätne mení situáciu aj ďalšie hodnotenie</mark>. <b>Hodnotenie situácie</b> ovplyvňujú: predchádzajúce skúsenosti, presvedčenia a očakávania, aktuálna záťaž a zdravie, sociálne a materiálne zdroje. <b>Nešpecifické vs. špecifické reakcie:</b> rôzne stresory môžu vyvolať spoločné vzorce aktivácie, ale odpoveď sa mení podľa povahy stresora, hodnotenia a kontextu.</p>
+
+<h3>Čo môže byť stresor a z čoho sa skladá stresová reakcia</h3>
+<div class="cols">
+<div><ul><li><b>fyzikálny</b> – hluk, horúčava, bolesť</li><li><b>psychologický</b> – neistota, zlyhanie, strata</li><li><b>interpersonálny</b> – konflikt, izolácia, tlak rolí</li><li><b>systémový</b> – chudoba, diskriminácia, nízka kontrola</li><li>podľa času: <b>akútny / epizodický / chronický / anticipačný</b></li></ul>
+<table style="font-size:12.5px"><tr><th colspan="2">Systémový stres</th></tr>
+<tr><td class="k">materiálny</td><td>nedostatok peňazí, neisté bývanie, dlhy, problém s dostupnosťou liečby (vysoké náklady)</td></tr>
+<tr><td class="k">pracovný</td><td>neisté kontrakty, nízka kontrola, vysoké nároky, nestabilný rozvrh, časový tlak, konflikty</td></tr>
+<tr><td class="k">sociálny</td><td>stigmatizácia, diskriminácia, neistý pobyt, nerovný prístup k zdrojom; konflikty v rodine, vo vzťahu, osamelosť</td></tr>
+<tr><td colspan="2" class="small">Psychologické hodnotenie pôsobí vždy v rámci reálnych životných možností.</td></tr></table></div>
+<div class="cards" style="grid-template-columns:1fr 1fr">
+<div class="card c-warn"><span class="n">telo</span>zrýchlený tep, búšenie srdca, potenie</div>
+<div class="card c-def"><span class="n">emócie</span>strach, frustrácia</div>
+<div class="card c-sch"><span class="n">kognície</span>obavy, katastrofické predpovede</div>
+<div class="card c-aut"><span class="n">správanie</span>zvýšené úsilie, únik, odkladanie</div>
+</div>
+</div>
+<div class="cols">
+<div class="box def"><span class="lab">EUSTRES VS. DISTRES</span><b>Eustres</b> = záťaž prežívaná ako zvládnuteľná, podnecujúca · <b>distres</b> = nadmerná alebo ohrozujúca. Krátkodobá aktivácia podporí výkon, príliš intenzívna/dlhá ho naruší; závisí od úlohy a individuálnych rozdielov.</div>
+<div class="box def"><span class="lab">STRACH · ÚZKOSŤ · STRES</span><b>Strach</b> = reakcia na vnímané <b>aktuálne</b> ohrozenie · <b>úzkosť</b> = spravidla <b>anticipácia budúceho</b> ohrozenia · <b>stres</b> = adaptačná reakcia a širší proces záťaže. „Som stále vystresovaný“ → mapujeme spánok, náladu, zdravie, okolnosti, priebeh, intenzitu, kontext, funkčné narušenie.</div>
+</div>
+<div class="box def"><span class="lab">MENŠINOVÝ STRES</span><b>Distálne stresory</b> – diskriminácia, stigmatizácia, nerovné zaobchádzanie, sociálne odmietanie · <b>proximálne procesy</b> – očakávanie odmietnutia, zvýšená ostražitosť, internalizovaná stigma · <b>moderátory</b> – sociálna opora, bezpečné prostredie, dostupná starostlivosť, identitné zdroje. <mark>Záťaž môže pretrvávať aj bez aktuálnej diskriminačnej udalosti – cez očakávania a anticipáciu.</mark></div>
+<div class="box sch"><span class="lab">ČO HOVORIA DÁTA · SOCIÁLNE STRESORY</span>
+<div class="cards" style="margin:4px 0">
+<div class="card c-sch"><span class="n">finančná neistota</span><b>101 zo 116</b>hodnotení: finančná záťaž ~ horšie psychické zdravie, najmä depresia (94 štúdií, 24 krajín; Tibbetts a kol., 2025) – časový vzťah, nie dôkaz kauzality</div>
+<div class="card c-warn"><span class="n">diskriminácia</span><b>g ≈ −0,30</b>73 experimentálnych štúdií, N = 12 097: navodená diskriminácia zhoršila bezprostredný psychický stav (Emmer, Dorn &amp; Mata, 2024) – krátkodobé účinky</div>
+<div class="card c-def"><span class="n">chudoba a depresia</span><b>OR = 1,96</b>(95 % CI 1,53–2,52), 162 štúdií: nízke SES ~ vyššia depresia (Jespersen a kol., 2025)</div>
+<div class="card c-mne"><span class="n">menšinový stres</span><b>Meyer (2003)</b>model distálnych a proximálnych procesov (Mezza a kol., 2024)</div>
+</div></div>
+
+<h3>Biologické mechanizmy stresu</h3>
+<div class="cols">
+<div class="box sch"><span class="lab">SYMPATIKUS – RÝCHLA REAKCIA</span><div class="flow"><span>amygdala vyhodnotí hrozbu</span><b>→</b><span>hypotalamus</span><b>→</b><span>sympatikus</span><b>→</b><span>adrenalín / noradrenalín</span></div>účel: mobilizovať energiu, pripraviť telo na akciu</div>
+<div class="box sch"><span class="lab">HPA OS – POMALŠIA REAKCIA</span><div class="flow"><span>hypotalamus → <b>CRH</b></span><b>→</b><span>hypofýza → <b>ACTH</b></span><b>→</b><span>kôra nadobličiek → <b>kortizol</b></span></div>CRH = kortikotropín uvoľňujúci hormón · ACTH = adrenokortikotropný hormón</div>
+</div>
+<svg viewBox="0 0 460 190" class="fig" width="100%" style="max-width:500px" aria-label="Rýchla a pomalá stresová odpoveď">
+<rect x="90" y="4" width="280" height="34" rx="8" fill="var(--q-bg)" stroke="var(--q)"/><text x="104" y="19" font-size="10" font-weight="700">Vyhodnotenie podnetu</text><text x="104" y="32" font-size="9">amygdala, prefrontálne a hipokampálne siete → hypotalamus</text>
+<line x1="180" y1="38" x2="110" y2="56" stroke="var(--muted)" stroke-width="1.5"/><line x1="280" y1="38" x2="350" y2="56" stroke="var(--muted)" stroke-width="1.5"/>
+<rect x="10" y="56" width="200" height="84" rx="8" fill="var(--warn-bg)" stroke="var(--warn)"/>
+<text x="20" y="72" font-size="10" font-weight="700">RÝCHLA ODPOVEĎ</text><text x="20" y="88" font-size="9">sympatikus + dreň nadobličiek</text><text x="20" y="104" font-size="9">→ adrenalín / noradrenalín</text><text x="20" y="120" font-size="9">→ ↑ tep, tlak, bdelosť</text>
+<rect x="250" y="56" width="200" height="84" rx="8" fill="var(--aut-bg)" stroke="var(--aut)"/>
+<text x="260" y="72" font-size="10" font-weight="700">POMALŠIA ODPOVEĎ</text><text x="260" y="88" font-size="9">HPA os: CRH → ACTH → kôra nadobličiek</text><text x="260" y="104" font-size="9">→ kortizol</text><text x="260" y="120" font-size="9">→ mobilizácia energie, modulácia imunity</text>
+<line x1="110" y1="140" x2="190" y2="158" stroke="var(--muted)" stroke-width="1.5"/><line x1="350" y1="140" x2="270" y2="158" stroke="var(--muted)" stroke-width="1.5"/>
+<rect x="90" y="158" width="280" height="28" rx="8" fill="var(--sch-bg)" stroke="var(--sch)"/><text x="102" y="176" font-size="9.5">spätná väzba kortizolu + parasympatická regulácia → <tspan font-weight="700">zotavenie</tspan></text>
+</svg>
+<h4>Biologický mechanizmus stresovej reakcie – krok za krokom</h4>
+<div class="cards">
+<div class="card c-q"><span class="n">1 · stresor</span>ohrozujúca situácia – skúška, konflikt, choroba, neistota, fyzická záťaž</div>
+<div class="card c-warn"><span class="n">2 · amygdala</span>vyhodnotí nebezpečenstvo → spustí sympatikus (boj / útek)</div>
+<div class="card c-aut"><span class="n">3 · HPA os</span>hypotalamus <b style="display:inline">CRH</b> → hypofýza <b style="display:inline">ACTH</b> → nadobličky <b style="display:inline">kortizol</b></div>
+<div class="card c-def"><span class="n">4 · adrenalín, noradrenalín</span>↑ tep, ↑ tlak, rýchle dýchanie, viac energie a bdelosti</div>
+<div class="card c-sch"><span class="n">5 · zmeny v tele</span>srdce rýchlejšie · dych plytší · svaly napäté · trávenie spomalené · imunita dočasne potlačená</div>
+<div class="card c-mne"><span class="n">6 · dlhodobý stres</span>trvalo ↑ kortizol → spánok, úzkosť, depresia, oslabená imunita, sústredenie, vyčerpanie</div>
+<div class="card c-aut"><span class="n">7 · návrat do rovnováhy</span>HPA klesá, telo sa regeneruje (odolnosť, podpora, oddych)</div>
+</div>
+<p><b>Čo sa deje:</b> mobilizácia energie; ↑ svalový tonus, zrýchlené dýchanie a búšenie srdca (veľké svaly); ostatné sa „vypína“ – menej slín, pomalšie trávenie, reprodukčné funkcie; lepšie všímanie okolia. <b>Ak to trvá príliš dlho alebo sa to spúšťa často</b> → adaptácia alebo chronické ochorenia (úzkosť, vysoký tlak, vredy, migrény, diabetes), vyčerpanie.</p>
+<table><tr><th colspan="2">Dôsledky dlhodobého stresu</th></tr>
+<tr><td>kognitívne</td><td>koncentrácia, pamäť, rozhodovanie</td></tr>
+<tr><td>emočné</td><td>úzkosť, iritovanosť, depresia, preťaženie</td></tr>
+<tr><td>behaviorálne</td><td>sociálna izolácia, chuť do jedla, spánok</td></tr>
+<tr><td>kardiovaskulárne</td><td>infarkt myokardu, hypertenzia</td></tr>
+<tr><td>endokrinné</td><td>diabetes, obezita</td></tr>
+<tr><td>gastrointestinálne</td><td>žalúdočné vredy, syndróm dráždivého čreva</td></tr>
+<tr><td>reprodukčné</td><td>poruchy cyklu, znížená plodnosť, problémy s erekciou</td></tr>
+<tr><td>nervový systém</td><td>znížené kognitívne funkcie, úzkostné poruchy, poruchy nálady</td></tr>
+<tr><td>imunitný systém</td><td>vyššia náchylnosť na ochorenia, vírusy</td></tr></table>
+<div class="box def"><span class="lab">PSYCHONEUROIMUNOLÓGIA</span>sympatikus a HPA os modulujú imunitné bunky · <b>akútny</b> stres môže dočasne <b>mobilizovať</b> niektoré zložky imunity · <b>chronický</b> stres môže narušiť imunitnú reguláciu a podporiť nízkostupňový zápal · imunitné signály spätne ovplyvňujú mozog, emócie, motiváciu, správanie · prozápalové cytokíny ovplyvňujú CNS → <b>sickness behavior ≈ depresívna symptomatológia</b></div>
+
+<h3>Spánok a stres</h3>
+<div class="cols">
+<ul><li>večerná aktivácia a ruminácia sťažujú zaspávanie</li><li>narušený spánok zhoršuje emócie, pozornosť a zvládanie ďalších nárokov</li><li>spánok ako <b>mechanizmus pretrvávania ťažkostí</b></li></ul>
+<div class="box sch"><span class="lab">OBOJSMERNÝ VZŤAH</span><div class="flow"><span>obavy, večerná aktivácia, nočné prebúdzanie</span><b>⇄</b><span>nedostatok spánku: horšia regulácia emócií a pozornosti</span></div>↑ záťaž → menej zotavenia → nižšia tolerancia ďalšej záťaže</div>
+</div>
+<h3>Alostáza a alostatická záťaž</h3>
+<div class="cols">
+<div class="box def"><span class="lab">HOMEOSTÁZA</span>udržiavanie rovnováhy</div>
+<div class="box def"><span class="lab">ALOSTÁZA</span><mark>stabilita cestou zmeny</mark> – organizmus kolíše vo všetkých parametroch v prijateľnom rozmedzí a vyvažuje vnútorné prostredie podľa požiadaviek; nahrádza pojem homeostáza; vyvažuje zdroje a potreby</div>
+</div>
+<ul>
+<li>úroveň aktivácie (arousal) riadi psychofyziologické funkcie; spustenie a ukončenie stresu koordinuje limbický systém, HPA os, ANS + endokrinné a imunitné signály</li>
+<li>reakcia sa spúšťa automaticky, ale intenzita a trvanie sa modulujú podľa skúseností – <b>schopnosť predvídať</b></li>
+<li>krátkodobý stres = pozitívny (podporuje prežitie, zvyšuje kapacitu) · dlhodobý = <span class="k">alostatická záťaž</span> → organizmus sa „preťaží“, regulácia zlyháva (pretrváva aktivácia, hormonálne výkyvy, zmeny spánku) · dlhodobá alostatická záťaž = <span class="k">alostatické preťaženie</span> → ↑ vulnerabilita k chorobám</li>
+<li>každý má jedinečnú <b>alostatickú kapacitu</b> (podľa skúseností) – „očkovanie stresom“</li>
+<li>Alostatická záťaž = <b>kumulatívna fyziologická cena</b> opakovaných alebo predĺžených nárokov</li>
+</ul>
+<div class="box sch"><span class="lab">4 KLASICKÉ CESTY K ALOSTATICKEJ ZÁŤAŽI</span><ol style="margin:0"><li>opakovaná aktivácia pri mnohých stresoroch</li><li>zlyhávajúca habituácia na opakovaný podnet</li><li>oneskorené vypnutie stresovej odpovede</li><li>nedostatočná odpoveď jednej zložky a kompenzačná aktivácia iných</li></ol><span class="small">Záťaž vzniká aj dysreguláciou, nielen vysokou aktiváciou.</span></div>
+<p><b>Chronický stres: problém môže byť aj v nedostatočnom zotavení</b> – <mark>rovnaká intenzita aktivácie ≠ rovnaká dlhodobá záťaž</mark>.</p>
+<div class="box sch"><span class="lab">ALOSTATICKÁ ZÁŤAŽ – STAČÍ TO? (FINLAY A KOL., 2026)</span>systematický prehľad 28 štúdií, metaanalýza 16:
+<svg viewBox="0 0 360 54" width="100%" class="fig" style="max-width:420px;margin:2px 0">
+<text x="0" y="16" font-size="9.5">schizofrénia / 1. epizóda psychózy</text><rect x="170" y="6" width="155" height="13" rx="3" fill="var(--warn)"/><text x="330" y="17" font-size="9.5" font-weight="700">0,97</text>
+<text x="0" y="40" font-size="9.5">veľká depresívna porucha</text><rect x="170" y="30" width="11" height="13" rx="3" fill="var(--muted)"/><text x="186" y="41" font-size="9.5" font-weight="700">0,07 (nevýznamné)</text>
+</svg>SMD vs. kontroly: pri schizofrénii veľký rozdiel (95 % CI 0,76–1,18), pri depresii žiadny (−0,23 až 0,37).</div>
+<div class="cols">
+<div><b>Akútny vs. chronický stres</b><ul><li>akútna odpoveď je adaptívna, ak je primeraná a nasleduje zotavenie</li><li>chronická = opakované epizódy, dlhodobé požiadavky, slabá regenerácia</li><li>riziko modifikuje zdravie, spánok, životná situácia, opora</li></ul>
+<div class="ladder"><div><b>epizodický</b>: záťaž → aktivácia → zotavenie</div><div><b>predĺžený</b>: záťaž → aktivácia → obmedzené zotavenie</div><div><b>opakovaný</b>: viac stresorov + málo priestoru na regeneráciu</div></div></div>
+<div><b>Ukazovatele alostatickej záťaže</b> = kompozit viacerých systémov: tlak, metabolické parametre, zápalové markery, niekedy neuroendokrinné ukazovatele.<ul><li><b>biomarkery</b> – štúdie používajú rôzne súbory</li><li><b>skresľujúce faktory</b> – vek, lieky, fajčenie, metabolické ochorenia, spánok, SES, sprievodné diagnózy</li><li><b>klinický limit</b> – skupinové rozdiely <span class="no">nemožno</span> automaticky použiť na diagnostiku „stresu“ u jednotlivca</li><li><b>kortizol</b> – cirkadiánny rytmus (vyšší ráno); jednorazové meranie nemusí byť ukazovateľ</li></ul></div>
+</div>
+<div class="cols">
+<div class="box sch"><span class="lab">ČASOVÁ OS ZÁŤAŽE</span>
+<svg viewBox="0 0 300 110" width="100%" class="fig" style="margin:2px 0">
+<rect x="20" y="8" width="70" height="72" fill="var(--aut-bg)"/><rect x="90" y="8" width="60" height="72" fill="var(--mne-bg)"/><rect x="150" y="8" width="60" height="72" fill="var(--warn-bg)" fill-opacity=".6"/><rect x="210" y="8" width="85" height="72" fill="var(--warn-bg)"/>
+<path d="M20 74 C 32 74, 34 34, 44 34 S 56 74, 90 72 C 100 58,105 58,110 70 S 122 56,128 64 S 140 50,150 60 C 165 46,175 52,185 44 S 200 40,210 40 C 230 22,250 18,270 22 S 290 34,295 34" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<line x1="20" y1="80" x2="295" y2="80" stroke="var(--muted)"/>
+<g font-size="9" font-weight="700"><text x="26" y="94">akútna</text><text x="92" y="94">opakovaná</text><text x="154" y="94">chronická</text><text x="226" y="94">kumulovaná</text></g>
+<g font-size="7.5"><text x="26" y="105">skúška, hádka</text><text x="92" y="105">konflikty, skúšky</text><text x="154" y="105">financie, opatera</text><text x="226" y="105">hromadenie stresorov</text></g>
+</svg>sleduje, kedy záťaž vzniká, ako dlho trvá a či sa opakuje alebo hromadí</div>
+<div class="box sch"><span class="lab">MEDZIGENERAČNÉ ZNEVÝHODNENIE</span>nevýhody sa prenášajú medzi generáciami – <span class="no">nie geneticky</span>, ale cez výchovu, prostredie, obmedzené možnosti a vzorce správania
+<div class="ladder" style="margin-top:6px">
+<div><b>1. generácia</b> – chudoba, stres, nepriaznivé podmienky</div>
+<div style="text-align:center;background:none;padding:0;color:var(--gold)">↓</div>
+<div><b>2. generácia</b> – menšie možnosti, obmedzené vzdelanie a príležitosti</div>
+<div style="text-align:center;background:none;padding:0;color:var(--gold)">↓</div>
+<div><b>3. generácia</b> – riziko pokračovania (vzdelanie, zdravie, status)</div>
+</div><b>Prenos nie je nevyhnutný</b> – podpora a stabilné prostredie ho prerušia.<br><span class="small"><b>detstvo</b> (nižšie zdroje, neisté bývanie, nerovné príležitosti) → <b>dospievanie</b> (väčšie nároky, obmedzená podpora a vzdelanie) → <b>dospelosť</b> (riziko finančnej neistoty a depresívnej symptomatológie). Nízke SES v detstve súviselo s depresivitou v dospelosti v <b>17 z 20</b> štúdií (Damianakou a kol., 2024) – neznamená individuálny osud.</span></div>
+</div>
+
+<h3>Protektívne faktory</h3>
+<div class="cards">
+<div class="card c-aut"><span class="n">A. Antonovsky</span><b>Sense of coherence</b>zrozumiteľnosť · zmysluplnosť · zvládnuteľnosť</div>
+<div class="card c-def"><span class="n">S. Kobasová</span><b>Hardiness (nezdolnosť)</b>kontrola · oddanosť · výzva</div>
+<div class="card c-sch"><span class="n">A. Bandura</span><b>Self-efficacy</b>odhadovaná schopnosť efektívne zvládnuť hroziacu situáciu</div>
+<div class="card c-mne"><span class="n">M. Seligman</span><b>Explanačný štýl</b>permanentnosť · pervazívnosť · personalizácia; <b>naučený optimizmus</b></div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span>Kobasová <span class="acr">3C</span>: <b>C</b>ontrol (kontrola) – <b>C</b>ommitment (oddanosť) – <b>C</b>hallenge (výzva) · Seligman <span class="acr">3P</span>: <b>P</b>ermanentnosť – <b>P</b>ervazívnosť – <b>P</b>ersonalizácia · Antonovsky <span class="acr">ZZZ</span>: <b>Z</b>rozumiteľnosť – <b>Z</b>mysluplnosť – <b>Z</b>vládnuteľnosť</div>
+<div class="cols">
+<div><b>Reziliencia</b> – bez jednotnej definície; dynamický proces učenia a adaptácie; každý odoláva inak; APA: zvládanie („bounce back“) a adaptácia na záťaž; vyššia reziliencia ~ nižšia anxieta a stres; skôr súhrn viacerých vlastností.<br><b>Ako ju zvyšovať:</b> KBT techniky (zmena hodnotenia, zvládacie stratégie) · mindfulness · self-compassion · <b>sociálny proces</b> – rozvíja sa v interakcii s ľuďmi.</div>
+<div><b>Psychosociálne stresory a zdravie:</b> osamelosť, detské zážitky.<br><b>Čo pomáha pri strese:</b> dychové cvičenia · identifikácia spúšťačov · zníženie fyziologickej aktivácie · práca s myšlienkami (vyrozprávať, napísať) · zvýšiť schopnosť zvládať záťaž · spánok, režim, výživa, pohyb · uvoľniť napätie (plač).</div>
+</div>
+
+<h3>Stres v klinickej praxi</h3>
+<ul>
+<li>stresor môže byť <b>rizikovým, precipitujúcim alebo perpetujúcim</b> faktorom; význam závisí od predispozície, času, ochranných faktorov; porucha môže sekundárne zvýšiť expozíciu stresu aj negatívne hodnotenie</li>
+<li><b>Prekrývanie stres – úzkosť – depresia:</b> nespavosť, únava, napätie, horšie sústredenie, podráždenosť sú <b>nešpecifické</b>; rozhodujú trvanie, priebeh, funkčný dopad, kontext. <b>Expozícia</b> (straty, financie, konflikty) → <b>mediátory</b> (spánok, ruminácia, strata odmien, izolácia, horšie zvládanie) → <b>symptómy</b> (anhedónia, depresívna nálada, psychomotorické zmeny, ↓ fungovanie). <mark>Depresiu nemožno vysvetliť ani diagnostikovať iba prítomnosťou stresora.</mark></li>
+<li>pri úzkosti mapujeme <b>časovanie</b> (situačne, nečakane, nepretržite?), <b>interpretáciu</b> (čo považuje za hrozbu – infarkt, zlyhanie, odmietnutie, stratu kontroly?) a <b>diferenciálne</b> (somatický stav, lieky, stimulanty, spánok, látky, komorbidita)</li>
+<li><mark>„Som v strese“ je začiatok klinického rozhovoru, nie hotové diagnostické vysvetlenie.</mark></li>
+<li><b>Čítanie výskumu:</b> <i>asociácia</i> (súvisia?) · <i>časové poradie</i> (čo predchádza čomu?) · <i>kauzalita</i> (zmena po náhodne pridelenej intervencii?)</li>
+<li><b>Interpretácia udalostí:</b> 172 štúdií, 420 efektov (Haehner a kol., 2024) – negatívnejšie vnímanie udalostí ~ depresívne symptómy (<b>r ≈ 0,28</b>), vzťah obojsmerný · <b>Reinterpretácia stresovej aktivácie:</b> metaanalýza RCT, 44 efektov, <b>d = 0,23</b> – malý pozitívny efekt na výkon, žiadna vzorka nebola klinická (Bosshard &amp; Gomez, 2024)</li>
+</ul>
+<div class="cols">
+<div><b>Ako posudzujeme stres:</b> klinický rozhovor · pozorovanie · sebaposudzovacie škály (napr. <b>PSS</b>) · biomarkery (merateľné biologické ukazovatele stavu organizmu).<br><b>Intervencia:</b> stresor a prostredie · zdroje a coping · symptómy · meniť, čo je meniteľné.</div>
+<div class="box def"><span class="lab">PSS-10 · ŠKÁLA VNÍMANÉHO STRESU</span>subjektívne prežívanie nepredvídateľnosti, nezvládnuteľnosti a preťaženia za <b>posledný mesiac</b>; <b>10 položiek</b>, frekvenčná škála <b>0–4</b>, niektoré položky sa skórujú reverzne<details open style="margin-top:4px"><summary class="small" style="cursor:pointer">10 položiek („Ako často za posledný mesiac…“)</summary><ol class="small" style="margin:2px 0"><li>vás rozčúlila neočakávaná udalosť?</li><li>ste cítili, že nemáte kontrolu nad dôležitými vecami?</li><li>ste sa cítili nervózne a vystresovane?</li><li>ste cítili, že zvládate osobné problémy?</li><li>ste cítili, že všetko ide podľa plánu?</li><li>ste cítili, že nezvládate všetko, čo treba?</li><li>ste dokázali kontrolovať podráždenie?</li><li>ste mali pocit kontroly nad situáciou?</li><li>ste sa hnevali pre veci mimo vašej kontroly?</li><li>ste mali pocit, že sa ťažkosti nahromadili tak, že ich nezvládate?</li></ol></details></div>
+</div>
+<div class="box q"><span class="lab">PRI PRETRVÁVAJÚCEJ CHUDOBE NESTAČÍ INTERVENCIA NA ÚROVNI MYŠLIENOK</span>Pacientka: dve deti, dlhy, neisté bývanie, nespavosť, beznádej.
+<div class="cards" style="margin:4px 0"><div class="card c-def"><span class="n">individuálna</span>krízové posúdenie, spánok, zvládanie, regulácia emócií, práca s beznádejou</div><div class="card c-aut"><span class="n">interpersonálna</span>sociálna opora, pomoc blízkych, partnerské a pracovné hranice</div><div class="card c-sch"><span class="n">systémová</span>sociálne dávky, právne a dlhové poradenstvo, bývanie, dostupná starostlivosť</div></div></div>
+<div class="box warn"><span class="lab">PREČO JE STRES KĽÚČOVÁ TÉMA KP</span>opakovaný problém klientov · neuvedomovaný stres vedie k ďalším problémom · <b>spúšťač a udržiavateľ</b> duševných porúch · <b>faktor relapsu</b> (depresia, úzkosť) · <b>zhoršuje prognózu</b> somatických ochorení</div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="topic" id="t6">
+<div class="thead"><span class="tn">TÉMA 06</span><h2>Etiológia a psychodiagnostika v klinickej praxi</h2><span class="date">23. 10. 2025</span></div>
+<h3>Etiológia duševných porúch</h3>
+<div class="cards">
+<div class="card c-def"><span class="n">etiológia</span>náuka o príčinách vzniku poruchy</div>
+<div class="card c-def"><span class="n">patogenéza</span>mechanizmus, ako porucha vzniká a vyvíja sa</div>
+<div class="card c-def"><span class="n">etiopatogenéza</span>príčiny + mechanizmus vývoja spolu</div>
+</div>
+<ul>
+<li>vývin psychických javov (normálnych aj patologických) určujú <b>vnútorné aj vonkajšie činitele</b>; ich pomer nevieme presne určiť (líši sa aj podľa obdobia)</li>
+<li><b>endogénne (vnútorné)</b> = biologické, somatogénne faktory (telesné poškodenie) · <b>exogénne (vonkajšie)</b> = psychogénne faktory</li>
+<li>poruchy sú podmienené <mark>multifaktoriálne – bio-psycho-sociálny model (Engel, 1977)</mark></li>
+</ul>
+<table>
+<tr><th style="width:18%">Faktory</th><th>Obsah</th></tr>
+<tr><td class="k">1 · Biologické</td><td>genetická predispozícia (nervový, endokrinný, imunitný systém) · ochorenia primárne/sekundárne postihujúce mozog<br><b>A. prenatálne</b> (cez organizmus matky): chemické (drogy), fyzikálne (žiarenie, RTG), mechanické (úrazy), biologické (zlá výživa matky, ochorenia – vírusy, metabolické poruchy)<br><b>B. postnatálne</b>: chemické, fyzikálne, biologické (infekcie, zápaly NS…)</td></tr>
+<tr><td class="k">2 · Psychologické</td><td>osobnostné črty (temperament, sebahodnotenie, rigidita…), emočné faktory · stresujúce a traumatické zážitky</td></tr>
+<tr><td class="k">3 · Sociálne</td><td>vzťahy a sociálna opora (primárna rodina) · celospoločenská situácia (stigmatizácia) · <b>5 základných sociálnych potrieb</b>: miesta, bezpečia, starostlivosti, podpory, hraníc</td></tr>
+</table>
+<div class="box def"><span class="lab">TRAUMA (APA, 2013; APA, 2018)</span>zážitok (ne)priameho ohrozenia života, sexuálneho alebo iného násilia; dôležitá je <b>subjektívna skúsenosť</b>. Zažije ju cca <span class="y">70 %</span> ľudí, približne u <span class="y">2/3</span> dôjde k spontánnemu spracovaniu. Dôsledky: somatické a psychické ochorenia (depresia, úzkosť, PTSP). Pozitívne: <span class="k">PTG</span> (posttraumatický rast) – zlepšenie vzťahov, nové príležitosti, osobná sila, porozumenie životu, spirituálna zmena.</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span>Sociálne potreby <span class="acr">M-B-S-P-H</span> → „<b>M</b>ama <b>B</b>ezpečne <b>S</b>tarostlivo <b>P</b>odporuje <b>H</b>ranice“</div>
+
+<h3>Psychodiagnostika – predpoklady</h3>
+<ul class="cols"><li>znalosť symptomatológie porúch (MKCH-10)</li><li>poznanie metód + zážitok na sebe</li><li>informovaný súhlas klienta</li><li>výsledky len v súlade s cieľom vyšetrenia</li><li>faktory psychológa (empatia, otvorenosť, klinické uvažovanie)</li></ul>
+
+<h3>Klinické metódy</h3>
+<p>Spoločné lekárom, psychológom aj iným zdravotníkom; založené na <b>osobnej interakcii</b> s pacientom.</p>
+<h4>1 · Rozhovor</h4>
+<p><b>Úvodný</b> („Čo vás ku mne priviedlo? Boli ste už u psychológa?“) a <b>anamnestický</b> – subjektívna / objektívna anamnéza; osobná (+ školská, pracovná), rodinná, zdravotná.</p>
+<table>
+<tr><th>Osobná anamnéza (OA)</th><th>Rodinná anamnéza (RA)</th><th>Zdravotná anamnéza (ZA)</th></tr>
+<tr><td>základné info (vek, s kým žije, čomu sa venuje) · detstvo a vývin · vzťahy (partnerské, kamarátske, sexualita) · vzdelanie (prospech, predmety, kolektív, pedagógovia, správanie) · práca (história, spokojnosť, vzťahy, konflikty s nadriadenými) · záujmy, zdroje, sebahodnotenie</td>
+<td>členovia rodiny (vek, povolanie, súrodenci, situácia) · vzťahy v rodine (kvalita, komunikácia, roly, emočná klíma) · rodičovské vzťahy a výchovný štýl</td>
+<td>celkový zdravotný stav (subjektívne, chronické ochorenia, infekcie, psychosomatika) · neurologické a úrazové info (úrazy hlavy, operácie, epilepsia, migrény, hospitalizácie, kognitívne ťažkosti) · záťaž v rodine · psychoaktívne látky (alkohol, nikotín, kofeín, iné) · spánok a životný štýl<br><mark>+ lekárske aj psychiatrické správy → vylúčiť somatickú príčinu</mark></td></tr>
+</table>
+<div class="cols">
+<div><b>Aktuálny problém – 6 otázok</b>
+<div class="cards" style="grid-template-columns:1fr 1fr">
+<div class="card c-q"><span class="n">1 · opis</span>„Čo vás dnes privádza?“</div>
+<div class="card c-sch"><span class="n">2 · vznik a vývoj</span>ako dlho, čím začalo, „posledná kvapka“, kedy lepšie/horšie</div>
+<div class="card c-def"><span class="n">3 · prežívanie</span>ako sa cíti, čo si hovorí, čo robí</div>
+<div class="card c-warn"><span class="n">4 · dôsledky</span>čo sa zmenilo, čo ho obmedzuje</div>
+<div class="card c-mne"><span class="n">5 · riešenie</span>čo už skúšal, pomohlo to?</div>
+<div class="card c-aut"><span class="n">6 · motivácia</span>na čom chce pracovať, čo očakáva</div>
+</div></div>
+<div><b>Ďalšie zdroje informácií</b><ul><li>lekárska dokumentácia – vyšetrenia, farmakologická (najmä psychiatrická) liečba</li><li>informácie zo sociálneho okolia – rodina; pri dospelých <b>s ich súhlasom</b></li></ul>
+<h4>2 · Pozorovanie</h4><p>počas rozhovoru aj celého vyšetrenia:</p><ul><li><b>vonkajšie prejavy</b> – upravenosť, mimika, gestikulácia</li><li><b>reč</b> – tempo, chyby, slovník, výslovnosť, skladba, úprimnosť, zdieľnosť</li><li><b>emotivita</b> – nálada, vegetatívne prejavy, ovplyvniteľnosť, plytkosť, plačlivosť; kognitívne funkcie – pamäť, pozornosť</li><li><b>správanie</b> – kontakt, záujem, ambície, obavy, frustrácia, dôslednosť</li></ul></div>
+</div>
+<div class="box sch"><span class="lab">KLINICKO-PSYCHOLOGICKÉ VYŠETRENIE</span><div class="flow"><span>a) pozorovanie</span><b>→</b><span>b) rozhovor</span><b>→</b><span>c) testovanie</span><b>→</b><span>d) interpretácia</span></div>
+<b>Cieľ diagnostiky</b> (Svoboda a kol., 2013) – zisťovanie a meranie psychických vlastností, stanovenie alebo upresnenie diagnózy + <b>klinická otázka</b>, „overenie hypotéz“.</div>
+
+<h3>Testové metódy</h3>
+<div class="cards">
+<div class="card c-sch"><span class="n">1 · inteligenčné</span><b>jednodimenzionálne</b>Raven, Viedenský maticový test, Kohsove kocky<b>multidimenzionálne</b>WAIS, WISC</div>
+<div class="card c-aut"><span class="n">2 · psychické funkcie</span><b>pamäť, pozornosť</b>Wechslerova škála pamäti, Bentonov test, Bourdonov test, Číselný obdĺžnik, Disjunktívny reakčný čas<b>špeciálne</b>Urbanov figurálny test tvorivého myslenia</div>
+<div class="card c-def"><span class="n">3 · osobnostné</span><b>jednodimenzionálne</b>KN-5, STAI<b>multidimenzionálne</b>SPARO, MMPI, ICL, Freiburský dotazník<b>projektívne</b>Rorschach, Baum test, Test kresby postavy, Sceno test</div>
+<div class="card c-warn"><span class="n">4 · organicita</span>Bender-Gestalt test, Grassiho test, Graham-Kendall, MoCA, MMSE</div>
+</div>
+
+<h3>Výsledok: klinicko-psychologický nález</h3>
+<div class="cols">
+<ol class="steps"><li><span>meno, priezvisko, dátum narodenia, bydlisko, rodné číslo, dátum vyšetrenia</span></li><li><span>účel vyšetrenia</span></li><li><span>pozorovanie</span></li><li><span>rozhovor – OA, RA, ZA</span></li><li><span>popis problému</span></li><li><span>použité metódy</span></li><li><span>záver a odporúčanie</span></li><li><span>pečiatka, meno psychológa, dátum</span></li></ol>
+<div class="box q"><span class="lab">VZOROVÝ NÁLEZ (SKRÁTENE)</span>19-ročná pacientka odoslaná psychiatrom na upresnenie stavu. Metódy: rozhovor, pozorovanie, WAIS-R, Rorschach, BDI, MAS, KN-5, PCL-5. WAIS-R: IQ v pásme priemeru (110). BDI: veľmi silné depresívne tendencie so SUI ideáciou; MAS: primárne depresívna symptomatológia; KN-5: veľmi silná neurotickosť; PCL-5: PTSP symptomatológia. Rorschach: nízka miera zvládania záťaže, vyhýbavé reagovanie, neadekvátne testovanie reality, afektívna dysregulácia. <b>Záver:</b> priemerný intelekt, neuroticky ladená osobnosť, vyhýbavý štýl, silné depresívne tendencie v komorbidite s neurotickosťou, SUI ideácie. <b>Odporúčanie:</b> pokračovať v psychiatrickej liečbe, zvážiť podpornú psychoterapiu, hygiena spánku a stravy, postupná aktivizácia, stratégie zvládania stresu.</div>
+</div>
+
+<h3>Kazuistiky zo seminára</h3>
+<div class="box q"><span class="lab">KAZUISTIKA 1 · KLIENTKA 28 ROKOV</span>„Posledné mesiace mám problém vstať z postele. Nič ma nebaví, v práci sa neviem sústrediť, často plačem.“ – Ako by ste uvažovali? Na čo by ste sa zamerali? Čo by ste sa pýtali? Čo by ste si všímali?<br><i>Návrh podľa prednášok:</i> uvažovať o depresii (kritériá MKCH-10: nálada, energia, anhedónia, koncentrácia, spánok, sebaobviňovanie, tempo); mapovať trvanie, spúšťače, funkčný dopad, <b>riziko (SUI)</b>, somatické príčiny (ZA, štítna žľaza – HPT os), látky; pozorovať náladu, plačlivosť, psychomotorické tempo, reč.</div>
+<div class="box q"><span class="lab">KAZUISTIKA 2 · KLIENTKA 34 ROKOV</span>Po autonehode má problém znovu šoférovať, vyhýba sa cestám, má nočné mory. – Čo by ste zisťovali? Čo by ste si všímali?<br><i>Návrh podľa prednášok:</i> trauma a jej subjektívne prežívanie, časový odstup (akútna stresová reakcia vs. PTSP), <b>vyhýbanie ako udržiavajúci faktor</b>, nočné mory, dopad na fungovanie, zdroje a opora; prípadne PCL-5.</div>
+<div class="box q"><span class="lab">KAZUISTIKA 3 · DIEŤA 10 ROKOV</span>Učiteľka: „tiché a nesústredené“, rodičia: doma vie byť pokojné. – Čo by ste zisťovali? Čo by ste si všímali? Ako by ste viedli rozhovor?<br><i>Návrh podľa prednášok:</i> rozdiel škola vs. domov (situačnosť), školská a rodinná anamnéza, vzťahy v kolektíve, pozornosť (napr. Bourdon, Číselný obdĺžnik), neurovývinové poruchy (ADHD/ADD), úzkosť; heteroanamnéza od rodičov aj učiteľky; rozhovor primeraný veku.</div>
+
+<h3>Etické aspekty psychodiagnostiky</h3>
+<div class="cols">
+<ul><li>informovaný súhlas</li><li><b>mlčanlivosť</b> – vyšetrenie = zdravotnícky úkon = veľmi citlivá informácia</li><li>archivácia dát, riadne označenie metód</li><li>vzdelanie administrátora</li><li>štandardizované, validné, spoľahlivé metódy</li><li>klient má právo na zrozumiteľné vysvetlenie výsledkov</li></ul>
+<div class="box aut"><span class="lab">Z ETICKÉHO KÓDEXU SKP</span>
+<b>5)</b> povinnosť zrozumiteľne poučiť klienta (alebo zákonného zástupcu) o stave, diagnostike, liečbe vrátane rizík, prognóze · <b>7)</b> chrániť dokumentáciu pred zmenou, zničením, zneužitím; bezpečne uložiť testy a záznamy · <b>8)</b> nevykonávať neúčelné výkony · <b>9)</b> neriadiť sa komerčnými hľadiskami, len odborným úsudkom a potrebou klienta · <b>9)</b> nezneužiť dôveru a závislosť klienta; informácie sú dôverné počas života klienta aj po smrti · <b>10)</b> sprostredkované informácie nesmú umožniť identifikáciu osôb alebo organizácií</div>
+</div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="topic" id="t7">
+<div class="thead"><span class="tn">TÉMA 07</span><h2>Prevencia a intervencie v KP</h2><span class="date">30. 10. 2025</span></div>
+<div class="box sch"><span class="lab">OD DIAGNOSTIKY K INTERVENCII</span><div class="flow"><span>úvodný rozhovor</span><b>→</b><span>psychodiagnostika</span><b>→</b><span>formulácia prípadu, liečebný plán, ciele</span><b>→</b><span>voľba intervencie</span><b>→</b><span>hodnotenie účinku</span></div></div>
+<div class="cols3">
+<div class="box def"><span class="lab">INTERVENCIA</span>cielene zameraná technika – <b>najvšeobecnejší</b> pojem</div>
+<div class="box def"><span class="lab">PREVENCIA</span>znižuje riziko vzniku ochorenia</div>
+<div class="box def"><span class="lab">LIEČBA</span>súbor terapeutických opatrení na obnovenie zdravia</div>
+</div>
+
+<h3>Prevencia – G. Caplan, Principles of Preventive Psychiatry (1964)</h3>
+<div class="path">
+<div class="st c-aut"><span class="n">pred vznikom</span><b>Primárna</b>znížiť riziko vzniku ochorenia</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">prvé príznaky</span><b>Sekundárna</b>skorý záchyt + krátkodobý zásah</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">po vzniku</span><b>Terciárna</b>zmierniť následky, zabrániť relapsu</div>
+</div>
+<table>
+<tr><th style="width:16%">Typ</th><th>Obsah</th><th style="width:28%">Úloha klinického psychológa</th></tr>
+<tr><td class="k">Primárna</td><td>znižuje pravdepodobnosť vzniku ochorenia; ochrana a zlepšovanie zdravia; vylúčenie nepriaznivých vplyvov alebo posilnenie „nárazníkov“; účinky prostredia súvisia s ochorením<br><i>Príklady:</i> starostlivosť štátu (jodizácia soli – štítna žľaza, fluorizácia soli/vody, zákon o ochrane nefajčiarov) · vakcinácia · zdravý životný štýl (spánok, strava, pohyb, digitálna hygiena, záťaž) · podpora zdravia na pracovisku · <b>peer programy</b> (vyškolení rovesníci)</td><td>vzdelávanie, tréning zvládania stresu, podpora zdravia, výskum</td></tr>
+<tr><td class="k">Sekundárna</td><td><mark>skorý záchyt prvých príznakov + cielený krátkodobý zásah</mark>: poradenstvo, krízová intervencia, psychoterapia, psychoedukácia</td><td>screening, diagnostika, krízová intervencia, psychoterapia / psychoporadenstvo</td></tr>
+<tr><td class="k">Terciárna</td><td>starostlivosť <b>po vzniku</b> ochorenia – zníženie následkov, funkčnosť, kvalita života, prevencia relapsu · <b>rehabilitácia</b> (liečebná, sociálna, pedagogická, pracovná, duševná) · <b>fyzioterapia</b> (kinezioterapia, elektro-, magneto-, fototerapia, Vojtova metóda, hipoterapia) · psychoterapia</td><td>psychoterapia, rehabilitácia, <b>prevencia relapsu</b></td></tr>
+</table>
+<p><span class="k">Prevencia relapsu</span> = opatrenia, aby sa porucha po zlepšení nevrátila; najmä v psychológii, psychiatrii, závislostiach, chronických ochoreniach.</p>
+<div class="cols">
+<div class="box aut"><span class="lab">GORDONOVO DELENIE PREVENCIE</span>
+<svg viewBox="0 0 330 120" width="100%" class="fig" style="margin:2px 0">
+<circle cx="62" cy="60" r="56" fill="var(--aut)" fill-opacity=".12" stroke="var(--aut)"/>
+<circle cx="72" cy="66" r="36" fill="var(--mne)" fill-opacity=".18" stroke="var(--mne)"/>
+<circle cx="80" cy="72" r="16" fill="var(--warn)" fill-opacity=".25" stroke="var(--warn)"/>
+<g font-size="9.5"><text x="130" y="30"><tspan font-weight="700">1 · univerzálna</tspan> – celá populácia</text><text x="130" y="62"><tspan font-weight="700">2 · selektívna</tspan> – riziková skupina</text><text x="130" y="94"><tspan font-weight="700">3 · indikovaná</tspan> – jednotlivci</text><text x="130" y="106" font-size="8.5">so symptómami / rizikovými faktormi</text></g>
+</svg></div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span>Caplan = <span class="acr">PRED – ZAČIATOK – PO</span> (primárna – sekundárna – terciárna) · Gordon = <span class="acr">VŠETCI – RIZIKOVÍ – S PRÍZNAKMI</span></div>
+</div>
+
+<h4>Očkovanie</h4>
+<ul>
+<li><span class="a">E. Jenner</span> (18. st.) – vpichovaný hnis z lézie kravských kiahní</li>
+<li>očkovacia látka → tvorba protilátok (antigén) → ochrana pred infekciou; <mark>najúčinnejší prostriedok prevencie infekčných ochorení</mark></li>
+<li><span class="y">1980</span> – pravé kiahne vyhlásené za vyhubené</li>
+</ul>
+<div class="cols">
+<div><b>Povinné očkovania na Slovensku</b><ol><li><b>hexavalentná</b> (6-zložková): záškrt, tetanus, čierny kašeľ, hepatitída B, hemofilové nákazy, detská obrna</li><li>pneumokoková konjugovaná</li><li><b>MMR</b> – osýpky, mumps, rubeola</li></ol>
+<b>Odporúčané:</b> tuberkulóza, meningokokové infekcie, rotavírusy, chrípka, kiahne, žltačka typu A, kliešťová encefalitída, HPV + covid</div>
+<div><b>Prečo sa očkovať</b><ul><li>ochrana vlastného zdravia (menšia šanca nakaziť sa, ľahší priebeh, menej komplikácií)</li><li>ochrana zraniteľných (novorodenci, starší, chronicky chorí, imunokompromitovaní)</li><li>kolektívna imunita</li><li>zabraňuje dlhodobým následkom</li><li>znižuje záťaž systému – ekonomický a spoločenský prínos</li><li>etické hľadisko – zdravotnícky pracovník</li></ul>
+<b>Čo očkovanie dopĺňa:</b> hygiena, voda, sanitácia · respirátory, izolácia, testovanie · bezpečný sex · screening a včasná liečba</div>
+</div>
+
+<h3>Stigma duševného zdravia</h3>
+<div class="box def"><span class="lab">STIGMATIZÁCIA</span>proces „označovania“ → spoločenské vylúčenie a odmietanie stigmatizovaného, aj s jeho vlastnými pocitmi hanby. <b>3 úrovne problému:</b></div>
+<div class="path"><div class="st c-q"><span class="n">znalosti</span><b>Nevedomosť</b></div><span class="ar">→</span><div class="st c-mne"><span class="n">postoje</span><b>Predsudky</b></div><span class="ar">→</span><div class="st c-warn"><span class="n">konanie</span><b>Diskriminácia</b></div></div>
+<table>
+<tr><th>Forma stigmy</th><th>Dôsledky</th></tr>
+<tr><td class="k">Seba-stigma a anticipovaná diskriminácia</td><td>menej vyhľadávania pomoci, horšia adherencia a self-efficacy, horšia kvalita života</td></tr>
+<tr><td class="k">Interpersonálna (asociovaná)</td><td>sociálna izolácia, šikana, menšia opora → odkladanie liečby, horšie fungovanie (štúdium, práca)</td></tr>
+<tr><td class="k">Štrukturálna</td><td>médiá, politika, legislatíva → horší prístup k starostlivosti, financovaniu, službám, zamestnaniu, bývaniu</td></tr>
+</table>
+<p><b>Ako stigma vzniká:</b> z nevedomosti a strachu (čo nepoznáme, odmietame) · z mediálnych stereotypov · z nedostatku kontaktu s ľuďmi, ktorých sa týka · z kultúrnych a historických postojov.</p>
+<p class="small">Kågström a kol. – systematický scoping review (<span class="y">448</span> štúdií; 294 kvantitatívnych, 154 kvalitatívnych): stigma je konzistentne spojená s negatívnymi dôsledkami (zdravie, služby, psychosociálne, ekonomické, štrukturálne), no dôkazy o kauzálnom vzťahu sú obmedzené; treba rozlišovať <b>postoje vs. diskriminačné správanie</b>.</p>
+
+<h3>Psychoterapia</h3>
+<ul>
+<li>klinický psychológ pomáha predchádzať, liečiť a zvládať poruchy; klient má odchádzať <b>posilnený</b></li>
+<li><mark>psychoterapia (len klinický psychológ) <span class="no">≠</span> psychoporadenstvo</mark> · psychoterapia <span class="no">≠</span> slušné správanie ani vyrozprávanie sa</li>
+</ul>
+<div class="cols">
+<div><b>Psychoterapia (vs. poradenstvo)</b><ol type="a"><li>liečba porúch, zmiernenie utrpenia</li><li>jasne definované: s kým, prečo, aký problém a čím chceme ovplyvniť</li><li>metódy závisia od terapeutického smeru</li><li>vyžaduje <b>psychoterapeutický výcvik</b> (dlhodobé postgraduálne vzdelávanie)</li></ol>
+<b>Výcviky na Slovensku:</b> psychoanalytická psychoterapia · Gestalt · logoterapia a existenciálna analýza · systemický prístup · PCA · KBT · POP / KIP / EFT + krátkodobé výcviky</div>
+<div><b>Spoločné prvky psychoterapie</b><ul><li>terapeutický vzťah – bezpečný, dôverný, akceptujúci</li><li>empatia, akceptácia, kongruencia</li><li>bezpečné prostredie – pravidlá, etický kódex</li><li>pomoc porozumieť sebe a konať inak</li><li>práca s motiváciou a očakávaniami</li><li>nádej, že zmena je možná</li></ul>
+<span class="small">Podiel spoločných faktorov – Lambertov koláč v téme 03.</span></div>
+</div>
+<table>
+<tr><th>Smer</th><th>Hlavné východiská</th><th>Cieľ terapie</th></tr>
+<tr><td class="k">Psychoanalytický / psychodynamický</td><td>nevedomé konflikty a rané skúsenosti formujú správanie; symptómy = prejav vnútorného napätia</td><td>vhľad do nevedomia, spracovať potlačené emócie, pochopiť vzorce vo vzťahoch</td></tr>
+<tr><td class="k">Kognitívno-behaviorálny (vrátane 3. vlny)</td><td>ťažkosti = naučené vzorce myslenia a správania; 3. vlna: všímavosť, prijatie, hodnoty</td><td>zmeniť neadaptívne myšlienky a správanie, rozvíjať psychologickú flexibilitu</td></tr>
+<tr><td class="k">Gestalt</td><td>zodpovednosť za prežívanie „tu a teraz“; problémy = nevedomé, nedokončené skúsenosti</td><td>zvýšiť uvedomenie, integrovať osobnosť, prevziať zodpovednosť</td></tr>
+<tr><td class="k">Humanistická – PCA (C. Rogers)</td><td>prirodzená tendencia k rastu a sebarealizácii v prostredí empatie a prijatia</td><td>bezpečný vzťah, v ktorom klient objaví vlastné zdroje a autenticitu</td></tr>
+<tr><td class="k">Systemická</td><td>problém nevzniká v jednotlivcovi, ale v <b>systéme vzťahov</b> (rodina, partnerstvo, práca)</td><td>zlepšiť komunikáciu, rovnováhu, meniť interakčné vzorce</td></tr>
+</table>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="topic" id="t8">
+<div class="thead"><span class="tn">TÉMA 08</span><h2>Klasifikácia duševných porúch</h2><span class="date">6. 11. 2025</span></div>
+<h3>Čo je duševná porucha</h3>
+<div class="cols">
+<div class="box def"><span class="lab">APA, 2013</span>syndróm s <b>klinicky významným narušením</b> kognície, emočnej regulácie alebo správania, ktoré odráža dysfunkciu psychologických, biologických alebo vývinových procesov. Zvyčajne s utrpením alebo obmedzením fungovania.<br><span class="no">Nie je</span> poruchou: očakávaná / kultúrne primeraná reakcia na bežný stresor alebo stratu; spoločensky odchýlne správanie a konflikty s spoločnosťou, ak nevychádzajú z dysfunkcie jedinca.</div>
+<div class="box def"><span class="lab">WHO, 1992</span>klinicky rozpoznateľný súbor symptómov alebo správania, vo väčšine prípadov spojený s <b>utrpením a narušením</b> osobného (spoločenského, pracovného) fungovania. Samotná sociálna odchýlka alebo konflikt <span class="no">bez osobnej dysfunkcie</span> nie je duševnou poruchou.</div>
+</div>
+<p class="small">Na zamyslenie: Čo by sa dialo, keby sme nemali psychiatrické diagnózy? Čo keby sme nemali jednotný diagnostický systém?</p>
+<div class="vs">
+<div class="l"><b>Diagnóza pomáha</b><ul><li>konzistentnejšie pomenovať syndróm</li><li>stanoviť pracovné diagnostické hranice</li><li>komunikovať a organizovať starostlivosť</li><li>porovnávať skupiny vo výskume</li></ul></div>
+<div class="mid">vs.</div>
+<div class="r"><b>Nevysvetľuje automaticky</b><ul><li>prečo sa ťažkosti rozvinuli práve u tohto človeka</li><li>ktorý mechanizmus udržiava symptómy</li><li>aký bude individuálny priebeh</li><li>aká intervencia je optimálna bez ďalšieho posúdenia</li></ul></div>
+</div>
+<h4>Prečo štandardné klasifikačné systémy (5)</h4>
+<ol class="steps"><li><span>zjednodušujú myslenie, redukujú zložitosť klinických fenoménov</span></li><li><span>uľahčujú komunikáciu</span></li><li><span>pomáhajú predpovedať priebeh</span></li><li><span>sú predpokladom voľby primeranej liečby</span></li><li><span>používajú sa vo výskume patofyziológie a etiológie</span></li></ol>
+
+<h3>Historický vývoj klasifikácie</h3>
+<div class="tl">
+<div><span class="a">Hippokrates</span> – poruchy = ochorenia mozgu: mánia, melanchólia, epilepsia; teória 4 štiav</div>
+<div><span class="a">Galenos</span> – melanchólia, demencia, delírium; systém opisných kategórií, ktorý vydržal do <span class="y">18. st.</span>; záujem o klasifikáciu vďaka <b>Linnému</b> (botanik)</div>
+<div><span class="a">W. Cullen</span> – škótsky lekár; <i>pyrexis</i> (horúčkové), <i>neurosis</i> (nervové), <i>cachexis</i> (metabolické); porucha = choroba nervov; „Synopsis nosologiae methodicae“ (<span class="y">1785</span>)</div>
+<div><span class="a">P. Pinel</span> – klinické opisy; „Traité médico-philosophique sur l'aliénation mentale“ (<span class="y">1801</span>) = <b>prvá systematická klasifikácia „šialenstva“</b>: melanchólia, mánia, demencia, idiocia; <span class="k">neuróza</span> = porucha nervovej funkcie so zmenami myslenia, citov a správania bez organickej príčiny · <span class="a">J. Esquirol</span> – „<b>monománia</b>“ (čiastočné šialenstvo, nevyvrátiteľné fixné myšlienky – bludy)</div>
+<div><span class="a">E. Kraepelin</span> – <mark>základ modernej nozológie</mark>; rozlíšil <b>maniodepresívnu psychózu</b> a <b>„dementia praecox“</b>; dôraz na symptómy, priebeh a etiologický princíp</div>
+<div><span class="a">E. Bleuler</span> – pojem <b>schizofrénia</b> (namiesto dementia praecox) = porucha myslenia a emočných väzieb; etiologický výklad: 1. endogénne, 2. exogénne, 3. somatogénne</div>
+<div><span class="a">K. Jaspers</span> – fenomenologická psychopatológia, pochopiť subjektívnu skúsenosť pacienta</div>
+<div><span class="a">K. Schneider</span> – rozlíšil <b>neurotické</b> (kvantitatívne odchýlky od normy) a <b>psychotické</b> (kvalitatívne iné prežívanie reality) poruchy</div>
+<div><b>19. st.</b> – rozvoj neurológie; „nervous patient“ s nejasnými netelesnými ťažkosťami · <span class="y">1853</span> – 1. medzinárodný štatistický kongres v Bruseli: jednotná klasifikácia príčin úmrtí</div>
+<div><span class="a">S. Freud</span> – psychologické príčiny; neuróza = konflikt medzi pudmi (Id) a normami (Superego); hystéria = reakcia na potlačenú traumu (konverzná / úzkostná)</div>
+</div>
+
+<h4>Etiologické delenie porúch</h4>
+<div class="cols3">
+<div class="box def"><span class="lab">ENDOGÉNNE</span>vnútorné príčiny, biologická zraniteľnosť, genetická predispozícia (depresia, BAP, schizofrénia)</div>
+<div class="box def"><span class="lab">EXOGÉNNE</span>vonkajšie faktory – fyzické, chemické, psychologické (psychóza po psychoaktívnej látke)</div>
+<div class="box def"><span class="lab">SOMATOGÉNNE</span>poškodenie mozgu alebo telesné ochorenie (organické poruchy – nádor mozgu…)</div>
+</div>
+<div class="cols">
+<div><b>Genetické pojmy</b><ul><li><b>gén</b> – úsek DNA s informáciou pre tvorbu proteínu</li><li><b>chromozóm</b> – štruktúra z DNA v jadre</li><li><b>alela</b> – verzia toho istého génu</li><li><b>lokus</b> – presné miesto génu na chromozóme</li><li><b>genotyp</b> – genetická výbava · <b>fenotyp</b> – vonkajší prejav</li><li><b>transkripcia</b> – DNA → mRNA · <b>translácia</b> – mRNA → poradie aminokyselín (bielkovina)</li></ul></div>
+<div><b>Prenos signálu v nervových bunkách</b><ul><li><b>transsynaptická</b> – z neurónu na neurón cez synapsiu; <mark>tu pôsobia takmer všetky psychofarmaká</mark> (uvoľňovanie, spätné vychytávanie, citlivosť receptorov)</li><li><b>transmembránová</b> – cez membránu (hormón aktivuje receptor → reakcia v bunke)</li><li><b>transcytoplazmatická</b> – cytoplazmou od membrány k jadru</li><li><b>transnukleárna</b> – v jadre: zmena expresie génov</li></ul></div>
+</div>
+
+<h3>Štandardizované manuály: DSM a MKCH</h3>
+<div class="cols">
+<div class="box def"><span class="lab">DSM – DIAGNOSTIC AND STATISTICAL MANUAL (APA, USA)</span>len <b>duševné</b> poruchy; symptómy a kritériá pre psychiatrov a klinických psychológov; <span class="no">neobsahuje liečbu</span> – slúži na diagnostiku; využíva sa najmä v USA, ale ovplyvňuje výskum celosvetovo. Platné <b>DSM-5</b> (od <span class="y">2022</span> DSM-5-TR).</div>
+<div class="box def"><span class="lab">MKCH / ICD – MEDZINÁRODNÁ KLASIFIKÁCIA CHORÔB (WHO)</span><b>telesné aj duševné</b> choroby; jednotné pomenovanie, štandardizácia diagnostiky, spoločný jazyk. Multiaxiálny prístup: 1. diagnóza, 2. „disabilities“, 3. kontextuálne faktory. Platná <b>MKCH-10</b>, prechodné obdobie <b>MKCH-11</b> (v platnosti od <span class="y">2022</span>).</div>
+</div>
+<svg viewBox="0 0 440 92" class="fig" width="100%" style="max-width:480px" aria-label="Časová os DSM a MKCH">
+<line x1="20" y1="30" x2="430" y2="30" stroke="var(--def)" stroke-width="2"/><line x1="20" y1="66" x2="430" y2="66" stroke="var(--aut)" stroke-width="2"/>
+<text x="0" y="22" font-size="9" font-weight="700" fill="var(--def)">DSM</text><text x="0" y="86" font-size="9" font-weight="700">MKCH</text>
+<g font-size="8.5">
+<circle cx="47" cy="30" r="4" fill="var(--def)"/><text x="34" y="22">I 1952</text>
+<circle cx="123" cy="30" r="4" fill="var(--def)"/><text x="108" y="22">II 1968</text>
+<circle cx="190" cy="30" r="5" fill="var(--warn)"/><text x="172" y="22">III 1980</text><text x="160" y="44" font-size="7.5">kritériá + 5 osí</text>
+<circle cx="266" cy="30" r="4" fill="var(--def)"/><text x="252" y="22">IV 1994</text>
+<circle cx="372" cy="30" r="4" fill="var(--def)"/><text x="360" y="22">5 2013</text><text x="392" y="22">TR 2022</text>
+<circle cx="25" cy="66" r="4" fill="var(--aut)"/><text x="12" y="82">6 · 1948</text>
+<circle cx="63" cy="66" r="4" fill="var(--aut)"/><text x="52" y="58">7 · 1955</text>
+<circle cx="117" cy="66" r="4" fill="var(--aut)"/><text x="104" y="82">8 · 1965</text>
+<circle cx="171" cy="66" r="4" fill="var(--aut)"/><text x="158" y="58">9 · 1975</text>
+<circle cx="252" cy="66" r="4" fill="var(--aut)"/><text x="238" y="82">10 · 1990</text>
+<circle cx="403" cy="66" r="4" fill="var(--aut)"/><text x="385" y="82">11 · 2019</text>
+</g></svg>
+<table>
+<tr><th>DSM</th><th>Rok</th><th>Charakteristika</th></tr>
+<tr><td>DSM-I</td><td class="y">1952</td><td><span class="y">106</span> diagnóz, silný vplyv psychoanalýzy, diagnózy = reakcie na stresory</td></tr>
+<tr><td>DSM-II</td><td class="y">1968</td><td><span class="y">182</span> diagnóz, viac kategórií, bez presných kritérií</td></tr>
+<tr><td>DSM-III</td><td class="y">1980</td><td><mark>operačné kritériá</mark> (zoznam symptómov + trvanie), <mark>multiaxiálny systém (5 osí)</mark>, odklon od psychoanalýzy k biomedicínskemu modelu; <span class="y">1987</span> DSM-III-R</td></tr>
+<tr><td>DSM-IV</td><td class="y">1994</td><td>pozorovateľné symptómy a správanie; pridané/odstránené/preusporiadané poruchy, spresnené kritériá; multiaxiálny systém</td></tr>
+<tr><td>DSM-5</td><td class="y">2013</td><td>DSM-5-TR (<span class="y">2022</span>); dimenzionálne hodnotenie a kontinuum symptómov</td></tr>
+</table>
+<div class="cols">
+<div class="box sch"><span class="lab">MULTIAXIÁLNY SYSTÉM (DSM-III, IV)</span>opisuje človeka na 5 osiach – holistické uchopenie, každá os pomáha nastaviť intervenciu
+<div class="ladder" style="margin-top:4px"><div><b>os 1</b> · klinické poruchy (nálady, úzkostné…)</div><div><b>os 2</b> · poruchy osobnosti a mentálne postihnutie</div><div><b>os 3</b> · zdravotné stavy ovplyvňujúce duševné symptómy</div><div><b>os 4</b> · psychosociálne a environmentálne faktory</div><div><b>os 5</b> · celkové fungovanie</div></div></div>
+<div><b>Kategórie DSM-5:</b> neurovývinové · spektrum schizofrénie a iné psychotické · bipolárne · depresívne · úzkostné · OCD · trauma a stresom podmienené · disociatívne · telesné symptómy („somatic symptom and related“) · príjmu potravy · sexuálne · rodová dysfória</div>
+</div>
+<table>
+<tr><th>MKCH</th><th>Rok</th><th>Charakteristika</th></tr>
+<tr><td>MKCH-6</td><td class="y">1948</td><td>konferencia v Paríži; prvýkrát chorobnosť aj úmrtnosť (predtým len príčiny smrti)</td></tr>
+<tr><td>MKCH-7</td><td class="y">1955</td><td>menšie úpravy a opravy chýb</td></tr>
+<tr><td>MKCH-8</td><td class="y">1965</td><td>klasifikácia podľa etiológie, zachovaná základná štruktúra</td></tr>
+<tr><td>MKCH-9</td><td class="y">1975</td><td>Ženeva; štvorciferné a voliteľné päťciferné kódy; aj hodnotenie zdravotnej starostlivosti</td></tr>
+<tr><td>MKCH-10</td><td class="y">1990</td><td>kapitola F00–F99 (pozri tému 09)</td></tr>
+<tr><td>MKCH-11</td><td class="y">2019</td><td>plne digitálna; nové kódovanie (F32.1 → <b>6A70</b>); kategória <b>06</b> – mental, behavioral or neurodevelopmental disorders; integrovaný BPS rámec; destigmatizujúci jazyk, dimenzionálny model</td></tr>
+</table>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span>DSM: <span class="acr">52 · 68 · 80 · 94 · 13</span> (DSM-III = „trojka v osemdesiatke“ = operačné kritériá + 5 osí) · MKCH: <span class="acr">48 · 55 · 65 · 75 · 90 · 19</span> – od MKCH-7 po MKCH-9 vždy po 10 rokoch</div>
+<div class="box def"><span class="lab">DSM-5 VS. MKCH-11</span>oba systémy sú založené na <b>syndrómoch</b> (súbor súbežných symptómov); opisujú <b>prejavy, nie vnútorné mechanizmy</b> · MKCH-11 presnejšie kategórie pre niektoré diagnózy, nový prístup k poruchám osobnosti · <mark>diagnóza = pracovný rámec, nie konečná pravda</mark> (zmeny v čase, prekrývanie) · cieľ: odlíšiť normálne a abnormálne stavy aj diagnózy medzi sebou · operačné definície ↑ reliabilitu, ale ↓ klinickú flexibilitu</div>
+<h4>Kedy je to ešte normálny smútok, strach či stres a kedy porucha? – ako sa rozhoduje o kategórii</h4>
+<div class="path">
+<div class="st c-def"><span class="n">1 · fenomenológia</span>aké príznaky sú skutočne prítomné?</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">2 · čas</span>nástup, trvanie, epizodický / perzistentný priebeh</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">3 · závažnosť</span>dôsledky na fungovanie, klinicky významný distres</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">4 · iné vysvetlenia</span>látky, somatické stavy</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">5 · kontext</span>kultúrny a vývinový; diagnostická neistota</div>
+</div>
+<p><b>Klinický význam</b> – symptómy musia byť: A) <b>pretrvávajúce</b>, B) <b>dostatočne závažné</b>, C) <b>zasahujúce do fungovania</b> (sociálneho, pracovného, osobného).</p>
+
+<h3>Validita a reliabilita</h3>
+<div class="cols">
+<div class="box def"><span class="lab">VALIDITA = PLATNOSŤ · „MERIAM TO, ČO CHCEM?“</span>
+<div class="cards" style="grid-template-columns:1fr 1fr;margin:4px 0">
+<div class="card c-def"><span class="n">zjavná</span>zhoda s akceptovanými klinickými konceptmi</div>
+<div class="card c-def"><span class="n">kritériová</span>predpovedá reakciu na liečbu a prognózu</div>
+<div class="card c-def"><span class="n">konštruktová</span>vzťah k etiológii a patofyziológii</div>
+<div class="card c-def"><span class="n">diskriminačná</span>jasne sa odlišuje od iných diagnóz</div>
+</div>
+<b>Problémy:</b> heterogenita (rovnaká dg., iný obraz) · komorbidita · chýbajú biologické markery · kultúrne rozdiely</div>
+<div class="box def"><span class="lab">RELIABILITA = SPOĽAHLIVOSŤ · „ROVNAKÝ VÝSLEDOK ZNOVA?“</span>v <span class="y">70. rokoch</span> veľmi nízka → štandardizované kritériá · ovplyvňuje ju subjektivita klinika, kultúra, kontext<br><b>inter-rater</b> – zhoda medzi diagnostikmi<br><b>test-retest</b> – stabilita pri opakovanom meraní</div>
+</div>
+<div class="cols">
+<div><b>Kritériá – depresia (MKCH-10)</b><ul><li>zhoršenie nálady (kolíše len málo)</li><li>↓ energia, aktivita</li><li>narušená schopnosť radovať sa</li><li>oslabený záujem</li><li>↓ koncentrácia</li><li>ľahká unaviteľnosť</li><li>narušený spánok (skoré ranné prebúdzanie), ↓ chuť do jedla</li><li>↓ sebadôvera, sebaobviňovanie</li><li>spomalené psychomotorické tempo</li></ul></div>
+<div><b>Kritériá – úzkostné poruchy (MKCH-10)</b><ul><li>pocity nervozity</li><li>svalové napätie</li><li>potenie</li><li>žalúdočné ťažkosti, nechutenstvo</li><li>narušený spánok</li><li>únava, unaviteľnosť</li><li>poruchy koncentrácie</li></ul></div>
+</div>
+<div class="box q"><span class="lab">DEPRESIA ALEBO ÚZKOSŤ?</span>Pacient: únava, podráždenosť, poruchy spánku, ťažkosti so sústredením, „cíti sa na nič“. Tieto príznaky sú <b>podobné pri oboch</b> → rozlišuje <mark>smútok (depresia) vs. strach (úzkosť)</mark>.<br><b>Na zamyslenie:</b> častý prekryv symptómov = nízka diskriminačná validita (napr. <b>ADHD, hraničná porucha osobnosti a BAP</b> zdieľajú impulzívne a emočne nestabilné rysy); pacienti často spĺňajú kritériá viacerých diagnóz naraz.</div>
+<div class="box q"><span class="lab">KAZUISTIKA 1 · KATARÍNA (42), UČITEĽKA</span>vyčerpanie, plač, problém ráno vstať, „nič nemá zmysel“, strata záujmu, „najradšej by zmizla“, nočné budenie, výčitky, nechutenstvo a úbytok hmotnosti; depresia u matky; eskalácia po konflikte s partnerom; spomalená, tichý hlas, plačlivosť.<br><i>Návrh podľa prednášok:</i> zodpovedá kritériám depresie MKCH-10 (nálada, anhedónia, energia, spánok, chuť do jedla, sebaobviňovanie, psychomotorika); 4P: predispozícia – rodinná anamnéza, precipitácia – konflikt; <b>posúdiť riziko</b> („zmiznúť“).</div>
+<div class="box q"><span class="lab">KAZUISTIKA 2 · MAREK (25), ŠTUDENT</span>skôr podráždený a unavený ako smutný, „nič necítim, je to jedno“, hranie hier, vyhýbanie sa ľuďom, nechodí na prednášky, bez režimu, cynický, bagatelizuje; rozvod rodičov a sebapoškodzovanie v minulosti; „nikdy nič nedokončí“.<br><i>Návrh podľa prednášok:</i> atypický obraz – anhedónia a avolícia namiesto smútku; zvážiť depresiu, adiktívne správanie (hranie), rizikové faktory (história sebapoškodzovania) → <b>posúdiť riziko</b>; dimenzionálny pohľad a prekryv diagnóz.</div>
+
+<h3>Typy klasifikácie</h3>
+<div class="vs">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>Kategoriálna</b>
+<svg viewBox="0 0 160 30" width="100%"><rect x="2" y="6" width="70" height="20" rx="4" fill="var(--paper)" stroke="var(--def)"/><text x="12" y="20" font-size="10">zdravý</text><rect x="88" y="6" width="70" height="20" rx="4" fill="var(--def)"/><text x="98" y="20" font-size="10" fill="var(--bg)">porucha</text></svg>áno / nie</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Dimenzionálna</b>
+<svg viewBox="0 0 160 30" width="100%"><defs><linearGradient id="gd"><stop offset="0" stop-color="var(--sch-bg)"/><stop offset="1" stop-color="var(--sch)"/></linearGradient></defs><rect x="2" y="6" width="156" height="20" rx="4" fill="url(#gd)" stroke="var(--sch)"/><text x="8" y="20" font-size="9">menej</text><text x="125" y="20" font-size="9">viac</text></svg>miera na kontinuu</div>
+</div>
+<div class="vs">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>Kategoriálny prístup</b><ul><li>+ praktické rozhodnutie o prítomnosti poruchy</li><li>+ uľahčuje komunikáciu a administratívu</li><li>− môže vytvárať umelé hranice</li><li>− nedostatočne zachytáva variabilitu</li></ul></div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Dimenzionálny prístup</b><ul><li>+ vyjadruje závažnosť / mieru prejavov</li><li>+ zachytí zmeny v čase</li><li>+ nezávisí od jedného prahu</li><li>− sám o sebe nie vždy určí klinický postup</li></ul></div>
+</div>
+<table>
+<tr><td class="k" style="width:22%">Kategoriálna</td><td>poruchy sú <b>kvalitatívne odlišné</b> od bežného fungovania; diagnóza áno/nie; implicitne hierarchický model</td></tr>
+<tr><td class="k">Dimenzionálna</td><td>vlastnosti a symptómy na <b>kontinuu</b>; miera výskytu; hodnotenie na škále. Psychické ťažkosti nie sú vždy ostro ohraničené, symptómy sa prekrývajú.</td></tr>
+<tr><td class="k">Deskriptívna</td><td>pozorovateľné symptómy a štatistická zhoda (DSM-5, MKCH)</td></tr>
+<tr><td class="k">Etiologická</td><td>hľadá sa pôvod (napr. somatogénne poruchy)</td></tr>
+</table>
+
+<div class="box warn"><span class="lab">ALE… LIMITY KATEGÓRIÍ</span>vysoká <b>komorbidita</b> a prekryv symptómov · <b>heterogenita</b> vnútri kategórií · časť procesov sa vyskytuje <b>naprieč</b> poruchami → aktuálne rozvoj <mark>dimenzionálnych a transdiagnostických prístupov</mark></div>
+<h3>Sieťový prístup k psychopatológii</h3>
+<div class="cols">
+<div><b>Klasický model:</b> porucha = <b>skrytá príčina</b>, ktorá spôsobuje symptómy („mám depresiu, a tá spôsobuje smútok, únavu, nechutenstvo“).<br><b>Sieťový model:</b> porucha <span class="no">nie je</span> skrytá príčina, ale <mark>súbor vzájomne prepojených symptómov</mark>, ktoré sa posilňujú ako uzly v sieti. <b>Uzly</b> = symptómy, <b>hrany</b> = vzťahy medzi nimi.</div>
+<svg viewBox="0 0 300 150" width="100%" style="max-width:320px" aria-label="Latentný vs. sieťový model">
+<ellipse cx="70" cy="22" rx="42" ry="14" fill="none" stroke="var(--sch)"/><text x="46" y="26" font-size="10">Depresia</text>
+<g font-size="8"><text x="2" y="110">chuť</text><text x="34" y="110">anhedónia</text><text x="88" y="110">záujem</text><text x="118" y="110">SUI</text></g>
+<g stroke="var(--aut)"><line x1="60" y1="36" x2="12" y2="100"/><line x1="66" y1="36" x2="50" y2="100"/><line x1="74" y1="36" x2="100" y2="100"/><line x1="80" y1="36" x2="124" y2="100"/></g>
+<g fill="var(--paper)" stroke="var(--sch)"><circle cx="200" cy="30" r="12"/><circle cx="270" cy="45" r="12"/><circle cx="185" cy="100" r="12"/><circle cx="255" cy="115" r="12"/><circle cx="225" cy="70" r="12"/></g>
+<g stroke="var(--warn)" stroke-width="1.2"><line x1="210" y1="36" x2="218" y2="60"/><line x1="235" y1="66" x2="260" y2="50"/><line x1="216" y1="76" x2="194" y2="94"/><line x1="232" y1="80" x2="250" y2="105"/><line x1="196" y1="88" x2="200" y2="42"/><line x1="268" y1="57" x2="258" y2="103"/></g>
+<g font-size="7"><text x="191" y="33">spánok</text><text x="260" y="48">energia</text><text x="177" y="103">vina</text><text x="245" y="118">smútok</text><text x="214" y="73">únava</text></g>
+<text x="20" y="140" font-size="9">latentný model</text><text x="195" y="140" font-size="9">sieťový model</text>
+</svg>
+</div>
+<table>
+<tr><th colspan="2">Čo v sieťach vyhodnocujeme</th></tr>
+<tr><td class="k">Centralita – strength</td><td>nakoľko sa symptóm spája s ostatnými (počet nenulových prepojení)</td></tr>
+<tr><td class="k">Centralita – expected influence</td><td>rozlišuje pozitívne a negatívne vzťahy</td></tr>
+<tr><td class="k">Konektivita – closeness</td><td>inverzná suma najkratších „cestičiek“ od uzla k ostatným</td></tr>
+<tr><td class="k">Konektivita – betweenness</td><td>ako často je uzol na najkratšej ceste medzi ostatnými uzlami</td></tr>
+<tr><td colspan="2" class="small">+ zložitejšie parametre: bridge symptoms, clustering… · príklad: sieť PHQ-9 (1 anhedónia, 2 smútok, 3 spánok, 4 energia, 5 chuť do jedla, 6 negatívny sebaobraz, 7 koncentrácia, 8 spomalenosť, 9 SUI ideácie)</td></tr>
+</table>
+<div class="box q"><span class="lab">AKO BY VYZERALA KLINICKÁ PRAX</span>Nielen „má depresiu?“, ale <b>ako spolu symptómy súvisia, čo spúšťa čo, čo udržiava ťažkosti</b>. Diagnóza sa nemení, ale porozumenie prípadu je dynamickejšie. Príklad: u pacientky Kataríny nespavosť a pocity viny vedú k únave a nižšej aktivite, čo znižuje sociálny kontakt a posilňuje smútok; jadro siete tvoria pocity zlyhania a poruchy spánku. Kritériá pre stredne ťažkú depresívnu epizódu sú splnené.</div>
+<div class="cols">
+<div class="box def"><span class="lab">TRANSDIAGNOSTICKÝ PROFIL</span>identifikácia procesov <b>naprieč</b> diagnózami – vyhýbanie, ruminácia, intolerancia neistoty</div>
+<div class="box def"><span class="lab">TRANSDIAGNOSTICKÝ PROTOKOL</span>intervencia zameraná na spoločné procesy namiesto jednej diagnózy</div>
+</div>
+<table>
+<tr><th>Čo je narušené</th><th>Hlavné skupiny (MKCH-11, orientačne)</th><th>Príklady</th></tr>
+<tr><td><b>realita</b></td><td>psychotické poruchy</td><td>schizofrénia, akútna psychóza</td></tr>
+<tr><td><b>nálada</b></td><td>poruchy nálady</td><td>depresívna epizóda, BAP</td></tr>
+<tr><td><b>strach</b></td><td>úzkostné a strachom podmienené</td><td>GAD, panická porucha, fóbie</td></tr>
+<tr><td><b>kontrola</b></td><td>OCD a príbuzné, poruchy impulzov</td><td>OCD, pyromania</td></tr>
+<tr><td><b>identita / vzťahy</b></td><td>poruchy osobnosti</td><td>hraničná, vyhýbavá, disociálna</td></tr>
+<tr><td><b>kognícia</b></td><td>neurokognitívne (NCD), delírium, demencie</td><td>Alzheimerova NCD, vaskulárna NCD, delírium</td></tr>
+<tr><td><b>regulácia správania</b></td><td>užívanie látok a adiktívne správanie</td><td>závislosť od alkoholu, gaming disorder</td></tr>
+</table>
+
+<h3>Mini slovníček</h3>
+<div class="cols">
+<table>
+<tr><td class="k">Abúzus</td><td>zneužívanie (napr. alkoholu)</td></tr>
+<tr><td class="k">Defekt</td><td>trvalá, chronická porucha</td></tr>
+<tr><td class="k">Dekompenzácia</td><td>zhoršenie dovtedy relatívne stabilizovaného psychického stavu</td></tr>
+<tr><td class="k">Degradácia</td><td>kvalitatívne zmeny osobnosti v dôsledku ochorenia</td></tr>
+<tr><td class="k">Deteriorácia</td><td>postupné zhoršovanie schopností alebo fungovania (napr. kognitívnych funkcií)</td></tr>
+<tr><td class="k">Deviácia</td><td>„úchylka“</td></tr>
+<tr><td class="k">Parafília</td><td>trvalý sexuálny záujem o netypické objekty, situácie, osoby</td></tr>
+<tr><td class="k">Dysadaptácia</td><td>maladjustácia, neprispôsobivosť</td></tr>
+<tr><td class="k">Dysfunkcia</td><td>narušenie určitej psychickej funkcie alebo schopnosti</td></tr>
+<tr><td class="k">Latentná porucha</td><td>prítomná, ale nerozvinutá</td></tr>
+</table>
+<table>
+<tr><td class="k">Suspektná porucha</td><td>podozrenie na poruchu, ktoré si vyžaduje ďalšie overovanie</td></tr>
+<tr><td class="k">Relaps, recidíva</td><td>opätovné zhoršenie počas zotavovania / remisie; nová epizóda po období zotavenia</td></tr>
+<tr><td class="k">Remisia</td><td>významné zmiernenie alebo vymiznutie príznakov</td></tr>
+<tr><td class="k">Retardácia</td><td>spomalenie, zastavenie vývinu</td></tr>
+<tr><td class="k">Symptóm</td><td>subjektívne prežívaný alebo objektívne pozorovaný prejav s možným klinickým významom</td></tr>
+<tr><td class="k">Syndróm</td><td>súbor symptómov vyskytujúcich sa spolu</td></tr>
+<tr><td class="k">Halucinácia</td><td>porucha vnímania – vnem <b>bez</b> vonkajšieho podnetu</td></tr>
+<tr><td class="k">Ilúzia</td><td>porucha vnímania – <b>skreslený</b> vnem reálneho podnetu</td></tr>
+<tr><td class="k">Depersonalizácia</td><td>odcudzenie vlastného „ja“</td></tr>
+<tr><td class="k">Derealizácia</td><td>pocit nereálnosti okolia</td></tr>
+<tr><td class="k">Blud</td><td>porucha myslenia – pevné, nevyvrátiteľné presvedčenie nezodpovedajúce realite (bez náhľadu)</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ============ 09 ============ -->
+<!-- ============ 09 NEW ============ -->
+<section class="topic" id="t9">
+<div class="thead"><span class="tn">TÉMA 09</span><h2>Základná psychopatológia</h2><span class="date">prednáška 5</span></div>
+
+<h3>Mentálny status – na čo sa systematicky pozeráme</h3>
+<div class="cards">
+<div class="card c-sch"><span class="n">1</span>vzhľad, správanie a kontakt</div>
+<div class="card c-def"><span class="n">2</span>reč, psychomotorické tempo a forma myslenia</div>
+<div class="card c-warn"><span class="n">3</span>nálada, afekt, obsah myslenia a vnímanie</div>
+<div class="card c-mne"><span class="n">4</span>vedomie, orientácia, pozornosť, pamäť</div>
+<div class="card c-aut"><span class="n">5</span>náhľad, úsudok, riziko a fungovanie</div>
+</div>
+<div class="box def"><span class="lab">FENOMENOLÓGIA · NEPÝTAME SA IBA „ČO“, ALE „AKO“</span>forma, obsah, frekvencia, trvanie, spúšťače · subjektívny význam, presvedčenie a náhľad · miera distresu, reakcia pacienta a funkčné dôsledky · vývin v čase, látky, spánok, somatický a kultúrny kontext</div>
+
+<h3>Vnímanie</h3>
+<div class="vs">
+<div class="l" style="background:var(--sch-bg);border-color:var(--sch)"><b>Percepcia</b><br>čo človek zmyslovo zažíva</div>
+<div class="mid">≠</div>
+<div class="r" style="background:var(--def-bg);border-color:var(--def)"><b>Interpretácia</b><br>aký význam zážitku pripisuje</div>
+</div>
+<p>Vnem môže byť skutočný, no jeho vysvetlenie mylné; neobvyklý vnem <span class="no">neznamená automaticky</span> blud.</p>
+<table>
+<tr><th>Fenomén</th><th>Podstata</th><th>Príklad</th></tr>
+<tr><td class="k">Ilúzia</td><td>skreslené vnímanie <b>reálne prítomného</b> podnetu</td><td>kabát v tme vyzerá ako postava</td></tr>
+<tr><td class="k">Halucinácia</td><td>vnemový zážitok <b>bez</b> vonkajšieho podnetu</td><td>hlas komentuje správanie</td></tr>
+<tr><td class="k">Intruzívny obraz</td><td>nechcená mentálna predstava, nemusí mať kvalitu vonkajšieho vnemu</td><td>„vidím v hlave“ nehodu</td></tr>
+<tr><td class="k">Spánkový fenomén</td><td>zážitok viazaný na zaspávanie či prebúdzanie</td><td>hypnagogické hlasy</td></tr>
+</table>
+<div class="box q"><span class="lab">KEDY NEOBVYKLÝ ZÁŽITOK NIE JE PSYCHÓZA</span>hypnagogické a hypnopompické fenomény · smútok a zážitok prítomnosti zosnulého · kultúrne alebo nábožensky rámcované skúsenosti · senzorická deprivácia, nespavosť, lieky, intoxikácia → <mark>najprv opis a kontext, až potom diagnostická hypotéza</mark> (Bormann &amp; Black, 2025)</div>
+
+<h3>Myslenie</h3>
+<div class="vs">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>OBSAH</b> – čomu človek verí a čoho sa obáva<ul><li>bludné presvedčenia, obsesie</li><li>nadhodnotené presvedčenia</li><li>suicidálne, agresívne a iné rizikové obsahy</li></ul></div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>FORMA</b> – ako sú myšlienky organizované<ul><li>tangencialita, odbiehanie, rozvoľnenie asociácií</li><li>zrýchlený či spomalený tok</li><li>inkoherencia, perseverácia</li></ul></div>
+</div>
+<table>
+<tr><th></th><th>Obsesia</th><th>Nadhodnotená idea</th><th>Blud</th></tr>
+<tr><td><b>typický zážitok</b></td><td>vtieravá, nechcená myšlienka</td><td>silne významné presvedčenie</td><td>pevné presvedčenie</td></tr>
+<tr><td><b>vzťah k obsahu</b></td><td>často odpor a distres</td><td>väčšie stotožnenie</td><td>môže byť vysoká istota</td></tr>
+<tr><td><b>náhľad</b></td><td>variabilný; pri OCD aj slabý</td><td>čiastočný až slabý</td><td>často výrazne narušený</td></tr>
+<tr><td><b>na čo sa dopýtať</b></td><td>rituály, úľava, neutralizácia</td><td>osobný význam, rigidita</td><td>dôkazy, korekcia, kontext</td></tr>
+</table>
+<div class="box def"><span class="lab">BLUDNÉ PRESVEDČENIE · ČO HODNOTÍME</span><ol style="margin:0"><li>miera presvedčenia a otvorenosť alternatívnym vysvetleniam</li><li>vzťah k dostupným dôkazom a reálnym okolnostiam</li><li>kultúrny, náboženský a sociálny kontext</li><li>dôsledky na správanie, vzťahy a bezpečnosť</li><li>ďalšie psychotické alebo afektívne symptómy</li></ol></div>
+<h4>Formálne poruchy myslenia v rozhovore</h4>
+<div class="cards">
+<div class="card c-sch"><span class="n">tangencialita</span>odpoveď odbieha a <b style="display:inline">nevracia sa</b> k podstate otázky</div>
+<div class="card c-aut"><span class="n">circumstancialita</span>nadbytok detailov, ale <b style="display:inline">cieľ sa dosiahne</b></div>
+<div class="card c-def"><span class="n">rozvoľnenie asociácií</span>oslabené logické spojenie myšlienok</div>
+<div class="card c-warn"><span class="n">inkoherencia</span>prejav tak dezorganizovaný, že sa nedá sledovať</div>
+<div class="card c-mne"><span class="n">perseverácia</span>pretrvávanie odpovede alebo témy napriek zmene otázky</div>
+</div>
+<div class="vs">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>Depersonalizácia</b><br>odcudzenie vlastného ja alebo tela<br><i>„Akoby som sa pozoroval zvonka.“</i><br><span class="small">často s náhľadom, že ide o subjektívny pocit</span></div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Derealizácia</b><br>pocit nereálnosti okolia<br><i>„Svet je ako za sklom alebo vo filme.“</i><br><span class="small">pri úzkosti, traume i iných stavoch</span></div>
+</div>
+
+<h3>Emócie a motivácia</h3>
+<div class="vs">
+<div class="l" style="background:var(--warn-bg);border-color:var(--warn)"><b>NÁLADA</b><ul><li>dlhšie trvajúce emočné naladenie</li><li>zvyčajne ju opisuje pacient</li><li>depresívna, úzkostná, expanzívna</li><li>posudzujeme časový priebeh</li></ul></div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--mne-bg);border-color:var(--mne)"><b>AFEKT</b><ul><li>aktuálne pozorovaný emočný prejav</li><li>rozsah, intenzita, reaktivita, primeranosť</li><li>labilita, oploštenie, inkongruencia</li><li>posudzujeme kontext rozhovoru</li></ul></div>
+</div>
+<table>
+<tr><th>Pojem</th><th>Charakteristika</th><th>Klinická otázka</th></tr>
+<tr><td class="k">Depresívna nálada</td><td>pretrvávajúce znížené emočné naladenie</td><td>„Ako sa cítite počas dňa?“</td></tr>
+<tr><td class="k">Anhedónia</td><td>znížený záujem alebo schopnosť prežívať potešenie</td><td>„Čo vás kedysi tešilo a dnes nie?“</td></tr>
+<tr><td class="k">Avolícia</td><td>oslabenie iniciácie a udržiavania cieľovej aktivity</td><td>„Je ťažké vôbec začať konať?“</td></tr>
+<tr><td class="k">Únava</td><td>pocit nedostatku energie; veľa možných príčin</td><td>„Čo ju zhoršuje, aký je spánok?“</td></tr>
+</table>
+<p><b>Psychomotorika:</b> <span class="k">agitácia</span> – zvýšená aktivita a nepokoj · <span class="k">útlm</span> – spomalenie reči, pohybov, reagovania · <span class="k">katatonické príznaky</span> – osobitná skupina motorických a behaviorálnych javov. Príčiny môžu byť psychické, neurologické, somatické aj liekové.</p>
+
+<h3>Kognícia</h3>
+<div class="cards">
+<div class="card c-sch"><span class="n">vedomie a bdelosť</span>úroveň a kolísanie stavu</div>
+<div class="card c-def"><span class="n">orientácia</span>osoba, miesto, čas, situácia</div>
+<div class="card c-aut"><span class="n">pozornosť, pracovná pamäť</span>udržanie a presúvanie pozornosti</div>
+<div class="card c-mne"><span class="n">pamäť</span>vybavovanie, učenie, časový priebeh zmien</div>
+<div class="card c-warn"><span class="n">exekutívne funkcie</span>plánovanie, inhibícia, kognitívna flexibilita</div>
+</div>
+<table>
+<tr><th>Pozorovanie</th><th>Možné vysvetlenie</th><th>Čo doplniť</th></tr>
+<tr><td>„Nepamätám si prednášku.“</td><td>pri nepozornosti sa informácia nemusí zakódovať</td><td>únava, spánok, pozornosť pri počúvaní</td></tr>
+<tr><td>„Zabúdam aj po učení.“</td><td>možná porucha vybavovania alebo učenia; viac príčin</td><td>priebeh, neuropsychologické vyšetrenie</td></tr>
+<tr><td>„Včera to bolo v poriadku.“</td><td>akútna zmena kognície vyžaduje pozornosť</td><td>vedomie, pozornosť, telesný stav</td></tr>
+</table>
+<div class="box warn"><span class="lab">DELÍRIUM · NÁHLY NÁSTUP JE VAROVNÝ SIGNÁL</span>
+<div class="cols"><div><b>typické znaky:</b> akútna zmena oproti obvyklému stavu · porucha pozornosti a uvedomovania · kolísanie počas dňa · možné percepčné a behaviorálne zmeny</div>
+<div><b>prečo ide o prioritu:</b> môže odrážať závažný telesný stav · vyžaduje včasné lekárske vyšetrenie · nesprávne označenie za psychózu oneskorí liečbu · diagnózu neurčujeme len testom pamäti</div></div></div>
+</section>
+
+<section class="topic" id="t10">
+<div class="thead"><span class="tn">TÉMA 10</span><h2>Symptomatológia porúch podľa MKCH-10 / MKCH-11</h2><span class="date">4. 12. 2025</span></div>
+<div class="box warn"><span class="lab">POZOR</span>Kódy sa netreba učiť naspamäť – <mark>treba rozlíšiť diagnózy a ich základné znaky</mark>.</div>
+<h3>Základné psychické funkcie</h3>
+<div class="cards">
+<div class="card c-sch"><span class="n">vedomie</span>uvedomovanie si seba samého a okolia</div>
+<div class="card c-sch"><span class="n">vnímanie</span>subjektívne skreslený obraz reality sprostredkovaný zmyslami</div>
+<div class="card c-def"><span class="n">myslenie</span>racionálne spracovanie vnemov a pamäťových stôp za účasti ostatných funkcií</div>
+<div class="card c-def"><span class="n">pamäť</span>schopnosť prijímať, uchovávať a vyvolávať predchádzajúce vnemy</div>
+<div class="card c-warn"><span class="n">emócie</span>citový postoj k skutočnosti</div>
+<div class="card c-aut"><span class="n">inteligencia</span>schopnosť vhodne používať poznatky a vedomosti, riešiť problémy, adaptovať sa</div>
+<div class="card c-mne"><span class="n">správanie</span>reakcia viditeľná zvonku</div>
+</div>
+<h3>Mýty</h3>
+<table>
+<tr><td class="no">Depresia = smútok</td><td><b>Nie</b> – smútok je normálna, krátka emócia; depresia je choroba, dlhodobá, bez zmeny, nič ju neodkloní, má aj iné príznaky.</td></tr>
+<tr><td class="no">Závislosť = slabá vôľa</td><td><b>Nie</b> – závislý si často neuvedomuje závislosť; v určitej fáze vôľa nezohráva rolu.</td></tr>
+<tr><td class="no">Schizofrénia = rozdvojená osobnosť</td><td><b>Nie</b> – rozdvojená osobnosť je samostatná kategória (disociatívna porucha identity); schizofrénia je najzávažnejšie psychické ochorenie.</td></tr>
+<tr><td class="no">Narcista = sebecký človek</td><td><b>Narcistická porucha osobnosti</b> je presná diagnóza – stabilný vzorec správania; môže byť sebestredný, vzťahuje veci na seba, manipulácia.</td></tr>
+</table>
+<h4>MKCH-10 – kapitola F</h4>
+<table style="font-size:12.5px">
+<tr><td class="y">F00–F09</td><td>organické duševné poruchy vrátane symptomatických</td><td class="y">F50–F59</td><td>poruchy správania s fyziologickými poruchami a somatickými faktormi</td></tr>
+<tr><td class="y">F10–F19</td><td>poruchy spôsobené užívaním psychoaktívnych látok</td><td class="y">F60–F69</td><td>poruchy osobnosti a správania dospelých</td></tr>
+<tr><td class="y">F20–F29</td><td>schizofrénia, schizotypové poruchy a poruchy s bludmi</td><td class="y">F70–F79</td><td>duševná zaostalosť – mentálna retardácia</td></tr>
+<tr><td class="y">F30–F39</td><td>afektívne poruchy</td><td class="y">F80–F89</td><td>poruchy psychického vývinu</td></tr>
+<tr><td class="y">F40–F48</td><td>neurotické, stresom podmienené a somatoformné poruchy</td><td class="y">F90–F98</td><td>poruchy správania a emočné poruchy so začiatkom v detstve a dospievaní</td></tr>
+<tr><td colspan="4" class="small"><b>F99</b> nešpecifikovaná duševná porucha · hviezdičkou: F00* demencia pri Alzheimerovej chorobe, F02* demencia pri iných chorobách</td></tr>
+</table>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span>F0–F9 po desiatkach: <span class="acr">O-L-S-A-N-F-O-R-V-D</span> → „<b>O</b>rganik <b>L</b>átky <b>S</b>chizo <b>A</b>fekt <b>N</b>euróza <b>F</b>yziológia <b>O</b>sobnosť <b>R</b>etardácia <b>V</b>ývin <b>D</b>etstvo“</div>
+
+<table>
+<tr><th style="width:20%">Skupina</th><th>MKCH-10</th><th>MKCH-11</th></tr>
+<tr><td class="k">Organické / neurokognitívne</td><td><b>F00–F09</b>: príčina dokázateľne v chorobe, úraze alebo poškodení mozgu.<br><b>Demencia</b> – syndróm choroby mozgu (chronický, progresívny), zhoršenie pamäti, myslenia, orientácie, chápania, rátania, učenia, jazyka, úsudku; <mark>vedomie nie je zastreté</mark>; zhoršené ovládanie emócií, správania, motivácie.<br><b>Amnestický syndróm</b> – zhoršená novopamäť aj staropamäť, zachované bezprostredné rozpamätanie; ↓ učenie, dezorientácia v čase.<br><b>Delírium</b> – súbežná porucha vedomia, pozornosti, vnímania, myslenia, pamäti, psychomotoriky, emócií a spánku.</td><td><b>Neurokognitívne poruchy</b> = primárne <b>získané</b> kognitívne deficity: <b>delírium</b> (pozornosť, orientácia, vedomie; rozvoj v krátkom čase, prechodné; správanie, emócie, spánok) · <b>ľahká kognitívna porucha</b> (mierne zhoršenie, nezasahuje do fungovania) · <b>amnestická porucha</b> (výrazné zhoršenie pamäti) · <b>demencia</b> (výrazné zhoršenie v 1 či viac oblastiach, narúša fungovanie)</td></tr>
+<tr><td class="k">Psychoaktívne látky</td><td><b>F10–F19</b>: akútna intoxikácia, zneužívanie, syndróm závislosti, abstinenčný syndróm (aj s delíriom), psychotické poruchy, amnestický syndróm · látky: alkohol, opiáty, kanabinoidy, sedatíva/hypnotiká, kokaín, stimulanty, halucinogény, tabak, rozpúšťadlá · <mark>základ: craving, strata kontroly, pokračovanie napriek negatívnym dôsledkom</mark></td><td><b>Užívanie látok</b>: škodlivé užitie / užívanie, závislosť, intoxikácia, stav z odňatia, psychotická porucha; látky aj syntetické kanabinoidy, opioidy, anxiolytiká, amfetamíny, syntetické katinóny, kofeín, nikotín, inhalanty, MDMA, disociatívne drogy · <b>adiktívne správanie</b>: hazardné hranie, digitálne hry (narušená kontrola, prioritizácia, pokračovanie napriek dôsledkom)</td></tr>
+<tr><td class="k">Schizofrénia a psychotické</td><td><b>F20–F29</b>: <b>schizofrénia</b> – poruchy myslenia a vnímania, neprimeraná/otupená afektivita (ozveny myšlienok, vkladanie/odnímanie a vysielanie myšlienok, bludné vnímanie, halucinácie); <mark>vedomie a intelekt zachované</mark>; typy: paranoidná, hebefrénna, katatónna, nediferencovaná, postschizofrenická depresia, reziduálna, simplexná · <b>schizotypová porucha</b> – trvalé podivné, excentrické správanie a myslenie · <b>schizoafektívna</b> – súbežne psychotické príznaky + poruchy nálady (manický/depresívny/zmiešaný typ) · <b>porucha s bludmi</b> – dominuje blud; paranoidná, indukovaná</td><td><b>schizofrénia</b> – pozitívne (bludy) a negatívne príznaky; poruchy testovania reality, myslenia, vnímania, kognície, vôle, afektivity, správania · <b>schizotypová</b> – aj vzhľad a reč, kognitívne a percepčné poruchy, anhedónia, afektívny chlad · <b>schizoafektívna</b> · <b>porucha s bludmi</b> (min. <span class="y">3</span> mesiace) · <b>katatónia</b> – narušená psychomotorika (znížená, zvýšená, abnormálna aktivita), spojená s inými poruchami alebo látkami</td></tr>
+<tr><td class="k">Afektívne / poruchy nálady</td><td><b>F30–F39</b>: manický človek sám nepríde (cíti sa v poriadku, nespí, neje; cestuje, utráca) – privedú ho blízki; striedanie mánie a depresie (pýtať sa na obdobia mánie!); liečba liekmi, pacienti ich radi vysádzajú · <b>cyklotýmia</b> – nestabilita nálady (hypománia + depresia) · <b>dystýmia</b> – depresívna nálada väčšinu času</td><td>bipolárna porucha typu I a II, cyklotýmia · depresívne poruchy: rekurentná, dystýmna, zmiešaná depresívno-úzkostná · špecifikátory: úzkosť, perzistujúca depresia, melancholické príznaky, <b>sezónny charakter</b> (sezónna depresia) · vyvolané látkou, sekundárne</td></tr>
+<tr><td class="k">Neurotické, úzkostné, stresové</td><td><b>F40–F48</b>: fóbicko-anxiózne – <b>agorafóbia</b> (otvorené priestranstvá), <b>sociálna fóbia</b> (strach z hodnotenia, vyhýbanie), <b>panická porucha</b> (ataky, „strach zo strachu“), <b>GAD</b> (úzkosť z čohokoľvek), zmiešaná úzkostno-depresívna, <b>OCD</b> (vtieravé myšlienky), reakcia na ťažký stres a adaptačné poruchy (akútna stresová reakcia, PTSP, adaptačná porucha), disociatívne, somatoformné (somatizačná, hypochondrická, neurasténia, depersonalizácia-derealizácia)</td><td><b>Úzkostné/fóbické</b>: GAD, panická, agorafóbia, špecifická fóbia, sociálna úzkostná, separačná úzkostná, selektívny mutizmus · <b>OCD a príbuzné</b>: OCD, telová dysmorfická, čuchová vzťahovačnosť, hypochondria, zhromažďovanie, <b>trichotilománia</b> (vytrhávanie vlasov), <b>exkoriačná</b> (narúšanie kože) · <b>Spojené so stresom</b>: PTSP, <b>komplexná PTSP</b> (zanedbávanie v detstve), pretrvávajúca smútková porucha, adaptačná, reaktívna porucha príchylnosti, dezinhibovaná porucha sociálnej angažovanosti · <b>Disociatívne</b>: s neurologickými príznakmi, disociatívna amnézia, tranz, tranzové posadnutie, disociatívna porucha identity, depersonalizačno-derealizačná; <span class="k">disociácia</span> = mimovoľné narušenie integrácie identity, pocitov, vnemov, afektov, myšlienok</td></tr>
+<tr><td class="k">Telo, jedlo, spánok</td><td><b>F50–F59</b>: poruchy príjmu potravy, spánku, sexuálne dysfunkcie, poruchy v popôrodí (popôrodná depresia), abúzus látok nevytvárajúcich závislosť</td><td><b>Príjem potravy</b>: anorexia, bulímia, záchvatové prejedanie, vyhýbavo-reštrikčná porucha, <b>pika</b> (jedenie nepoživateľného), <b>ruminačno-regurgitačná</b> (opakované vracanie potravy do úst a prežúvanie) · <b>Telesná pohoda a vnímanie tela</b>: porucha telesnej pohody (nadmerná pozornosť telesným symptómom), dysfória telesnej integrity (túžba po postihnutí, nástup v ranej puberte) · <b>Tehotenstvo, pôrod, popôrodie</b>: začiatok cca <span class="y">6</span> týždňov po pôrode, s/bez psychotických príznakov</td></tr>
+<tr><td class="k">Osobnosť</td><td><b>F60–F69</b>: poruchy osobnosti = výrazné, pretrvávajúce odchýlky, najmä vo vzťahoch – paranoidná, schizoidná, <b>disociálna</b> (porušovanie noriem, chýbajúca empatia, impulzivita, konflikty so zákonom), emočne nestabilná, histriónska, anankastická, anxiózna, závislá · trvalé zmeny osobnosti po katastrofickom zážitku / psychickej chorobe · návyky a impulzy (patologické hráčstvo, podpaľačstvo, kleptománia, trichotilománia) · sexuálna identita (transsexualizmus, transvestizmus) · voľba sexuálneho objektu (fetišizmus, fetišistický transvestizmus, exhibicionizmus, voyerizmus, pedofília, sadomasochizmus) · sexuálny vývin a orientácia (porucha dozrievania, egodystonická orientácia, porucha vzťahu) · úmyselné vyvolávanie/predstieranie<br><mark>Rozdiel: ľudia s poruchou osobnosti svoje ťažkosti nevnímajú ako problém – viac to vníma okolie; celoživotné.</mark></td><td><b>Poruchy osobnosti</b> = problémy vo vzťahu k sebe a/alebo interpersonálna dysfunkcia; <b>ľahká / stredne ťažká / ťažká</b> + zvýraznené osobnostné črty (dimenzionálne) · <b>Parafilné poruchy</b> – pretrvávajúce intenzívne atypické sexuálne vzrušenie: exhibicionistická, voyeuristická, pedofilná, nátlakový sexuálny sadizmus, frotteuristická, iná s nesúhlasiacimi osobami, solitárne/súhlasiace osoby · <b>Poruchy ovládania impulzov</b> – nedokáže odolať impulzu, krátkodobé uspokojenie napriek škodám: pyromania, kleptománia, kompulzívne sexuálne správanie, intermitentná explozívna porucha</td></tr>
+<tr><td class="k">Intelekt a vývin</td><td><b>F70–F79</b> mentálna retardácia – zastavený/nedokončený vývin intelektu; ľahká, stredná, ťažká, hlboká (podľa IQ) · <b>F80–F89</b> poruchy psychického vývinu – v dojčenskom/detskom veku, súvisia so zrelosťou CNS, <b>stály priebeh bez remisií a relapsov</b>: reč a jazyk, školské zručnosti (čítanie, hláskovanie, aritmetika), pohyb, pervazívne (detský a atypický autizmus, Rettov syndróm, hyperaktívna porucha s MR, Aspergerov syndróm)</td><td><b>Neurovývinové poruchy</b> (skôr špecializované pracoviská): vývinová porucha intelektu (mierna – hlboká; dočasne stanovená) · jazykové a rečové (zvuková rovina, plynulosť, jazyková porucha) · <b>PAS</b> (s/bez poruchy vývinu intelektu, s žiadnou až miernou poruchou reči) · vývinové poruchy učenia (DYS) · porucha motorickej koordinácie („nemotornosť“, zakopávanie, jemná motorika → škola, sebavedomie) · <b>ADHD/ADD</b> (prevaha nepozornosti alebo hyperaktivity-impulzivity; primárne detstvo) · stereotypné pohyby (s/bez sebapoškodzovania)</td></tr>
+<tr><td class="k">Detstvo a dospievanie</td><td><b>F90–F98</b>: hyperkinetické (porucha aktivity a pozornosti, hyperkinetická porucha správania) · poruchy správania (obmedzené na rodinu, nesocializovaná, socializovaná, opozičná vzdorovitá) · zmiešané · emočné · sociálneho fungovania · <b>tiky</b> (náhle, rýchle, opakované nedobrovoľné pohyby či zvuky) · <b>enuréza</b> (pomočovanie) · <b>enkopréza</b> (stolica na nevhodných miestach)</td><td><b>Eliminačné poruchy</b>: enuréza a enkopréza; diagnóza od <mark><span class="y">5</span> rokov (enuréza) a <span class="y">4</span> rokov (enkopréza)</mark></td></tr>
+</table>
+</section>
+
+<!-- ============ PASCE ============ -->
+<section class="topic" id="pasce">
+<div class="thead"><span class="tn">PASCE</span><h2>Najčastejšie skúškové pasce</h2></div>
+<div class="trap" data-n="1"><b>Psychopatológia vs. patopsychológia</b> – poruchy samotné vs. zmeny psychických funkcií pri chorobe.</div>
+<div class="trap" data-n="2"><b>Psychoterapia ≠ psychoporadenstvo</b> – psychoterapiu robí len klinický psychológ s výcvikom; nie je to „vyrozprávanie sa“.</div>
+<div class="trap" data-n="3"><b>Boulder 1949</b> = scientist-practitioner · <b>Vail 1973</b> = odborno-praktický model, PsyD.</div>
+<div class="trap" data-n="4"><b>Witmer 1896</b> (klinika) ≠ <b>Wundt 1879</b> (laboratórium v Lipsku). Časopis The Psychological Clinic <b>1907</b>, tímový prístup <b>1909</b>.</div>
+<div class="trap" data-n="5"><b>Frenológia = Gall</b> (tvar lebky) vs. <b>eugenika = Galton</b> („zlepšovanie“ populácie).</div>
+<div class="trap" data-n="6"><b>Kraepelin</b> – dementia praecox, maniodepresívna psychóza · <b>Bleuler</b> – pojem schizofrénia · <b>Schneider</b> – neurotické (kvantitatívne) vs. psychotické (kvalitatívne) · <b>Jaspers</b> – fenomenológia.</div>
+<div class="trap" data-n="7"><b>Engel 1977</b> – BPS model; <b>Antonovsky 1979</b> – salutogenéza aj sense of coherence; <b>Kandel 2002</b> – 5 princípov; <b>Lambert 1992</b> – 40/30/15/15.</div>
+<div class="trap" data-n="8"><b>Homeostáza</b> (Cannon) vs. <b>alostáza</b> (stabilita cez zmenu) vs. <b>alostatická záťaž</b> (cena dlhodobého stresu) vs. <b>alostatické preťaženie</b> (dlhodobá alostatická záťaž).</div>
+<div class="trap" data-n="9"><b>Strach</b> = aktuálne ohrozenie · <b>úzkosť</b> = anticipácia budúceho · <b>stres</b> = širší adaptačný proces. <b>Eustres</b> zvládnuteľný vs. <b>distres</b> ohrozujúci.</div>
+<div class="trap" data-n="10"><b>Selye GAS</b>: poplach → odolnosť → vyčerpanie (3 fázy) · <b>Rahe</b>: 6 fáz reakcie na stres · <b>Holmes-Rahe</b>: škála LCU (150 / 300).</div>
+<div class="trap" data-n="11"><b>Lazarus</b>: primárne hodnotenie (strata/ohrozenie/výzva) vs. sekundárne (zdroje) · <b>Folkmanová</b>: coping na problém / emócie / význam.</div>
+<div class="trap" data-n="12"><b>Kobasová</b> hardiness (kontrola, oddanosť, výzva) ≠ <b>Antonovsky</b> SOC (zrozumiteľnosť, zmysluplnosť, zvládnuteľnosť) ≠ <b>Seligman</b> (permanentnosť, pervazívnosť, personalizácia) ≠ <b>Bandura</b> self-efficacy.</div>
+<div class="trap" data-n="13"><b>Caplan</b> (primárna/sekundárna/terciárna, 1964) vs. <b>Gordon</b> (univerzálna/selektívna/indikovaná). Sekundárna = včasný záchyt, nie liečba po vzniku.</div>
+<div class="trap" data-n="14"><b>GABA</b> = hlavný inhibičný · <b>glutamát</b> = hlavný excitačný. <b>HPA</b> nadobličky – kortizol · <b>HPT</b> štítna žľaza – T3, T4 · <b>HPG</b> gonády.</div>
+<div class="trap" data-n="15"><b>DSM</b> (APA, len duševné poruchy, bez liečby) vs. <b>MKCH</b> (WHO, všetky choroby). Multiaxiálny systém (5 osí) zaviedol <b>DSM-III 1980</b>. MKCH-11 kód F32.1 → 6A70.</div>
+<div class="trap" data-n="16"><b>Validita</b> (meriam, čo chcem – zjavná, kritériová, konštruktová, diskriminačná) vs. <b>reliabilita</b> (rovnaký výsledok – inter-rater, test-retest).</div>
+<div class="trap" data-n="17"><b>Halucinácia</b> (bez podnetu) vs. <b>ilúzia</b> (skreslený reálny podnet) · <b>depersonalizácia</b> (ja) vs. <b>derealizácia</b> (okolie) · <b>blud</b> = porucha myslenia.</div>
+<div class="trap" data-n="18"><b>Schizofrénia ≠ rozdvojená osobnosť</b> (to je disociatívna porucha identity). Pri demencii aj schizofrénii je <b>vedomie zachované</b>, pri delíriu <b>narušené</b>. Enuréza od <b>5</b>, enkopréza od <b>4</b> rokov.</div>
+<div class="trap" data-n="19"><b>Ilúzia</b> (skreslený reálny podnet) vs. <b>halucinácia</b> (bez podnetu) vs. <b>intruzívny obraz</b> (nechcená predstava „v hlave“) vs. <b>hypnagogický fenomén</b> (pri zaspávaní – nie je psychóza).</div>
+<div class="trap" data-n="20"><b>Obsesia</b> (vtieravá, nechcená, odpor) vs. <b>nadhodnotená idea</b> (silné stotožnenie) vs. <b>blud</b> (pevné presvedčenie, náhľad narušený).</div>
+<div class="trap" data-n="21"><b>Tangencialita</b> – odbehne a nevráti sa · <b>circumstancialita</b> – veľa detailov, ale k cieľu dôjde · <b>perseverácia</b> – zasekne sa na téme.</div>
+<div class="trap" data-n="22"><b>Nálada</b> (dlhšie, opisuje pacient) vs. <b>afekt</b> (aktuálne pozorovaný prejav). <b>Anhedónia</b> (nevie sa tešiť) vs. <b>avolícia</b> (nevie začať konať).</div>
+<div class="trap" data-n="23"><b>Delírium</b> = náhly nástup, kolísanie, porucha pozornosti → <span class="no">nie</span> psychóza, ale varovný signál telesného stavu.</div>
+<div class="trap" data-n="24"><b>Psychológ / klinický psychológ / psychoterapeut</b> – nikto z nich <span class="no">nepredpisuje lieky</span> (len lekár). Klinický psychológ = Mgr. + špecializácia min. 3 roky.</div>
+</section>
+
+</div>
+
+</body></html>

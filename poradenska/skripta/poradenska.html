@@ -1,0 +1,1625 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Základy poradenskej psychológie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: jeden stĺpec skrípt (max 920px), téma = sekcia s číslom, informácie v typových rámčekoch farebne kódovaných podľa druhu */
+:root{
+  --bg:#faf7f3; --surface:#ffffff; --fg:#24202a; --muted:#6b6470; --line:#e5ddd3; --soft:#f3eee7;
+  --gold:#94680f;      /* nadpisy tém, štruktúra */
+  --plum:#8a3a6c;      /* definície, kľúčové pojmy */
+  --green:#2e6a4e;     /* autori, teórie */
+  --red:#a33a3a;       /* pozor, upozornenia */
+  --amber:#a8660c;     /* mnemotechnika */
+  --blue:#2d5d8e;      /* schémy, vizualizácia */
+  --slate:#566070;     /* otázky zo seminára, príklady */
+  --mark:#f6e7b8;
+  --serif:"Libre Baskerville",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17141a; --surface:#211d25; --fg:#ece6ef; --muted:#a69daa; --line:#3a3341; --soft:#2a2530;
+  --gold:#d9ae55; --plum:#d98bbb; --green:#7cc4a0; --red:#e58a8a; --amber:#e8a952; --blue:#86b4e6; --slate:#a8b2c2; --mark:#5a4a1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17141a; --surface:#211d25; --fg:#ece6ef; --muted:#a69daa; --line:#3a3341; --soft:#2a2530;
+  --gold:#d9ae55; --plum:#d98bbb; --green:#7cc4a0; --red:#e58a8a; --amber:#e8a952; --blue:#86b4e6; --slate:#a8b2c2; --mark:#5a4a1c; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.62;margin:0}
+.wrap{max-width:920px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{text-wrap:balance}
+p{margin:.5em 0}
+a{color:var(--plum)}
+strong{font-weight:600}
+
+/* HERO */
+.hero{position:relative;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:28px;overflow:hidden}
+.hero .ghost{position:absolute;right:-10px;top:-30px;font-family:var(--serif);font-size:clamp(90px,20vw,190px);color:var(--gold);opacity:.07;line-height:1;pointer-events:none;user-select:none}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);padding:6px 12px;border-radius:3px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(32px,6vw,52px);line-height:1.12;margin:22px 0 14px}
+.hero h1 em{color:var(--plum);font-style:normal}
+.hero .lead{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:17px;max-width:62ch;margin:0 0 18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);background:var(--surface);padding:5px 11px;border-radius:3px;color:var(--muted)}
+
+/* LEGENDA + OBSAH */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:18px 0}
+.lg{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:4px}
+.lg b{color:var(--c);font-weight:600;display:block;font-size:13px;letter-spacing:.04em}
+.toc{columns:2 280px;gap:28px;margin:12px 0 0;padding:0;list-style:none;font-size:15px}
+.toc li{break-inside:avoid;padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
+.toc .n{font-family:var(--mono);font-size:12px;color:var(--gold);min-width:44px;padding-top:2px}
+.toc a{color:var(--fg);text-decoration:none}
+.toc a:hover{color:var(--plum);text-decoration:underline}
+.toc .tag{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--plum);border:1px solid color-mix(in srgb,var(--plum) 35%,transparent);border-radius:3px;padding:0 5px;height:fit-content}
+
+/* ČASTI */
+.part{margin:56px 0 8px;padding:18px 20px;border-radius:6px;background:color-mix(in srgb,var(--pc) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--pc) 30%,transparent)}
+.part .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--pc)}
+.part h2{font-family:var(--serif);margin:4px 0 0;font-size:26px}
+.part p{margin:6px 0 0;color:var(--muted);font-size:15px}
+
+/* TÉMA */
+.topic{border-top:1px solid var(--line);margin-top:48px;padding-top:30px}
+.th{display:flex;gap:22px;align-items:baseline;margin-bottom:20px}
+.th .num{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.08em;white-space:nowrap}
+.th h2{font-family:var(--serif);font-size:clamp(25px,4vw,33px);line-height:1.2;margin:0}
+h3.sub{font-family:var(--sans);font-weight:700;font-size:14.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);border-left:3px solid var(--gold);padding-left:12px;margin:34px 0 14px}
+h4.mini{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--blue);margin:22px 0 8px}
+
+/* RÁMČEKY */
+.box{--c:var(--plum);background:color-mix(in srgb,var(--c) 6%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 22%,var(--line));border-left:4px solid var(--c);border-radius:6px;padding:14px 18px;margin:14px 0;break-inside:avoid}
+.box>.lbl{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-bottom:4px;font-weight:600}
+.box p:first-of-type{margin-top:0}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.def{--c:var(--plum)} .au{--c:var(--green)} .warn{--c:var(--red)} .mn{--c:var(--amber)} .sch{--c:var(--blue)} .qa{--c:var(--slate)}
+.box.mono{font-family:var(--mono);font-size:14px;line-height:1.7}
+.mn .code{font-family:var(--mono);font-weight:600;color:var(--amber);font-size:17px;letter-spacing:.06em}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0}
+.grid2>.box{margin:0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+.grid3>.box{margin:0}
+
+/* ZVÝRAZNENIA */
+.k{color:var(--plum);font-weight:600}          /* kľúčový pojem */
+.a{color:var(--green);font-weight:600}          /* autor */
+.h{background:var(--mark);padding:0 3px;border-radius:2px;color:inherit}  /* dôležité */
+.x{color:var(--red);font-weight:600}             /* negácia / pozor v texte */
+.y{font-family:var(--mono);font-size:.88em;color:var(--gold);font-weight:600}  /* rok, číslo */
+.src{display:inline-block;font-family:var(--mono);font-size:11.5px;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);background:var(--surface);border-radius:3px;padding:1px 7px;white-space:nowrap;vertical-align:1px}
+.muted{color:var(--muted)}
+
+/* ZOZNAMY */
+ul{padding-left:1.25em;margin:.5em 0}
+ul li{margin:.25em 0}
+ul li::marker{color:var(--gold)}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:12px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:6px 0 6px 42px;border-bottom:1px dashed var(--line)}
+ol.steps>li:last-child{border-bottom:0}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--sc,var(--gold)) 13%,var(--surface));color:var(--sc,var(--gold));border:1px solid color-mix(in srgb,var(--sc,var(--gold)) 40%,transparent);font-family:var(--mono);font-size:13px;font-weight:600;display:grid;place-items:center}
+ol.steps.plum{--sc:var(--plum)} ol.steps.green{--sc:var(--green)} ol.steps.red{--sc:var(--red)} ol.steps.blue{--sc:var(--blue)}
+ol.steps ul{margin-top:4px}
+
+/* TABUĽKY */
+.tw{overflow-x:auto;margin:14px 0}
+table.t{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface)}
+table.t th{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-align:left;font-weight:600;padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom;background:var(--bg)}
+table.t td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t td:first-child{font-weight:600}
+table.t tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 55%,var(--surface))}
+table.t.c td:first-child{font-weight:400}
+.yes{color:var(--green);font-weight:600} .no{color:var(--red);font-weight:600}
+
+/* SCHÉMY */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.fb{font-family:var(--mono);font-size:13.5px;border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:8px 12px}
+.fb.hl{border-color:var(--gold);color:var(--gold);font-weight:600}
+.fb.bl{border-color:color-mix(in srgb,var(--blue) 50%,transparent);color:var(--blue)}
+.fb.pl{border-color:color-mix(in srgb,var(--plum) 50%,transparent);color:var(--plum)}
+.fb small{display:block;font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400}
+.arr{color:var(--gold);font-weight:700}
+.cont{margin:16px 0}
+.cont .bar{height:10px;border-radius:5px;background:linear-gradient(90deg,var(--green),var(--amber),var(--red))}
+.cont .labels{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}
+.cont .labels div{font-size:12.5px;line-height:1.35;border-top:2px solid var(--line);padding-top:6px}
+.cont .labels b{display:block;font-size:13px}
+.ladder{display:grid;gap:6px;margin:14px 0}
+.ladder div{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:12px;padding:8px 12px;border-radius:5px;background:color-mix(in srgb,var(--lc) 11%,var(--surface));border:1px solid color-mix(in srgb,var(--lc) 30%,transparent)}
+.ladder span{font-family:var(--mono);font-weight:600;color:var(--lc);font-size:15px}
+.tl{list-style:none;margin:14px 0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:6px 0 10px 14px}
+.tl li::before{content:"";position:absolute;left:-25px;top:13px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--tc,var(--gold))}
+.tl .yr{font-family:var(--mono);font-weight:600;color:var(--tc,var(--gold));font-size:14px}
+.era{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tc);margin:4px 0 0 -18px;padding:3px 10px;background:color-mix(in srgb,var(--tc) 10%,var(--surface));display:inline-block;border-radius:3px}
+svg.fig{width:100%;height:auto;display:block;max-width:100%}
+.figcap{font-size:13px;color:var(--muted);text-align:center;margin-top:4px}
+
+/* SLOVNÍK + PASCE */
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin:14px 0}
+.gl div{border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:10px 14px;font-size:14.5px;break-inside:avoid}
+.gl b{font-family:var(--serif);font-style:italic;color:var(--gold);font-weight:700;margin-right:6px}
+.trap{counter-increment:t}
+.traps{counter-reset:t}
+.trap .lbl::after{content:" " counter(t)}
+
+footer{margin-top:60px;border-top:1px solid var(--line);padding-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+:focus-visible{outline:2px solid var(--plum);outline-offset:2px}
+
+@media (max-width:560px){
+  .th{flex-direction:column;gap:4px}
+  .cont .labels{grid-template-columns:1fr 1fr}
+  body{font-size:15.5px}
+}
+@media print{
+  @page{size:A4;margin:9mm 10mm 10mm}
+  :root{--bg:#fff;--surface:#fff}
+  body{font-size:8.1pt;line-height:1.32}
+  .wrap{max-width:none;padding:0}
+  .hero{padding-bottom:10px;margin-bottom:10px}
+  .hero .ghost{display:none}
+  .hero h1{font-size:24pt;margin:8px 0 6px}
+  .hero .lead{font-size:9.5pt;margin-bottom:8px}
+  .eyebrow,.pill{font-size:7pt;padding:2px 7px}
+  .legend{gap:6px;margin:8px 0;grid-template-columns:repeat(3,1fr)}
+  .lg{font-size:8pt;padding:5px 8px}
+  .lg b{font-size:7.5pt}
+  .toc{font-size:8.5pt;columns:2}
+  .toc li{padding:2px 0}
+  .part{margin:16px 0 4px;padding:8px 12px;break-after:avoid}
+  .part h2{font-size:15pt}
+  .part p{font-size:8.5pt}
+  .topic{break-before:auto;margin-top:12px;padding-top:8px}
+  .th{margin-bottom:8px;gap:14px}
+  .th h2{font-size:16pt}
+  .th .num{font-size:8pt}
+  h3.sub{font-size:8.4pt;margin:10px 0 5px;padding-left:8px}
+  h4.mini{font-size:8.4pt;margin:10px 0 4px}
+  p{margin:.3em 0}
+  ul{margin:.3em 0}
+  ul li{margin:.1em 0}
+  .box{padding:5px 9px;margin:5px 0;border-radius:4px;border-left-width:3px}
+  .box>.lbl{font-size:6.8pt;margin-bottom:2px}
+  .box.mono{font-size:8pt;line-height:1.5}
+  .mn .code{font-size:10pt}
+  .grid2,.grid3{gap:6px;margin:6px 0}
+  .grid2{grid-template-columns:repeat(2,1fr)}
+  .grid3{grid-template-columns:repeat(3,1fr)}
+  .tw{margin:6px 0;overflow:visible}
+  table.t{font-size:8pt}
+  table.t th{font-size:6.8pt;padding:4px 6px}
+  table.t td{padding:2px 6px}
+  ol.steps{margin:6px 0}
+  ol.steps>li{padding:2px 0 2px 26px}
+  ol.steps>li::before{width:18px;height:18px;font-size:7.5pt;top:2px}
+  .flow{gap:5px;margin:6px 0}
+  .fb{font-size:7.8pt;padding:4px 7px}
+  .fb small{font-size:7pt}
+  .src{font-size:6.8pt;padding:0 4px}
+  svg{max-height:62mm;width:auto;max-width:100%}
+  .tl{margin:6px 0;padding-left:12px}
+  .tl li{padding:1px 0 2px 10px}
+  .tl li::before{width:8px;height:8px;left:-18px;top:5px}
+  .tl .yr{font-size:8.6pt}
+  .era{font-size:6.8pt;padding:1px 6px;margin:2px 0 0 -12px}
+  .ladder{gap:3px;margin:6px 0}
+  .ladder div{padding:3px 8px;gap:8px;grid-template-columns:30px 1fr}
+  .ladder span{font-size:9pt}
+  .gl{gap:4px 14px!important}
+  .flow,.ladder,.gl div,tr,ol.steps>li{break-inside:avoid}
+  .grid2>.box,.grid3>.box{break-inside:auto}
+  .box{break-inside:auto}
+  .gl{grid-template-columns:repeat(3,1fr)!important;gap:3px 8px!important;margin:6px 0}
+  .gl div{padding:3px 6px;font-size:7.6pt;border-radius:3px}
+  h3.sub,h4.mini,.th{break-after:avoid}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="ghost" aria-hidden="true">ψ</div>
+  <span class="eyebrow">PREŠOVSKÁ UNIVERZITA · PSYCHOLÓGIA · 3. ROČNÍK Bc. · 2026/2027</span>
+  <h1>Základy poradenskej<br><em>psychológie</em></h1>
+  <p class="lead">Kompletné študijné skriptá na zápočet a skúšku. Spracované podľa vlastného sumáru z prednášok a seminárov.</p>
+  <div class="pills">
+    <span class="pill">13 tém</span><span class="pill">Zápočet: témy 1–5</span><span class="pill">Autori · Teórie · Klasifikácie</span><span class="pill">Mnemotechniky</span><span class="pill">Skúškové pasce</span>
+  </div>
+</header>
+
+<h3 class="sub">Ako čítať farby</h3>
+<div class="legend">
+  <div class="lg" style="--c:var(--plum)"><div><b>DEFINÍCIA / POJEM</b>Čo to je. Fialová farba v texte = kľúčový pojem.</div></div>
+  <div class="lg" style="--c:var(--green)"><div><b>AUTOR / TEÓRIA</b>Kto čo tvrdí. Zelené mená = autori.</div></div>
+  <div class="lg" style="--c:var(--red)"><div><b>POZOR</b>Časté chyby, výnimky, nepresnosti v poznámkach.</div></div>
+  <div class="lg" style="--c:var(--amber)"><div><b>MNEMOTECHNIKA</b>Pomôcka na zapamätanie zoznamu.</div></div>
+  <div class="lg" style="--c:var(--blue)"><div><b>SCHÉMA</b>Vizuálny prehľad, ako si tému nakresliť.</div></div>
+  <div class="lg" style="--c:var(--slate)"><div><b>OTÁZKA ZO SEMINÁRA</b>Otázky, ktoré padli na hodine, aj s odpoveďou.</div></div>
+</div>
+<p class="muted" style="font-size:14px">V texte: <span class="h">žlté zvýraznenie</span> = dôležité na skúšku · <span class="y">1957</span> = rok/číslo · <span class="src">§ / zdroj</span> = prameň · <span class="x">červená</span> = protiklad, „nie“.</p>
+
+<h3 class="sub">Obsah</h3>
+<ol class="toc">
+  <li><span class="n">01</span><a href="#t1">Poradenstvo a poradenská činnosť</a><span class="tag">ZÁPOČET</span></li>
+  <li><span class="n">02</span><a href="#t2">Vývoj poradenstva z historického hľadiska</a><span class="tag">ZÁPOČET</span></li>
+  <li><span class="n">03</span><a href="#t3">Formovanie identity poradenskej psychológie na Slovensku</a><span class="tag">ZÁPOČET</span></li>
+  <li><span class="n">04</span><a href="#t4">Etika v poradenskom procese</a><span class="tag">ZÁPOČET</span></li>
+  <li><span class="n">05</span><a href="#t5">Psychologický problém, dôvody a zdroje</a><span class="tag">ZÁPOČET</span></li>
+  <li><span class="n">06</span><a href="#t6">Ciele poradenstva</a></li>
+  <li><span class="n">07</span><a href="#t7">Osoby v poradenskom procese</a></li>
+  <li><span class="n">08</span><a href="#t8">Typológia klientov</a></li>
+  <li><span class="n">09</span><a href="#t9">Vzťah medzi poradcom a klientom</a></li>
+  <li><span class="n">10</span><a href="#t10">Poradenský proces – fázy</a></li>
+  <li><span class="n">11</span><a href="#t11">Anamnéza</a></li>
+  <li><span class="n">12</span><a href="#t12">Diagnostika v poradenstve</a></li>
+  <li><span class="n">13</span><a href="#t13">Metódy práce s klientom</a></li>
+  <li><span class="n">!</span><a href="#pasce">Najčastejšie skúškové pasce</a></li>
+</ol>
+
+<!-- ===================== ČASŤ A ===================== -->
+<div class="part" style="--pc:var(--plum)">
+  <div class="k">ČASŤ A</div>
+  <h2>Zápočet – témy 1 až 5</h2>
+  <p>Poradenstvo, história, Slovensko, etika, psychologický problém.</p>
+</div>
+
+<!-- ========== TÉMA 1 ========== -->
+<section class="topic" id="t1">
+<div class="th"><span class="num">TÉMA 01</span><h2>Poradenstvo a poradenská činnosť</h2></div>
+
+<div class="box def"><span class="lbl">Definícia</span>
+<p><span class="k">Poradenská psychológia</span> = <span class="h">aplikovaná disciplína</span> (ako školská, klinická, dopravná, pracovná, psychológia reklamy, športu, vojenská, forenzná, manažérska).</p>
+<ul>
+<li><b>Zameranie:</b> venuje sa <span class="k">cíteniu, prežívaniu a správaniu</span> človeka</li>
+<li>viaže sa na <b>špecifické sociálne prostredie</b></li>
+<li>rieši <b>zložité životné okolnosti</b></li>
+</ul>
+</div>
+
+<div class="grid2">
+<div class="box def"><span class="lbl">Poradenský psychológ</span>
+<p>Venuje sa poradenstvu, <b>radí</b>. Jeho práca sa viaže na <b>pracovisko</b>, kde sa nachádza.</p></div>
+<div class="box def"><span class="lbl">Poradenstvo (counselling)</span>
+<p><b>Komplexná záležitosť</b> – doprevádza klienta v nejakej <span class="k">kríze</span>.</p></div>
+</div>
+
+<div class="box au"><span class="lbl">Kľúčový autor</span>
+<p><span class="a">Richard Nelson-Jones</span> – autori tohto prístupu sú <b>humanitne orientovaní</b> (orientovaní na <span class="k">vzťah</span>). Dôležité je byť <span class="h">„tu a teraz“</span> a sústrediť sa na <b>aktuálne prežívanie klienta</b>.</p>
+<p>Podľa neho platí: <b>poradenstvo = psychologické poradenstvo</b>. Poradenstvo možno opísať zo šiestich hľadísk.</p>
+</div>
+
+<h3 class="sub">Šesť pohľadov na poradenstvo</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>#</th><th>Poradenstvo ako…</th><th>Autor</th><th>Jadro</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><b>špeciálny druh pomáhajúceho vzťahu</b></td><td><span class="a">Nelson-Jones; Dryden &amp; Woolfe</span></td><td>empatia, akceptácia, kongruencia</td></tr>
+<tr><td>2</td><td><b>súbor intervencií</b></td><td><span class="a">Corsini</span></td><td>7 druhov techník</td></tr>
+<tr><td>3</td><td><b>psychologický proces</b></td><td><span class="a">Nelson-Jones</span></td><td>dynamický, prebieha v čase</td></tr>
+<tr><td>4</td><td>činnosť definovaná <b>cieľmi</b></td><td>–</td><td>nápravné ciele a ciele rastu</td></tr>
+<tr><td>5</td><td>činnosť definovaná <b>osobami</b></td><td><span class="a">Nelson-Jones; Dryden</span></td><td>4 skupiny poradcov, kruhový model</td></tr>
+<tr><td>6</td><td>činnosť vo <b>vzťahu k psychoterapii</b></td><td>–</td><td>výchova – poradenstvo – terapia</td></tr>
+</tbody></table></div>
+
+<h4 class="mini">1 · Špeciálny druh pomáhajúceho vzťahu</h4>
+<p>Autori: <span class="a">Nelson-Jones</span>, ale tiež <span class="a">Dryden &amp; Woolfe</span>. Základné charakteristiky (kvality, podmienky) pomáhajúceho vzťahu sú <span class="h">dôležitou a nevyhnutnou podmienkou práce s klientom</span>:</p>
+<div class="grid3">
+<div class="box def"><span class="lbl">Empatia</span><p>Dokázať pochopiť, čo človek chce; <b>vcítenie sa</b>.</p></div>
+<div class="box def"><span class="lbl">Akceptácia</span><p><b>Bezpodmienečné prijatie</b>; akceptovať jeho myšlienky, názory, presvedčenia.</p></div>
+<div class="box def"><span class="lbl">Kongruencia (autenticita)</span><p>Byť <b>sám sebou</b>, nefalšovaný, pravdivý.</p></div>
+</div>
+<p>Môže sem patriť aj <span class="k">aktívne počúvanie</span>.</p>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">E-A-K</span> – „bez EAK-u to nejde“: <b>E</b>mpatia, <b>A</b>kceptácia, <b>K</b>ongruencia. Ide o tzv. <i>core conditions</i> (primárne podmienky) – vrátia sa v téme 9.</p></div>
+
+<h4 class="mini">2 · Súbor intervencií (Corsini)</h4>
+<div class="box def"><span class="lbl">Definícia</span>
+<p><span class="k">Intervencie</span> = poradenské metódy = pomáhajúce stratégie / spôsobilosti / zručnosti.</p></div>
+<div class="flow">
+<div class="fb hl">KTO?<small>osobnostné predispozície poradcu</small></div><span class="arr">→</span>
+<div class="fb hl">AKO?<small>aké metódy využíva</small></div><span class="arr">→</span>
+<div class="fb hl">KOMU?<small>klientovi</small></div>
+</div>
+<div class="box mn"><span class="lbl">Mnemotechnika – 7 druhov intervencií</span>
+<p><span class="code">REAKcia Na STres</span> – <b>R</b>acionálne · <b>E</b>mpatické · <b>A</b>breaktívne · <b>K</b>orektívne · <b>N</b>ácvikové · <b>S</b>ugestívne · <b>T</b>ransteoretické</p></div>
+<div class="tw"><table class="t">
+<thead><tr><th>Technika</th><th>Podstata</th><th>Príklady</th></tr></thead>
+<tbody>
+<tr><td>1. Racionálne</td><td>sústredenie sa, využívanie faktov, objektívny spôsob, dedukcia z poznatkov, získanie nadhľadu; <span class="h">direktívne, inštruktážne</span></td><td>presviedčanie (<span class="k">persuázia</span>), využívanie <span class="k">asertivity</span>, <span class="k">sokratovský dialóg</span>, <span class="k">metóda padajúceho šípu</span></td></tr>
+<tr><td>2. Empatické</td><td>vcítenie sa do klienta, snaha pochopiť, čo aktuálne prežíva</td><td>facilitujúca atmosféra – priateľská, „rodinná“</td></tr>
+<tr><td>3. Abreaktívne</td><td>ukľudňujúce, uvoľňovanie, odreagovanie od niečoho (hnev, strach, obavy, úzkosť)</td><td>relaxácia, <span class="k">ventilácia emócií</span>, práca s predstavivosťou, arteterapia</td></tr>
+<tr><td>4. Korektívne</td><td><b>náprava</b> problémového správania, presvedčení, mylných názorov; zmena správania, myslenia, emocionálneho nastavenia</td><td><span class="h">regulujú návyky</span></td></tr>
+<tr><td>5. Nácvikové a tréningové</td><td><b>korekcia</b>, učenie sa niečomu novému v bezpečnom prostredí</td><td>nácvik cez <span class="k">hranie rolí</span>, nácvik konfliktov, asertivity</td></tr>
+<tr><td>6. Sugestívne a hypnotické</td><td>návrh alternatívy, poradca priamo radí, ovplyvňuje, presviedča; nedajú sa od seba odpojiť ani oddeliť; dajú sa nacvičovať</td><td>hypnóza, nácvik správnej komunikácie</td></tr>
+<tr><td>7. Transteoretické</td><td><span class="h">integrácia viacerých techník</span>; neopiera sa o jednu teóriu, poradca využíva svoje zručnosti podľa potrieb klienta</td><td>eklektický prístup</td></tr>
+</tbody></table></div>
+
+<h4 class="mini">3 · Psychologický proces (Nelson-Jones)</h4>
+<ol class="steps plum">
+<li>Snaha <b>pochopiť a zmeniť cítenie, myslenie a konanie</b> človeka; prebieha v nejakom časovom rámci cez určitý proces.</li>
+<li>Poradenstvo <span class="x">nie je statické</span>, ale <span class="h">dynamické</span> – premenlivé, flexibilné. Zmena často nastane aj <b>medzi stretnutiami</b>: klient k niečomu dospeje sám – <span class="k">„aha moment“</span>, nadhľad, vhľad do situácie.</li>
+<li>Teórie a techniky, z ktorých poradenstvo čerpá, sú <b>psychologické</b>.</li>
+<li>K tvorbe teórií a k hodnoteniu poradenských procesov a výsledkov prispieva <b>psychologický výskum</b>.</li>
+</ol>
+
+<h4 class="mini">4 · Poradenstvo prostredníctvom cieľov</h4>
+<p>Ide o pomenovávanie, definovanie a stanovenie cieľov. <b>Čo môže byť cieľom poradcu?</b> Podieľať sa na odporúčaní špeciálnych plánov, diagnostika, harmonizácia psychického vývinu, zlepšenie kvality života, edukácia, pomoc pri rozhodovaní, byť podporou, riešenie výchovných problémov.</p>
+<div class="grid2">
+<div class="box def"><span class="lbl">Nápravné ciele</span><p>Zmeniť nastavenie (napr. o sebe), napraviť nevhodné formy interakcie a správania, <b>regulovať</b> ich.</p></div>
+<div class="box def"><span class="lbl">Ciele rastu (vývinové)</span><p>Viažu sa na <span class="k">vývinové úlohy</span>: výber SŠ, partnera, budúceho zamestnania, adaptácia na pracovné prostredie, staroba.</p></div>
+</div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Aké vývinové úlohy poznáte?</b> Adaptačné úlohy, vedenie k samostatnosti, prechod z jednej školy na druhú, ukončenie vzdelávania, nájdenie práce, získanie titulu, odchod do dôchodku.</p></div>
+
+<h4 class="mini">5 · Poradenstvo prostredníctvom osôb (Nelson-Jones)</h4>
+<ol class="steps green">
+<li><b>Profesionálne poradenské služby</b> – profesionáli, psychológovia, tí, ktorí poskytujú poradenské služby.</li>
+<li><b>Dobrovoľní poradcovia vyškolení v pomáhajúcich zručnostiach</b> – zabezpečovanie aktivít (napr. pre zdravotne znevýhodnených), prevencia, <span class="k">peer-programy</span>.</li>
+<li><b>Ľudia, ktorí využívajú poradenské zručnosti ako súčasť povolania</b> – lekári, právnici, pedagógovia, politológovia, zdravotné sestry, ošetrovatelia, hasiči, vojenské a záchranné zložky.</li>
+<li><b>Poradcovia v rôznych informačných službách</b> – disponujú vedomosťami, ktoré ovládajú.</li>
+</ol>
+
+<div class="box sch"><span class="lbl">Schéma · „Kruhový model“ poradenskej činnosti (Dryden)</span>
+<svg class="fig" viewBox="0 0 640 300" role="img" aria-label="Kruhový model poradenskej činnosti podľa Drydena">
+  <circle cx="170" cy="150" r="138" fill="var(--soft)" stroke="var(--line)" stroke-width="1.5"/>
+  <circle cx="170" cy="150" r="98" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+  <circle cx="170" cy="150" r="60" fill="var(--soft)" stroke="var(--line)" stroke-width="1.5"/>
+  <circle cx="170" cy="150" r="28" fill="var(--surface)" stroke="var(--plum)" stroke-width="2.5"/>
+  <text x="170" y="155" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="700" fill="var(--plum)">Klient</text>
+  <g stroke="var(--muted)" stroke-width="1"><line x1="214" y1="110" x2="330" y2="110"/><line x1="258" y1="70" x2="330" y2="70"/><line x1="300" y1="190" x2="330" y2="190"/></g>
+  <g font-family="IBM Plex Sans, sans-serif" font-size="14">
+  <text x="340" y="66" font-weight="700" fill="var(--fg)">2. kruh · predprofesné poradenstvo</text>
+  <text x="340" y="84" fill="var(--muted)" font-size="12.5">učiteľ, riaditeľ, špeciálny pedagóg, kňaz, lekár</text>
+  <text x="340" y="114" font-weight="700" fill="var(--fg)">1. kruh · prvá pomoc</text>
+  <text x="340" y="132" fill="var(--muted)" font-size="12.5">rodina, blízki, priatelia</text>
+  <text x="340" y="194" font-weight="700" fill="var(--fg)">3. kruh · profesionálne poradenstvo</text>
+  <text x="340" y="212" fill="var(--muted)" font-size="12.5">profesionáli, psychológovia</text>
+  </g>
+  <text x="340" y="262" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--blue)">smerom von rastie odbornosť pomoci →</text>
+</svg>
+<p>V strede je <b>klient</b>, obklopuje ho <b>prvá pomoc</b>; ďalej <b>predprofesné poradenstvo</b> (majú určité poradenské zručnosti); navonok <b>profesionálne poradenstvo</b>.</p>
+</div>
+
+<h4 class="mini">6 · Poradenstvo prostredníctvom vzťahu k psychoterapii</h4>
+<div class="cont">
+<div class="bar" aria-hidden="true"></div>
+<div class="labels">
+<div><b>Normalita</b>týka sa každého; prechádzame procesom <b>výchovy</b></div>
+<div><b>Edukatívna forma</b>prechodný stav medzi výchovou a poradenstvom</div>
+<div><b>Poradenská prevencia</b>psychická ťažkosť, problém, problémový stav</div>
+<div><b>Terapeutická / klinická forma</b>akútne a krízové stavy</div>
+<div><b>Psychická porucha</b>potrebná <b>terapia</b></div>
+</div></div>
+<ul>
+<li><span class="k">Edukatívna forma poradenstva</span> – medzi výchovou a poradenstvom je prechodný stav, ktorý nezaraďujeme ani na jednu stranu: preventívne programy, prednášky, osveta, propagácia, šírenie povedomia a informácií, workshopy.</li>
+<li><span class="k">Terapeutická / klinická forma poradenstva</span> – akútne stavy, krízové stavy kvôli nepredvídateľnej a ťaživej situácii.</li>
+</ul>
+
+<p><b>Vysvetlenie vzťahu výchova – poradenstvo – terapia (psychoterapia):</b></p>
+<div class="tw"><table class="t">
+<thead><tr><th>Kritérium</th><th>Výchova</th><th>Poradenstvo</th><th>Terapia</th></tr></thead>
+<tbody>
+<tr><td>Dôvody</td><td>socializácia, príprava do života, zrenie</td><td>problémy a sťažnosti <b>subjektívne prežívané ako zaťažujúce</b> a ťažko riešiteľné</td><td>vážnosť stavu, <b>chronický stav</b>, zasahuje do osobnostných štruktúr a zmien</td></tr>
+<tr><td>Objekty</td><td>do dosiahnutia dospelosti</td><td>všetky vekové skupiny</td><td>všetky vekové skupiny</td></tr>
+<tr><td>Ciele</td><td>kontinuálny rozvoj fyzického a psychického potenciálu osoby</td><td>podpora klienta v riešení osobných problémov, rozvoj schopností zvládať životné situácie</td><td>liečiť psychické ťažkosti, poruchy alebo hlbšie emočné problémy</td></tr>
+<tr><td>Časové trvanie</td><td>do dospelosti; relatívne kontinuálna, dlhodobá</td><td>kontinuálny, ale <span class="h">krátkodobý</span> proces; diskontinuálne</td><td>kontinuálny, ale <span class="h">dlhodobý</span> proces; diskontinuálne</td></tr>
+<tr><td>Metódy</td><td>výchovné metódy (napomenutie, tresty, odmeny)</td><td>práca s <b>vedomím</b>, racionálnym myslením, podpora, <b>súčasné</b> udalosti</td><td>viac počúvajú, menej vysvetľujú, <b>minulé</b> zážitky</td></tr>
+</tbody></table></div>
+<p class="muted" style="font-size:14px">Spoločný cieľ: odstrániť ťažkosti, s ktorými si klient nevie pomôcť sám; dianie tu a teraz.</p>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p>Poradenstvo = <b>„tu a teraz, vedome, krátko“</b>. Terapia = <b>„tam a vtedy, do hĺbky, dlho“</b>.</p></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Čo majú poradenstvo a terapia spoločné?</b> Používajú <b>rovnaké teoretické modely</b>; cieľom je pomoc klientovi; zdôrazňujú potrebu vážiť si klienta ako človeka, <b>počúvať ho empaticky</b>, podporovať jeho vlastné možnosti pomôcť si sám aj jeho <b>zodpovednosť za zmenu</b>. Klient má byť <span class="h">aktívny, nie pasívny</span>.</p></div>
+
+<h3 class="sub">Čo nie je poradenstvo (Sanders)</h3>
+<div class="box warn"><span class="lbl">Poradenstvo NIE JE</span>
+<ul>
+<li>čisto <b>recipročný</b> vzťah – je nerecipročný, poradca vedie klienta k <b>samostatnosti</b></li>
+<li><b>rodinný vzťah</b>, rodičovstvo; nie je to ani <b>priateľstvo</b>, ani kamarátstvo</li>
+<li>vzťah s <b>lekárom</b> ani proces <b>liečby</b></li>
+<li><b>kurz ani výučba</b> – klient môže plniť úlohy a zadania, ale nie v tomto zmysle</li>
+<li><b>predurčenie cesty</b> – poradca nie je líder, iba radí, ktorým smerom sa pohnúť ďalej</li>
+<li>len <b>dávanie rád</b> a hotových odporúčaní</li>
+<li>len <b>realizovanie schopností/zručností</b></li>
+</ul></div>
+<div class="box au"><span class="lbl">Model GROW (z poznámok)</span>
+<div class="flow" style="margin:6px 0">
+<div class="fb bl">G · Goal<small>cieľ</small></div><span class="arr">→</span>
+<div class="fb bl">R · Reality<small>realita</small></div><span class="arr">→</span>
+<div class="fb bl">O · Options<small>možnosti</small></div><span class="arr">→</span>
+<div class="fb bl">W · Will<small>vôľa, záväzok konať</small></div>
+</div>
+<p class="muted" style="font-size:14px">V poznámkach je zapísané „go“ – správne je <b>Goal</b>.</p></div>
+
+</section>
+
+<!-- ========== TÉMA 2 ========== -->
+<section class="topic" id="t2">
+<div class="th"><span class="num">TÉMA 02</span><h2>Vývoj poradenstva z historického hľadiska</h2></div>
+
+<h3 class="sub">Poradenstvo ako činnosť – 4 stupne (Koščo)</h3>
+<div class="flow">
+<div class="fb">1 · Komunikácia<small>individuálna komunikácia človeka s človekom</small></div><span class="arr">→</span>
+<div class="fb">2 · Rola<small>v spoločenstve</small></div><span class="arr">→</span>
+<div class="fb">3 · Aspekt<small>moderných profesií</small></div><span class="arr">→</span>
+<div class="fb hl">4 · Samostatná profesia<small>špecializovaná, profesionálna</small></div>
+</div>
+<ol class="steps">
+<li><b>Individuálna komunikácia človeka s človekom</b> – prenášanie poznatkov a skúseností rozprávaním sa.</li>
+<li><b>Rola v spoločenstve</b> – postavenie, autorita: kňaz, líder, manažér, šaman, medicinman.</li>
+<li><b>Aspekt a funkcia rozvinutých moderných profesií</b> – najbližší, predprofesné poradenstvá, profesionáli.</li>
+<li><b>Samostatná špecializovaná a profesionálna činnosť</b> – vyškolený, vyštudovaný poradca/psychológ.</li>
+</ol>
+<h3 class="sub">Pre koho je poradenstvo určené</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Oblasť</th><th>Obsah</th></tr></thead>
+<tbody>
+<tr><td>Školská oblasť</td><td>proces nadobúdania poznatkov, výchovno-vzdelávací proces; problém môže nastať u žiakov či učiteľov; problémy s učením</td></tr>
+<tr><td>Rodičia a rodina</td><td>pomoc s výchovou</td></tr>
+<tr><td>Špeciálne výchovné poradenstvo</td><td>žiaci s hendikepom (fyzicky, mentálne, sociálne, zmyslovo)</td></tr>
+<tr><td>Voľba štúdia, povolania, profesionálny vývin</td><td><span class="k">kariérne poradenstvo</span></td></tr>
+<tr><td>Partnerský, manželský a rodinný život</td><td>–</td></tr>
+<tr><td>Interpersonálne a intrapersonálne úlohy</td><td>úlohy, potreby, problémy – konflikty, rozhodovacie procesy</td></tr>
+<tr><td>Ludické poradenstvo</td><td>ako efektívne manažovať voľný čas, životný štýl, vyváženosť práce a oddychu, sebarozvoj</td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Vývinové etapy poradenstva</h3>
+<h4 class="mini">a) Orientácia (guidance) · 19.–20. storočie</h4>
+<ul>
+<li>pomoc <b>mládeži</b>; orientovanie sa pri <span class="h">voľbe povolania</span></li>
+<li>poradne boli zriaďované ako súčasť iných oblastí (pod úradmi práce, nemocnicami), samostatne poriadne nefungovali</li>
+</ul>
+<div class="tw"><table class="t">
+<thead><tr><th>Osobnosť</th><th>Miesto</th><th>Prínos</th></tr></thead>
+<tbody>
+<tr><td><span class="a">Francis Galton</span><br><span class="y">1822–1911</span></td><td>Londýn</td><td>eugenik, evolucionista, psychológ; <b>dedičné vlastnosti</b>; <span class="k">antropometrické laboratórium</span> (antropometria = meranie ľudského jedinca); <span class="h">1. psychologická výchovná poradňa</span>; detská poradenská klinika</td></tr>
+<tr><td><span class="a">Lightner Witmer</span><br><span class="y">1867–1956</span></td><td>Philadelphia</td><td><span class="h">1. psychologická poradenská klinika v USA</span>; venoval sa <b>náprave pravopisu</b></td></tr>
+<tr><td><span class="a">Frank Parsons</span><br><span class="y">1854–1908</span></td><td>Boston</td><td><span class="y">1908</span> založil poradňu; <span class="h">„otec poradenstva zameraného na voľbu povolania“</span>; <span class="k">model črty a faktora</span></td></tr>
+</tbody></table></div>
+<div class="box au"><span class="lbl">Teória · Parsonsov model črty a faktora</span>
+<div class="flow" style="margin:6px 0">
+<div class="fb">osobnostné črty, schopnosti, spôsobilosti uchádzača</div><span class="arr">⇄</span>
+<div class="fb">faktory a požiadavky práce</div><span class="arr">→</span>
+<div class="fb hl">optimálne povolanie</div>
+</div>
+<p>Voľba optimálnej profesie je založená na <b>porovnaní osobnostných čŕt s faktormi práce</b>. Cieľ: zabezpečiť čo najlepšie podmienky pre úspech v práci → <span class="h">základ kariérneho poradenstva</span>.</p></div>
+<h4 class="mini">b) Liečebné a rehabilitačné poradenstvo</h4>
+<div class="box def"><span class="lbl">Definícia</span><p>= <span class="k">špeciálna psychologická výchovná starostlivosť o somaticky, mentálne alebo psychicky narušené deti</span>.</p></div>
+<ul>
+<li>výchovno-liečebný prístup; odborníci v psychológii (bio-liečba)</li>
+<li>voľba povolania u hendikepovaných</li>
+<li>diagnostikovali ich a následne <b>eliminovali ťažkosti</b></li>
+<li>riešili ťažkosti súvisiace so starostlivosťou: zlyhávanie v škole, adaptácia v školskom prostredí, znížený výkon, prispôsobenie podmienok</li>
+</ul>
+
+<h4 class="mini">c) Diagnostické a psychometrické koncepcie · 20.–30. roky 20. storočia</h4>
+<p><b>Diagnostika</b> ako hlavný nástroj práce s klientom: testové batérie, diagnostické testy, dotazníky – ich príprava, vyhotovovanie, vyhodnocovanie.</p>
+<div class="box au"><span class="lbl">Teória · Williamson (1939) – diagnostický model, 6 krokov</span>
+<ol class="steps green">
+<li><b>Analýza</b> – zistenie spôsobilostí a predpokladov človeka</li>
+<li><b>Syntéza</b> – zosumarizovanie informácií o klientovi, profil či obraz o ňom, prepojenie</li>
+<li><b>Diagnóza</b> – porovnanie toho, čo máme, s tým, čo potrebujeme</li>
+<li><b>Prognóza</b> – určenie budúceho fungovania; pri odhalení ťažkostí stanovenie prognózy</li>
+<li><b>Konzultácia</b> – samotné stretnutie s klientom, nastavenie alternatív</li>
+<li><b>Preverenie</b> – testovanie schopností priamo na mieste; zisťovanie zlyhania diagnostiky (jej vyhotovenia)</li>
+</ol></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>Williamsonova koncepcia bola <b>kritizovaná až zamietaná</b> pre <span class="h">jednostrannosť</span>.</p></div>
+<h4 class="mini">d) Vplyv medicínskeho modelu</h4>
+<ul>
+<li>hľadanie <b>diagnózy, abnormality, deficitov, nedostatkov, chorôb</b> osôb</li>
+<li>ale aj hľadanie <span class="h">pozitívnych stránok</span> klienta</li>
+<li>poradenský aj medicínsky model prechádzajú <span class="k">anamnézou</span></li>
+</ul>
+
+<h3 class="sub">Prelomové obdobie · 40.–50. roky</h3>
+<ul>
+<li>ovplyvnené psychologickými školami a smermi: <b>humanizmus, behaviorizmus, geštalt</b></li>
+<li>pribudli nové koncepcie:
+<ul>
+<li><span class="k">výchovná (edukatívna)</span> – klienta treba vychovávať</li>
+<li><span class="k">vývinová</span> – splnenie vývinových noriem</li>
+<li><span class="k">sociálno-psychologická</span> – dôležitá je spoločnosť a sociálny kontext</li>
+</ul></li>
+<li><span class="h">nový vzťahový rámec pre poradenstvo</span> = komplexné chápanie osobnosti a jej spätosť so spoločnosťou (vývin – sociálny kontext)</li>
+</ul>
+
+<h3 class="sub">Integrované výchovno-rozvíjajúce prístupy</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>#</th><th>Koncepcia</th><th>Autor</th><th>Podstata</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Poradenstvo ako prevencia</td><td><span class="a">Rappaport</span></td><td>primárna, sekundárna a terciárna prevencia</td></tr>
+<tr><td>2</td><td>Poradenstvo ako aktívna orientácia</td><td><span class="a">Menacker</span></td><td>neberie ohľad na psychické ťažkosti, ale na <b>sociálne zabezpečenie</b> (napr. zlepšenie bytovej situácie) a materiálne podmienky; ak sa zlepšia, zlepší sa aj zmýšľanie = ľahší život</td></tr>
+<tr><td>3</td><td>Kooperatívne poradenstvo</td><td><span class="a">Peavy</span></td><td><b>poradenstvo vzájomnej pomoci</b>: <span class="k">peer poradenstvo</span> (v školách, preventívny rovesnícky program), <span class="k">svojpomocné skupiny</span> (vyliečený, abstinujúci človek vedie skupinu a je považovaný za odborníka); <span class="k">recipročné poradenstvo</span> – poskytujú si poradenstvo navzájom</td></tr>
+<tr><td>4</td><td>Kariérne poradenstvo</td><td><span class="a">Super, Hall, Zolbert, Holland</span></td><td>odvíja sa od záujmov; Holland – typológia voľby povolania <b>RIASEC</b></td></tr>
+<tr><td>5</td><td>Poradenstvo ako nástroj rastu</td><td><span class="a">Wiegersma</span></td><td>5-úrovňový model práce poradcu</td></tr>
+<tr><td>6</td><td>Životné poradenstvo, poradenstvo života, <span class="k">biodromálna koncepcia</span></td><td>–</td><td>sprevádzanie počas celej životnej cesty</td></tr>
+<tr><td>7</td><td>Telefonické poradenstvo</td><td>–</td><td>linky dôvery + linky pre špecifických klientov</td></tr>
+<tr><td>8</td><td>Internetové poradenstvo</td><td>–</td><td>chaty, internetové poradne</td></tr>
+</tbody></table></div>
+
+<h4 class="mini">Holland – typológia RIASEC</h4>
+<div class="tw"><table class="t">
+<thead><tr><th>Písmeno</th><th>Typ</th><th>Zameranie</th></tr></thead>
+<tbody>
+<tr><td>R</td><td>Realistic – realistický</td><td>manuálne zručnosti, fyzická práca</td></tr>
+<tr><td>I</td><td>Investigative – skúmajúci</td><td>výskum, veda, analýza</td></tr>
+<tr><td>A</td><td>Artistic – umelecký</td><td>umelecké povolania</td></tr>
+<tr><td>S</td><td>Social – sociálny</td><td>sociálne povolania – <span class="h">psychológ patrí sem</span></td></tr>
+<tr><td>E</td><td>Enterprising – podnikavý</td><td>podnikanie</td></tr>
+<tr><td>C</td><td>Conventional – konvenčný</td><td>administratíva</td></tr>
+</tbody></table></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je pri <i>Investigative</i> uvedená „žurnalistika“ (s otáznikom). V Hollandovej typológii ide štandardne o <b>výskumný, vedecký typ</b>. Over si, čo uvádzala prednášajúca.</p></div>
+<h4 class="mini">Wiegersma – 5-úrovňový model práce poradcu</h4>
+<div class="ladder">
+<div style="--lc:var(--green)"><span>1</span><p style="margin:0">sprostredkovanie <b>chýbajúcich informácií</b> pri rozhodovaní a konflikte záujmov</p></div>
+<div style="--lc:var(--blue)"><span>2</span><p style="margin:0">osobe chýbajú aj <b>ciele a alternatívy</b> pre voľby a rozhodovanie</p></div>
+<div style="--lc:var(--amber)"><span>3</span><p style="margin:0">výrazné <b>konfliktné situácie</b> spojené so stavmi napätia a úzkosti</p></div>
+<div style="--lc:var(--plum)"><span>4</span><p style="margin:0">konflikty a stavy úzkosti sú <b>silne generalizované</b> a prejavujú sa v rôznych oblastiach správania</p></div>
+<div style="--lc:var(--red)"><span>5</span><p style="margin:0">klient má <b>narušenú osobnostnú integritu</b>, zmysel pre realitu; prežíva silné pocity strachu, beznádeje, zúfalstva</p></div>
+</div>
+<h4 class="mini">Telefonické a internetové poradenstvo</h4>
+<p><b>Telefonické:</b> pre rôzne cieľové skupiny (= <span class="k">linky dôvery</span>) aj pre špecifických klientov (linky pre deti, týrané ženy, závislé osoby, osoby s odlišnou sexuálnou orientáciou…).</p>
+<div class="grid2">
+<div class="box au"><span class="lbl">Výhody</span><ul>
+<li>krátkodobá pomoc pri aktuálnom probléme</li><li>ľahká dostupnosť</li><li>finančne nenáročné</li><li>anonymita, dôvernosť</li><li>aktívne počúvanie, bezodkladná pomoc</li><li>dôležité je, <b>ako</b> poradca rozpráva</li></ul></div>
+<div class="box warn"><span class="lbl">Nevýhody</span><ul>
+<li>málo osobné</li><li>chýba očný kontakt</li><li>preťažené linky</li><li>možnosť zneužitia</li></ul></div>
+</div>
+<p><b>Internetové:</b> chaty, internetové poradne. Od telefonického sa líši: treba <b>čítať a písať</b> (pre niekoho je jednoduchšie písať ako hovoriť); anonymita je <span class="h">iba na strane klienta</span>.</p>
+
+<h3 class="sub">Ako by sme dnes pomenovali poradenský prístup</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Prístup je…</th><th>Význam</th></tr></thead>
+<tbody>
+<tr><td>Interdisciplinárny a komplexný</td><td>psychológovia, špeciálny pedagóg, sociálny pedagóg, logopédi, pedopsychiater, psychiater pre dospelých, neurológ</td></tr>
+<tr><td>Multisférový a multikonzumentný</td><td>prelínajú sa rôzne oblasti života; pre všetky úrovne vývinu, všetky vekové skupiny</td></tr>
+<tr><td>Profesionálny</td><td>odborníci, psychológovia, inštitucionálny charakter, kontinuálny rozvoj</td></tr>
+<tr><td>Inštitucionálny</td><td>centrá, inštitúcie, poradne</td></tr>
+<tr><td>Procesuálny, kontinuálny = biodromálny</td><td>má charakter procesu, sprevádza celý život, má začiatok a koniec</td></tr>
+<tr><td>Edukačno-formatívny, rozvíjajúci</td><td>informuje a vzdeláva; besedy, prednášky, osveta, preventívne programy</td></tr>
+<tr><td>Personálny</td><td>jedinečnosť a špecifickosť klientov, individuálne ku každému</td></tr>
+<tr><td>Vnútorne štruktúrovaný a reprezentatívny</td><td>siete poradní, napr. európske poradne orientované na voľbu povolania, kariérni poradcovia</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ========== TÉMA 3 ========== -->
+<section class="topic" id="t3">
+<div class="th"><span class="num">TÉMA 03</span><h2>Formovanie identity poradenskej psychológie na Slovensku</h2></div>
+
+<div class="box mn"><span class="lbl">Mnemotechnika – etapy ako vývin identity dospievajúceho</span>
+<p><span class="code">V-K-B · D-P-R</span> – <b>V</b>znik → <b>K</b>ult (zákaz) → <b>B</b>udovanie → „kto som?“ seba<b>D</b>efinovanie → „potvrdím sa“ seba<b>P</b>otvrdzovanie → „zmením sa“ <b>R</b>edefinícia.</p></div>
+
+<h3 class="sub">Časová os vývoja</h3>
+<ul class="tl">
+<li style="--tc:var(--gold)"><span class="era" style="--tc:var(--gold)">Vznik poradní · 19.–20. storočie (v Česku skôr)</span></li>
+<li><span class="yr">1928</span> – <b>poradne pre voľbu povolania</b>; 1. ústredná poradňa pre voľbu povolania v Bratislave (v rámci <b>Psychotechnického ústavu</b> v BA)</li>
+<li><span class="yr">do 1942</span> – v okresných mestách <b>26 poradní</b></li>
+<li><span class="yr">po 1945</span> – psychotechnické referáty pri okresných úradoch práce</li>
+<li><span class="yr">od 1948</span> – Československý ústav práce – Oblastný ústav pre SR</li>
+<li style="--tc:var(--red)"><span class="era" style="--tc:var(--red)">Kult osobnosti a dogmatizmu · 1948–1953</span></li>
+<li style="--tc:var(--red)">psychológia ako <b>„paveda“</b></li>
+<li style="--tc:var(--green)"><span class="era" style="--tc:var(--green)">Budovanie pracovísk · 2. pol. 50. – 1. pol. 60. rokov</span></li>
+<li style="--tc:var(--green)"><span class="yr">1955</span> Psych. laboratórium SAV · <span class="yr">1957</span> PVK BA + Psych. ústav UK · <span class="yr">1959</span> PVK KE, BB · <span class="yr">1964</span> VÚDPaP · <span class="yr">1966</span> 2. PVK BA</li>
+<li style="--tc:var(--blue)"><span class="era" style="--tc:var(--blue)">Sebadefinovanie · 2. pol. 60. – 1. pol. 70. rokov</span></li>
+<li style="--tc:var(--blue)"><span class="yr">1970</span> okresné poradne · <span class="yr">1971</span> predmanželské a manželské poradne</li>
+<li style="--tc:var(--amber)"><span class="era" style="--tc:var(--amber)">Sebapotvrdzovanie · 2. pol. 70. rokov – 1989</span></li>
+<li style="--tc:var(--amber)"><span class="yr">1980</span> PVK → PPP</li>
+<li style="--tc:var(--plum)"><span class="era" style="--tc:var(--plum)">Redefinícia · po 1989</span></li>
+<li style="--tc:var(--plum)"><span class="yr">1990</span> CPPS · <span class="yr">1997</span> CPVP + ŠPP · <span class="yr">2005</span> RPPS · <span class="yr">2008</span> CPPPaP · <span class="yr">2022</span> ROPO · <span class="yr">2023</span> CPaP · <span class="yr">2024</span> Rodinné poradne · <span class="yr">2025</span> Poradne komplexnej pomoci</li>
+</ul>
+
+<h3 class="sub">1 · Vznik poradní – poradne pre voľbu povolania (od 1928)</h3>
+<div class="grid2">
+<div class="box au"><span class="lbl">Jozef Stavěl</span><p><b>1. riaditeľ</b> ústrednej poradne pre voľbu povolania v BA. <span class="h">1. docent psychológie na Slovensku</span>. <span class="muted">(dôležité meno)</span></p></div>
+<div class="box au"><span class="lbl">Anton Jurovský</span><p>Neskorší riaditeľ. <span class="h">1. oficiálny univerzitný profesor psychológie na Slovensku</span> (<span class="y">1941</span>). Uznávaný slovenský psychológ. Rok po inaugurácii vydal knihu <i>Psychológia</i>. 1. riaditeľ Psychologického ústavu UK.</p></div>
+</div>
+<ul>
+<li>do <span class="y">1942</span> – v okresných mestách <b>26 poradní</b></li>
+<li>po <span class="y">1945</span> – <b>psychotechnické referáty</b> pri okresných úradoch práce</li>
+<li>od <span class="y">1948</span> – Československý ústav práce – Oblastný ústav pre SR</li>
+</ul>
+<div class="box def"><span class="lbl">Základné funkcie poradní</span>
+<div class="flow" style="margin:4px 0">
+<div class="fb pl">profesionálno-informačná</div><div class="fb pl">poradenská</div><div class="fb pl">sprostredkovateľská</div><div class="fb pl">rozmiestňovacia</div>
+</div>
+<p>Vyšetrenie trvalo pomerne dlho (<span class="y">5–6 hodín</span>), bolo komplexné.</p></div>
+
+<h3 class="sub">2 · Obdobie kultu osobnosti a dogmatizmu (1948–1953)</h3>
+<div class="box warn"><span class="lbl">Psychológia ako „paveda“</span>
+<ul>
+<li>psychológia nebola na Slovensku uznávaná</li>
+<li>nemohla sa rozvíjať samostatne, bez nároku na vlastné inštitúcie – len pod záštitou iných disciplín</li>
+<li>= obdobie <span class="h">neakceptácie až degradácie</span> psychológie</li>
+</ul></div>
+
+<h3 class="sub">3 · Budovanie psychologických pracovísk (2. pol. 50. – 1. pol. 60. rokov)</h3>
+<div class="box au"><span class="lbl">Doc. Miroslav Teofil Bažány – kľúčová osobnosť</span>
+<div class="tw" style="margin:6px 0 0"><table class="t c">
+<tbody>
+<tr><td><span class="y">od 1948</span></td><td>riaditeľ Československého ústavu práce</td></tr>
+<tr><td><span class="y">1957</span></td><td>Psychologická výchovná klinika (PVK) v Bratislave</td></tr>
+<tr><td><span class="y">od 1964</span></td><td><span class="h">1. riaditeľ VÚDPaP</span> + n. p. Psychodiagnostika</td></tr>
+<tr><td><span class="y">1968–1989</span></td><td>expert pre UNESCO</td></tr>
+<tr><td><span class="y">1991–1997</span></td><td>dekan PdF UK v Bratislave</td></tr>
+<tr><td><span class="y">1995</span></td><td>menovaný za dôstojníka Rádu akademických paliem</td></tr>
+<tr><td><span class="y">30. 1. 1998</span></td><td>zomrel</td></tr>
+</tbody></table></div></div>
+
+<div class="tw"><table class="t">
+<thead><tr><th>Rok</th><th>Inštitúcia</th><th>Poznámka</th></tr></thead>
+<tbody>
+<tr><td><span class="y">1955</span></td><td>Psychologické laboratórium SAV</td><td>dnes ÚEP SAV</td></tr>
+<tr><td><span class="y">1957</span></td><td><span class="h">Psychologická výchovná klinika (PVK)</span> v BA</td><td>orientovaná na <b>deti a mládež</b>; garantom bol <b>štát</b>; zameraná na zdravý fyzický a psychický vývin mládeže; spolupracovala s výskumom</td></tr>
+<tr><td><span class="y">1957</span></td><td>Psychologický ústav UK</td><td>1. riaditeľ <span class="a">prof. Jurovský</span>; ďalej <span class="a">prof. Štúr, Dr. Kovalíková</span></td></tr>
+<tr><td><span class="y">1959</span></td><td>PVK v Košiciach a Banskej Bystrici</td><td>dôležitý rok</td></tr>
+<tr><td><span class="y">1964</span></td><td>VÚDPaP + n. p. Psychodiagnostika</td><td>Výskumný ústav detskej psychológie a patopsychológie</td></tr>
+<tr><td><span class="y">1966</span></td><td>2. PVK v Bratislave</td><td>dôležitý rok</td></tr>
+</tbody></table></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Prečo „klinika“, keď hovoríme o poradenstve?</b> Pretože sa venovali <span class="h">klinickej populácii</span> – deťom a mládeži, ktoré mali poruchy somatiky a psychosomatiky alebo nedosahovali v škole očakávané výsledky.</p></div>
+<h3 class="sub">4 · Etapa sebadefinovania (2. pol. 60. – 1. pol. 70. rokov)</h3>
+<ul>
+<li><b>PVK + SPV</b> = Stredisko pre voľbu povolania</li>
+<li><span class="y">1970</span> – <b>okresné psychologicko-výchovné poradne</b> a poradne pre voľbu povolania (v okresných mestách)</li>
+<li><span class="y">1971</span> – <b>predmanželské a manželské poradne</b>: BA I, BA II, KE, BB, PO (<span class="y">1974</span>)</li>
+<li>1. psychologická poradňa pre VŠ – pri Oddelení biodromálnej a poradenskej psychológie Psychologického ústavu FF UK</li>
+</ul>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Zmena v názvoch?</b> Zo slova zmizla „klinika“. <b>Zmena v náplni práce?</b> Od klinického zamerania sa orientujeme na <span class="h">zdravú populáciu</span>.</p></div>
+
+<h3 class="sub">5 · Etapa sebapotvrdzovania (2. pol. 70. rokov – 1989)</h3>
+<ul>
+<li><b>zlučovanie poradní</b> (zlučovali sa aj detské ústavy)</li>
+<li><span class="y">1980</span> – 1. PVK premenovaná na <span class="k">PPP</span> (pedagogicko-psychologická poradňa) – na prvé miesto sa dostala <b>pedagogika</b></li>
+<li>psychológov na školách vymenili <b>výchovní poradcovia</b> (z radov pedagógov); prvenstvo nemali školskí psychológovia</li>
+<li>snaha psychológov <b>oddeliť sa od pedagógov</b> a <span class="h">nepodľahnúť pedagogizácii</span></li>
+</ul>
+
+<h3 class="sub">6 · Etapa redefinície (po 1989)</h3>
+<p>Nežná revolúcia priniesla uvoľnenie; financie išli nielen do školstva, ale aj do poradní a centier. Objavili sa <b>nové problémy</b>: nezamestnanosť, rozvodovosť, konflikty, náhradná rodinná starostlivosť.</p>
+<div class="box mn"><span class="lbl">Mnemotechnika – dve línie po roku 1989</span><p><b>„Rodina ide na úrad, dieťa do centra.“</b> Rodina: CPPS → RPPS → ROPO → Poradne komplexnej pomoci. Škola: PPP → CPPPaP → CPaP.</p></div>
+
+<h4 class="mini">Línia A · rodina, páry, jednotlivci (rezort práce, sociálnych vecí a rodiny)</h4>
+<div class="tw"><table class="t">
+<thead><tr><th>Rok</th><th>Zariadenie</th><th>Charakteristika</th></tr></thead>
+<tbody>
+<tr><td><span class="y">1990</span></td><td><span class="k">CPPS</span> – Centrá poradensko-psychologických služieb pre jednotlivca, pár a rodinu</td><td>rozpočtové organizácie MPSVR SR; bývalé predmanželské a manželské poradne; vo všetkých okresných a krajských mestách</td></tr>
+<tr><td><span class="y">2005</span></td><td>CPPS → <span class="k">RPPS</span> – Referáty poradensko-psychologických služieb</td><td>súčasť oddelenia sociálnoprávnej ochrany detí a sociálnej kurately (<b>SPODaSK</b>) na ÚPSVaR; fungujú ako úrady</td></tr>
+<tr><td><span class="y">2022</span></td><td><span class="k">ROPO</span> – Rodinné poradne (pilotný národný projekt)</td><td>vzťahové, výchovné a komunikačné problémy, konflikty, porozvodová situácia; Nové Zámky, Trnava, Žilina, Košice, Humenné; NP z Európskeho sociálneho fondu, OP Ľudské zdroje; realizovali Inštitút pre výskum práce a rodiny + Ústredie PSVR; multidisciplinárna spolupráca; spolupráca s bezplatnými dlhovými poradňami</td></tr>
+<tr><td><span class="y">2024</span></td><td>Rodinné poradne</td><td>psychologické, sociálne, právne poradenstvo a prevencia; BA, Banská Bystrica, Trenčín, Nitra, Prešov</td></tr>
+<tr><td><span class="y">2025</span></td><td>Poradne komplexnej pomoci</td><td>NP Sieť odborného poradenstva; zlúčenie ROPO + bezplatné dlhové poradne; <span class="h">46 poradní</span></td></tr>
+</tbody></table></div>
+
+<div class="grid2">
+<div class="box def"><span class="lbl">RPPS – najčastejšie problémy</span>
+<ol class="steps plum" style="margin:0">
+<li><b>Rodinné</b> – výchova, komunikácia, spolupráca, vzťahy, väzby</li>
+<li><b>Partnerské</b> – nevera, komunikácia</li>
+<li><b>Osobnostné</b> – adaptácia, strach, obavy</li>
+<li>Rozvodové a porozvodové</li>
+<li>Náhradná rodinná starostlivosť</li>
+<li>Zamestnanosť / nezamestnanosť</li>
+<li>Študijná a profesijná oblasť</li>
+<li>Závislosti</li>
+<li>Programy rozvoja osobnosti</li>
+</ol></div>
+<div>
+<div class="box def" style="margin-top:0"><span class="lbl">RPPS v roku 2022</span>
+<p><span class="y">78</span> zamestnancov · <span class="y">6 939</span> prípadov · <span class="y">41 146</span> konzultácií.</p>
+<p>Najviac konzultácií: <b>rozvodová/porozvodová</b> problematika, <b>rodinná</b> problematika a <b>NRS</b>.</p></div>
+<div class="box def"><span class="lbl">RPPS poskytujú tiež</span><ul>
+<li>metodické konzultácie a podujatia pre iných odborníkov z pomáhajúcich profesií</li>
+<li>stáže a praxe študentov a absolventov VŠ</li>
+<li>preventívno-výchovné (tematické) podujatia pre mládež a dospelých</li></ul></div>
+</div>
+</div>
+
+<h4 class="mini">Línia B · deti a žiaci (rezort školstva)</h4>
+<div class="tw"><table class="t">
+<thead><tr><th>Rok</th><th>Zariadenie</th><th>Charakteristika</th></tr></thead>
+<tbody>
+<tr><td><span class="y">1997</span></td><td>Centrá psychologickej a výchovnej prevencie + Špeciálno-pedagogické poradne</td><td>akoby nanovo vytvorené centrá oproti fungujúcim PPP; na riešenie porúch učenia</td></tr>
+<tr><td><span class="y">2008</span></td><td>PPP + CPVP = <span class="k">CPPPaP</span> – Centrá pedagogicko-psychologického poradenstva a prevencie</td><td>tento názov do roku 2023</td></tr>
+<tr><td><span class="y">od 1. 1. 2023</span></td><td><span class="k">CPaP</span> – Centrum poradenstva a prevencie</td><td>transformácia podľa <span class="src">Vyhláška MŠVVaŠ SR č. 24/2022</span>; nová sieť: spolu <span class="h">160 zariadení</span></td></tr>
+</tbody></table></div>
+
+<div class="box def"><span class="lbl">CPPPaP – pracovné tímy a najčastejšie problémy</span>
+<ul>
+<li>systém výchovného a psychologického poradenstva; dôležitá <b>administratíva</b> – agendy, záznamy, štatistiky</li>
+<li>tím: sociálny pracovník, poradenskí psychológovia, špeciálny pedagóg, logopéd, pediater alebo pedopsychiater</li>
+<li>najčastejšie problémy: <span class="h">profesijná orientácia</span> (výber SŠ/VŠ), <span class="h">školská zrelosť</span>, <span class="h">problémy so správaním</span>, preventívne programy</li>
+</ul></div>
+
+<div class="grid2">
+<div class="box au"><span class="lbl">CPaP (od 2023)</span><p><span class="y">72</span> štátnych (CPaP) + <span class="y">59</span> súkromných (SCPaP)</p></div>
+<div class="box au"><span class="lbl">Špeciálne CPaP</span><p><span class="y">13</span> štátnych (ŠCPaP) + <span class="y">16</span> súkromných (SŠCPaP) – zabezpečujú <b>5. stupeň podpory</b></p></div>
+</div>
+
+<h4 class="mini">Päť stupňov podpory · deti a žiaci MŠ, ZŠ, SŠ</h4>
+<div class="ladder">
+<div style="--lc:var(--green)"><span>1</span><p style="margin:0"><b>Pedagogický zamestnanec</b> (učiteľ) s podporou OZ a ŠPT – <b>prevencia</b></p></div>
+<div style="--lc:var(--blue)"><span>2</span><p style="margin:0"><b>Odborný zamestnanec (OZ), školský podporný tím (ŠPT)</b> v spolupráci s učiteľom – diagnostika, intervencia, reedukácia, metodická podpora</p></div>
+<div style="--lc:var(--amber)"><span>3</span><p style="margin:0"><b>OZ v CPaP</b> – diagnostika, poradenstvo, prevencia + krízová intervencia, terapia, reedukácia, rehabilitácia, metodická a supervízna činnosť</p></div>
+<div style="--lc:var(--plum)"><span>4</span><p style="margin:0"><b>OZ v CPaP</b> – komplexná multidisciplinárna, špecializovaná odborná starostlivosť + úpravy</p></div>
+<div style="--lc:var(--red)"><span>5</span><p style="margin:0"><b>OZ v ŠCPaP</b> – vysokošpecializovaná diagnostika a odborné činnosti pre deti so zdravotným postihnutím (sluchové, zrakové, zmyslové)</p></div>
+</div>
+<h3 class="sub">Súčasné témy a výzvy v poradenskej psychológii</h3>
+<div class="flow">
+<div class="fb">stúpajúca rozvodovosť</div><div class="fb">sociálne siete</div><div class="fb">digitalizácia</div><div class="fb">AI</div><div class="fb">duševné zdravie a mindfulness</div><div class="fb">rodová a sexuálna identita</div><div class="fb">stres a vyhorenie</div><div class="fb">ekonomická neistota</div><div class="fb">dištančné poradenstvo (telefón, internet)</div><div class="fb">svojpomocné skupiny</div>
+</div>
+<div class="box def"><span class="lbl">Zmena spôsobu práce s klientom · minulosť vs. súčasnosť</span>
+<p>Dnes nové spôsoby pomoci: väčší dôraz na <span class="h">sebarealizáciu a aktivitu klienta</span>, klient má byť akoby <b>„sám sebe poradcom“</b>. V súčasnosti už primárne <span class="x">nehľadáme diagnózy</span>. (<span class="k">Mindfulness</span> = prítomný okamih.)</p></div>
+
+<h3 class="sub">Vzťah k iným psychologickým disciplínam</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Kritérium</th><th>Poradenská ψ</th><th>Školská ψ</th><th>Klinická ψ</th><th>ψ – výskumník</th></tr></thead>
+<tbody>
+<tr><td>Obsah, čo vykonáva</td><td>priestor na <b>rozvoj osobnosti</b> jednotlivca</td><td><b>služba systému</b> školy</td><td>hľadá, redukuje symptómy, <b>lieči</b></td><td>poznáva, overuje, analyzuje, kritizuje</td></tr>
+<tr><td>Zameranie</td><td>jednotlivec, malé skupiny</td><td>veľké skupiny, celá inštitúcia</td><td>jednotlivec, malé skupiny</td><td>reprezentatívna vzorka</td></tr>
+<tr><td>Kedy pôsobí</td><td><span class="h">kedykoľvek na životnej ceste</span></td><td>počas školskej dochádzky</td><td>počas trvania symptómov</td><td>počas výskumu</td></tr>
+<tr><td>Miesto</td><td>poradňa</td><td>škola</td><td>klinika</td><td>terén, laboratórium</td></tr>
+<tr><td>Muži / ženy</td><td>prevaha žien</td><td>prevaha žien</td><td>rovnomerné</td><td>rovnomerné</td></tr>
+<tr><td>Status v spoločnosti</td><td>nízky</td><td>nízky</td><td>vysoký</td><td>vysoký</td></tr>
+<tr><td>Potreba angažovanosti</td><td><b>najvyššia (3)</b></td><td>2</td><td><b>najvyššia (3)</b></td><td>najnižšia (1)</td></tr>
+</tbody></table></div>
+<div class="box def"><span class="lbl">Poradenskí psychológovia sú</span>
+<ul>
+<li><b>tolerantnejší</b> ako kriticky mysliaci výskumníci</li>
+<li><span class="x">nehľadajú</span> primárne negatívnu diagnózu a patologické symptómy (na rozdiel od klinických)</li>
+<li>berú väčší ohľad na <b>práva a potreby jednotlivcov a malých skupín</b> než na záujmy celej inštitúcie (na rozdiel od školského a pracovného psychológa)</li>
+<li>majú <b>menej klientov</b> ako školskí psychológovia, ale práca je <span class="h">dlhodobejšia a intenzívnejšia</span></li>
+</ul></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Ako poradenský psychológ nadobúda profesionálnu identitu? Čo pre to musí urobiť?</b></p>
+<div class="flow" style="margin:6px 0">
+<div class="fb">VŠ štúdium<small>ideálne jednoodborové</small></div><span class="arr">→</span>
+<div class="fb">prax</div><span class="arr">→</span>
+<div class="fb">ďalšie vzdelávanie<small>trendy, výcviky, kurzy, semináre</small></div><span class="arr">→</span>
+<div class="fb hl">atestácia / špecializácia<small>z poradenskej psychológie</small></div>
+</div>
+<p class="muted" style="font-size:14px">Poznámka z hodiny: napr. v IPčku stačí byť bakalár a absolvovať ich kurz.</p></div>
+</section>
+
+<!-- ========== TÉMA 4 ========== -->
+<section class="topic" id="t4">
+<div class="th"><span class="num">TÉMA 04</span><h2>Etika v poradenskom procese</h2></div>
+
+<div class="box def"><span class="lbl">Definícia</span>
+<p><span class="k">Etika</span> – z gréckeho <b>„ethos“</b> = morálka, slušnosť, zvyk, obyčaj.</p>
+<div class="grid2" style="margin:8px 0 0">
+<div><b>Filozofická disciplína</b> – hľadá odpovede na otázky, čo je správne/morálne, rieši rozhodnutia človeka.</div>
+<div><b>Praktická filozofia</b> – hľadá odpovede na praktické otázky života, „živé“ problémy: je toto správanie v súlade s očakávaním, je dobré alebo zlé?</div>
+</div></div>
+
+<h3 class="sub">Princípy I. rádu (Blocher, 2001)</h3>
+<p>Ak chceme porozumieť <b>morálnemu nastaveniu klienta</b>, máme sa držať základných morálnych princípov rozhodovania človeka. <span class="h">Najvyšší princíp je náš život.</span></p>
+<div class="tw"><table class="t">
+<thead><tr><th>#</th><th>Princíp</th><th>Človek sa rozhoduje podľa…</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Teizmus</td><td>náboženstva, viery, dôvery</td></tr>
+<tr><td>2</td><td>Morálny racionalizmus</td><td>rozumu – vieme myslieť, hodnotíme situáciu ako dobrú/zlú</td></tr>
+<tr><td>3</td><td>Morálny imperatív</td><td>máme sa správať morálne za každých okolností, v každej situácii</td></tr>
+<tr><td>4</td><td>Utilitarizmus (princíp užitočnosti riešenia)</td><td>benefitu, prosperity; smeruje k úžitku, zabezpečeniu zdravia, pohody, šťastia; vychádza z <span class="k">hedonizmu</span> (užívanie života)</td></tr>
+<tr><td>5</td><td>Etický egoizmus</td><td>úžitku pre nás samých, v súlade s tým, čo potrebujeme my</td></tr>
+<tr><td>6</td><td>Morálny intuitivizmus</td><td>pocitu</td></tr>
+<tr><td>7</td><td>Hľadanie sociálnej spravodlivosti</td><td>spoločnosti, v ktorej žijeme; morálka určuje pravidlá správania</td></tr>
+</tbody></table></div>
+<h3 class="sub">Princípy II. rádu</h3>
+<div class="tw"><table class="t c">
+<thead><tr><th>5 × Rešpekt k…</th><th>5 × Záujem o…</th></tr></thead>
+<tbody>
+<tr><td>1. ľudskému <b>životu</b></td><td>6. <b>slabých</b>, zraniteľných, odkázaných na pomoc</td></tr>
+<tr><td>2. <b>pravde</b></td><td>7. <b>rast a vývoj</b> ľudí</td></tr>
+<tr><td>3. <b>súkromiu</b></td><td>8. tých, ktorí sú <b>poškodzovaní</b></td></tr>
+<tr><td>4. <b>slobode a autonómii</b></td><td>9. ľudskú <b>dôstojnosť a rovnosť</b></td></tr>
+<tr><td>5. prijatým <b>záväzkom</b></td><td>10. <b>vďačnosť</b></td></tr>
+</tbody></table></div>
+<h3 class="sub">Profesijná etika a etický kódex</h3>
+<div class="grid2">
+<div class="box def"><span class="lbl">Profesijná etika</span><p>Aplikovanie etických princípov, noriem a zásad pri výkone konkrétnej profesie (povolania) a ich <b>dodržiavanie</b>.</p></div>
+<div class="box def"><span class="lbl">Etický kódex</span><ul style="margin:0">
+<li>praktický <b>návod / príručka</b></li><li><b>verejný</b> a prístupný verejnosti</li><li>vznikajú od <span class="y">polovice 20. storočia</span></li><li>nemá <span class="x">právnu</span>, ale <span class="h">mravnú záväznosť</span></li></ul></div>
+</div>
+<div class="box qa"><span class="lbl">Otázky zo seminára</span>
+<p><b>Najstaršie koncipované etické kódexy?</b> Ľudské práva, Desatoro Božích prikázaní (Biblia).</p>
+<p><b>Najužšie koncipované?</b> Špecializované na konkrétne povolanie alebo odvetvie – napr. zdravotníci (rozhodovanie o živote a smrti), kódex supervízorov v psychológii.</p></div>
+
+<h3 class="sub">Všeobecne formulované etické princípy pomáhajúceho</h3>
+<div class="grid2">
+<div class="box au"><span class="lbl">Beneficiencia</span><p>Princíp <b>užitočnosti</b> – konať pre dobro, blaho klienta.</p></div>
+<div class="box au"><span class="lbl">Nonmaleficiencia</span><p>Princíp <b>neublížiť</b> – fyzicky, psychicky, sociálne, spirituálne.</p></div>
+<div class="box au"><span class="lbl">Autonómia</span><p>Nerozhodovať za klienta, nevnucovať mu vlastné názory, podporovať ho v dobrých rozhodnutiach.</p></div>
+<div class="box au"><span class="lbl">Spravodlivosť</span><p>Poskytovať starostlivosť bez ohľadu na vierovyznanie, pohlavie, rasu, vzdelanie.</p></div>
+</div>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">B-N-A-S</span> – „<b>B</b>uď <b>N</b>ápomocný, <b>A</b>le <b>S</b>pravodlivý“.</p></div>
+
+<h3 class="sub">Etický kódex psychológa</h3>
+<div class="box def"><span class="lbl">Kto vydáva etický kódex pre psychológov?</span>
+<ul>
+<li><b>komora psychológov</b> alebo psychologická asociácia</li>
+<li><span class="k">Slovenská komora psychológov (SKP)</span> prijala <span class="y">11. 3. 2016</span> <i>Etický kódex psychológa</i>; vychádza z EK <b>Európskej federácie psychologických asociácií (EFPA)</b></li>
+<li>z medzinárodného hľadiska je určujúca <span class="k">APA</span>, od ktorej sa odvíjajú lokálne kódexy</li>
+</ul></div>
+<div class="tw"><table class="t">
+<thead><tr><th>Článok</th><th>Obsah</th></tr></thead>
+<tbody>
+<tr><td>I. Úvodné ustanovenia</td><td>EK je súbor pravidiel, ktoré upravujú všeobecné povinnosti psychológa, zásady poskytovania služieb, prístup ku klientovi a verejnosti. <span class="h">Záujmy klienta a jeho dobro sú prioritou.</span> Povolanie vykonáva svedomito, statočne, nestranne, s hlbokým vzťahom k človeku, v súlade s právnymi predpismi a s poznatkami psychologických vied a iných disciplín.</td></tr>
+<tr><td>II. Všeobecné povinnosti psychológa</td><td>Profesionálna starostlivosť o psychické zdravie jednotlivca, v duchu úcty k ľudskému životu <b>od počiatku až do konca</b>. Povinnosť predchádzať chorobám, mierniť ich a poskytovať služby <b>bez ohľadu na</b> národnosť, rasu, vierovyznanie, sexuálnu orientáciu, politickú príslušnosť, morálnu a rozumovú úroveň či povesť klienta.</td></tr>
+<tr><td>III. Psychológ a výkon povolania</td><td><ul style="margin:0">
+<li>vykonáva najmä preventívne, diagnostické, liečebné výkony, poradenstvo a inú psychologickú činnosť v súlade s vedou</li>
+<li>môže uplatniť <span class="k">výhradu svedomia</span> (napr. konanie v rozpore so zákonom, ohrozenie zdravia klienta)</li>
+<li>je povinný udržiavať odborné kompetencie a odborný rast; nevykonáva činnosť, na ktorú nemá prípravu/kvalifikáciu</li>
+<li>chráni dokumentáciu o klientovi, zaisťuje bezpečné uloženie testov, pomôcok a záznamov</li>
+<li>môže prezentovať odborné témy na verejnosti, v tlači, rozhlase a diskutovať o nich</li>
+<li><span class="x">nesmie</span> používať nedôstojné praktiky na rozšírenie počtu klientov ani sa riadiť komerčnými hľadiskami namiesto svedomia a potreby klienta</li>
+<li><span class="x">nevykonáva</span> činnosť, ak jeho fyzický/psychický stav (choroba, osobná záťaž, lieky, alkohol) narúša jeho schopnosti, úsudok, objektivitu a nezávislosť</li></ul></td></tr>
+<tr><td>IV. Psychológ a klient</td><td><ul style="margin:0">
+<li>pred poskytnutím služby je povinný získať <span class="h">informovaný súhlas</span> klienta / zákonného zástupcu</li>
+<li>neposkytuje služby mimo svojich kompetencií, ale pomoc odporučí alebo sprostredkuje</li>
+<li>správa sa korektne, s pochopením a trpezlivosťou; nesmie porušovať česť a dôstojnosť klienta, zneužiť jeho dôveru a závislosť; <b>nenadväzuje intímny vzťah</b> s osobami, ktorým poskytoval alebo poskytuje psychoterapiu</li>
+<li>je <b>povinný oznámiť</b> príslušným orgánom podozrenie z hrubého či krutého zaobchádzania a týrania klienta, najmä ak ide o maloletého alebo osobu zbavenú spôsobilosti na právne úkony</li>
+<li>informuje klienta / zákonného zástupcu o charaktere psychického stavu, diagnóze, postupoch vrátane rizík, prognóze a ďalších okolnostiach</li>
+<li>pri sprostredkovaných informáciách nesmie byť osoba/organizácia identifikovateľná</li></ul></td></tr>
+<tr><td>V. Vzťahy medzi psychológmi</td><td>Vzájomné uznanie, čestnosť, slušnosť, spolupráca; pravidlá kolegiality; neznevažuje osobu ani odbornú spôsobilosť kolegu. Pri neprimeranom prístupe kolegu ho upozorní; ak nedôjde k náprave, môže podať podnet <b>kontrolnému výboru SKP</b>.</td></tr>
+<tr><td>VI. Záverečné ustanovenia</td><td>Psychológ sa po registrácii v SKP oboznamuje s kódexom a dodržiava ho. Porušenie rieši kontrolný výbor SKP, disciplinárna komisia alebo iné orgány SKP.</td></tr>
+</tbody></table></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je čl. IV nazvaný „Psychológ ako klient“. Obsahovo ide o vzťah <b>psychológ – klient</b>.</p></div>
+<h3 class="sub">Neeticky konajúci poradcovia</h3>
+<ol class="steps red">
+<li>ignorujú etické štandardy profesie</li>
+<li>vedome alebo nevedome <b>presahujú hranice kompetencií</b></li>
+<li>sú necitliví ku klientom a k dynamike procesu (uľahčujú si proces, urýchľujú ho, uprednostňujú vlastné potreby)</li>
+<li><b>zneužívajú</b> dôveru, autoritu, odbornosť; využívajú klientov</li>
+<li>sú nezodpovední, zakrývajú vlastné chyby a prenášajú vinu na iných</li>
+<li>sú <b>emocionálne labilní alebo vyhorení</b></li>
+<li>majú narušenú sebareflexiu s tendenciou <b>racionalizovať</b></li>
+<li>sú <b>donútení situáciou</b> správať sa neeticky</li>
+</ol>
+
+<h3 class="sub">Princíp informovaného súhlasu</h3>
+<p>Klient má byť informovaný o:</p>
+<ol class="steps plum">
+<li><b>poradenskom prístupe</b> – ako poradca pracuje, aké prístupy využíva, čo to obnáša</li>
+<li><b>praktických otázkach</b> – ako často a kedy sa budú stretávať, kde, predbežný počet stretnutí, v akých časoch funguje poradňa</li>
+<li><b>mlčanlivosti a jej hraniciach</b> → „privilegovaná“ vs. „neprivilegovaná“ pomáhajúca komunikácia</li>
+</ol>
+<div class="grid2">
+<div class="box def"><span class="lbl">Privilegovaná komunikácia</span><p>V zahraničí napr. <b>lekári</b> mlčia o zdravotnom stave pacienta; lekárske tajomstvo možno porušiť <b>len na základe súdneho rozhodnutia</b>.</p></div>
+<div class="box def"><span class="lbl">Neprivilegovaná komunikácia</span><p>Mlčanlivosť možno porušiť, <b>ak je to potrebné</b>. <span class="h">Patrí sem psychológ.</span></p></div>
+</div>
+<div class="box warn"><span class="lbl">Kedy psychológ môže prelomiť mlčanlivosť</span>
+<ul>
+<li>klient výrazne <b>ohrozuje svoj život</b> alebo život iného človeka / ľudí</li>
+<li><b>záznamy</b> zo sedení pre iných odborníkov</li>
+<li><b>nahrávanie</b> sedenia (audio, video) – klient musí vedieť, že je nahrávaný a na čo záznam slúži</li>
+<li>pri vymáhaní <b>dlžných poplatkov</b> od klienta</li>
+<li>po vyzvaní <b>súdom</b></li>
+</ul></div>
+<p>V súvislosti s informovaným súhlasom sa rozlišuje <span class="k">„žiadateľ o pomoc“</span> a <span class="k">„klient“</span>. <span class="muted">(V poznámkach len ako dvojica pojmov – presné vymedzenie si over z prednášky.)</span></p>
+
+<h3 class="sub">Ochrana a osobný rozvoj (klienta aj poradcu)</h3>
+<div class="flow">
+<div class="fb hl">1 · Supervízia</div><div class="fb hl">2 · Osobná terapia a osobný rozvoj</div><div class="fb hl">3 · Trvalý profesný rozvoj<small>vzdelávacie programy, semináre, konferencie</small></div>
+</div>
+
+<h3 class="sub">Etická dilema</h3>
+<div class="box def"><span class="lbl">Definícia</span><p><span class="k">Etická dilema</span> = <span class="h">rozpor medzi presvedčeniami</span>. Napr. klientovi poviem, že informácie sú diskrétne, ale zároveň musím zvažovať, či ich v záujme ochrany klienta alebo iných nemusím oznámiť rodičom či úradom.</p></div>
+<div class="grid2">
+<div class="box qa"><span class="lbl">„Je pre mňa ťažké povedať rodičom negatívny výsledok / prognózu“</span><ul style="margin:0">
+<li>nedostatok času na vysvetlenie → vyhradiť čas</li><li>ohľaduplné formulácie</li><li>dodať nádej (odporúčania, rady)</li><li>pochváliť, čo sa dá; hľadať pozitíva</li><li>ponúknuť spoluprácu a ďalšiu starostlivosť</li></ul></div>
+<div class="box qa"><span class="lbl">„Povedať všetky výsledky, alebo niektoré zamlčať?“</span><ul style="margin:0">
+<li>informovať o výsledkoch potrebných pre <b>ďalší postup a opatrenia</b></li><li>pracovať s potrebami a nastavením rodičov/klientov – otázka nie je len <b>či</b>, ale <b>ako</b> to povedať</li><li>pri neistote vyšetrenie zopakovať, prípadne sa poradiť s kolegami</li></ul></div>
+</div>
+<p><b>Iné kategórie etických dilem:</b> adolescent si neželá, aby sme výsledok povedali rodičom · problémy súvisia s rodinnou situáciou/rodičmi · spolupráca so školou a inými inštitúciami · nesúhlas rodičov s výsledkami · kritika, negatívne hodnotenie iných odborníkov.</p>
+<div class="box au"><span class="lbl">Kategórie dilem podľa Kopčanovej (VÚDPaP)</span>
+<ol class="steps green" style="margin:0">
+<li>rodičia/klient <b>odmietajú spoluprácu</b>, nesúhlasia so psychológom (participácia klienta a blízkych)</li>
+<li><b>kriminálna činnosť</b> – drogy, krádež, šikanovanie</li>
+<li><b>škola</b> – pedagogická prax, neochota plniť odporúčania</li>
+<li><b>zanedbávanie</b> dieťaťa rodičmi</li>
+<li><b>sexuálne zneužívanie</b> rodičom, prípadne inými</li>
+<li><b>utajovanie informácií</b> zo strany rodiny pred klientom</li>
+<li><b>zverenie do NRS</b> (v prospech dieťaťa; preverujem vhodnosť náhradných rodičov), preradenie na inú školu (pre nezvládanie)</li>
+<li><b>neadekvátna podpora prípadu</b> iným kolegom (nemá vhodné riešenie)</li>
+</ol></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Kto je zodpovedný za zvládnutie dilem?</b> Psychológ + kolegovia s dlhšou praxou, <span class="h">supervízor</span>.</p></div>
+</section>
+
+<!-- ========== TÉMA 5 ========== -->
+<section class="topic" id="t5">
+<div class="th"><span class="num">TÉMA 05</span><h2>Psychologický problém, dôvody k poradenstvu a zdroje problémov</h2></div>
+
+<div class="box def"><span class="lbl">Definícia · Psychologický problém (PP)</span>
+<p><b>=</b> spôsob myslenia, vnímania, cítenia a konania, ktorý osobe <span class="h">spôsobuje utrpenie</span> alebo jej <span class="h">bráni vo fungovaní</span> v dôležitých oblastiach života.</p>
+<p><span class="x">≠</span> duševná choroba, duševná porucha, psychopatológia</p>
+<p><span class="x">≠</span> nie je statický – predstavuje <span class="k">kontinuum</span> od miernych prejavov až po extrémne (závažnosť sa pohybuje na kontinuu)</p></div>
+
+<div class="grid2">
+<div class="box def"><span class="lbl">Internalizované problémy · dovnútra</span>
+<p>strach, panika, obavy, smútok, depresia, znížená motivácia, emocionálna labilita, úzkosť, závislosť od iných, neistota</p>
+<p><b>Dopad:</b> osobná pohoda, sociálne vzťahy, učenie, zamestnanie, fungovanie s inými.</p></div>
+<div class="box warn"><span class="lbl">Externalizované problémy · navonok</span>
+<p>konkrétne prejavy/vzorce správania: nepozornosť, hyperaktivita, impulzivita, podráždenosť, vzdorovitosť, antisociálne, bezcitné, psychosomatické, narcistické, histriónske správanie, závislosť od psychoaktívnych látok</p>
+<p><b>Dôsledky:</b> vážne sociálne – konflikty v rodine, problémy v škole, prepustenie zo zamestnania, uväznenie.</p></div>
+</div>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><b>INternalizované = vo mne</b> (trpí potichu). <b>EXternalizované = von zo mňa</b> (robí rozruch).</p></div>
+
+<h3 class="sub">Dôvody (podnety) k poradenstvu (Džuka)</h3>
+<p>Všeobecne: <span class="h">závažný problém, ktorý presahuje naše kapacity</span>, prípadne odporúčanie iných.</p>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">D-Z-K-K</span> – klient je <b>D</b>ezorientovaný, <b>Z</b>aťažený, v <b>K</b>onflikte, v <b>K</b>ríze.</p></div>
+
+<h4 class="mini">1 · Neprimeraná orientácia v životnej situácii – dezorientácia</h4>
+<ul>
+<li>klient <b>nevie, ako ďalej</b>; prežíva pocit menejcennosti, viny</li>
+<li>chýbajú mu <b>informácie/poznatky</b> potrebné na dosiahnutie cieľa, alebo sú tieto informácie <b>chybné</b></li>
+<li><span class="k">chybná implicitná teória</span> = neadekvátne a silne zafixované idey</li>
+<li>pocitová konštelácia prežívania ako <span class="k">„štrbina“</span> (niečo, čo som mal zažiť) + citová/emocionálna <b>deprivácia</b></li>
+<li><span class="k">„tunelový pocit“</span> = „pocit slepej uličky“</li>
+</ul>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Ako zvládnuť dezorientáciu a jej príčiny?</b> Poskytovať správne informácie, korigovať, vysvetľovať a hľadať životné smerovanie.</p></div>
+
+<h4 class="mini">2 · Neadekvátna záťaž vs. zľahčovanie</h4>
+<p>= spôsoby vyrovnávania sa s realitou; zľahčovanie = <b>bagatelizácia</b>.</p>
+<p><b>Neadekvátna záťaž – taxonómia (5 stupňov):</b></p>
+<div class="ladder">
+<div style="--lc:var(--green)"><span>1</span><p style="margin:0"><b>Normálna situácia</b> – zvládne ju primeraná aktivita (ranná hygiena, bežná rutina)</p></div>
+<div style="--lc:var(--blue)"><span>2</span><p style="margin:0"><b>Problémová situácia</b> – vyžaduje mimoriadnu aktivitu (aktivita navyše)</p></div>
+<div style="--lc:var(--amber)"><span>3</span><p style="margin:0"><b>Zaťažujúca situácia</b> – zvýšené nároky na zvládanie (<span class="k">copingové stratégie</span>) &nbsp;<span class="src">od tu → poradca</span></p></div>
+<div style="--lc:var(--plum)"><span>4</span><p style="margin:0"><b>Preťažujúca situácia</b> – traumatizujúce následky</p></div>
+<div style="--lc:var(--red)"><span>5</span><p style="margin:0"><b>Extrémne preťažujúca situácia</b> – totálne vyčerpanie</p></div>
+</div>
+<div class="box warn"><span class="lbl">Pozor</span><p>Od <b>3. stupňa</b> je potrebný poradca / psychológ / psychoterapeut.</p></div>
+<div class="box def"><span class="lbl">Zľahčovanie k okoliu</span><p>Osoba nepripisuje objektívne dôležitým veciam, situáciám, okolnostiam žiaden alebo len malý význam = <span class="k">„úžernícky spôsob života“</span>. Aj tu ide o škálu – od normálnej až po extrémne zľahčujúcu situáciu.</p></div>
+
+<h4 class="mini">3 · Konflikty</h4>
+<div class="grid2">
+<div class="box def"><span class="lbl">Interpersonálne</span><p>medzi minimálne dvoma ľuďmi</p></div>
+<div class="box def"><span class="lbl">Intrapersonálne</span><p>vo vnútri človeka</p></div>
+</div>
+
+<h4 class="mini">4 · Akútne psychické ťažkosti a krízy</h4>
+<p>Nečakaná / nepredvídateľná životná situácia (úmrtie, rozchod, strata zamestnania) → smeruje ku <span class="k">krízovému poradenstvu</span>.</p>
+
+<h3 class="sub">Základné zdroje problémov a psychických záťaží</h3>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><b>EXOgénne = zvonku</b> (prostredie) · <b>ENDOgénne = zvnútra</b> (človek). Exogénne od najbližšieho kruhu: <span class="code">R-Š-Ž-S</span> – <b>R</b>odina, <b>Š</b>kola, <b>Ž</b>ivot dospelých, <b>S</b>poločnosť.</p></div>
+
+<h4 class="mini">A · Exogénne faktory (faktory sociálneho prostredia)</h4>
+<div class="box def"><span class="lbl">1 · Rodinné prostredie</span>
+<p>Problémy prichádzajú podľa toho, odkiaľ pochádzam. <b>Rizikovosť pri:</b> neúplnej rodine, rodine po rozvode, nepriaznivom socioekonomickom stave, problémoch vo vzťahoch medzi členmi rodiny, výchovnej inkompetencii rodičov, alkoholizme, týraní, strate povolania, zlej finančnej situácii (bez výletov, bez nového oblečenia, zdieľanie jedného priestoru veľkým počtom ľudí).</p></div>
+<p><b>Aký dopad môže mať správanie rodičov na deti:</b></p>
+<div class="tw"><table class="t">
+<thead><tr><th>Správanie rodičov</th><th>Dôsledok u dieťaťa</th></tr></thead>
+<tbody>
+<tr><td>Nedostatok emocionálnej opory + prísnosť / kontrola</td><td>nízka sebadôvera, sklony k agresii, útekom a izolácii</td></tr>
+<tr><td>Nadbytok emocionálnej podpory (rozmaznávanie)</td><td>pasivita, egocentrizmus, nedostatok samostatnosti a sebapresadzovania</td></tr>
+<tr><td>Nedostatok kontroly</td><td>impulzívne správanie, nedostatočná sebaregulácia (dieťa je odkázané samé na seba)</td></tr>
+<tr><td>Nadmerná kontrola, autoritárske vedenie až týranie</td><td>nesamostatnosť, agresia, vzdorovitosť alebo rezignácia</td></tr>
+</tbody></table></div>
+<div class="box def"><span class="lbl">2 · Školské prostredie</span>
+<ul>
+<li><b>Deficit na strane učiteľa</b> – nedostatočné motivovanie, vysoké nároky, chýbajúca spätná väzba, nedostatočná pozornosť a porozumenie ťažkostiam žiakov, absencia ďalšieho vzdelávania, používanie trestov</li>
+<li><b>Dysfunkčný vplyv školy ako inštitúcie</b> – neprimerané učebné plány, spôsob skúšania, rigidita pravidiel, stres a frustrácia žiakov aj učiteľov</li>
+<li><b>Problémy v kolektíve</b> a v sociálnych vzťahoch</li>
+</ul></div>
+<div class="box def"><span class="lbl">3 · Životné prostredie (životná realita) dospelých</span>
+<ul>
+<li>zdrojom je <b>manželstvo/partnerstvo</b> – nevera</li>
+<li>zdrojom je <b>práca a povolanie</b> – <span class="k">bossing</span>, <span class="k">mobbing</span>, nedostatočné finančné ohodnotenie, kariérny postup, šírenie klebiet, rutina, práca na zmeny, dlhšia pracovná doba bez oddychu</li>
+</ul></div>
+<div class="box def"><span class="lbl">4 · Vplyv spoločnosti</span><p>Spoločenský a politický systém.</p></div>
+
+<h4 class="mini">B · Endogénne faktory</h4>
+<p>Na konaní osoby sa podieľajú dve determinanty:</p>
+<div class="tw"><table class="t">
+<thead><tr><th></th><th>Dispozície</th><th>Pozície</th></tr></thead>
+<tbody>
+<tr><td>Čo to je</td><td><b>vrodené</b> (temperament, schopnosti) alebo <b>nadobudnuté</b> (postoje, zvyky, zručnosti, automatizmy) predpoklady</td><td>procesy a výsledky <b>vlastnej tvorby človeka</b>; vyplývajú zo subjektívnych hodnôt, významu a zmyslu pre danú osobu</td></tr>
+<tr><td>Úroveň</td><td>fungujú na báze <b>nevedomia alebo predvedomia</b></td><td><b>vedomé stanoviská</b> → zásady, normy</td></tr>
+<tr><td>Trvanie</td><td>stabilnejšie</td><td>môžu byť <b>dočasného</b> charakteru</td></tr>
+</tbody></table></div>
+<div class="box qa"><span class="lbl">Otázky zo seminára</span>
+<p><b>Poradenstvo pracuje s dispozíciami, alebo s pozíciami?</b> <span class="h">S pozíciami</span> – osobné predpoklady.</p>
+<p><b>Odkiaľ pochádzajú prvotné zdroje chybných pozícií?</b> Z <b>rodinného prostredia</b>, zo zlých modelov/vzorov.</p></div>
+</section>
+
+<!-- ===================== ČASŤ B ===================== -->
+<div class="part" style="--pc:var(--green)">
+  <div class="k">ČASŤ B</div>
+  <h2>Skúška – témy 6 až 13</h2>
+  <p>Ciele, osoby, klienti, vzťah, proces, anamnéza, diagnostika, metódy.</p>
+</div>
+
+<!-- ========== TÉMA 6 ========== -->
+<section class="topic" id="t6">
+<div class="th"><span class="num">TÉMA 06</span><h2>Ciele poradenstva</h2></div>
+
+<div class="grid2">
+<div class="box def"><span class="lbl">1 · Ciele klienta</span>
+<ul style="margin:0">
+<li>čo chce klient v poradenstve <b>dosiahnuť</b></li>
+<li>čo <b>očakáva</b> od poradenstva v súvislosti s problémom</li>
+<li>problém, ktorý opisuje, aj keď je len okrajový</li>
+</ul>
+<p style="margin-top:8px"><span class="k">Deklarovaný problém</span> = počiatočný problém, s ktorým klient prichádza.</p></div>
+<div class="box def"><span class="lbl">2 · Ciele poradcu</span>
+<ul style="margin:0">
+<li>pomôcť klientovi prekonať jeho psychické problémy</li>
+<li>posilniť rozvoj osobnosti</li>
+<li>hľadanie riešení, podpora potenciálu a kapacít</li>
+<li><span class="h">musia byť v zhode s cieľmi klienta</span></li>
+</ul></div>
+</div>
+
+<h3 class="sub">Formy cieľov klienta</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Rozlíšenie</th><th>Pól A</th><th>Pól B</th></tr></thead>
+<tbody>
+<tr><td>Kto je ich nositeľom</td><td><b>vnútorné</b> – sebavedomie, odstránenie úzkosti</td><td><b>vonkajšie</b> – nie naše, ale iných (napr. aby šéf nebol prísny)</td></tr>
+<tr><td>Dosiahnuteľnosť</td><td><b>realistické</b> – viem ich naplniť</td><td><b>nerealistické</b> – napr. „nikdy nechcem byť smutný“</td></tr>
+<tr><td>Kto ich stanovil</td><td><b>vlastné ciele klienta</b> – sám si ich stanovil</td><td><b>ciele iných ľudí</b> – niekto z rodiny, odporúčanie lekára</td></tr>
+<tr><td>Zameranie</td><td><b>prekonanie psychickej nepohody</b></td><td><b>posilnenie rozvoja</b> osobnostného potenciálu klienta</td></tr>
+<tr><td>Hodnoty</td><td>v <b>súlade</b> s hodnotami klienta</td><td>v <b>rozpore</b> s hodnotami klienta</td></tr>
+<tr><td>Realita</td><td><b>skutočné</b></td><td><b>neskutočné</b></td></tr>
+<tr><td>Vzájomný vzťah</td><td colspan="2"><b>vzájomne si odporujúce</b> – napr. „chcem viac kamarátov, ale bojím sa, že nezapadnem do partie“</td></tr>
+<tr><td>Pôvod</td><td colspan="2">ciele <b>vyplývajúce z psychických problémov</b> klienta</td></tr>
+</tbody></table></div>
+<div class="grid2">
+<div class="box qa"><span class="lbl">Kedy stanoviť ciele?</span><p>Po rozhovore – <b>vypočuť si klienta</b> a až potom stanovovať ciele.</p></div>
+<div class="box qa"><span class="lbl">Dôvody na zmenu cieľov?</span><p>Cieľ je <b>nerealistický</b>, alebo klient <b>zmení svoje hodnoty</b>.</p></div>
+</div>
+
+<h3 class="sub">Charakteristiky dobre stanovených cieľov</h3>
+<ol class="steps plum">
+<li>ich dosiahnutie je <b>pod priamou kontrolou klienta</b></li>
+<li>sú <b>realistické a dosiahnuteľné</b></li>
+<li>klient si ich <b>stanovil sám</b></li>
+<li>sú <b>jasne formulované</b></li>
+<li><b>nie sú ovplyvnené</b> psychickou nepohodou</li>
+<li>sú založené na <b>súčasnom stave</b> klienta</li>
+<li>sú stanovené tak, aby odrážali množstvo <b>úsilia</b>, ktoré je klient ochotný vynaložiť</li>
+</ol>
+</section>
+
+<!-- ========== TÉMA 7 ========== -->
+<section class="topic" id="t7">
+<div class="th"><span class="num">TÉMA 07</span><h2>Osoby zúčastnené v poradenskom procese</h2></div>
+
+<h3 class="sub">Zložky poradenstva</h3>
+<div class="flow">
+<div class="fb hl">1 · Poradca</div><span class="arr">+</span>
+<div class="fb hl">2 · Klient</div><span class="arr">+</span>
+<div class="fb hl">3 · Poradenská zmluva (kontrakt)<small>zväčša nepísaná, ústne dohodnutá</small></div>
+</div>
+<p><span class="k">Poradenská zmluva</span> = ústne dohodnutá záležitosť: ako budú sedenia prebiehať, ako dlho budú trvať, čas. Niekedy aj písomná forma (napr. ak sú hradené v plnej výške).</p>
+
+<h3 class="sub">Kto môže byť poradcom</h3>
+<ol class="steps">
+<li>Disponuje <b>diferencovanými psychologickými poznatkami</b> (štúdium, prax) – z disciplín: vývinová psychológia, psychológia osobnosti, poruchy detského vývinu, diagnostika, aplikované disciplíny; <b>+</b> pozná ciele a techniky <b>jednej alebo viacerých poradenských teórií</b> a má v nich praktické skúsenosti.</li>
+<li>Disponuje <b>senzitivitou</b> k emocionálnemu prežívaniu klientov, objektívnymi postojmi, úctou k človeku, uvedomovaním si vlastnej psychickej štruktúry a <b>hraníc vlastnej (ne)dostatočnosti</b>.</li>
+<li><span class="h">Neriadi sa logikou určitého poradenského modelu, ale potrebami svojich klientov.</span></li>
+</ol>
+
+<h3 class="sub">Roly poradenského psychológa (Koščo)</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>#</th><th>Rola</th><th>Obsah</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Predstaviteľ špecializovanej profesie</td><td>–</td></tr>
+<tr><td>2</td><td>Funkcia učiteľa</td><td>pre pedagógov, vychovávateľov, rodičov, personál, pracovníkov, širšiu verejnosť, potenciálnych klientov = <span class="k">edukatívna forma poradenstva</span></td></tr>
+<tr><td>3</td><td>Poradca-konzultant</td><td>spolupracuje s inými</td></tr>
+<tr><td>4</td><td>Supervízor a konziliár</td><td>–</td></tr>
+<tr><td>5</td><td>Expert</td><td>pri riešení výskumných úloh, odborných vyšetrení → vypracováva psychologický nález, výskumnú správu, posudok</td></tr>
+</tbody></table></div>
+<h3 class="sub">Rola poradcu – direktívny vs. nedirektívny spôsob</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Kritérium</th><th>Direktívny spôsob</th><th>Nedirektívny spôsob</th></tr></thead>
+<tbody>
+<tr><td>Charakter</td><td>autoritatívny, prísny, strohý; poradca riadi</td><td>voľný</td></tr>
+<tr><td>Prístup</td><td><span class="k">konduktorský</span> – priame rady, inštrukcie, priame alternatívy</td><td><span class="k">reaktorský</span> – klient je aktívny, zapája sa do riešenia; poradca pôsobí empaticky, prejavuje porozumenie</td></tr>
+<tr><td>Zodpovednosť</td><td>preberá ju <b>poradca</b></td><td>nesie ju <b>klient</b></td></tr>
+<tr><td>Opiera sa o</td><td>skúsenosti, poznatkový základ, odborné vedomosti poradcu (profesionálny prístup)</td><td>hľadanie východísk klientom, osobnostné charakteristiky</td></tr>
+<tr><td>Efektívnejší, keď</td><td>
+<ul style="margin:0"><li>hrozí nebezpečenstvo z premeškania – klient v <b>akútnej kríze</b>, zmätený, v panike, v silnej depresii</li><li>klient to, čo považuje za správne, chce počuť od <b>autority</b></li><li>je <b>znížená úroveň intelektu</b> (pri nízkom IQ nedirektívny prístup nemá zmysel)</li></ul></td>
+<td><ul style="margin:0"><li>ide o podporu klienta – na riešenie má prísť <b>sám</b></li><li>je dostatok času a síl</li><li>cieľom je <span class="h">trvalá kvalitatívna zmena</span> (je účinnejší)</li></ul></td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Osobnosť poradcu – charakteristiky (Egan)</h3>
+<div class="box au"><span class="lbl">Egan – poradca by mal byť / mať</span>
+<ol class="steps green" style="margin:0">
+<li>človek „múdry“, inteligentný</li>
+<li>pozná svoje záväzky a životné ciele</li>
+<li>tolerantný k rôznorodosti</li>
+<li>vie si uznať chybu a učiť sa z nej</li>
+<li>spôsobilosť „vidieť“ za fakty a situácie (čo sa prežíva, cíti) a porozumieť významu udalostí</li>
+<li>spôsobilosť <span class="k">prerámcovať</span> problém a informácie, vyhnúť sa stereotypom</li>
+<li>spôsobilosť nachádzať vzťahy medzi rôznymi faktormi</li>
+<li>vidieť chybné miesto v riešeniach – <span class="k">„slepé miesto“</span>, ktoré klient nevidí</li>
+<li>dobrá intuícia, ale aj zmysel pre každodennú realitu</li>
+<li>spôsobilosť riešiť problém aj dlhodobo</li>
+<li>spôsobilosť byť v <b>zmiešanej role</b> – pomáha, ale zároveň môže klienta frustrovať</li>
+<li>rozumie <b>spirituálnym dimenziám</b> života (vidí psychický vývin v súvislosti so spirituálnym)</li>
+</ol></div>
+
+<h3 class="sub">Štýly poradenskej práce (Gabura)</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Štýl</th><th>Podstata</th><th>Riziko</th></tr></thead>
+<tbody>
+<tr><td>1. Hodnotiaci</td><td>direktivita, hodnotenie, rozhodovanie za klienta; kritika vs. pochvala (poradca má navrch)</td><td>nerovnováha – vzťah je nevyvážený</td></tr>
+<tr><td>2. Interpretujúci</td><td>interpretácia (vysvetľuje), hľadanie príčin, odôvodnenie; používajú ho psychoanalytici</td><td>málo zrozumiteľný až nezrozumiteľný pre klienta</td></tr>
+<tr><td>3. Suportívny</td><td>podpora klienta (empatické nastavenie), pomoc, súcit, ochrana</td><td>poradca preberá zodpovednosť → <span class="x">závislosť klienta</span></td></tr>
+<tr><td>4. Vypočúvajúci</td><td>„túžba“ po informáciách, aj zjavne nesúvisiacich; stále pátra ďalej, veľa otázok</td><td>odbočovanie od témy</td></tr>
+<tr><td>5. Aktívny</td><td>tlak na riešenie bez premyslenia a spracovania; dynamický proces, rýchla pomoc, napredovanie</td><td>často na úkor správnosti; nemusí viesť k úspešnému vyriešeniu</td></tr>
+<tr><td>6. Reflexívny</td><td>porozumenie bez interpretovania; iniciatíva na klientovi; <span class="k">parafrázovanie</span>; podporuje nezávislosť, kompetencie a zodpovednosť</td><td><span class="yes">prenáša zodpovednosť na klienta samého</span></td></tr>
+</tbody></table></div>
+<h3 class="sub">Poradenský tím</h3>
+<p>Poradca + odborníci z oblasti <b>medicíny, práva, sociálnej práce</b> (interní alebo externí spolupracovníci). Najčastejšie v tíme: pedopsychológ, externí spolupracovníci, externý psychológ, externá kuratela.</p>
+<div class="tw"><table class="t">
+<thead><tr><th>Poradňa</th><th>Kto býva v tíme</th></tr></thead>
+<tbody>
+<tr><td>Pre prácu s rodinou</td><td>sociálny pracovník, pracovník orientovaný na prácu s rodinou, učiteľ</td></tr>
+<tr><td>Pre mládež s poruchami správania</td><td>–</td></tr>
+<tr><td>Pre seniorov</td><td>lekári, gerontopsychiatri</td></tr>
+<tr><td>Pre nezamestnaných</td><td>sociálni pracovníci, úrad práce, poradňa, kariérny poradca</td></tr>
+<tr><td>Pre osoby prepustené z väzenia</td><td>forenzný psychológ, resocializačné centrá</td></tr>
+<tr><td>Pre osoby závislé od návykových látok</td><td>psychológ, psychiater, klinický psychológ</td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Kto môže byť klientom poradenstva</h3>
+<ol class="steps blue">
+<li>Osoba, ktorá pod vplyvom tlaku problému či psychickej ťažkosti vyhľadá poradcu s požiadavkou/potrebou <b>zmeniť tento stav</b>; môže ísť aj o klientov <span class="k">„sprostredkovaných“</span> inou osobou, inštitúciou.</li>
+<li>Osoba má byť <b>ochotná a schopná spolupracovať</b>, byť iniciatívna pri riešení problému a <b>prevziať zodpovednosť za zmenu</b>.</li>
+<li>Schopnosť <b>vyjadrovania</b> a ochota komunikovať.</li>
+<li>Vedomie a pocit <b>slobody</b> pri rozhodovaní a riadení vlastného života.</li>
+</ol>
+</section>
+
+<!-- ========== TÉMA 8 ========== -->
+<section class="topic" id="t8">
+<div class="th"><span class="num">TÉMA 08</span><h2>Typológia klientov (Gabura &amp; Pružinská)</h2></div>
+
+<div class="box mn"><span class="lbl">Mnemotechnika – 8 typov</span><p><span class="code">N-O-M · D-M-A · E-S</span> – <b>N</b>edobrovoľný, <b>O</b>dporujúci, <b>M</b>lčanlivý · <b>D</b>epresívny, <b>M</b>anipulatívny, <b>A</b>gresívny · <b>E</b>mocionálny, <b>S</b>uicidálny.</p></div>
+
+<div class="tw"><table class="t">
+<thead><tr><th>Typ</th><th>Hlavný znak</th><th>Kľúč k práci</th></tr></thead>
+<tbody>
+<tr><td>Nedobrovoľný</td><td>prišiel z donútenia, nemá vlastný cieľ</td><td>dôvera, nenútiť</td></tr>
+<tr><td>Odporujúci</td><td>odmieta spolupracovať (odpor ≠ neochota)</td><td>pomenovať odpor, reflexia</td></tr>
+<tr><td>Mlčanlivý</td><td>strach, neistota, nedôvera</td><td>priestor na ticho</td></tr>
+<tr><td>Depresívny</td><td>skleslosť, izolácia</td><td>nezľahčovať, oceňovať drobné zmeny</td></tr>
+<tr><td>Manipulatívny</td><td>hrá „hru“, chce riadiť</td><td>pevné hranice</td></tr>
+<tr><td>Agresívny</td><td>kričí, výbušný</td><td>deeskalácia</td></tr>
+<tr><td>Emocionálny</td><td>motivovaný, otvorený</td><td>ideálny na spoluprácu</td></tr>
+<tr><td>Suicidálny</td><td>myšlienky na samovraždu</td><td>posúdiť riziko, bezpečnostný plán, psychiater</td></tr>
+</tbody></table></div>
+
+<h3 class="sub">1 · Nedobrovoľný (neochotný) klient</h3>
+<p>Nechcel prísť, ale <b>musí</b> (je donútený) – na základe niekoho/niečoho iného (partner, škola, rodič, súd, zamestnávateľ). <span class="h">Nemá vlastný cieľ.</span></p>
+<div class="box au"><span class="lbl">Ako s ním pracovať</span><ul style="margin:0">
+<li>znižovať napätie cez <b>informáciu o povahe poradenstva</b></li>
+<li>budovať <b>dôveru</b></li>
+<li>akceptovať ťažkosti a obavy – <span class="x">nenútiť, nevydierať, nemanipulovať, nevyvíjať nátlak</span></li>
+<li>prejaviť záujem a zároveň rešpektovať</li></ul></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Je potrebné motivovať klienta k spolupráci, keď sám nechce? Ako by ste sa cítili v jeho roli?</b> Určite áno – rešpektovať, tolerovať, skúsiť ho namotivovať; prípadne proces spolupráce prerušiť.</p></div>
+
+<h3 class="sub">2 · Odporujúci klient</h3>
+<div class="box warn"><span class="lbl">Pozor</span><p><span class="h">Odpor ≠ neochota.</span> Odporujúci klient odmieta / nechce spolupracovať.</p></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Prejavy odporu</span><p>strohé odpovede, málo komunikatívny, mimika, hádanie sa, presviedčanie, že nemá žiaden problém, prerušovanie, popieranie</p></div>
+<div class="box def"><span class="lbl">Dôvody / príčiny odporu</span><ul style="margin:0">
+<li>nútenie, hanba, nie je si vedomý problému</li>
+<li><span class="k">obranný mechanizmus</span> – strach, ochrana self a vlastnej identity (treba mu pomôcť racionalizovať našu pomoc pre/proti)</li>
+<li><b>obava zo zmeny</b> – niečoho by sa musel vzdať, vlastnej tváre/identity</li>
+<li><b>postoj k vlastným emóciám</b> – niektoré sa „nepatria“ vyjadrovať, hlavne viazané na vinu a hanbu</li>
+<li><span class="k">morálny odpor</span> – silné presvedčenie, ktoré chce niekto vyvrátiť; obviňovanie sa za nedostatky, zvýšené sebaponižovanie a sebakritika, hľadanie viny v iných</li>
+<li><b>samotný poradca</b> – nesympatie voči nemu</li></ul></div>
+</div>
+<p><b>Ako súvisí odpor s problémom klienta?</b></p>
+<ol class="steps red">
+<li>klient si problém <b>nepripúšťa</b> („nič neexistuje = nemám čo riešiť“)</li>
+<li>chce sa problému zbaviť, ale <b>nevie ako</b> alebo sa <b>bojí zmeny</b> (zmena ho ohrozuje)</li>
+<li>problém si pripúšťa, ale <b>nechce sa zmeniť</b> – napr. finančná závislosť od partnera, ktorý mu ubližuje; neochota investovať čas a energiu; <b>výhody z problému</b> (je centrom pozornosti)</li>
+</ol>
+<div class="box au"><span class="lbl">Ako postupovať pri zvládaní odporu</span><ul style="margin:0">
+<li>dať mu najavo, že je <b>dôležitý</b> a že môže vyjadriť svoje myšlienky a emócie; <b>priamo pomenovať odpor</b></li>
+<li><span class="k">paradoxné techniky</span> – dať mu čo najväčší priestor na prejavenie odporu (to klienti zvyčajne neočakávajú)</li>
+<li><b>neargumentovať proti, ale súhlasiť</b>: „Máte pravdu, vy s týmto problémom žijete dlho a ja nie som v rovnakej situácii ako vy.“</li>
+<li><span class="k">jednoduchá reflexia</span> – vlastnými slovami zopakovať, čo klient povedal (priame zrkadlenie)</li>
+<li><span class="k">posilnená (dvojitá) reflexia</span> – zvýrazníme/umocníme, čo povedal, + pridáme súvisiaci fakt z iných zdrojov (napr. pri alkohole, práci, rodinnom probléme) alebo niečo, čo povedal už na minulom stretnutí</li>
+<li><b>presunutie pozornosti</b> na niečo, o čom sa dá ľahšie hovoriť</li>
+<li><b>súhlas a odklon</b> – prejaviť porozumenie a odkloniť sa od témy</li>
+<li>zdôrazňovať <b>význam osobných rozhodnutí a kontroly</b> – klient je zodpovedný, schopný, má rovnaké kompetencie ako poradca</li>
+<li><span class="k">prerámcovanie, preladenie</span> – hľadať v negatívach pozitíva (v čom ma problém posúva)</li></ul></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Čo urobiť, ak sa spolupráca nedarí?</b> Posunúť klienta <b>inému odborníkovi</b> alebo <b>ukončiť</b> poradenský proces.</p></div>
+
+<h3 class="sub">3 · Mlčanlivý klient</h3>
+<p><b>Príčiny:</b> strach, neistota, nedôvera.</p>
+<div class="grid2">
+<div class="box def"><span class="lbl">Ticho v počiatočnej fáze signalizuje</span><p>problém začať komunikovať; nie je pripravený hovoriť; nevie, ako začať; ešte s nikým o tom nehovoril; nevie problém pomenovať.</p></div>
+<div class="box def"><span class="lbl">Ticho v neskorších fázach signalizuje</span><p>ticho na oboch stranách – prehodnocovanie postojov, prehrávanie alternatív; prebieha <b>vnútorný proces</b> → všímame si neverbálnu komunikáciu.</p></div>
+</div>
+<div class="box au"><span class="lbl">Ako na ticho reagovať</span><p>Hľadať alternatívy; začať skôr ako spoločenský rozhovor z bežného života a postupne prejsť k problému; nechať klientovi <b>priestor na mlčanie</b> aj na ventiláciu pocitov; využiť <b>kresbu</b> alebo písomné spracovanie problému.</p></div>
+<div class="box warn"><span class="lbl">Pozor · detský klient</span><p>Pri dieťati dlhé ticho <span class="x">nie je vhodné</span> – len občas medzi frázami, ak dieťa niečo robí a nechceme doň zasahovať. Dlhé ticho môže dieťa frustrovať, vzbudzovať strach a pocit ohrozenia.</p></div>
+
+<h3 class="sub">4 · Depresívny klient</h3>
+<ul>
+<li>dôležité rozlíšiť <span class="k">endogénnu</span> (príčina v samotnom klientovi) a <span class="k">exogénnu</span> (vonkajší podnet, náhla zmena) depresiu; prípadne konzultovať so psychiatrom</li>
+<li>prejavuje sa vo fyzickej, psychickej aj sociálnej oblasti</li>
+<li><span class="h">poradca nepracuje s depresiou ako s diagnózou, ale s depresívnym naladením</span></li>
+</ul>
+<div class="box def"><span class="lbl">Typický obraz depresívneho klienta</span><p>skleslý, spadnuté ramená, tvár „padá“ nadol, skľúčenosť, nekomunikuje, zúfalstvo, plač, izoluje sa od okolia, prestane chodiť do práce, nezáujem o činnosti</p></div>
+<div class="box au"><span class="lbl">Prístup</span>
+<ol class="steps green" style="margin:0">
+<li><b>neverbálna komunikácia</b> – naladenie sa na klienta, súcit, ochota počúvať, očný kontakt</li>
+<li>vypočuť si všetky problémy + <b>históriu</b> depresívnych stavov</li>
+<li>zistiť <b>dĺžku, trvanie a intenzitu</b> symptómov</li>
+<li><b>vysvetliť stav</b>, v ktorom sa nachádza</li>
+<li>zistiť, čo už doposiaľ podnikol na jej odstránenie</li>
+<li>umožniť <b>dosmútenie</b>, podporiť prijatie depresie klientom</li>
+<li><span class="x">nepoužívať zľahčovanie (humor)</span> + pozitívne posilňovať drobné úspechy a zmeny</li>
+<li><span class="x">nemoralizovať, neobviňovať, nekritizovať</span></li>
+<li>byť trpezlivý, nevnášať vlastné problémy</li>
+<li>pomôcť budovať <b>sociálnu oporu</b> (ak sa cíti osamelo, zapojiť ho do komunity, rôznych stretnutí)</li>
+<li>+ použiť relaxáciu, prípadne zvážiť farmakoterapiu či hospitalizáciu (po konzultácii so psychiatrom)</li>
+</ol></div>
+
+<h3 class="sub">5 · Manipulatívny klient</h3>
+<p>Narcista; skresľuje problém; citové vydieranie; odbáča od témy; žiada si výhovorky; prikrášľuje svoju verziu. S poradcom hrá <span class="k">„hru“</span> – chce riadiť, získať výhody, pocit bezpečia, „privlastniť si“ poradcu.</p>
+<div class="box warn"><span class="lbl">Pozor</span><p>Manipulatívnosť je <span class="h">symptóm, nie diagnóza</span>. Ťažká je práca s manipulatívnymi klientmi <b>závislými</b> od alkoholu a drog, s <b>hysterickou</b> a <b>antisociálnou</b> poruchou osobnosti.</p></div>
+<div class="box au"><span class="lbl">Ako s ním pracovať</span><p>Vymedziť <b>pevné hranice</b> (vzťahové aj časové) a <b>štruktúru</b>, určiť jasné pravidlá, verbálne aj neverbálne odmietať manipulatívne praktiky.</p></div>
+<div class="box qa"><span class="lbl">Príklad z hodiny</span><p>Klient zavolá, že sa súrne potrebuje stretnúť → ponúkneme mu <b>skorý ranný termín na druhý deň</b>. Ak sa začne vyhovárať, je to jasný znak manipulácie.</p></div>
+
+<h3 class="sub">6 · Agresívny klient</h3>
+<p>Kričí, skáče do reči, je výbušný, veľmi gestikuluje, impulzívny. Pôvod má vo <b>frustrácii, najmä dlhodobej</b>. Vyskytuje sa u <b>bazálne neistých</b> klientov, ktorí majú obavy z odmietnutia, zmeny. → Nechať ho vyrozprávať, ventilovať, zapojiť prvky asertivity + <span class="k">technika upokojenia (deeskalácie)</span>:</p>
+<ol class="steps red">
+<li><b>Zhodnotenie agresívneho incidentu</b> – z akého správania a situácie plynie; čo agresiu zvyšuje; zhodnotiť situáciu (zlyhanie, je tu „za trest“…); prejavy zlosti (nemohol sa inde prejaviť agresívne? neplynie to z inhibície, frustrácie?); posúdiť, či ide o <b>verbálnu alebo fyzickú</b> agresiu.</li>
+<li><b>Komunikácia</b>
+<ul>
+<li><b>verbálna</b> – jasný, pokojný hlas a tón; pomenovanie pocitov; prehliadame slovné útoky na nás a neprejavujeme odpor; jednoduché formulácie; spätná väzba na jeho správanie: „To, ako tu kričíte, ma desí.“ · „Nie je mi to príjemné, ak…“ · „Mám strach, ak…“</li>
+<li><b>neverbálna</b> – nekonfrontačný postoj; očný kontakt; rovnaká poloha tela ako on; súlad verbálnej a neverbálnej komunikácie; primeraná vzdialenosť; <span class="x">nedotýkame sa ho</span></li>
+</ul></li>
+<li><b>Taktiky vyjednávania a upokojujúce techniky</b> – snaha o rovnováhu <span class="k">výhra – výhra</span>; prijať jadro klientovej sťažnosti: „To sa vám nečudujem, rovnako by som sa cítil zle…“ · „Máte pravdu…“</li>
+</ol>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Čo robiť, ak sa agresívne správanie stupňuje?</b> Odporučiť klienta niekomu inému; žiadne ostré predmety po ruke; signalizačné zariadenia; postupne ukončiť stretnutie v daný deň.</p></div>
+
+<h3 class="sub">7 · Emocionálny klient</h3>
+<div class="box au"><span class="lbl">Charakteristika</span><p>Motivovaný, otvorený voči zmene, má kapacity pre racionálny vhľad, chce spolupracovať, chodí na sedenia.</p></div>
+
+<h3 class="sub">8 · Suicidálny klient</h3>
+<ul>
+<li>samovražda je <span class="y">4.</span> najčastejšia príčina smrti</li>
+<li>myšlienky smerujúce k samovražde; klient <b>primárne patrí do psychiatrickej ambulancie</b></li>
+<li>treba identifikovať, z čoho tento stav pramení</li>
+</ul>
+<div class="box def"><span class="lbl">Spúšťače / dôvody</span><p>strata dôležitých objektov · destabilizácia pocitu vlastnej hodnoty („Za nič nestojím…“) · zranenia · stiahnutie sa z reality (izolácia) · ochorenie · prerušenie kontaktov a väzieb · aj pri hľadaní vlastnej identity · ťažká nepredvídateľná situácia</p></div>
+<div class="box au"><span class="lbl">Prístup</span><p>Nechať ho vyrozprávať sa, akceptovať jeho pocity a názory, <b>neodsudzovať</b>, ponúknuť možnosť ďalšieho stretnutia, prekonávať problém spolu s poradcom, ak je v jeho kompetencii (napr. stav po rozvode).</p></div>
+<div class="box au"><span class="lbl">Teória · Ringelov presuicidálny syndróm</span>
+<ol class="steps green" style="margin:0">
+<li><b>Zúženie subjektívneho priestoru</b> – aktuálny život vníma ako väzenie, pascu, z ktorej nevie vyjsť; beznádej, zúfalstvo, apatia; stráca sa pôvodný význam</li>
+<li><b>Zablokovaná alebo proti sebe orientovaná agresivita</b> – zlé presvedčenia o sebe, sebanenávisť, sebaľútosť, odmietanie seba</li>
+<li><b>Naliehavé samovražedné fantázie</b> – v mysli na krátky čas ukazujú „oslobodenie“ zo stavu; dôležité je navštevovať psychiatra, odborníka</li>
+</ol></div>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">Z-A-F</span> – <b>Z</b>úženie · <b>A</b>gresia obrátená dovnútra · <b>F</b>antázie.</p></div>
+<div class="box warn"><span class="lbl">Posúdenie miery závažnosti suicidálnych myšlienok</span>
+<p>Posudzujeme ich <b>intenzitu, nutkavosť, odkloniteľnosť, konkrétnosť</b>.</p>
+<p><b>Kedy narastá riziko?</b> Predchádzajúci pokus v minulosti, ďalšia ťaživá okolnosť, strata motivácie, bez chuti do života, depresia; zmena rétoriky človeka a prípravné správanie. Najväčšie riziko je v <b>adolescencii/puberte</b>, ale aj v dospelosti.</p></div>
+<div class="box au"><span class="lbl">Proti-samovražedný (bezpečnostný) plán</span>
+<div class="flow" style="margin:4px 0">
+<div class="fb">nebyť sám</div><div class="fb">kontakt na krízovú linku</div><div class="fb">pravidelné stretnutia s poradcom</div><div class="fb">osoby, ktorým zavolá v núdzi</div><div class="fb">vyhýbať sa návykovým látkam, alkoholu</div><div class="fb">pevný režim a denný plán</div><div class="fb">záľuby</div><div class="fb">inštitúcie, ktoré môže osloviť</div><div class="fb">stretnutia dohodnuté dopredu</div>
+</div></div>
+<div class="box warn"><span class="lbl">Ďalšia fáza = suicidálne tendencie</span><p>Človek už robí konkrétne prípravy → vhodná <b>hospitalizácia</b> (pracovať na dobrovoľnej motivácii k nej) a potreba byť v kontakte s <b>rodinnými príslušníkmi</b>.</p></div>
+<p class="muted" style="font-size:14.5px"><b>Osobné poradenstvo</b> sa poskytuje jednotlivcom s osobnými problémami, v krízových situáciách, pri problémoch v partnerskej a sexuálnej oblasti, s drogami a inými závislosťami, pri rozvíjaní osobnostného potenciálu.</p>
+</section>
+
+<!-- ========== TÉMA 9 ========== -->
+<section class="topic" id="t9">
+<div class="th"><span class="num">TÉMA 09</span><h2>Vzťah medzi poradcom a klientom</h2></div>
+
+<div class="box au"><span class="lbl">Knox – 8 faktorov významných pre poradenský vzťah (čo klienti oceňovali)</span>
+<ol class="steps green" style="margin:0">
+<li>vnímanie poradcovho <b>facilitujúceho interpersonálneho štýlu</b></li>
+<li><b>intervencie</b> poradcu</li>
+<li><b>postupnosť</b> v poradenstve – „krok za krokom“</li>
+<li>nová <b>životná perspektíva</b></li>
+<li><b>emocionálna úľava</b></li>
+<li>možnosť <b>sebaodkrytia</b></li>
+<li>príležitosť získať <b>nové vedomosti</b></li>
+<li><b>podpora</b> poradcu pre nové životné úlohy</li>
+</ol></div>
+<p>Vzťah medzi poradcom a klientom sa vyznačuje určitou <span class="k">citovou väzbou</span>, ktorá má niekoľko zložiek:</p>
+
+<h3 class="sub">Primárne podmienky (core conditions)</h3>
+<div class="grid3">
+<div class="box def"><span class="lbl">Empatia</span><ul style="margin:0"><li>rozumieť tomu, čo klient prežíva</li><li><b>jasne vyjadriť</b> toto porozumenie</li><li>vcítenie <span class="h">„ako keby“</span> – bez prílišnej citovej zaangažovanosti; odstup, objektivita</li></ul></div>
+<div class="box def"><span class="lbl">Akceptácia</span><p>Bezpodmienečná pozitívna akceptácia / prijatie. Klient musí vnímať, že si ho poradca <b>váži</b>.</p></div>
+<div class="box def"><span class="lbl">Kongruencia</span><p>Byť <b>autentický</b>; zhoda medzi myslením, cítením a správaním poradcu.</p></div>
+</div>
+
+<h3 class="sub">Neužitočné citové väzby</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Väzba</th><th>Znaky</th><th>Riešenie</th></tr></thead>
+<tbody>
+<tr><td>1. Nedostatočná angažovanosť</td><td>málo citlivosti a vnímavosti; poradca je fyzicky prítomný, ale psychicky nie; nerozumie, čo klient hovorí, nie je empatický; nereaguje (pasivita); nevie si klienta vážiť, pôsobí chladne, dištancovane; <b>na stretnutia sa neteší</b>, dúfa, že klient nepríde, navrhuje menej časté stretnutia</td><td>predať klienta inému kolegovi; riešiť so <b>supervízorom</b></td></tr>
+<tr><td>2. Nadmerná angažovanosť</td><td>trávi veľa času spoločným rozhovorom alebo preberá otázky, ktoré priniesol on, nie klient (vymení sa rola); príliš zdôrazňuje pokrok klienta a podceňuje problémy; zdôrazňuje <b>vlastný prínos</b> namiesto podpory, aby si klient pomohol sám; <b>na stretnutia sa veľmi teší</b>, dáva čas navyše, navrhuje častejšie stretnutia</td><td>hranice, supervízia</td></tr>
+<tr><td>3. Citová väzba mocenského typu</td><td>klient poradcu má rád, je mu sympatický, dôveruje mu, imponuje mu jeho spoľahlivosť, odborné vedomosti, tituly</td><td>uvedomovať si vplyv autority</td></tr>
+</tbody></table></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Prečo sa klienti nechávajú ovplyvňovať poradcom?</b> Majú ho radi alebo je im sympatický, dôverujú mu, imponuje im jeho spoľahlivosť + odborné vedomosti, tituly.</p></div>
+<h3 class="sub">Komunikačný štýl – tri osi</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Os</th><th>Póly</th><th>Kto ho používa</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>aktívny / pasívny vs. direktívny / nedirektívny</td><td>kognitívno-behaviorálna terapia vs. humanisti</td></tr>
+<tr><td>2</td><td>zameranie na <b>úlohu</b> vs. zameranie na <b>vzťah</b></td><td>KBT (úloha) vs. humanisti, psychoanalytici (vzťah)</td></tr>
+<tr><td>3</td><td><b>formálny</b> vs. <b>neformálny</b> štýl</td><td>spôsob vyjadrovania, komunikácia vs. správanie, vizáž</td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Prenos a protiprenos</h3>
+<div class="flow">
+<div class="fb pl">KLIENT<small>minulé vzťahy (matka, otec, vzor)</small></div><span class="arr">— prenos →</span>
+<div class="fb pl">PORADCA<small>minulé vzťahy poradcu</small></div><span class="arr">— protiprenos →</span>
+<div class="fb pl">KLIENT</div>
+</div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Prenos</span><p>Prežitky a reakcie <b>klienta</b> vo vzťahu k poradcovi, ktoré súvisia s jeho <b>minulými vzťahmi</b>; klient prenáša správanie na poradcu (od matky, otca, vzoru).</p></div>
+<div class="box def"><span class="lbl">Protiprenos</span><p>Prežitky a reakcie <b>poradcu</b> voči klientovi, ktoré súvisia s <b>jeho</b> minulými vzťahmi.</p></div>
+</div>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><b>PREnos ide PRE poradcu</b> (od klienta). <b>PROTIprenos ide PROTI smerom</b> – od poradcu ku klientovi.</p></div>
+</section>
+
+<!-- ========== TÉMA 10 ========== -->
+<section class="topic" id="t10">
+<div class="th"><span class="num">TÉMA 10</span><h2>Poradenský proces – fázy</h2></div>
+
+<div class="grid2">
+<div class="box def"><span class="lbl">Obsah</span><p><b>„Čo“</b> klient verbálne aj neverbálne hovorí.</p></div>
+<div class="box def"><span class="lbl">Proces</span><p>Dynamika poradenského vzťahu – <b>„ako“</b> spolu klient a poradca pracujú; interakcia medzi nimi.</p></div>
+</div>
+
+<h3 class="sub">Drapela – epigenetický proces</h3>
+<div class="box au"><span class="lbl">Teória</span><p>Ide o proces <span class="k">epigenetický</span> – každá ďalšia fáza <b>nadväzuje na predošlú</b>.</p>
+<div class="flow" style="margin:6px 0 0">
+<div class="fb">prvý kontakt<small>a uzavretie poradenského kontraktu</small></div><span class="arr">→</span>
+<div class="fb">diagnostika problému</div><span class="arr">→</span>
+<div class="fb">určenie cieľov<small>a riešenie problémov</small></div><span class="arr">→</span>
+<div class="fb">zvládanie problému klientom</div><span class="arr">→</span>
+<div class="fb hl">ukončenie</div>
+</div></div>
+
+<h3 class="sub">Culley &amp; Bond – 3 fázy × 3 prvky</h3>
+<p><b>Fázy:</b> začiatok – stred – koniec. <b>Prvky procesu:</b> ciele – stratégie – zručnosti.</p>
+<div class="tw"><table class="t">
+<thead><tr><th>Fáza</th><th>Ciele</th><th>Stratégie</th><th>Zručnosti</th></tr></thead>
+<tbody>
+<tr><td>Začiatočná</td><td>nadviazať pracovný vzťah; objasniť a vymedziť problémy; uzavrieť kontrakt</td><td>popis ťažkostí klientom; dodržiavanie primárnych podmienok; stanovenie priorít a postupnosti; podnecovanie otvorenej komunikácie</td><td><b>pozorovanie a aktívne načúvanie</b>; reflektívne zručnosti (zopakovanie, vyjasnenie, vysvetlenie); zisťovacie zručnosti (otázky, výroky)</td></tr>
+<tr><td>Prostredná</td><td>priebežne vyhodnocovať problémy a ťažkosti; upevniť poradenský vzťah; pracovať podľa kontraktu</td><td>dodržiavanie primárnych podmienok; podnecovanie klienta</td><td>ako v začiatočnej fáze</td></tr>
+<tr><td>Záverečná</td><td>realizovať zmenu a <b>zovšeobecniť</b> ju na situácie mimo stretnutí; postupne ukončiť proces</td><td>plnenie stanovených cieľov; plánovanie aktivít; zhodnotenie aktivít a <b>udržanie zmeny</b></td><td>ako v predošlých fázach + <span class="h">sumarizácia</span></td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Koščo – 5 fáz poradenského procesu</h3>
+<div class="flow">
+<div class="fb hl">1 · Úvodná fáza</div><span class="arr">→</span><div class="fb">2 · Budovanie vzťahu</div><span class="arr">→</span><div class="fb">3 · Formulácia cieľov</div><span class="arr">→</span><div class="fb">4 · Psychodiagnostická fáza</div><span class="arr">→</span><div class="fb">5 · Metódy a postupy intervencie</div>
+</div>
+
+<h4 class="mini">1 · Úvodná fáza = prvé stretnutie s klientom</h4>
+<div class="grid2">
+<div class="box def"><span class="lbl">Pred prvým stretnutím</span><p>Naštudovať materiály o klientovi (ak sú), vyvetrať, odložiť riad z minulého sedenia, odložiť spisy, narovnať vankúše – vytvoriť <b>usporiadaný priestor</b>.</p></div>
+<div class="box def"><span class="lbl">Prvý kontakt</span><p>Privítanie, <b>zapamätanie si mena</b>, podanie ruky, usadenie, <span class="k">„small talk“</span> (cesta, ako klient zariadenie našiel, prečo si vybral nás).</p></div>
+</div>
+<ul>
+<li>úvodné otázky: <i>„Čo vás ku mne privádza?“ · „O čom by ste chceli hovoriť?“ · „Ako vám môžem pomôcť?“</i></li>
+<li>uvádza sa <span class="k">raport</span> = príjemná priateľská atmosféra, budovanie dôvery a priateľského vzťahu</li>
+<li>určuje sa <b>štruktúra procesu</b> – ako často, pravidlá, čas</li>
+<li><b>prvotná orientácia v probléme</b></li>
+</ul>
+<div class="grid2">
+<div class="box au"><span class="lbl">Popis súčasného stavu</span><ul style="margin:0">
+<li>opis posledného prípadu/situácie, keď sa problém objavil</li>
+<li>kontext, kedy sa problém objavuje a čo ho zhoršuje</li>
+<li>doterajšie snahy klienta o riešenie</li></ul></div>
+<div class="box au"><span class="lbl">História ťažkostí klienta</span><ul style="margin:0">
+<li>prvé objavenie sa problému</li>
+<li><b>výnimky</b> z ťažkostí</li>
+<li>spôsoby zvládania problému</li></ul></div>
+</div>
+<div class="box def"><span class="lbl">Anamnestický rozhovor</span><ul style="margin:0">
+<li>má <b>informačnú aj intervenčnú</b> funkciu</li>
+<li>využíva poradenskú spôsobilosť pri vedení rozhovoru (vhodné otázky a ich formulácia)</li>
+<li>bohatý zdroj informácií – <span class="h">opis typického 24-hodinového dňa klienta</span></li></ul></div>
+<div class="box warn"><span class="lbl">Ukončenie prvého stretnutia</span><ul style="margin:0">
+<li><b>nepredlžovať</b> stretnutie – ak klient na konci povie niečo dôležité, poznamenať si to, oceniť a začať tým na ďalšom stretnutí</li>
+<li>upozorniť na blížiaci sa záver, sumarizácia, otázky a spätná väzba od klienta, odporúčania</li>
+<li>ukončenie je neformálne; dohodne sa termín a frekvencia ďalších stretnutí, ak má klient záujem</li></ul></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára · ako pokračovať na ďalšom stretnutí?</span><p>Dôležité je <b>poradie otázok</b>: najprv, čo sa <b>zmenilo</b>, potom, čo sa <b>zlepšilo</b>.</p>
+<p><i>1. „Čo sa od posledného sedenia zmenilo?“ → 2. „Čo sa od posledného stretnutia zlepšilo?“</i></p></div>
+
+<h4 class="mini">2 · Budovanie vzťahu</h4>
+<p>Vzťah <span class="x">nie je cieľom</span> poradenstva, je len <b>jedným z prostriedkov</b> pomoci klientovi. Buduje sa pomocou otvorenosti, nastavenia, prítomnosti, aktívneho počúvania, empatie.</p>
+
+<h4 class="mini">3 · Formulácia cieľov</h4>
+<p>Od <b>priebežných</b> cieľov k <b>finálnym</b>. Podľa povahy problému volí poradca <b>globálnu alebo špecifickú stratégiu</b> riešenia.</p>
+<div class="box qa"><span class="lbl">Typické otázky</span><p><i>„Čo by ste si priali, aby sa vo vašom živote zmenilo?“ · „Na základe čoho budete vy / vaša rodina vedieť, že sa problém vyriešil?“ · „Ako budú vaši blízki vedieť, že sa problém vyriešil?“ · „Čo by pre vás znamenalo, keby to ostalo tak ako doteraz?“</i></p></div>
+
+<h4 class="mini">4 · Psychodiagnostická fáza</h4>
+<ol class="steps blue">
+<li>identifikácia a hodnotenie problému</li>
+<li>vlastná, špecifická diagnostická fáza</li>
+<li>prognóza</li>
+</ol>
+
+<h4 class="mini">5 · Metódy a postupy intervencie</h4>
+<p>Napr. stimulácia vhľadu / sebaexplorácie, <span class="k">klarifikácia</span>, <span class="k">konfrontácia</span>, <span class="k">reflexia</span>, <span class="k">komparácia</span> (porovnávanie), <span class="k">interpretácia</span> (vysvetľovanie), neverbálna komunikácia.</p>
+<div class="box warn"><span class="lbl">Pozor</span><p>Pozor na <b>neverbálne hodnotenia</b> (mimika, zvraštené čelo, prikyvovanie, odťahovanie sa) a <b>manierizmy</b> (točenie vlasov, opravovanie okuliarov).</p></div>
+<div class="grid3">
+<div class="box qa"><span class="lbl">Časová dotácia?</span><p><span class="y">60–90 min</span>; pri páre dlhšie – <span class="y">120 min</span>.</p></div>
+<div class="box qa"><span class="lbl">Zapisovať, či nie?</span><p>Ak zapisujem, vysvetliť klientovi, že to tak bude a <b>prečo je to dôležité</b>.</p></div>
+<div class="box qa"><span class="lbl">Ako strážiť čas?</span><p>Bez stáleho pozerania na hodinky – umiestniť hodiny tak, aby boli <b>viditeľné z každého uhla</b>.</p></div>
+</div>
+</section>
+
+<!-- ========== TÉMA 11 ========== -->
+<section class="topic" id="t11">
+<div class="th"><span class="num">TÉMA 11</span><h2>Anamnéza</h2></div>
+
+<div class="box def"><span class="lbl">Definícia</span>
+<p><span class="k">Anamnéza</span> = spomínanie si, uvedomovanie si, rozpamätávanie sa.</p>
+<ul style="margin:0">
+<li>pochádza z <b>medicínskej praxe</b> – zisťuje sa aktuálny zdravotný a fyzický stav, slúži <b>diagnostike</b>; psychológ zisťuje psychický stav</li>
+<li>patrí do <span class="h">1. fázy kontaktu</span> s klientom</li>
+</ul></div>
+
+<div class="tw"><table class="t">
+<thead><tr><th></th><th>Autoanamnéza</th><th>Heteroanamnéza</th></tr></thead>
+<tbody>
+<tr><td>Zdroj</td><td>klient rozpráva <b>sám o sebe</b></td><td>zdrojom je <b>iná osoba</b> – partner, rodič, učiteľ</td></tr>
+<tr><td>Typicky</td><td>skôr u <b>dospelých</b></td><td>hlavne u <b>detí</b></td></tr>
+</tbody></table></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Ako zapisovať anamnestické údaje?</b> Vykomunikovať to s klientom, zapisovať si údaje v skratke, prípadne použiť predtlačené formuláre.</p></div>
+
+<h3 class="sub">Formy anamnézy</h3>
+<ol class="steps plum">
+<li><b>Anamnéza problému klienta</b> – jeho história, etiológia, kolísanie intenzity, vznik, trvanie; či bola príčina odstránená alebo nie; doteraz podniknuté aktivity na riešenie, prípadne medicínske vyšetrenia.</li>
+<li><b>Osobná anamnéza</b> – informácie o klientovi od <b>prenatálnej fázy po súčasnosť</b> (životná história); viaže sa ku klientovej osobe, závisí od veku.</li>
+<li><b>Rodinná anamnéza</b> – situácia v <b>primárnej rodine</b>; zisťuje napr.:
+<ul>
+<li>duševné zdravie v primárnej aj širšej rodine</li>
+<li>prijatie klienta rodičmi v detstve</li>
+<li><span class="k">rodinné mýty a rituály</span></li>
+<li>miesto a právomoci dieťaťa v rodine; výchovné štýly</li>
+<li>rodinné krízy, úplnosť rodiny</li>
+<li>straty členov rodiny a prežívanie týchto situácií</li>
+<li>súrodenecká konštelácia</li>
+<li>sexuálny, partnerský a manželský vývin klienta</li>
+</ul>Je možné využiť <span class="k">rodinné mapy</span> (záujem o primárnu rodinu).</li>
+<li><b>Školská a pracovná anamnéza</b> – kedy nastúpil do školy, či nebol odklad, školská zrelosť, prospech; preferované aktivity; prehľad kreativity. <b>+</b> koníčky, záujmy a trávenie voľného času.</li>
+</ol>
+<div class="box qa"><span class="lbl">Príklady rodinných mýtov</span><ul style="margin:0">
+<li>Romantická láska vytvára dobré manželstvo.</li>
+<li>Príchod dieťaťa do rodiny vylepší aj zlé manželstvo.</li>
+<li>Partneri, ktorí sa naozaj majú radi, automaticky vedia, čo si ten druhý myslí a cíti.</li>
+<li>Pre deti je aj nešťastné manželstvo rodičov lepšie ako rozvod.</li>
+<li>Rodičia sa musia obetovať pre deti.</li></ul></div>
+</section>
+
+<!-- ========== TÉMA 12 ========== -->
+<section class="topic" id="t12">
+<div class="th"><span class="num">TÉMA 12</span><h2>Diagnostika v poradenstve</h2></div>
+
+<div class="box warn"><span class="lbl">Pozor</span><p>Pojem prevzatý z <b>medicínskeho modelu</b> pomoci človeku. V poradenstve s ňou pracujeme <span class="h">opatrne</span> – ako s <b>pomocnou metódou</b> na zorientovanie sa v klientovi a jeho ťažkostiach.</p></div>
+
+<h3 class="sub">Aké diagnostické metódy poradca využíva</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Metóda</th><th>Obsah</th></tr></thead>
+<tbody>
+<tr><td>Pozorovanie</td><td>vonkajšie správanie klienta; <b>komunikácia</b> (obsah + zrozumiteľnosť, jednoznačnosť); <b>emocionalita</b> (osobnostné vlastnosti, prežívanie, reakcie na poradcu); <b>sociabilita</b> (ochota spolupracovať, adaptácia)</td></tr>
+<tr><td>Analýza materiálov</td><td>pred stretnutím alebo po 1. stretnutí; materiály o klientovi, o probléme a jeho vývine, analýza rozprávania; môžu prichádzať aj od niekoho iného</td></tr>
+<tr><td>Diagnostické interview</td><td><b>nadstavba anamnestického rozhovoru</b>; cielené otázky dopĺňajúce základné informácie; štruktúrované, pološtruktúrované, neštruktúrované</td></tr>
+<tr><td>Štandardizovaná diagnostika</td><td>meranie <b>kvality</b> (pozorovanie) a <b>kvantity</b> (dotazník, test) javov</td></tr>
+<tr><td>Činnostná diagnostika</td><td>najmä pri práci s rodinou / skupinou; využíva reálne alebo modelové situácie</td></tr>
+<tr><td>Diagnostika pomocou vecí</td><td>veci, ktorými sa klient obklopuje, má rád, preferuje: hračky, knihy, farby, štýl obliekania, hudba, filmy</td></tr>
+</tbody></table></div>
+<div class="grid2">
+<div class="box qa"><span class="lbl">Je pozorovanie vždy objektívne?</span><p><span class="x">Nie je.</span> Ovplyvňujú ho subjektívne faktory: <b>prvý dojem</b>, <span class="k">haló efekt</span>, aktuálny fyzický/psychický stav poradcu.</p></div>
+<div class="box qa"><span class="lbl">Najpoužívanejšia psychometrická metóda?</span><p><span class="h">Dotazníky.</span></p></div>
+</div>
+
+<h3 class="sub">Členenie testov podľa Kondáša</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Skupina</th><th>Príklady</th></tr></thead>
+<tbody>
+<tr><td>Testy inteligencie</td><td>Ravenove matice, Wechslerov test, Test intelektového potenciálu</td></tr>
+<tr><td>Výkonové testy a testy schopností</td><td>pamäť, matematické schopnosti, čítacia skúška, lateralita</td></tr>
+<tr><td>Testy psychických funkcií</td><td>testy pozornosti, emocionality</td></tr>
+<tr><td>Testy a dotazníky záujmov a postojov</td><td>–</td></tr>
+<tr><td>Testy osobnosti</td><td>Big Five, Eysenckov dotazník</td></tr>
+<tr><td>Testy interpersonálnych vzťahov a konfliktov</td><td>–</td></tr>
+<tr><td>+ Projektívne testy</td><td>Rorschachov test, kresba stromu</td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Projektívne metódy podľa Řičana</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Typ</th><th>Príklady</th></tr></thead>
+<tbody>
+<tr><td>Interpretačné</td><td>ROR (Rorschach), Hand test</td></tr>
+<tr><td>Asociačné</td><td>AE, dopĺňanie</td></tr>
+<tr><td>Imaginatívne</td><td>práca s predstavami, predstavivosťou</td></tr>
+<tr><td>Výtvarné</td><td>dom, strom, postava, začarovaná rodina</td></tr>
+<tr><td>Scénické</td><td>vytváranie scény, Stapsov projektívny test</td></tr>
+<tr><td>Preferenčné</td><td>Lüscherov test farieb</td></tr>
+<tr><td>Výrazové</td><td>–</td></tr>
+</tbody></table></div>
+<div class="box warn"><span class="lbl">Riziká diagnostiky</span><ul style="margin:0">
+<li><span class="k">predčasná diagnóza</span> (<i>diagnosis praecox</i>)</li>
+<li>škatuľkovanie</li>
+<li>nálepkovanie</li></ul></div>
+</section>
+
+<!-- ========== TÉMA 13 ========== -->
+<section class="topic" id="t13">
+<div class="th"><span class="num">TÉMA 13</span><h2>Metódy práce s klientom</h2></div>
+
+<div class="box mn"><span class="lbl">Mnemotechnika – 12 metód v 4 skupinách</span>
+<div class="flow" style="margin:4px 0">
+<div class="fb pl">ROZUM<small>informovanie, distribúcia, klarifikácia</small></div><span class="arr">→</span>
+<div class="fb pl">CITY<small>ventilácia, reflexia, interpretácia, konfrontácia</small></div><span class="arr">→</span>
+<div class="fb pl">AKCIA<small>modelovanie, hranie rolí, tréning</small></div><span class="arr">→</span>
+<div class="fb pl">ZVLÁDANIE<small>vedomé zvládanie záťaže, relaxácia a hypnóza</small></div>
+</div></div>
+
+<div class="tw"><table class="t">
+<thead><tr><th>#</th><th>Metóda</th><th>Podstata</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Informovanie</td><td><b>základná metóda</b>; poskytovanie informácií; pomáha klientovi zorientovať sa v probléme a hľadať riešenia; jednorazový alebo krátkodobý kontakt</td></tr>
+<tr><td>2</td><td>Distribúcia</td><td>ak klient <b>nespadá do kompetencie</b> poradcu → nasmerovanie na iného odborníka</td></tr>
+<tr><td>3</td><td>Klarifikácia</td><td><span class="k">RET technika</span> (racionálno-emocionálna) = proces objasňovania rôznych aspektov problému; využíva kognície, emócie a racionálne uvažovanie; odlíšenie od ostatných a nepodstatných vecí; racionálna analýza problému či situácie; vedenie klienta, aby <b>sám</b> objasnil základný rámec problému → odlíšil podstatné od nepodstatného, príčiny toho, čo sa stalo; niekedy dôjde k <span class="h">„aha efektu“</span> (okolnosť sa vyjasní, klient príde na riešenie sám)</td></tr>
+<tr><td>4</td><td>Ventilácia</td><td>pomáha zbaviť sa napätia, úzkosti, nespokojnosti; klient môže rozprávať bez obáv zo zosmiešnenia; pre niektorých klientov je to postačujúce; <span class="k">abreakcia</span> pre dočasné zvládanie neriešiteľnej situácie; bezpečná, priateľská atmosféra</td></tr>
+<tr><td>5</td><td>Reflexia</td><td><b>nedirektívna</b> technika, humanistický prístup; reformulácia, <span class="k">„zrkadlenie“</span> toho, čo povedal klient; parafrázovanie, rekapitulácia</td></tr>
+<tr><td>6</td><td>Interpretácia</td><td>hlavne v <b>dynamicky orientovanom</b> poradenstve; práca s <b>nevedomými obsahmi</b> – ich nájdenie, prijatie a spracovanie; pracujú s ňou psychoanalytici</td></tr>
+<tr><td>7</td><td>Konfrontácia</td><td>najmä v rodinnom poradenstve a pri práci so skupinou; práca s <b>rozdielmi / rozpormi</b> vo vyjadreniach klienta, v jeho správaní, chápaní seba a iných; aj vzájomná konfrontácia viacerých osôb → získanie <span class="k">náhľadu</span>; rozdiely medzi verbálnou a neverbálnou komunikáciou</td></tr>
+<tr><td>8</td><td>Modelovanie</td><td><b>činnostná metóda</b> pri práci s jednotlivcom, párom, rodinou, skupinou; modelovanie reálnych situácií zo života (krízových), aj z pracovnej oblasti</td></tr>
+<tr><td>9</td><td>Hranie rolí</td><td>hranie situácií zo života alebo hypotetických situácií; klient hrá sám seba v interakcii s partnerom / iným členom skupiny; užitočná je aj <b>výmena rolí</b></td></tr>
+<tr><td>10</td><td>Tréningové techniky</td><td>typické pre <b>behaviorálne</b> prístupy – učenie, opakovanie, nácvik; napr. <span class="k">prázdna stolička</span> (geštalt), hypotetická osoba; nácvik sociálnych zručností (efektívna komunikácia, zvládanie konfliktov, rozhodovanie, tréning asertivity); napr. <b>nácvik konštruktívnej hádky</b> (<span class="a">Kratochvíl</span>, 70. roky); + špecifické postupy <span class="a">Mastersa a Johnsonovej</span> – nácvik riešenia problémov pri funkčných sexuálnych poruchách</td></tr>
+<tr><td>11</td><td>Rozvoj vedomých spôsobov zvládania záťaže</td><td>pozri nižšie</td></tr>
+<tr><td>12</td><td>Relaxačné metódy a hypnóza</td><td>pozri nižšie</td></tr>
+</tbody></table></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je uvedené „Masters a Jonesová“ – správne je <b>Masters a Johnsonová</b>. <span class="k">Postup konštruktívnej hádky</span> je v pôvodných poznámkach ako obrázok – nalep si ho sem pri tlači.</p></div>
+
+<div class="grid2">
+<div class="box au"><span class="lbl">11 · Rozvoj vedomých spôsobov zvládania záťaže</span><ul style="margin:0">
+<li><b>kontakt s pocitmi</b> – odreagovať, odžiť, uvedomiť si ich</li>
+<li><b>kontakt s telom</b> – reflexia stavu tela</li>
+<li><b>schopnosť zdieľať</b> – „zdieľaná radosť je dvojnásobná radosť, zdieľaný žiaľ zmierňuje žiaľ“</li>
+<li><b>uvedomenie vlastných potrieb</b> – kvôli zníženej citlivosti voči nim</li>
+<li><b>ochrana hraníc</b> – vedieť povedať „nie“</li>
+<li>využitie minulých skúseností, príbehov, zapojenie rituálov, brainstorming, hľadanie zmyslu</li></ul></div>
+<div class="box au"><span class="lbl">12 · Relaxačné metódy a hypnóza</span><ul style="margin:0">
+<li><span class="a">Schultzov</span> autogénny tréning</li>
+<li><span class="a">Jacobsonova</span> progresívna relaxácia</li>
+<li>dychové cvičenia</li>
+<li>joga</li>
+<li>reflexná masáž</li>
+<li>HRV/RSA biofeedback</li>
+<li>EEG biofeedback</li>
+<li>hypnóza</li></ul></div>
+</div>
+</section>
+
+<!-- ========== SLOVNÍK ========== -->
+
+
+<!-- ========== PASCE ========== -->
+<section class="topic traps" id="pasce">
+<div class="th"><span class="num">POZOR</span><h2>Najčastejšie skúškové pasce</h2></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Odpor ≠ neochota.</b> Nedobrovoľný klient prišiel z donútenia a nemá vlastný cieľ; odporujúci klient aktívne odmieta spoluprácu.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Stavěl vs. Jurovský.</b> Stavěl = 1. docent psychológie na SK a 1. riaditeľ poradne (1928). Jurovský = 1. univerzitný profesor (1941) a 1. riaditeľ Psychologického ústavu UK (1957).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>PVK 1957 vs. 1966.</b> 1957 = 1. PVK v Bratislave; 1959 = Košice a Banská Bystrica; 1966 = 2. PVK v Bratislave. VÚDPaP = 1964, 1. riaditeľ Bažány.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>CPPS → RPPS (rodina) vs. PPP → CPPPaP → CPaP (škola).</b> CPPS 1990, RPPS 2005; CPPPaP 2008, CPaP od 1. 1. 2023 (vyhláška 24/2022).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Psychológ = neprivilegovaná komunikácia.</b> Privilegovaná (porušiteľná len súdom) je napr. lekárska.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Poradenstvo pracuje s pozíciami, nie s dispozíciami.</b> Pozície sú vedomé a meniteľné.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Poradenstvo = krátkodobé, terapia = dlhodobá.</b> Obe sú kontinuálne, ale diskontinuálne v stretnutiach; poradenstvo pracuje so súčasnosťou, terapia s minulosťou.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Od 3. stupňa záťaže</b> (zaťažujúca situácia) je potrebný poradca – nie až od preťažujúcej.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Depresívny klient:</b> poradca pracuje s <b>depresívnym naladením</b>, nie s diagnózou. Nezľahčovať humorom.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Manipulatívnosť je symptóm, nie diagnóza.</b></p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Vzťah nie je cieľom poradenstva</b>, ale prostriedkom pomoci (Koščo, 2. fáza).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Prenos vs. protiprenos:</b> prenos = klient na poradcu; protiprenos = poradca na klienta.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Autoanamnéza = dospelí, heteroanamnéza = deti.</b></p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Reflexia vs. interpretácia:</b> reflexia = zrkadlenie bez výkladu (humanisti); interpretácia = výklad nevedomých obsahov (psychoanalytici).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Pri ďalšom stretnutí</b> sa najprv pýtame, čo sa <b>zmenilo</b>, až potom, čo sa <b>zlepšilo</b>.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Parsons = 1908 Boston</b>, „otec poradenstva pre voľbu povolania“. Galton = 1. psychologická výchovná poradňa; Witmer = 1. poradenská klinika v USA.</p></div>
+</section>
+
+<footer>Základy poradenskej psychológie · študijné skriptá · Prešovská univerzita · akad. rok 2026/2027 · spracované z vlastného sumáru z prednášok a seminárov</footer>
+</div>
+
+</body></html>

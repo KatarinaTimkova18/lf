@@ -1,0 +1,1265 @@
+<title>Psychológia osobnosti I.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#faf7f3;--paper:#fffdf9;--ink:#2a2420;--muted:#7a6d62;--line:#e7ddd2;
+  --gold:#b08433;--gold-soft:#f6ecd8;
+  --def:#6b4fa0;--def-bg:#f1ecf8;
+  --aut:#2f7a55;--aut-bg:#e8f3ec;
+  --warn:#b23a35;--warn-bg:#fbe9e7;
+  --mne:#b9770e;--mne-bg:#fdf1dc;
+  --sch:#2f6aa3;--sch-bg:#e7f0f9;
+  --q:#5f5a55;--q-bg:#f0eeeb;
+  --hl:#fff1a8;
+  --serif:"Libre Baskerville",Georgia,serif;--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#171412;--paper:#201c19;--ink:#efe7de;--muted:#a99b8e;--line:#3a332d;
+  --gold:#d9ad5c;--gold-soft:#3a2f1c;
+  --def:#b9a0e6;--def-bg:#2a2336;--aut:#7fc9a0;--aut-bg:#1d2c24;--warn:#ef8b84;--warn-bg:#3a2221;
+  --mne:#f0b75a;--mne-bg:#3a2e18;--sch:#8fbbe8;--sch-bg:#1c2836;--q:#c9c2bb;--q-bg:#2a2622;--hl:#5a4c12}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#171412;--paper:#201c19;--ink:#efe7de;--muted:#a99b8e;--line:#3a332d;
+  --gold:#d9ad5c;--gold-soft:#3a2f1c;
+  --def:#b9a0e6;--def-bg:#2a2336;--aut:#7fc9a0;--aut-bg:#1d2c24;--warn:#ef8b84;--warn-bg:#3a2221;
+  --mne:#f0b75a;--mne-bg:#3a2e18;--sch:#8fbbe8;--sch-bg:#1c2836;--q:#c9c2bb;--q-bg:#2a2622;--hl:#5a4c12}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans)}
+.wrap{max-width:920px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--serif);font-weight:700;line-height:1.2}
+h1{font-size:34px;margin:6px 0 4px}
+h2{font-size:24px;margin:0}
+h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:22px 0 8px;padding-left:10px;border-left:3px solid var(--gold)}
+h4{font-size:14.5px;margin:14px 0 6px}
+p{margin:6px 0}
+ul,ol{margin:4px 0 6px;padding-left:20px}
+li{margin:2px 0}
+.hero{position:relative;border-bottom:2px solid var(--gold);padding-bottom:16px;margin-bottom:16px}
+.mono{position:absolute;right:0;top:-6px;font-family:var(--serif);font-weight:700;font-size:64px;color:var(--gold);letter-spacing:-.02em;line-height:1}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.sub{color:var(--muted);margin:4px 0 10px;max-width:60ch}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11.5px;padding:3px 10px;border-radius:99px;background:var(--gold-soft);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;margin:10px 0 4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.toc{columns:2;gap:24px;font-size:14px;margin:8px 0 0;padding:12px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.toc a{color:var(--ink);text-decoration:none}
+.toc div{break-inside:avoid;margin:2px 0}
+.toc b{font-family:var(--mono);color:var(--gold);margin-right:6px}
+.topic{margin-top:34px}
+.thead{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.tn{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;white-space:nowrap}
+.date{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.box{border-left:4px solid;border-radius:6px;padding:8px 12px;margin:8px 0;position:relative}
+.box>.lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;font-weight:600;display:block;margin-bottom:2px}
+.def{border-color:var(--def);background:var(--def-bg)}.def>.lab{color:var(--def)}
+.aut{border-color:var(--aut);background:var(--aut-bg)}.aut>.lab{color:var(--aut)}
+.warn{border-color:var(--warn);background:var(--warn-bg)}.warn>.lab{color:var(--warn)}
+.mne{border-color:var(--mne);background:var(--mne-bg)}.mne>.lab{color:var(--mne)}
+.sch{border-color:var(--sch);background:var(--sch-bg)}.sch>.lab{color:var(--sch)}
+.q{border-color:var(--q);background:var(--q-bg)}.q>.lab{color:var(--q)}
+mark{background:var(--hl);color:inherit;padding:0 2px;border-radius:2px}
+.k{color:var(--def);font-weight:700}
+.a{color:var(--aut);font-weight:700}
+.y{font-family:var(--mono);color:var(--gold);font-weight:600;font-size:.94em}
+.no{color:var(--warn);font-weight:600}
+.acr{font-family:var(--mono);font-weight:700;letter-spacing:.08em}
+table{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:13.5px;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--gold-soft);font-weight:600}
+tr{break-inside:avoid}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 16px}
+@media (max-width:640px){.cols,.cols3{grid-template-columns:1fr}.toc{columns:1}.mono{font-size:44px}}
+.steps{list-style:none;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:5px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;break-inside:avoid}
+.steps li::before{content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font:600 12px/22px var(--mono);text-align:center}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;break-inside:avoid}
+.flow span{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:13px}
+.flow b{color:var(--gold)}
+.tl{border-left:2px solid var(--gold);padding-left:14px;margin:6px 0}
+.tl div{position:relative;margin:4px 0;break-inside:avoid}
+.tl div::before{content:"";position:absolute;left:-19px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.ladder{display:flex;flex-direction:column;gap:3px;margin:6px 0}
+.ladder div{background:var(--gold-soft);border-radius:4px;padding:4px 10px}
+.trap{border-left:4px solid var(--warn);background:var(--warn-bg);border-radius:6px;padding:8px 12px 8px 40px;margin:6px 0;position:relative;break-inside:avoid}
+.trap::before{content:attr(data-n);position:absolute;left:10px;top:8px;font:700 15px var(--mono);color:var(--warn)}
+.part{margin:34px 0 0;padding:12px 16px;border-radius:10px;background:var(--gold-soft);font-family:var(--serif);font-size:20px}
+svg text{fill:var(--ink);font-family:var(--sans)}
+/* infographic components */
+.path{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:8px 0;break-inside:avoid}
+.path .st{flex:1 1 140px;min-width:0;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--c,var(--gold));border-radius:10px;padding:8px 10px;font-size:13px}
+.path .st .n{display:block;font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--c,var(--gold));text-transform:uppercase;margin-bottom:2px}
+.path .st b{display:block;font-size:13.5px;margin-bottom:2px}
+.path .ar{align-self:center;color:var(--gold);font-weight:700;font-size:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:7px;margin:8px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c,var(--gold));border-radius:8px;padding:7px 10px;font-size:13px;break-inside:avoid;min-width:0}
+.card .n{font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--c,var(--gold));text-transform:uppercase;display:block}
+.card b{display:block;font-size:13.5px}
+.c-def{--c:var(--def)}.c-aut{--c:var(--aut)}.c-warn{--c:var(--warn)}.c-mne{--c:var(--mne)}.c-sch{--c:var(--sch)}.c-q{--c:var(--q)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:stretch;margin:8px 0;break-inside:avoid}
+.vs>div{border-radius:10px;padding:9px 12px;min-width:0}
+.vs .l{background:var(--aut-bg);border:1px solid var(--aut)}.vs .r{background:var(--warn-bg);border:1px solid var(--warn)}
+.vs .mid{align-self:center;font:700 14px var(--mono);color:var(--muted);padding:0}
+.tw{overflow-x:auto}.cmp td,.cmp th{font-size:13px}
+.fig{display:block;margin:8px auto;max-width:100%;height:auto;break-inside:avoid}
+.figcap{font-size:12px;color:var(--muted);text-align:center;margin-top:-4px}
+@media (max-width:640px){.vs{grid-template-columns:1fr}.vs .mid{text-align:center}}
+
+.small{font-size:12.5px;color:var(--muted)}
+@media print{
+  @page{size:A4;margin:9mm}
+  .path .st,.card{font-size:7.8pt}.path .st b,.card b{font-size:8.2pt}
+  body{font-size:8.3pt;line-height:1.4;background:#fff}
+  .wrap{max-width:none;padding:0}
+  h1{font-size:22pt}h2{font-size:14pt}h3{font-size:8pt;margin:10px 0 4px}h4{font-size:8.6pt;margin:7px 0 3px}
+  .mono{font-size:40pt}
+  .topic{margin-top:14px}
+  .box{padding:4px 8px;margin:4px 0;break-inside:avoid}
+  table{font-size:7.6pt;margin:3px 0 6px}th,td{padding:2px 5px}
+  h2,h3,h4,.thead{break-after:avoid}
+  .toc{font-size:8pt;padding:6px 10px}
+  .steps li,.flow,.tl div,svg,.trap{break-inside:avoid}
+  a{color:inherit}
+}
+/* doplnky pre PsyO */
+.arrow{display:inline-flex;align-items:center;gap:6px;color:var(--warn);font:700 12px var(--mono);letter-spacing:.04em;border:1.5px solid var(--warn);border-radius:6px;padding:2px 8px;background:var(--warn-bg)}
+.arrow::before{content:"⟵";font-size:16px;line-height:1}
+.mini{font-size:12.5px}
+.fig2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:center}
+@media (max-width:640px){.fig2{grid-template-columns:1fr}}
+.tag{font:600 10px var(--mono);padding:1px 6px;border-radius:4px;background:var(--q-bg);color:var(--q);margin-left:4px;letter-spacing:.06em}
+td.y,.nw{white-space:nowrap}
+@media print{.cmp td,.cmp th{font-size:7.6pt}.mini{font-size:7.6pt}.arrow{font-size:7.4pt}}
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <div class="mono">PsyO</div>
+  <div class="meta">Prešovská univerzita · Psychológia · Bc. štúdium · skúška</div>
+  <h1>Psychológia osobnosti I.</h1>
+  <p class="sub">Celý predmet na skúšku stručne na jednom mieste: teórie, autori, výskumy a čísla.</p>
+  <div class="pills"><span class="pill">12 tém</span><span class="pill">celé na skúšku</span><span class="pill">Skúškové pasce: 26</span></div>
+  <div class="legend">
+    <span><i style="background:var(--def)"></i>definícia / pojem</span>
+    <span><i style="background:var(--aut)"></i>autor / teória</span>
+    <span><i style="background:var(--warn)"></i>pozor</span>
+    <span><i style="background:var(--mne)"></i>mnemotechnika</span>
+    <span><i style="background:var(--sch)"></i>schéma</span>
+    <span><i style="background:var(--q)"></i>otázka / príklad z prednášky</span>
+  </div>
+  <p class="small">V texte: <mark>žlté</mark> = dôležité na skúšku · <span class="k">fialový</span> = kľúčový pojem · <span class="a">zelený</span> = autor · <span class="y">1937</span> = rok/číslo · <span class="no">červená</span> = protiklad / „nie“.</p>
+  <nav class="toc">
+    <div><a href="#t1"><b>01</b>Úvod: predmet, definície, teórie</a></div>
+    <div><a href="#t2"><b>02</b>Biologický základ, temperament, typológie</a></div>
+    <div><a href="#t3"><b>03</b>Biologické teórie: Eysenck → Cloninger</a></div>
+    <div><a href="#t4"><b>04</b>SELF (JA)</a></div>
+    <div><a href="#t5"><b>05</b>Motívy a potreby</a></div>
+    <div><a href="#t6"><b>06</b>Údaje a meranie osobnosti</a></div>
+    <div><a href="#t7"><b>07</b>Faktorové modely: Big Five, HEXACO, temná triáda</a></div>
+    <div><a href="#t8"><b>08</b>Psychoanalytický a neopsychoanalytický prístup</a></div>
+    <div><a href="#t9"><b>09</b>Kognitívne prístupy</a></div>
+    <div><a href="#t10"><b>10</b>Zážitková doména: emócie a šťastie</a></div>
+    <div><a href="#t11"><b>11</b>Pohlavné rozdiely</a></div>
+    <div><a href="#t12"><b>12</b>Poruchy osobnosti</a></div>
+    <div><a href="#pasce"><b>!!</b>Najčastejšie skúškové pasce</a></div>
+  </nav>
+</header>
+
+<!-- ============ 01 ============ -->
+<section class="topic" id="t1">
+<div class="thead"><span class="tn">TÉMA 01</span><h2>Úvod: predmet, definície, teórie</h2></div>
+
+<h3>Počiatky psychológie osobnosti</h3>
+<div class="tl">
+<div><span class="y">30. roky 20. st.</span> – vzniká oddelením od <b>sociálnej psychológie</b></div>
+<div><span class="y">1930</span> – Chicago, katedra sociológie: turnaj v baseballe <b>„prípadové štúdie“ vs. „štatistici“</b> (spor idiografického a nomotetického prístupu)</div>
+<div><span class="a">Gordon W. Allport</span> <span class="y">1937</span> – kniha <i>Personality: A Psychological Interpretation</i>; <mark>oddelil pojmy osobnosť a charakter</mark> (dovtedy ekvivalenty). Spolu s ním s definíciou zápasil aj <span class="a">Henry Murray</span> <span class="y">1938</span>; niektoré učebnice formálnu definíciu úplne vynechávajú.</div>
+<div><span class="a">Cloninger</span> <span class="y">2003</span> – renesancia pojmu charakter: <b>temperament</b> (dedičné, vývojovo stabilné, emocionálne založené rysy) vs. <b>charakter</b> (vedomá reflexia a hodnotenie seba, vôľové konanie)</div>
+</div>
+<div class="vs">
+<div class="l"><b>Charakter</b> = osobnosť <i>hodnotená</i> podľa prevládajúcich štandardov správania</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--def-bg);border-color:var(--def)"><b>Osobnosť</b> = objektívnejší, vedecký pojem; v 20. st. štandard v psychológii, zasahuje aj do psychiatrie, sociológie, abnormálnej psychológie</div>
+</div>
+<p class="mini">V jazyku je veľa prídavných mien na vlastnosti ľudí (angl. <span class="y">20 000</span>), každé opisuje inú charakteristiku: <i>ambiciózny</i> (intenzita túžby po cieli), <i>kreatívny</i> (kvalita mysle a produktov), <i>klamársky</i> (stratégie), <i>premýšľavý</i> (vnútorné kvality), <i>šarmantný</i> (účinok na iných).</p>
+
+<div class="cols">
+<div>
+<h4>2 ciele psychológie osobnosti</h4>
+<ol><li><b>štúdium individuálnych rozdielov</b> (dimenzie, v ktorých sa ľudia líšia)</li><li><b>štúdium individuálnej osoby</b> ako jedinečného integrovaného celku</li></ol>
+<p class="mini">Napätia v odbore: analytický vs. štrukturálny · kvantitatívny vs. kvalitatívny · <span class="k">nomotetický</span> vs. <span class="k">idiografický</span> · psychológia vs. psychiatria, psychoanalýza, sociológia.</p>
+<h4>Úlohy psychológie osobnosti (3P)</h4>
+<div class="flow"><span><b>Poznávanie</b> – pojmy, charakteristika O</span><b>→</b><span><b>Predikcia</b> – príčiny správania a prežívania</span><b>→</b><span><b>Pretváranie</b> – psychoterapia, psychohygiena</span></div>
+</div>
+<div class="box sch"><span class="lab">SCHÉMA · 3 ÚROVNE ŠTÚDIA OSOBNOSTI</span>
+<table style="margin:2px 0">
+<tr><th>Úroveň</th><th>Príklad</th></tr>
+<tr><td><b>Ľudská prirodzenosť</b> (human nature)</td><td>potreba niekam patriť, schopnosť milovať</td></tr>
+<tr><td><b>Individuálne a skupinové rozdiely</b></td><td>rozdiely v potrebe patriť; muži fyzicky agresívnejší ako ženy</td></tr>
+<tr><td><b>Individuálna jedinečnosť</b></td><td>Letishin jedinečný spôsob prejavovania lásky, Santinov spôsob agresie</td></tr>
+</table></div>
+</div>
+
+<h4>Aké problémy rieši psychológia osobnosti</h4>
+<div class="cols">
+<div class="box q"><span class="lab">TEORETICKÁ (7)</span>Čo je osobnosť? · Z čoho sa skladá? · Akú štruktúru tvoria komponenty? · Ako sa O vytvára a mení v ontogenéze? · Aká je jej dynamika? · Aké sú poruchy O a ako vznikajú? · Ako O spoznávať?</div>
+<div class="box q"><span class="lab">PRAKTICKÁ (7)</span>Akou osobnosťou je tento človek? · Bude úspešný v povolaní / činnosti? · Ako sa bude správať v situáciách? · Ako bude vychádzať s inými, hodia sa k sebe? · Prečo je taký a prečo sa takým stal? · Ako sa bude vyvíjať pod vplyvom udalostí? · Dá sa zmeniť / ovplyvniť?</div>
+</div>
+
+<h3>Definícia pojmu osobnosť</h3>
+<p><span class="a">Balcar</span> <span class="y">1983</span>: pojem je taký obsiahly, že sa <mark>nedá definovať stručným výrokom</mark>. Každá definícia vyratúva najpodstatnejšie znaky a odráža teoretické východiská autora; definície sa môžu prekrývať.</p>
+<div class="box aut"><span class="lab">AUTORI · DEFINÍCIE OSOBNOSTI (5)</span>
+<b class="a">Allport (1961)</b> – <mark>dynamická organizácia psychofyzických systémov</mark> vnútri indivídua, ktorá determinuje jeho jedinečné prispôsobovanie sa prostrediu.<br>
+<b class="a">Pervin (1996)</b> – charakteristiky človeka, ktoré sú podkladom <b>konzistentných vzorcov</b> správania (myšlienky, city, pozorovateľné správanie).<br>
+<b class="a">Nákonečný (2009)</b> – <b>hypotetický konštrukt</b>: existujúci, ale nie priamo pozorovateľný fenomén, logicky odvodený z pozorovaného, s heuristickou hodnotou.<br>
+<b class="a">Cakirpaloglu (2012)</b> – pomerne stabilný, komplementárny a konzistentný systém jedinečných vlastností, obsahov a prejavov (charakter, temperament, schopnosti, konštitučné vlastnosti).<br>
+<b class="a">Larsen a Buss (2008)</b> – súbor osobnostných vlastností a mechanizmov, <b>organizovaných a relatívne stabilných</b>, ktoré ovplyvňujú interakcie a adaptáciu na sociálne, fyzické a psychické (intrapsychické) prostredie.</div>
+
+<h3>Teórie osobnosti</h3>
+<div class="cols">
+<div><p><b>Čo je teória?</b> Súbor ideí, ktorý vytvára teoretik; voľba spôsobu, ako predstaviť udalosti. Chápe sa ako hypotéza o tom, čo je pravdivé. Po zbere dát ju môžeme <b>podporiť alebo vyvrátiť</b>. Neopiera sa o definitívny princíp. <mark>Teória nie je pravdivá/nepravdivá, ale užitočná/neužitočná</mark> (či sú jej predikcie verifikovateľné).</p>
+<p><b>Úlohy teórie:</b> tvorí predikcie · organizuje poznanie · <span class="k">heuristická funkcia</span> (heuristiky = jednoduché pravidlá / skratky na rozhodovanie aj pri nedostatku informácií).</p>
+<p><b>Teória ako nástroj</b> (každý jej element plní úlohu): opísať individuálne rozdiely · identifikovať základné motívy · vysvetliť vývin sebauvedomovania · identifikovať príčinu emócií · predikovať výkon v práci · redukovať distres terapiou.</p></div>
+<div class="box sch"><span class="lab">4 PRÍSTUPY K OSOBNOSTI</span>
+<b>A · Psychodynamický</b> (klinická tradícia) – Freud, Erikson, Jung, Adler, Horneyová, Fromm, Sullivan<br>
+<b>B · Gestalt a príbuzné</b> – Maslow, Rogers, Binswanger a Boss, Lewin, Kelly<br>
+<b>C · Psychometrický</b> – Cattell, Eysenck, Murray, Allport, Sheldon<br>
+<b>D · Učenie a prostredie</b> – Skinner, Miller a Dollard, Bandura</div>
+</div>
+<div class="vs">
+<div class="l" style="background:var(--q-bg);border-color:var(--q)"><b>Implicitné (súkromné) teórie</b><br>neformálne, intuitívne, spontánne zo skúseností, kultúry, výchovy; neoverené, subjektívne, skreslené, môžu byť nekonzistentné (<i>inteligentní sú zodpovední, muži racionálni, ženy emotívne…</i>). Celkové posúdenie človeka z mála vlastností – predpokladáme, že kto má rys X, má aj ďalšie. <span class="a">Heider (1958)</span>: naivné presvedčenia slúžia rovnakým funkciám ako formálne teórie → treba im rozumieť a kriticky ich hodnotiť. Kto chce posudzovať druhých objektívne, musí poznať <b>seba</b> (vlastné skreslenia).</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--aut-bg);border-color:var(--aut)"><b>Vedecké (formálne) teórie</b><br>systematické, vedecky podložené, vznikajú výskumom; vysvetľujú štruktúru, dynamiku a vývoj O (napr. <b>Big Five</b>). Teória nás núti sformulovať pravidlá <b>explicitne</b> – len tak sa dá práca posúdiť, podporiť či vyvrátiť; orientuje teoretika na problémové oblasti a premenné.</div>
+</div>
+
+<h3>Hlavné témy psychológie osobnosti</h3>
+<p>Od <span class="y">40. rokov</span> 20. st. hlavný koncept <b>rysy/črty</b> (Allport, Cattell), veľká pozornosť <b>motívom</b> (Murray). Po <b>2. sv. vojne</b> presun od veľkých teórií k <b>špecifickým prvkom</b> osobnosti. Dnes: <b>a)</b> temperament / biologický základ · <b>b)</b> rysy · <b>c)</b> motívy · <b>d)</b> kognície (JA/SELF) · <b>e)</b> utváranie a vývoj · <b>f)</b> inteligencia (kreativita, geniálne osobnosti).</p>
+<div class="box sch"><span class="lab">6 DOMÉN POZNANIA OSOBNOSTI (LARSEN, BUSS)</span>
+<table class="cmp" style="margin:2px 0">
+<tr><th style="width:24%">Doména</th><th>Čo skúma</th><th style="width:30%">Témy</th></tr>
+<tr><td><b>a) dispozičná</b></td><td>v čom sa ľudia líšia a odkiaľ rozdiely pochádzajú</td><td>črty, taxonómie, meranie, stabilita a zmena</td></tr>
+<tr><td><b>b) biologická</b></td><td>biologické systémy ovplyvňujú emócie, myslenie, konanie</td><td>genetika, fyziologické teórie, evolúcia</td></tr>
+<tr><td><b>c) intrapsychická</b></td><td>mentálne mechanizmy mimo vedomia (Freud, motívy)</td><td>psychoanalýza, motívy, humanizmus</td></tr>
+<tr><td><b>d) kognitívno-skúsenostná</b></td><td>vedomé procesy, predstavy, pocity, presvedčenia o sebe a iných</td><td>kognícia, emócie, self-concept, self-esteem</td></tr>
+<tr><td><b>e) sociálna a kultúrna</b></td><td>O nie je len „v hlave“ – ovplyvňuje a je ovplyvnená kontextom</td><td>sociálna interakcia, rod, kultúra</td></tr>
+<tr><td><b>f) prispôsobenia</b></td><td>zvládanie udalostí každodenného života; súvis so zdravím a dĺžkou života</td><td>stres, coping, zdravie, poruchy O</td></tr>
+</table></div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">D-B-I-K-S-P</span> → „<b>D</b>obrá <b>B</b>iológia <b>I</b>nšpiruje <b>K</b>aždého <b>S</b>tudenta <b>P</b>sychológie.“</div>
+
+<h3>Predmet: 3 významy pojmu osobnosť</h3>
+<div class="cols3">
+<div class="box def"><span class="lab">1 · HODNOTIACI POJEM</span>vo vedeckom jazyku sa mu vyhýbame</div>
+<div class="box def"><span class="lab">2 · PSYCHICKÁ INDIVIDUALITA</span>odlišnosť od iných. <span class="a">R. Cattell</span>: O je to, čo spôsobuje individuálne rozdiely</div>
+<div class="box def"><span class="lab">3 · ARCHITEKTÚRA / ŠTRUKTÚRA</span>zložky v integrovanej súhre. <span class="a">G. W. Allport</span>: dynamická organizácia psychofyziologických systémov, podmieňuje charakteristické správanie a myslenie</div>
+</div>
+<p class="mini"><b>Štruktúra osobnosti</b> (slajd): základné jednotky = <b>črty</b>; O = (01) osobnosť, charakter, temperament · (02) črta · (03) zámery (intentions) · (04) propium; správanie je črtami motivované.</p>
+
+<div class="cols">
+<div><h4>Psychológia O vs. iné psychologické vedy</h4>
+<p><b>A.</b> psychológia <b>motivácie</b> (Freud – jeden dominantný pud alebo konflikt motívov) · <b>B.</b> <b>sociálna</b> („povedz mi, kto sú tvoji priatelia…“) · <b>C.</b> <b>vývinová</b> · <b>D.</b> <b>kognitívna</b> · <b>E.</b> <b>behaviorizmus</b> · <b>F.</b> skúmanie <b>inteligencie</b></p></div>
+<div><h4>… vs. nepsychologické vedy</h4>
+<p><b>sociológia</b> (alkoholizmus) · <b>kultúrna antropológia</b> – <span class="k">modálna osobnosť</span> = typický príslušník etnika (typický Angličan, východniar) · <b>filozofická antropológia</b> (kto je človek? – nie empirická) · <b>neurovedy</b> · <b>história</b> · <b>politológia</b> · aplikácie: medicína, pedagogika, personalistika</p></div>
+</div>
+<div class="box def"><span class="lab">VLASTNOSŤ = DISPOZÍCIA</span>XY je nejaký, má vlastnosť Z. Vlastnosti: morfologické, fyziologické, biologické… <b>Psychická vlastnosť = dispozícia</b> k určitému konaniu a prežívaniu (inteligencia); vysvetľuje individuálne rozdiely; k dispozíciám patria aj <b>stavy</b> (únava). Rôzne úrovne všeobecnosti (neuronálna vzrušivosť → agresivita → žiarlivosť). Vlastnosť je <b>model</b> – naša konštrukcia (<span class="k">reifikácia pojmov</span>: inteligenciu fyzicky nechytíme, ale „máme ju“).</div>
+<p><span class="k">Situacionizmus vs. dispozicionizmus</span> – čo determinuje správanie, situácia alebo dispozícia? (výskumy agresivity, spokojnosti v manželstve)</p>
+
+<h3>Činitele utvárajúce osobnosť</h3>
+<div class="vs">
+<div class="l"><b>Vnútorné</b>: dedičné, vrodené (genetické mutácie), <b>konštitučné</b> (fyziologické vlastnosti získané po narodení), <b>kongenitálne</b> (prenatálne obdobie)</div>
+<div class="mid">+</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Vonkajšie</b>: fyzické prostredie (klimatické, geografické, civilizačné), psychologické vplyvy, spoločnosť a kultúra (socializácia, skupiny, masmédiá)</div>
+</div>
+<div class="box aut"><span class="lab">BANDURA · PRINCÍP RECIPROČNEJ INTERAKCIE</span>človek <b>aktívne</b> utvára situáciu podľa svojich charakteristík, potrieb a cieľov a tá ho spätne ovplyvňuje a mení.</div>
+<div class="cols">
+<div><p><b>Dedičnosť vs. prostredie</b> – výskumy agresie v rôznych prostrediach, jednovaječných dvojčiat, adoptovaných detí; <mark>dedia sa predispozície</mark>.</p>
+<div class="box def"><span class="lab">NEUROPLASTICITA (RAKUS)</span>súhrn funkčných a štruktúrnych zmien jednotiek NS v dôsledku aktivít NS, ktoré zabezpečujú efektívnejšie a/alebo adaptívnejšie fungovanie = <b>NS sa mení počas života</b>.</div></div>
+<div><p><span class="k">Fenotypová variabilita</span> = pozorované rozdiely medzi ľuďmi · <span class="k">genotypová</span> = rozdiely v genetickej výbave · <span class="k">dedičnosť</span> = podiel fenotypovej variability pripísaný genotypovej.</p>
+<p>Najviac skúmaná dedičnosť <b>neuroticizmu (<span class="y">0,5</span>)</b> a <b>extraverzie (<span class="y">0,6</span>)</b>; potvrdená aj pri Big Five a Cloningerovom 7-faktorovom modeli. <span class="k">Behaviorálna genetika</span> = vplyv génov na správanie.</p>
+<p><b>Zdieľané prostredie</b> ovplyvňuje postoje, náboženstvo, politickú orientáciu, zdravotné správanie, verbálnu inteligenciu, no pri E a N <span class="no">takmer nehrá rolu</span> – rozhoduje <mark>jedinečné (nezdieľané) prostredie</mark> každého súrodenca.</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px"><h4 style="margin:0">Dedičnosť určitých vlastností</h4><span class="arrow">NEBOLO – v poznámkach označené, na prednáške sa nepreberalo</span></div>
+<table class="cmp">
+<tr><th>Vlastnosť</th><th>Dedičnosť</th><th>Poznámka</th><th>Vlastnosť</th><th>Dedičnosť</th><th>Poznámka</th></tr>
+<tr><td>Inteligencia</td><td class="y">50 – 80 %</td><td>v detstve viac prostredie, v dospelosti gény</td><td>Výška</td><td class="y">80 – 90 %</td><td></td></tr>
+<tr><td>Extraverzia / introverzia</td><td class="y">40 – 60 %</td><td>aj prostredie</td><td>Telesná hmotnosť</td><td class="y">60 – 80 %</td><td>strava, pohyb</td></tr>
+<tr><td>Úzkostlivosť</td><td class="y">30 – 50 %</td><td>výrazný genetický základ + skúsenosti</td><td>Tvar tváre</td><td class="y">80 – 90 %</td><td>silný vplyv génov</td></tr>
+<tr><td>Zvládanie stresu</td><td class="y">30 – 50 %</td><td>prostredie, učenie</td><td>Dĺžka života</td><td class="y">20 – 30 %</td><td>životný štýl, prostredie</td></tr>
+<tr><td>Agresivita</td><td class="y">40 – 50 %</td><td>prostredie, sociálne učenie</td><td></td><td></td><td></td></tr>
+</table>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="topic" id="t2">
+<div class="thead"><span class="tn">TÉMA 02</span><h2>Biologický základ osobnosti, temperament, typológie</h2></div>
+<p>Biológia a psychológia = 2 prístupy k tomu istému – k životu: <b>viazanosť psychiky na NS</b> vs. <span class="k">biologický redukcionizmus</span> (redukovanie psychických procesov na biologické). <i>Príklad: pokles a nárast hladiny testosterónu u futbalových fanúšikov.</i></p>
+
+<h3>Temperament</h3>
+<div class="cols">
+<div class="box def"><span class="lab">DEFINÍCIA · TEMPERAMENT</span>tie psychologické charakteristiky, ktoré sú <mark>vrodené (dedičné), majú biologický základ a týkajú sa formálnej, nie obsahovej stránky</mark> správania a prežívania.<br><span class="no">Vo vede ≠ v bežnom jazyku</span> („temperamentný“ = prudký, vznetlivý, živý).</div>
+<div><b>Temperament ako:</b> emočné ladenie osobnosti, nálada · spôsob emočnej a vôľovej vzrušivosti · celkový štýl prežívania a správania · úzko súvisí s emočným aspektom O · formálne vlastnosti nezávislé od obsahu vedomia · relatívne stále (prejavuje sa už v detstve).
+<div class="box aut" style="margin-top:6px"><span class="lab">BUSS · TEMPERAMENTOVÉ ČRTY SÚ TIE, KTORÉ (3)</span>sa objavia v <b>1. roku života</b> · zostávajú <b>hlavnými črtami</b> O · sú do značnej miery <b>dedičné</b></div></div>
+</div>
+
+<h3>Antická teória – Hippokrates, neskôr Galenos</h3>
+<p><span class="a">Hippokrates</span> (<span class="y">4. st. pred n. l.</span>), neskôr <span class="a">Galenos</span>: povaha závisí od toho, <mark>ktorá telesná tekutina prevažuje</mark>. Antická veda je dnes skôr kuriozitou – <b>toto je výnimka</b>: napriek „technickým nedostatkom“ platí, že temperament je do veľkej miery určovaný telesnými vlastnosťami (vlastnosti NS, neurotransmitéry, hormóny).</p>
+<div class="cards">
+<div class="card c-mne"><span class="n">sanguis = krv</span><b>Sangvinik</b>primeraná reaktivita (slabý podnet → slabo, silný → silno), <b>„slamený oheň“</b> – zážitky rýchlo doznievajú; prispôsobivý, vyrovnaný, optimistický, veselý, trochu nestály a ľahkovážny, city nie hlboké</div>
+<div class="card c-warn"><span class="n">cholé = žlč</span><b>Cholerik</b>výbuchy hnevu až agresia, impulzívny, netrpezlivý, panovačný, vyžaduje ústupky, egocentrický, emočne labilný, reaguje rýchlo, silno, bez zábran</div>
+<div class="card c-aut"><span class="n">phlegma = hlien</span><b>Flegmatik</b>emočne vyrovnaný, javí sa ľahostajný, vzrušia ho len silné podnety, pokojný až chladnokrvný (až apatia), málo blízkych vzťahov, bez ambícií → pasivita, nemá rád zmeny, pohybovo úsporný</div>
+<div class="card c-def"><span class="n">melan-cholé = čierna žlč</span><b>Melancholik</b>precitlivený, depresívne sklony, uzavretý, tichý, nesmelý, no svedomitý a zodpovedný; ťažšie nadväzuje vzťahy, ale city sú trvalé, lojálny, pomalý, ťažšie sa prispôsobuje</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><b>S</b>angvinik = <b>S</b>lamený oheň · <b>CH</b>olerik = <b>CH</b>ytí ho to hneď · <b>F</b>legmatik = <b>F</b>ajn, nič ho nerozhádže · <b>M</b>elancholik = <b>M</b>elanchólia, ale verný</div>
+
+<h3>Konštitučné (morfologické) typológie</h3>
+<div class="cols">
+<div><h4><span class="a">Kretschmer</span> – temperament súvisí so stavbou tela</h4>
+<table class="cmp">
+<tr><th>Telesný typ</th><th>Postava</th><th>Charakter → choroba</th></tr>
+<tr><td><b>Astenik</b></td><td>štíhly, pretiahnutý, dlhé končatiny</td><td><span class="k">schizotýmny</span> – uzavretý, navonok bezvýrazný, bohatý vnútorný život → <b>schizofrénia</b></td></tr>
+<tr><td><b>Atletik</b></td><td>svalnatý, široké ramená</td><td><span class="k">viskózny</span> – pokojný, flegmatický, analytický</td></tr>
+<tr><td><b>Pyknik</b></td><td>podsaditý, sklon k nadváhe, kratšie končatiny, široká tvár</td><td><span class="k">cyklotýmny</span> – srdečný, dobromyseľný, náladový → <b>cyklofrénia</b> (afektívna psychóza)</td></tr>
+</table></div>
+<div><h4><span class="a">William H. Sheldon</span> – somatotypy</h4>
+<p>Moderná konštitučná psychológia; fotografoval dobrovoľníkov – študentov. Somatotyp = kombinácia <b>3 komponentov</b>:</p>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-mne"><b>Endomorfia</b>vegetatívny systém, trávenie</div>
+<div class="card c-aut"><b>Mezomorfia</b>kosti a svaly</div>
+<div class="card c-sch"><b>Ektomorfia</b>koža a NS</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><b>A</b>stenik ≈ <b>E</b>ktomorf (štíhly) · <b>A</b>tletik ≈ <b>M</b>ezomorf (svaly) · <b>P</b>yknik ≈ <b>E</b>ndomorf (guľatý)</div></div>
+</div>
+<div class="box warn"><span class="lab">POZOR · FRENOLÓGIA (GALL)</span>náuka o spojení <b>tvaru lebky</b> a temperamentu; predpokladali, že tvar lebky závisí od mozgu (<span class="no">v skutočnosti naopak</span>). Zneužitá na rasizmus a sexistické stereotypy, no pomohla poznaniu funkčnej výstavby mozgu; Gallove objavy ohľadom centier sa využívajú dodnes.</div>
+
+<h3>Fyziologický prístup – typ A, B, C, D</h3>
+<p>Fyziologické systémy: <b>A.</b> nervový (mozog, nervy) · <b>B.</b> kardiovaskulárny (srdce, cievy) · <b>C.</b> kostrovo-svalový. Dnešné výskumy merajú <b>samostatné systémy</b> (tepová frekvencia, mozgové vlny), nie globálne premenné ako tvar tela. Dispozície reagovať na prostredie sprostredkujú vzťah <b>stres – zdravie</b>. Kardiológovia <span class="a">Meyer Friedman a Ray H. Rosenman</span> opísali správanie s vysokým koronárnym rizikom → typy A a B.</p>
+<div class="cards">
+<div class="card c-warn"><span class="n">vysoké koronárne riziko</span><b>Typ A</b>koronárna osobnosť, infarktogénne správanie; choroba zlého životného štýlu, vysoký krvný tlak (KT); trpí ňou <span class="y">10 – 15 %</span> dospelých. Hypertonici: potláčaná agresivita, ctižiadostivosť, vnútorný nepokoj, napätie. Črty: <mark>úzkosť, ambície, netrpezlivosť, rigidita, súťaživosť, nepriateľstvo</mark> (slajd: ambitious, competitive, hostile, striving)</div>
+<div class="card c-aut"><span class="n">nízke koronárne riziko</span><b>Typ B</b>vysoko výkonný, široký záujem o okolie a ľudí, vie primerane odpočívať a kooperovať, menej sa angažuje v strese, viac si užíva život, menej orientovaný na úspech</div>
+<div class="card c-def"><span class="n">potláčanie</span><b>Typ C</b>poddajnosť, prispôsobivosť, sebaobetovanie, nízky prejav emócií, potláčanie problémov, vyhýbanie sa konfliktom, trpezlivosť, depresivita; pesimistické explanačné sklony, bezmocnosť; hostilita obrátená dovnútra → <b>somatizácia</b>; málo asertívni, podriadení, svedomití</div>
+<div class="card c-sch"><span class="n">negatívna afektivita × sociálna inhibícia</span><b>Typ D</b>prežívajú negatívne emócie (<span class="k">dysfória</span> = mrzutá nálada, hnev, anxieta, hostilita; <span class="k">distres</span> = chronický stres), ale v sociálnych situáciách ich <b>potláčajú</b> zo strachu z odmietnutia; nízke sebahodnotenie, bránia sa zmene, rutina, často izolovaná rodina</div>
+</div>
+<p class="mini"><b>Typ D – dôsledky:</b> rizikový faktor horšieho fyzického zdravia, somatických symptómov, horšej imunity; viac anxiety, depresie, somatizácie, maladaptívnej stresovej reaktivity, dysfunkčného copingu, horšej sociálnej opory (tieto faktory sú zároveň <b>mediátormi</b> medzi typom D a zdravím); častejšie absencie v práci, veľa malých ochorení, vyhľadávanie medicínskych informácií.</p>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="topic" id="t3">
+<div class="thead"><span class="tn">TÉMA 03</span><h2>Biologické teórie: Eysenck, Cattell, Hebb, Gray, Zuckerman, Cloninger</h2></div>
+
+<div class="box sch"><span class="lab">SCHÉMA · ČASOVÁ OS BIOLOGICKÝCH MODELOV</span>
+<div class="path">
+<div class="st c-aut"><span class="n">1940s</span><b>Cattell</b><span class="y">1905–1998</span> · 16PF</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">1950s</span><b>Eysenck</b><span class="y">1916–1997</span> · PEN</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">1960s</span><b>Hebb</b><span class="y">1904–1985</span> · arousal</div><span class="ar">→</span>
+<div class="st c-q"><span class="n">1970s</span><b>Gray</b><span class="y">1934–2004</span> · BIS/BAS</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">1980s</span><b>Zuckerman</b><span class="y">1928–2018</span> · sensation seeking</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">1990s</span><b>Cloninger</b><span class="y">1944–</span> · TCI</div>
+</div></div>
+
+<h3>Eysenckova teória (Hans Jürgen Eysenck)</h3>
+<div class="box def"><span class="lab">DEFINÍCIA · OSOBNOSŤ (EYSENCK)</span>úplný súhrn aktuálnych alebo potenciálnych vzorcov správania, determinovaných <b>dedičnosťou a prostredím</b>, vznikajú interakciou <b>4 oblastí</b>: <b>kognitívna</b> (inteligencia) · <b>konatívna</b> (charakter) · <b>afektívna</b> (temperament) · <b>somatická</b> (konštitúcia).</div>
+<p>Teória založená na <b>fyziológii</b>: ľudia sa líšia v tom, ako mozog a CNS reaguje na stimuláciu z prostredia (podmienené dedične). Faktorovou analýzou dospel k <mark>3 superfaktorom: extraverzia/introverzia, neuroticizmus, psychoticizmus</mark> (<span class="acr">PEN</span>).</p>
+<div class="fig2">
+<div><h4>Hierarchia osobnosti – 4 úrovne</h4>
+<div class="ladder">
+<div><b>4 · Typ</b> – konštelácia (syndróm) čŕt, povaha dimenzie · <i>extravert</i></div>
+<div><b>3 · Črta</b> – súbor prepojených habituálnych odpovedí s konzistenciou · <i>sociabilita, smelosť, živosť</i></div>
+<div><b>2 · Habituálna odpoveď</b> – špecifické odpovede opakujúce sa za podobných podmienok · <i>pracuje ako predavač, plánuje kariéru v PR</i></div>
+<div><b>1 · Špecifická odpoveď</b> – môže sa objaviť len raz · <i>telefonuje priateľom, premiestňuje nábytok</i></div>
+</div></div>
+<div><svg viewBox="0 0 300 250" width="100%" style="max-width:300px;display:block;margin:auto" aria-label="Eysenckov kruh temperamentov">
+<circle cx="150" cy="125" r="100" fill="var(--paper)" stroke="var(--line)"/>
+<path d="M150 125 L150 25 A100 100 0 0 0 50 125Z" fill="var(--def)" fill-opacity=".14"/>
+<path d="M150 125 L150 25 A100 100 0 0 1 250 125Z" fill="var(--warn)" fill-opacity=".14"/>
+<path d="M150 125 L50 125 A100 100 0 0 0 150 225Z" fill="var(--aut)" fill-opacity=".14"/>
+<path d="M150 125 L250 125 A100 100 0 0 1 150 225Z" fill="var(--mne)" fill-opacity=".18"/>
+<line x1="40" y1="125" x2="260" y2="125" stroke="var(--ink)"/><line x1="150" y1="18" x2="150" y2="232" stroke="var(--ink)"/>
+<g font-size="9.5" font-weight="700"><text x="122" y="14">LABILITA (N+)</text><text x="118" y="246">STABILITA (N−)</text><text x="0" y="118">INTROVERZIA</text><text x="230" y="118">EXTRAVERZIA</text></g>
+<g font-size="11" font-weight="700"><text x="78" y="102">melancholik</text><text x="163" y="102">cholerik</text><text x="82" y="152">flegmatik</text><text x="160" y="152">sangvinik</text></g>
+<g font-size="7.4" fill-opacity=".85"><text x="72" y="62">náladový, úzkostlivý,</text><text x="72" y="71">rigidný, pesimistický,</text><text x="72" y="80">rezervovaný, tichý</text>
+<text x="160" y="62">popudlivý, nepokojný,</text><text x="160" y="71">agresívny, impulzívny,</text><text x="160" y="80">optimistický, aktívny</text>
+<text x="70" y="175">pasívny, premýšľavý,</text><text x="70" y="184">opatrný, spoľahlivý,</text><text x="70" y="193">vyrovnaný, pokojný</text>
+<text x="158" y="175">spoločenský, otvorený,</text><text x="158" y="184">komunikatívny, živý,</text><text x="158" y="193">bezstarostný, vodca</text></g>
+</svg><p class="figcap">E a N sú na sebe nezávislé → 2-dimenzionálna štruktúra (+ antické temperamenty)</p></div>
+</div>
+
+<div class="cols">
+<div><h4>Introverzia – extraverzia</h4>
+<table class="cmp">
+<tr><th></th><th>Vysoká E</th><th>Nízka E (introverti)</th></tr>
+<tr><td>sociabilita</td><td>spoločenskí, skupinové aktivity</td><td>samota, malé dôverné skupiny</td></tr>
+<tr><td>asertivita, dominancia</td><td>sebavedomí, iniciatívni</td><td>zdržanlivejší</td></tr>
+<tr><td>aktivita, energia</td><td>vyššia fyzická aj mentálna energia, rýchle tempo</td><td>–</td></tr>
+<tr><td>pozitívna emocionalita</td><td>častejšie radosť, nadšenie, optimizmus</td><td>vyrovnanejší, menej expresívni</td></tr>
+<tr><td>vyhľadávanie stimulácie</td><td>potrebujú viac vonkajšej stimulácie</td><td>citlivejší, nižšia úroveň stimulácie</td></tr>
+</table>
+<p class="mini"><b>Typický extravert</b>: družný, veľa priateľov, nerád sám, túži po vzrušení, riskuje, impulzívny, bezstarostný, ľahko stráca trpezlivosť, sklon k agresii, horšie kontroluje emócie, nedá sa naň celkom spoľahnúť. <b>Typický introvert</b>: tichý, radšej knihy ako ľudia, rezervovaný, plánuje dopredu, nedôveruje impulzom, má rád poriadok, emócie pod kontrolou, spoľahlivý, trochu pesimistický.</p></div>
+<div><div class="box sch"><span class="lab">SCHÉMA · EXCITAČNÁ ÚROVEŇ MOZGOVEJ KÔRY</span>
+<div class="vs" style="margin:2px 0"><div class="l" style="background:var(--mne-bg);border-color:var(--mne)"><b>Extravert</b> = <mark>nízka</mark> excitačná úroveň kôry → potrebuje <b>viac</b> vonkajšej stimulácie</div><div class="mid">vs.</div><div class="r" style="background:var(--def-bg);border-color:var(--def)"><b>Introvert</b> = <mark>vysoká</mark> excitačná úroveň (nabudený aj v pokoji) → potrebuje <b>menej</b> stimulácie</div></div></div>
+<h4>Neuroticizmus (labilita – stabilita)</h4>
+<p class="mini"><b>Vysoký N</b>: nepokojný, úzkostný, zbytočné starosti, detinský, podráždený, chýba sebadôvera, pocity menejcennosti, dlho sa trápi po ponížení, závraty, poruchy spánku, nočné mory, vyššia pravdepodobnosť neuróz; silné a časté zmeny nálad, citlivý na ohrozenie, plačlivosť, <b>citlivejší autonómny NS</b> (sympatikus a parasympatikus). <b>Emocionálna stabilita</b>: vyrovnané, kontrolované a predvídateľné emócie, nízka úzkosť, v strese pokoj, sebadôvera, racionálne uvažovanie.</p>
+<div class="box warn"><span class="lab">POZOR</span><b>Neuróza ≠ neuroticizmus</b> (neuroticizmus = dimenzia osobnosti, neuróza = porucha).</div>
+<h4>Psychoticizmus (pripojený neskôr)</h4>
+<p class="mini">náchylnosť k psychóze na kontinuu <b>normalita → psychopatia</b> (antisociálne konanie) <b>→ psychóza</b> (schizofrénia, maniodepresívna psychóza). Zložky (5): agresivita a nepriateľskosť · impulzívnosť a nepredvídateľnosť · tvrdohlavosť a nedostatok empatie · neobvyklé / bizarné myslenie · nízka sociálna konformita.</p></div>
+</div>
+
+<h3>Faktorovo-analytický prístup – R. B. Cattell (16PF)</h3>
+<p>V <span class="y">40. rokoch</span> zoznam <span class="y">4500</span> osobnostne relevantných slov v angličtine → faktorová analýza → <span class="y">12</span> šikmých faktorov (základ teórie) → <b>16-faktorový dotazník (16PF)</b>. <b>Osobnosť</b> = to, čo dovoľuje <mark>predpovedať, čo osoba v danej situácii spraví</mark>; komplexná štruktúra čŕt rôznych kategórií.</p>
+<div class="cols3">
+<div class="box def"><span class="lab">POVRCHOVÁ vs. ZÁKLADNÁ ČRTA</span><b>Povrchová</b> – zoskupenie fenoménov, ktoré sa javia ako príbuzné (odvodíme <b>pozorovaním</b>). <b>Základná</b> – len <b>faktorovou analýzou</b>; ich interakcia vytvára povrchové črty.</div>
+<div class="box def"><span class="lab">PODĽA PÔVODU</span><b>Konštitučné</b> – fyziologický pôvod, čiastočne vrodené. <b>Formované prostredím</b> – sociálne inštitúcie a fyzikálna realita → kultúrny vzorec.</div>
+<div class="box def"><span class="lab">PODĽA SPRÁVANIA</span><b>Dynamické</b> – tendencia smerom k cieľu · <b>schopností</b> – efektivita dosahovania cieľa · <b>temperamentu</b> – spôsob približovania sa k cieľu (emocionálna reaktivita)</div>
+</div>
+<div class="box sch"><span class="lab">SCHÉMA · CATTELLOVÝCH 16 FAKTOROV (NÍZKE ↔ VYSOKÉ SKÓRE)</span>
+<div class="cols" style="gap:4px 12px">
+<table class="cmp" style="margin:0"><tr><th>F.</th><th>Názov</th><th>Nízke</th><th>Vysoké</th></tr>
+<tr><td><b>A</b></td><td>afektotýmia – sizotýmia</td><td>rezervovaný</td><td>prístupný</td></tr>
+<tr><td><b>B</b> <span class="tag">SCHOPNOSŤ</span></td><td>inteligencia</td><td>nízka int.</td><td>vysoká int.</td></tr>
+<tr><td><b>C</b></td><td>sila ega</td><td>slabosť ega</td><td>vyššia sila ega</td></tr>
+<tr><td><b>E</b></td><td>dominancia – submisivita</td><td>poddajnosť</td><td>asertivita</td></tr>
+<tr><td><b>F</b></td><td>surgencia – desurgencia</td><td>rozvážny</td><td>bezstarostný</td></tr>
+<tr><td><b>G</b></td><td>sila superega</td><td>nesvedomitý</td><td>svedomitý</td></tr>
+<tr><td><b>H</b></td><td>parmia – threktia</td><td>hanblivý</td><td>priateľský*</td></tr>
+<tr><td><b>I</b></td><td>premsia – harria</td><td>húževnatý</td><td>senzitívny</td></tr>
+</table>
+<table class="cmp" style="margin:0"><tr><th>F.</th><th>Názov</th><th>Nízke</th><th>Vysoké</th></tr>
+<tr><td><b>L</b></td><td>protensia – alaxia</td><td>dôverčivý</td><td>podozrievavý</td></tr>
+<tr><td><b>M</b></td><td>autia – praxernia</td><td>praktický</td><td>imaginatívny</td></tr>
+<tr><td><b>N</b></td><td>sofistikovanosť – naivita</td><td>úprimný</td><td>prefíkaný</td></tr>
+<tr><td><b>O</b></td><td>pocity viny – sebadôvera</td><td>sebaistý</td><td>ustarostený</td></tr>
+<tr><td><b>Q1</b> <span class="tag">DYN.</span></td><td>radikalizmus – konzervativizmus</td><td>konzervatívny</td><td>experimentujúci</td></tr>
+<tr><td><b>Q2</b> <span class="tag">DYN.</span></td><td>sebestačnosť – závislosť od skupiny</td><td>závislý od skupiny</td><td>sebestačný</td></tr>
+<tr><td><b>Q3</b> <span class="tag">DYN.</span></td><td>vysoký self-koncept – nízka integrácia</td><td>bez sebakontroly</td><td>sebakontrola</td></tr>
+<tr><td><b>Q4</b> <span class="tag">DYN.</span></td><td>ergická tenzia</td><td>relaxovaný</td><td>napätý</td></tr>
+</table></div>
+<span class="mini">Na slajde: <b>B = črta schopností</b>, <b>Q1–Q4 = dynamické črty</b>, ostatné (A–O) = <b>temperamentové črty</b>. 16PF faktory v angl.: warm, abstract thinker, emotionally stable, dominant, enthusiastic, conscientious, bold, tender-minded, suspicious, imaginative, shrewd, apprehensive, experimenting, self-sufficient, controlled, tense. *H – na fotke slajdu ťažko čitateľné, over si.</span></div>
+<div class="cols">
+<div><h4>Čím je 16PF iný ako Big Five</h4>
+<p class="mini"><b>Sofistikovanosť (faktor B – reasoning)</b> – zahŕňa <mark>kognitívne schopnosti ako súčasť osobnosti</mark> (abstraktné myslenie, riešenie problémov); v Big Five a u Eysencka je inteligencia oddelená alebo chýba.<br><b>Ovládanie vlastných činov (emotional stability)</b> – u Cattella <b>samostatný</b> rys, v Big Five súčasť neuroticizmu; podrobnejšie členenie.<br><b>Bdelosť (vigilancia)</b> – podozrievavosť a obranyschopnosť voči iným, v iných modeloch explicitne chýba.</p>
+<h4>Ilustrácia faktorovej analýzy (tab. 2.4)</h4>
+<p class="mini">Z korelačnej matice 10 vlastností vyjdú 3 faktory: <b>Extraverzia</b> – družnosť <span class="y">.8</span>, panovačnosť <span class="y">.6</span>, dobrodružnosť, kooperatívnosť <span class="y">.5</span>, optimizmus, požívačnosť <span class="y">.4</span>, mrzutosť <span class="y">−.5</span> · <b>Stabilita–labilita</b> – optimizmus <span class="y">.5</span>, panovačnosť <span class="y">.3</span>, provinilosť a mrzutosť <span class="y">−.6</span>, požívačnosť <span class="y">−.3</span> · <b>Svedomitosť</b> – zodpovednosť <span class="y">.8</span>, provinilosť, pečlivosť <span class="y">.7</span>, kooperatívnosť <span class="y">.6</span>, požívačnosť <span class="y">−.7</span>. <span class="small">(hodnoty z odfotenej tabuľky, šikmá fotka)</span></p></div>
+<div><h4>Dynamické črty – 3 hlavné typy</h4>
+<div class="path" style="margin:4px 0">
+<div class="st c-sch"><span class="n">1 · postoje</span>záujem určitej intenzity + smer správania k objektu; formované prostredím<br><i>film, dane, cirkev, prezident</i></div><span class="ar">→</span>
+<div class="st c-def"><span class="n">2 · sentimenty</span>organizovaná štruktúra postojov, zdroj motivácie<br><i>manžel/ka, krajina, boh, účet v banke</i></div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">3 · ergy (pudy)</span>vrodená dispozícia k cieľu, zakúsenie špecifickej emócie<br><i>zvedavosť, sex, strach, hlad, agresia</i></div>
+</div><p class="figcap">Cattellova „dynamická mriežka“: postoje slúžia sentimentom, tie slúžia ergom</p></div>
+</div>
+
+<h3>Hebbova teória optimálnej úrovne vzrušenia</h3>
+<div class="fig2">
+<div><p>Ľudia sú motivovaní dosahovať <mark>optimálnu úroveň excitácie</mark>. Kontroverzné – vtedy prevládal názor, že cieľom je <span class="no">redukcia napätia</span>; <span class="a">Hebb</span> tvrdil, že človek <b>vyhľadáva stimuláciu a napätie</b> (v súlade s výskumami <b>senzorickej deprivácie</b>: 12 h v tichu a tme → relax → nuda → úzkosť → halucinácie). <span class="a">Hebb (1955)</span>: študenti v deprivácii radšej dookola počúvali nahrávku o škodlivosti alkoholu pre predškolákov.</p>
+<p><b>Neuróny, ktoré sa aktivujú spoločne, sa spájajú</b> → vzrušenie dlhodobo mení štruktúru mozgu (učenie, pamäť; bicykel, jazyk, beh) = základný princíp <b>neuroplasticity</b>. Aplikácia: príliš nízke vzrušenie = nuda, nízka motivácia; príliš vysoké = preťaženie, úzkosť, pokles výkonu.</p></div>
+<div><svg viewBox="0 0 260 130" width="100%" style="max-width:260px;display:block;margin:auto"><line x1="25" y1="110" x2="250" y2="110" stroke="var(--muted)"/><line x1="25" y1="110" x2="25" y2="10" stroke="var(--muted)"/><path d="M30 105 C 90 105, 100 18, 138 18 S 190 105, 245 105" fill="none" stroke="var(--sch)" stroke-width="2.4"/><line x1="138" y1="18" x2="138" y2="110" stroke="var(--gold)" stroke-dasharray="3 3"/><g font-size="9"><text x="112" y="12">optimum</text><text x="40" y="124">nízke vzrušenie</text><text x="175" y="124">vysoké</text><text x="34" y="98">nuda</text><text x="205" y="98">úzkosť</text></g><text x="6" y="80" font-size="9" transform="rotate(-90 12 70)">výkon</text></svg><p class="figcap">Vzrušenie a výkon – krivočiary (nelineárny) vzťah</p></div>
+</div>
+
+<h3>Jeffrey Gray – Reinforcement Sensitivity Theory (neuropsychologická teória temperamentu)</h3>
+<div class="fig2">
+<div><div class="vs" style="margin:2px 0">
+<div class="l"><b>BAS</b> – behaviorálny <b>aktivačný</b> systém: stimuly signalizujúce <b>odmenu</b>, reguluje <b>približovacie</b> správanie. Reaktívny BAS → citlivý na odmenu, príjemné emócie; schopnosť potlačiť správanie klesá s blízkosťou cieľa → dimenzia <mark>impulzivita</mark>.</div>
+<div class="mid">vs.</div>
+<div class="r"><b>BIS</b> – behaviorálny <b>inhibičný</b> systém: signály <b>trestu, frustrácie, neistoty</b>, reguluje <b>vyhýbavé</b> správanie / zastavuje prebiehajúce. Reaktívny BIS → strach, úzkosť, smútok → dimenzia <mark>anxieta</mark>.</div>
+</div></div>
+<div><svg viewBox="0 0 240 200" width="100%" style="max-width:240px;display:block;margin:auto" aria-label="Gray vs Eysenck">
+<line x1="120" y1="15" x2="120" y2="185" stroke="var(--muted)" stroke-dasharray="4 3"/><line x1="15" y1="100" x2="225" y2="100" stroke="var(--muted)" stroke-dasharray="4 3"/>
+<line x1="50" y1="160" x2="190" y2="40" stroke="var(--aut)" stroke-width="2.4"/><line x1="50" y1="40" x2="190" y2="160" stroke="var(--warn)" stroke-width="2.4"/>
+<g font-size="9"><text x="98" y="12">Extraverzia</text><text x="98" y="196">Introverzia</text><text x="196" y="96">Neuroticizmus</text><text x="2" y="96">Stabilita</text></g>
+<g font-size="9" font-weight="700"><text x="160" y="34" fill="var(--aut)">vysoká impulzivita (BAS)</text><text x="8" y="174" fill="var(--aut)">nízka impulzivita</text><text x="148" y="176" fill="var(--warn)">vysoká úzkosť (BIS)</text><text x="12" y="34" fill="var(--warn)">nízka úzkosť</text></g></svg><p class="figcap">Grayove osi = Eysenckove osi pootočené</p></div>
+</div>
+<p class="mini">Ľudia sa líšia relatívnou citlivosťou BIS a BAS. Meranie BIS/BAS meria <b>rovnaký latentný konštrukt</b> ako N a E. <span class="a">Canli a kol. (2001)</span>: mozog extravertov viac reaguje na príjemné obrázky, mozog ľudí s vysokým N na negatívne. Citlivý BIS → anxiózne stavy, strachy, depresie, fóbie; stres z neistoty a novosti. <b>Väznice</b> sú plné ľudí, ktorí nevedia zastaviť okamžite odmeňované správanie; <span class="no">na impulzívnych trest nepôsobí</span> (slabý BIS), lepšie sa učia odmenou. BIS → vyššia aktivácia <b>amygdaly</b>, BAS → centrá odmeny (<b>nucleus accumbens</b>).</p>
+<table class="cmp">
+<tr><th style="width:26%">Výskum</th><th>Zistenie</th></tr>
+<tr><td><b>1</b> · <span class="a">Heerey a Kring (2007)</span></td><td>vyšší BIS → vyhýbanie sa sociálnym situáciám, citlivosť na odmietnutie a kritiku, sociálna úzkosť</td></tr>
+<tr><td><b>2</b> · <span class="a">Urošević et al. (2016)</span>, <span class="a">Steinberg et al. (2008)</span>, gambling</td><td>vysoký BAS u adolescentov → rizikové správanie (alkohol, fajčenie, riskantný sex), okamžité odmeny, nižšia kontrola impulzov; v gamblingu viac riskujú napriek stratám</td></tr>
+<tr><td><b>3</b> · <span class="a">Gable, Reis a Elliot (2000)</span></td><td>BAS → častejšie pozitívne emócie pri cieľoch a odmenách; BIS → negatívne emócie (strach, úzkosť) pri hrozbe neúspechu či trestu</td></tr>
+<tr><td><b>4</b> · <span class="a">Elliot a McGregor (2001)</span></td><td>BAS → lepšie akademické výsledky pri odmene; BIS → vyhýbanie sa úlohám a prokrastinácia zo strachu z neúspechu</td></tr>
+<tr><td><b>5</b> · <span class="a">Johnson et al. (2003)</span></td><td>bipolárna porucha → nadmerne aktívny BAS (manické epizódy); depresia → zvýšený BIS</td></tr>
+<tr><td><b>6</b> · <span class="a">Corr, DeYoung a McNaughton (2013)</span></td><td>BAS → vyššia kreativita (motivácia, otvorenosť, ochota riskovať)</td></tr>
+<tr><td><b>7</b> · <span class="a">Voigt et al. (2009)</span></td><td>BIS → somatické problémy (bolesti hlavy, trávenie, stres); BAS → fyzicky aktívnejší, lepšie zdravie</td></tr>
+</table>
+
+<h3>M. Zuckerman – vyhľadávanie vzrušenia (sensation seeking)</h3>
+<div class="box def"><span class="lab">DEFINÍCIA · VYHĽADÁVANIE VZRUŠENIA</span>osobnostná vlastnosť definovaná potrebou rôznych <b>nových, komplexných dojmov a zážitkov</b> a ochotou podstupovať pre ne <b>fyzické aj sociálne riziko</b> (stála potreba optimálnej stimulácie, v ktorej sa ľudia líšia).</div>
+<div class="cards">
+<div class="card c-warn"><span class="n">1 · thrill and adventure seeking</span><b>Dobrodružstvo</b>adrenalínové, fyzicky náročné zážitky, extrémne športy</div>
+<div class="card c-mne"><span class="n">2 · experience seeking</span><b>Zážitky</b>nové, nezvyčajné zážitky – cestovanie, umenie, neznáme prostredia</div>
+<div class="card c-def"><span class="n">3 · disinhibition</span><b>Disinhibovanosť</b>strata sociálnych zábran, odklon od noriem – divoké večierky, alkohol, promiskuita</div>
+<div class="card c-sch"><span class="n">4 · boredom susceptibility</span><b>Náchylnosť k nude</b>nepokoj v nemennom prostredí, nechuť k rutine</div>
+</div>
+<p class="mini"><b>Príklady:</b> riskantné investície, hazard, extrémne povolania, drogy, nebezpečné cestovanie, netradičné vzťahy, nekonvenčné umenie, piercing, tetovanie, farebné vlasy, exotické jedlá.</p>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">D-Z-D-N</span> → „<b>D</b>obrodruh <b>Z</b>ažije <b>D</b>ivokú <b>N</b>oc.“</div>
+
+<h3>Cloninger – psychobiologický model temperamentu a charakteru (1987)</h3>
+<p>„Moderná teória osobnosti“: osobnostné vlastnosti sú prepojené s fungovaním <b>neurotransmitérov</b>; O = interakcia biologických dispozícií a skúsenosti. <b>Temperament</b> (biologický, vrodený, viditeľný skoro) = automatické asociatívne odpovede na jednoduché podnety; súvisí so 4 stavmi emócií – <b>strach, hnev, pripútanie, odolnosť</b>. <b>Charakter</b> (neskôr, sociálne učenie, kultúra, skúsenosť) = chápanie seba a sveta.</p>
+<table class="cmp">
+<tr><th>Temperament</th><th>Neurotransmiter</th><th>Prejav / vysoké skóre</th><th>Nízke skóre</th><th>Výhody · nevýhody</th><th>Porucha</th></tr>
+<tr><td><b>NS</b> – novelty seeking (vyhľadávanie nového)</td><td><b>dopamín</b> · behaviorálna aktivácia</td><td>nové podnety, impulzivita; náladoví, extravagantní, neporiadni, ľahko podliehajú nude; <i>skúmajúci, výstredný, dráždivý</i></td><td>stoickí, rezervovaní, poriadkumilovní, rutinní; <i>opatrný, rigidný</i></td><td>+ originalita, objavy · − strata motivácie, excesívna impulzivita</td><td>impulzívne PO</td></tr>
+<tr><td><b>HA</b> – harm avoidance (vyhýbanie sa poškodeniu)</td><td><b>GABA, serotonín</b> · behaviorálna inhibícia</td><td>obavy z neznámeho, ostýchavosť, sociálna inhibícia, unaviteľnosť, pesimizmus; <i>bázlivý, plachý</i></td><td>bezstarostní, optimistickí, nízka responzivita v ohrození; <i>odvážny, vitálny</i></td><td>+ obozretnosť, plánovanie · − maladaptívna inhibícia, úzkosť</td><td>úzkostné poruchy</td></tr>
+<tr><td><b>RD</b> – reward dependence (závislosť na odmene)</td><td><b>noradrenalín, serotonín</b> · sila sociálnej väzby</td><td>sociálna senzitivita, náklonnosť, závislosť na uznaní; srdeční, citliví; <i>vrelý, účastný</i></td><td>praktickí, racionálni, chladní, nezávislí; <i>kritický, netečný</i></td><td>+ ľahko tvorí vzťahy · − sugestibilita, strata objektivity</td><td>vyhýbavé PO</td></tr>
+<tr><td><b>P</b> – persistence (vytrvalosť)</td><td><b>glutamát, serotonín</b> · čiastočné posilnenie</td><td>usilovnosť, rozhodnosť, ambicióznosť, perfekcionizmus; frustrácia = výzva; <i>horlivý, ctižiadostivý</i></td><td>leniví, nestáli, ľahko sa vzdávajú; <i>apatický, pragmatik</i></td><td>+ keď odmena vyžaduje dlhší čas</td><td>obsedantné poruchy</td></tr>
+</table>
+<div class="cols">
+<div><table class="cmp">
+<tr><th>Charakter</th><th>Vysoké</th><th>Nízke</th></tr>
+<tr><td><b>SD</b> – self-directedness (sebariadenie): spoľahlivý, vynaliezavý, cieľavedomý, vyrovnaný</td><td>prispôsobuje správanie cieľom na základe realistického zhodnotenia</td><td>obviňujúci, bezradní, nezodpovední, zlyhávajú pri plánovaní</td></tr>
+<tr><td><b>CO</b> – cooperativeness (kooperatívnosť): miera, do akej sa cíti súčasťou spoločnosti</td><td>empatickí, tolerantní, súcitní, zásadoví; výhoda v kolektíve (<span class="no">nie</span> pri individualistickom živote)</td><td>sebeckosť, intolerancia, oportunizmus</td></tr>
+<tr><td><b>ST</b> – self-transcendence (sebapresiahnutie): súčasť sveta, vesmíru, prírody</td><td>duchovní, skromní, pokorní, naplnení; výhoda v starobe (utrpenie, choroba, smrť)</td><td>praktickí, materialistickí, kontrola, málo naplnení</td></tr>
+</table>
+<p class="mini">Deskriptory (slajd) – vysoké: dúfajúci / pohotový · oddaný / zhovievavý · radostný / mierumilovný; nízke: malicherný / hanebný · pohŕdavý / pomstychtivý · chamtivý / skľúčený.</p></div>
+<div class="box sch"><span class="lab">SCHÉMA · CLONINGER</span>
+<svg viewBox="0 0 280 175" width="100%" style="display:block;margin:auto">
+<rect x="95" y="2" width="90" height="20" rx="4" fill="var(--gold-soft)" stroke="var(--gold)"/><text x="112" y="16" font-size="10" font-weight="700">OSOBNOSŤ</text>
+<rect x="8" y="42" width="110" height="20" rx="4" fill="var(--aut-bg)" stroke="var(--aut)"/><text x="22" y="56" font-size="10" font-weight="700">TEMPERAMENT</text>
+<rect x="162" y="42" width="110" height="20" rx="4" fill="var(--def-bg)" stroke="var(--def)"/><text x="185" y="56" font-size="10" font-weight="700">CHARAKTER</text>
+<line x1="120" y1="22" x2="63" y2="42" stroke="var(--muted)"/><line x1="160" y1="22" x2="217" y2="42" stroke="var(--muted)"/>
+<g font-size="7.5"><text x="2" y="76">nevedomé automatické reakcie</text><text x="2" y="86">procedurálne učenie (podmieňovanie)</text><text x="160" y="76">vedomé sebauvedomené plány</text><text x="160" y="86">propozičné učenie (náhľad)</text></g>
+<g font-size="8.5" font-weight="700"><rect x="2" y="100" width="30" height="16" rx="3" fill="var(--aut-bg)"/><text x="8" y="111">HA</text><rect x="36" y="100" width="30" height="16" rx="3" fill="var(--aut-bg)"/><text x="42" y="111">NS</text><rect x="70" y="100" width="30" height="16" rx="3" fill="var(--aut-bg)"/><text x="76" y="111">RD</text><rect x="104" y="100" width="30" height="16" rx="3" fill="var(--aut-bg)"/><text x="113" y="111">P</text>
+<rect x="160" y="100" width="34" height="16" rx="3" fill="var(--def-bg)"/><text x="168" y="111">SD</text><rect x="199" y="100" width="34" height="16" rx="3" fill="var(--def-bg)"/><text x="207" y="111">CO</text><rect x="238" y="100" width="34" height="16" rx="3" fill="var(--def-bg)"/><text x="246" y="111">ST</text></g>
+<g font-size="6.8"><text x="0" y="127">pasívne</text><text x="0" y="135">vyhýbanie</text><text x="36" y="127">aktivácia</text><text x="36" y="135">incentív</text><text x="70" y="127">sociálna</text><text x="70" y="135">väzba</text><text x="104" y="127">čiastočné</text><text x="104" y="135">posilnenie</text><text x="160" y="127">jednotlivec</text><text x="199" y="127">spoločnosť</text><text x="238" y="127">vesmír</text></g>
+<text x="2" y="160" font-size="8">Trojuholník: temperament (NS, HA, RD, P) vo vnútri charakteru (SD, CO, ST)</text>
+</svg></div>
+</div>
+<div class="box warn"><span class="lab">POZOR</span>V poznámkach „<b>trojdimenzionálny model (1987)</b>“, ale rozpísané sú <b>4 temperamentové + 3 charakterové</b> dimenzie = <b>7-faktorový model</b> (spomenutý aj pri dedičnosti; dotazník TCI). Pôvodné 3 dimenzie = NS, HA, RD; over si, ako to uvádzala prednášajúca.</div>
+
+<h3>Biologické modely – zhrnutie</h3>
+<p>Eysenck, Gray, Zuckerman, Cloninger vysvetľujú vlastnosti <b>odlišne</b>, ale zrejme opisujú <mark>tie isté behaviorálne vlastnosti na rôznych fyziologických úrovniach</mark> (od synapsií po mozog ako celok):</p>
+<div class="flow"><span><b>Eysenck</b> – mozog a NS (kôra)</span><b>·</b><span><b>Gray</b> – systémy mozgu pre učenie odmenou a trestom</span><b>·</b><span><b>Zuckerman</b> – synapsie, chemické štruktúry</span><b>·</b><span><b>Cloninger</b> – konkrétne neurotransmitéry</span></div>
+
+<h3>Ranný a večerný typ (morningness – eveningness; Horne a Östberg, 1976)</h3>
+<div class="cols">
+<div><p>Stabilné charakteristiky. <b>Príčina</b>: rozdiely v biologických rytmoch – <span class="k">cirkadiánne rytmy</span> (24 h: telesná teplota, tep, hormóny GIT, peristaltika, žlč, moč). Najštudovanejšia telesná teplota a endokrinné žľazy: max. <span class="y">20:00 – 21:00</span>, min. okolo <span class="y">06:00</span>; interakcia <b>kortizolu, melatonínu</b> a teploty. Večerný typ má biologické hodiny <b>oneskorené</b> (čiastočne endogénne).</p>
+<p><b>Kratší</b> biologický rytmus → vrchol bdelosti skôr, skôr unavení = <b>ranný typ</b>; <b>dlhší</b> rytmus = <b>večerný typ</b>. Nočné zmeny zvládajú lepšie <b>večerní</b>.</p></div>
+<div class="vs" style="grid-template-columns:1fr">
+<div class="r"><b>Večerný typ</b> – náchylnejší na duševné ťažkosti: depresia, afektívne poruchy, návykové správanie, nespavosť; víkendový dospávanie, nutkavý internet, úzkosť, horší výchovný štýl, menšia podpora rodiny → <mark>nešpecifický rizikový faktor</mark> pre duševné aj fyzické zdravie.</div>
+<div class="l"><b>Ranný typ</b> – pozitívne vzťahy s fyzickým a duševným zdravím, sebaúctou, rodinnými vzťahmi, fungovaním v škole.</div>
+</div>
+</div>
+<p class="mini"><b>Čo s tým:</b> psychoedukácia, behaviorálna terapia, kognitívna reštrukturalizácia, psychohygiena, relaxácia, fototerapia, medikamentózna liečba.</p>
+<div class="box warn"><span class="lab">POZOR</span>V poznámkach „HOME a OSTBER“ – správne <b>Horne a Östberg</b> (1976).</div>
+
+<h3>Praktické využitie – Eysenckove dotazníky</h3>
+<div class="cols">
+<div><ol class="steps">
+<li><div><b>EPQ-R</b> (revidovaný) – <span class="y">106</span> položiek; škály <b>P, E, N, L</b> + nové <b>návyková (A)</b> a <b>kriminality (C)</b></div></li>
+<li><div><b>EPQ-R skrátená</b> – <span class="y">48</span> položiek, pri časovej núdzi, rovnocenná, ale <span class="no">bez</span> A a C</div></li>
+<li><div><b>IVE</b> – dotazník impulzivity: <b>impulzivita (I), dobrodružnosť (V), empatia (E)</b></div></li>
+</ol></div>
+<div><p class="mini"><b>Škála kriminality</b> – Eysenck predpokladal, že zločinci a psychopati majú výrazné črty s genetickým základom a narušené formovanie svedomia na psychofyziologickom základe. <span class="no">Nekonzistentná</span> teória – ignoruje, že kriminalita je do veľkej miery <b>kultúrne definovaná</b>.</p>
+<p class="mini"><b>Arousal</b> (aktivačná úroveň): introverti sú „vzrušivejší“; stimulácia zvyšuje vzrušenie; vzťah k výkonu krivočiary; optimum negatívne súvisí s náročnosťou úlohy → <mark>introverti lepší pri nízkej stimulácii, horší pri vysokej</mark>; extraverti vyhľadávajú viac stimulácie.</p></div>
+</div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="topic" id="t4">
+<div class="thead"><span class="tn">TÉMA 04</span><h2>SELF (JA)</h2></div>
+
+<h3>W. James – otec skúmania pojmu JA</h3>
+<div class="fig2">
+<div><div class="vs" style="margin:2px 0">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>Poznávajúce JA (I-SELF)</b><br>aktívny aspekt, subjektívny zážitok toho, čo konáme, <b>vnútorný pozorovateľ</b> („the Thinker that does the thinking“; self-as-subject)</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Poznávané JA (ME-SELF)</b> = seba-koncept<br><mark>súhrn všetkého, čo človek môže nazvať svojím</mark> (self-as-object; „I see <i>me</i> in the mirror“)</div>
+</div></div>
+<div><div class="ladder">
+<div><b>Duchovné JA</b> – vnútorné, najtrvalejšie aspekty: charakteristiky, dispozície, hodnoty, morálne úsudky</div>
+<div><b>Sociálne JA</b> – toľko „JA“, v koľkých referenčných skupinách je; spätná väzba od iných</div>
+<div><b>Materiálne JA</b> – telo (fyzické JA) + majetok, veci; <mark>základ pre ostatné</mark></div>
+</div><p class="figcap">ME-SELF – hierarchia podľa osobnej dôležitosti</p></div>
+</div>
+<p class="mini">Zo zložiek sa tvorí emocionálny život, pocity o sebe a konanie zamerané na <b>sebarealizáciu, sebazáchranu, sebarozvoj</b>. <b>JA</b> = prežívanie vlastnej osobnosti; sebauvedomovanie ako <b>mentálna reprezentácia</b>, ktorá sa nelíši od reprezentácií iných objektov. <b>Vývin JA</b>: socializácia, interakcia s prostredím; obsah JA zo <b>spätných informácií z prostredia</b> alebo z <b>vlastného pozorovania</b> svojej činnosti a stavov (<span class="a">Blatný a kol., 2010</span>).</p>
+<div class="cols">
+<div class="box def"><span class="lab">ČO JE TYPICKÉ PRE JA (2)</span><b>1. Self-consistency</b> – udržiavať stály, konzistentný pohľad na seba; konať v súlade so sebaobrazom (identita „dobrý študent“). <span class="a">Banaji a Prentice (1994)</span>: motivácia k sebapoznávaniu a k hľadaniu dôkazov potvrdzujúcich sebaposúdenie.<br><b>2. Vyhľadávanie pozitívnych informácií</b> o sebe – podpora sebaúcty a presvedčenia o vlastných kompetenciách.</div>
+<div class="box aut"><span class="lab">ROGERSOVO SELF</span>v terapii rešpektovanie a akceptácia klienta; terapia <b>zmenšuje rozpor medzi organizmickou skúsenosťou a SELF</b> → sebaprijatie bez podmienok. <span class="k">Inkongruencia</span> = nesúlad medzi <b>ideálnym JA</b> (kým chcem byť), <b>sebaobrazom</b> (za koho sa považujem) a <b>skutočným JA</b>. Ideálne JA ≠ sebaobraz → trpí sebavedomie; sebaobraz ≠ skutočné JA → úzkosť, obranyschopnosť. Kongruencia = všetky tri sa prekrývajú.</div>
+</div>
+
+<h3>Sebaúcta / sebahodnotenie</h3>
+<p>Čo tvorí JA: <b>sebahodnotenie, sebaúcta, sebavedomie, sebaúčinnosť</b>. Sebaúcta = mentálna reprezentácia <b>emocionálneho vzťahu k sebe</b>, predstava vlastnej hodnoty a kompetencie, skladba emocionálnych postojov k sebe; budovaná na tom, ako sa darí dosahovať ciele; podmienkou je <b>sebaakceptácia</b>. <span class="a">Dusek, Harterová, Kling</span>: deti a adolescenti s vyššou sebaúctou sú empatickejší, spoločenskí, menej konformní; s nízkou sa správajú maladaptívne.</p>
+<div class="cols">
+<div><b>Čo ovplyvňuje sebaúctu:</b> úspech vo vysoko hodnotených cieľoch (čím náročnejšia úloha, tým väčšia spokojnosť) · pozitívne hodnotenie od pozorovateľov · súbežné pôsobenie oboch. <b>Výchovný štýl</b> – milujúci, podporujúci, dieťa sa podieľa na rozhodovaní → vysoká sebaúcta. <b>Vrstovníci</b> – porovnávanie od <span class="y">5 – 6</span> rokov formuje globálnu sebaúctu; v adolescencii najvýznamnejší vplyv. <b>Detstvo</b> – rodičia, významné osoby · <b>dospelosť</b> – kolegovia, referenčné skupiny, rodina, partner, priatelia, vlastné deti.</div>
+<div class="box sch"><span class="lab">HARTEROVÁ · HIERARCHICKÝ MODEL DETSKEJ SEBAÚCTY</span>
+<svg viewBox="0 0 330 74" width="100%"><rect x="115" y="2" width="100" height="20" rx="4" fill="var(--gold-soft)" stroke="var(--gold)"/><text x="125" y="16" font-size="9.5" font-weight="700">globálna hodnota</text>
+<g stroke="var(--muted)"><line x1="165" y1="22" x2="165" y2="32"/><line x1="33" y1="32" x2="297" y2="32"/><line x1="33" y1="32" x2="33" y2="42"/><line x1="99" y1="32" x2="99" y2="42"/><line x1="165" y1="32" x2="165" y2="42"/><line x1="231" y1="32" x2="231" y2="42"/><line x1="297" y1="32" x2="297" y2="42"/></g>
+<g font-size="8"><rect x="2" y="42" width="62" height="28" rx="3" fill="var(--sch-bg)"/><text x="6" y="54">školská</text><text x="6" y="64">kompetencia</text><rect x="68" y="42" width="62" height="28" rx="3" fill="var(--sch-bg)"/><text x="72" y="54">sociálne</text><text x="72" y="64">prijatie</text><rect x="134" y="42" width="62" height="28" rx="3" fill="var(--sch-bg)"/><text x="138" y="54">športová</text><text x="138" y="64">kompetencia</text><rect x="200" y="42" width="62" height="28" rx="3" fill="var(--sch-bg)"/><text x="204" y="54">fyzický</text><text x="204" y="64">vzhľad</text><rect x="266" y="42" width="62" height="28" rx="3" fill="var(--sch-bg)"/><text x="270" y="54">správanie</text><text x="270" y="64">(conduct)</text></g></svg>
+<span class="mini">Sebaúcta nie je jednorozmerná – špecifické oblasti sa zoskupujú do domén a zjednocujú do globálneho pocitu hodnoty; globálna sebaúcta <span class="no">nie je priamo súčtom</span> domén; dieťa môže byť vysoko v jednej a nízko v inej (multidimenzionalita). V adolescencii najsilnejší prediktor = <b>fyzický vzhľad a sociálne prijatie</b>. <b>Self-perception profile for children</b>: sebaúcta v oblasti vs. dôležitosť oblasti. <b>Čo robiť:</b> znižovať diskrepanciu · rozvíjať zručnosti · pozornosť na oblasti kompetencie · znižovať význam oblastí nekompetencie · reálna spätná väzba · zameranie na vlastné zdokonaľovanie, nie porovnávanie; tréning soc. zručností, strava, šport.</span></div>
+</div>
+<div class="cols">
+<div><p><b>Je vždy výhodné vysoké sebahodnotenie?</b> Ľudia s vysokým SH robia o sebe nadhodnotené závery, predpoklady prekračujú schopnosti → zlyhanie, nižšia odmena než u ľudí s nižším SH. <b>Význam:</b> sebaúcta ako príčina pozitívneho prispôsobenia; <span class="a">Donnellan a kol.</span> – <mark>protektívny faktor</mark> pred psychickými problémami, alkoholom, antisociálnym správaním.</p></div>
+<div><table class="cmp">
+<tr><th>Výskum</th><th>Zistenie</th></tr>
+<tr><td><span class="a">Gerard a Buehler (2004)</span>, longit.</td><td>adolescenti z rizikového prostredia s vysokou sebaúctou → menej depresie</td></tr>
+<tr><td><span class="a">Trzesniewski a kol. (2006)</span>, longit.</td><td>nízka sebaúcta v adolescencii → po rokoch (20-ka) viac psychických a fyzických problémov, horšie ekonomické vyhliadky, kriminalita</td></tr>
+<tr><td><span class="a">Haney a Durlak (1998)</span></td><td>intervencia na zvýšenie sebaúcty → lepšia adjustácia a školské výkony</td></tr>
+<tr><td><span class="a">Larsen a Buss (2008)</span></td><td>ochrana vs. zvyšovanie sebaúcty</td></tr>
+</table></div>
+</div>
+<div class="box q"><span class="lab">PRÍKLAD · PONUKA RIADITEĽA IT V STARTUPE (VYSOKÁ STÁVKA, VYSOKÉ RIZIKO)</span>Niektorí odmietnu – <b>chránia sebakoncept</b>, vyhýbajú sa pravdepodobnému neúspechu. <mark>Ľudia s nízkou sebaúctou sú motivovaní chrániť sebaobraz vyhýbaním sa neúspechu</mark>, nie ho zvyšovať úspechom.</div>
+<div class="vs">
+<div class="l" style="background:var(--mne-bg);border-color:var(--mne)"><b>Defenzívny pesimizmus</b> – kognitívna stratégia: <b>nízke očakávania</b> napriek minulým úspechom → zmierni sklamanie; predstavujú si všetky scenáre a <b>usilovne sa pripravujú</b>. <span class="a">Noremová (2005)</span>: pozitívny aspekt – obavy využité konštruktívne na <b>motiváciu k tvrdšej práci</b> (strach z verejného prejavu).</div>
+<div class="mid">vs.</div>
+<div class="r"><b>Self-handicapping</b> (zámerné sebaznevýhodňovanie) – pri hrozbe zlyhania si človek <b>vopred vytvorí handicap / „alibi“</b> ako vysvetlenie neúspechu (študentka sa neučí → „neprešla som, lebo som sa neučila, nie preto, že som hlúpa“). <mark>Pre ľudí s nízkou sebaúctou je neúspech zlý, ale neúspech bez výhovorky ešte horší.</mark></div>
+</div>
+
+<h3>Prečo ľudia majú JA?</h3>
+<div class="cols">
+<div><p><b>Adaptačné funkcie:</b> <b>1.</b> <span class="k">sebaregulácia</span> – sebaprezentácia (byť dobrým otcom, umelcom) a dlhodobé ciele · <b>2.</b> spracovanie pre JA relevantných informácií → adaptácia na štruktúrované sociálne prostredie.</p>
+<p class="mini"><b>Porozumieť iným</b> – <span class="a">Leary (2007)</span>: sebauvedomenie sa vyvinulo, aby sme rozumeli iným (empatia, sympatia, vďačnosť, predstieranie, podvádzanie). <span class="a">Decety a Jackson (2006)</span>: rovnaké neuronálne okruhy na porozumenie sebe aj iným.</p></div>
+<div class="box def"><span class="lab">ŠTYRI MOTÍVY</span><b>1.</b> získavanie <b>presných informácií</b> o sebe (realistické ciele) + vnímať seba <b>konzistentne</b> (potvrdzovať existujúci pohľad bez ohľadu na realitu; výhoda – stabilita správania)<br><b>2.</b> <b>prezentovať sa priaznivo</b> (status, akceptácia; skresľovanie na zvýšenie sebahodnotenia, pohody, atraktivity)<br><b>3.</b> <b>porozumieť iným</b><br><b>4.</b> <b>vytváranie identity</b> (osobnej, vzťahovej, sociálnej, kolektívnej)</div>
+</div>
+
+<h3>3 hlavné komponenty SELF v každodennom živote</h3>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-def"><span class="n">1 · deskriptívny – kto som?</span><b>Self-koncept</b>sebaponímanie, sebaobraz · self-schémy · ideálne JA vs. JA, aké by malo byť</div>
+<div class="card c-mne"><span class="n">2 · hodnotiaci</span><b>Self-esteem</b>self-complexity · defenzívny pesimizmus · self-handicapping · variabilita sebaúcty</div>
+<div class="card c-sch"><span class="n">3 · JA ukazované iným</span><b>Sociálna identita</b>kontinuita a kontrast · kríza identity (Erikson) · deficit vs. konflikt identity</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">K-E-I</span> → <b>K</b>oncept (kto som) · <b>E</b>steem (koľko si cením) · <b>I</b>dentita (čo ukazujem)</div>
+
+<h4>1 · Self-koncept – vývin</h4>
+<div class="tl">
+<div><span class="y">cca 18 mes.</span> – sebaspoznanie v zrkadle</div>
+<div><span class="y">2 – 3 roky</span> – identifikácia v kontexte rodu a veku</div>
+<div><span class="y">3 – 12 rokov</span> – self-koncept založený na zručnostiach a talentoch; od <span class="y">cca 5 rokov</span> <b>sociálne porovnávanie</b> s referenčnou skupinou → vnútorný, súkromný self-koncept</div>
+<div><b>teenage</b> – schopnosť sociálnej perspektívy</div>
+</div>
+<div class="vs">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>Self-koncept</b> = <b>širší</b> pojem, celkový obraz o sebe (presvedčenia, postoje, pocity, vlastnosti, skúsenosti, schopnosti, hodnoty, vzťahy); <mark>súhrn self-schém</mark>. <i>Anna sa považuje za „dobrú študentku“; Tomáš za „fit a zdravého“.</i></div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Self-schéma</b> = <b>špecifická</b> kognitívna štruktúra poznatkov o konkrétnom aspekte self, z minulých skúseností; <b>mentálna šablóna</b>, ako interpretujeme informácie o sebe (myslenie, presvedčenia, emócie, spracovanie spätnej väzby, motivácia). <i>Annine stratégie učenia; Tomášove vedomosti o tréningu.</i></div>
+</div>
+<p class="mini">Self-schémy sa vzťahujú na <b>minulé a súčasné</b> aspekty; schémy budúceho JA = <span class="k">možné JA (possible selves)</span> – kým by sme sa mohli stať, dúfame alebo sa obávame, že sa staneme (ideály aj nežiaduce JA). <i>„Kým som bol, aký som teraz a aký chcem byť“ = sebaobraz.</i> Typy schém (obrázok): o osobách, sociálne, self-schémy, o udalostiach. Príklad: schéma mužskosti = asertivita, sila, nezávislosť.</p>
+<div class="box q"><span class="lab">ÚLOHY Z PREDNÁŠKY · SELF-SCHÉMA „BYŤ FIT“ / „DOBRÝ OTEC“ / „ZODPOVEDNÝ ZAMESTNANEC“</span>Schéma obsahuje: <b>myslenie a vnímanie</b> („Som dosť aktívny?“) · <b>presvedčenia</b> (pohyb = kľúč k dobrému životu; dobrý otec trávi čas s deťmi) · <b>emocionálne prežívanie</b> (vina pri nesúlade, spokojnosť pri súlade) · <b>spracovanie informácií</b> (pochvala schému posilní, kritika ohrozí) · <b>motiváciu a správanie</b> (plánuje rodinné aktivity).<br>
+<b>Koncept → schéma → dysfunkcia → intervencia:</b> „Som zodpovedný zamestnanec“ → „Nikdy nemeškám, lebo si to organizujem“ → <span class="no">„Ak zmeškám termín, úplne som zlyhal“, „Musím byť vždy k dispozícii“</span> (perfekcionizmus, vyhorenie) → KBT: <b>A</b> identifikácia myšlienkových vzorcov (monitoring) · <b>B</b> kognitívna reštrukturalizácia · <b>C</b> sebahodnotenie a sebaakceptácia · <b>D</b> behaviorálne intervencie (realistické ciele, relaxácia, nácvik odmietania).</div>
+<p class="mini"><b>Praktické aplikácie self-schém (7):</b> 1 KBT (negatívne schémy „Som neschopný“ → reštrukturalizácia) · 2 nízke sebavedomie („Nikdy nič nedokážem“ → „Mám schopnosti“) · 3 trauma („Je to moja vina“ → „Urobil som, čo som mohol“; PTSD, depresia) · 4 výkon a motivácia (koučing, šport: „Vždy zlyhám pod tlakom“) · 5 identita (kríza po dôchodku → rozšírenie self-konceptu) · 6 sociálne vzťahy (sociálna úzkosť) · 7 akademický a pracovný výkon („som zlý v matematike“).</p>
+
+<h4>Higgins (1999) – ideálne JA vs. JA, aké by malo byť (ought-self)</h4>
+<table class="cmp">
+<tr><th></th><th>Ideálne JA</th><th>Ought-self (JA, aké by malo byť)</th></tr>
+<tr><td>čo to je</td><td>čím by človek <b>chcel</b> byť – vlastné túžby, ciele, ambície</td><td>čím by <b>mal</b> byť podľa <b>očakávaní iných</b>, noriem; povinnosti a záväzky</td></tr>
+<tr><td>motivácia</td><td>túžba, rozvoj, vnútorná spokojnosť</td><td>povinnosti, <b>prevencia zlyhania</b></td></tr>
+<tr><td>nesúlad so skutočným JA</td><td><mark>smútok, skľúčenosť, sklamanie</mark> (úzkosť, depresia)</td><td><mark>vina, utrápenosť, znepokojenie</mark> (úzkosť, vina, hanba)</td></tr>
+<tr><td>príklad</td><td>chce byť podnikateľkou / umelcom</td><td>rodina chce, aby bola právničkou / lekárom</td></tr>
+</table>
+<p class="mini">Higgins: ought a ideálne JA = <b>seba-príručky</b> (normy na usporiadanie informácií a motiváciu), motivačnú silu získavajú z emócií; často sú v <b>konflikte</b>. <b>Intervencie pri konflikte (5):</b> 1 KBT – reštrukturalizácia, <span class="k">reframing</span> (lekár môže tvoriť – medicínska ilustrácia) · 2 práca na prijatí – hodnoty, mindfulness · 3 tréning asertivity, stanovenie hraníc · 4 realistické kompromisy – konkrétny plán · 5 sebaakceptácia – <span class="k">self-compassion</span>.</p>
+
+<h4>2 · Self-esteem (hodnotiaci komponent)</h4>
+<p>Sebaúcta = súhrn pozitívnych a negatívnych hodnotení všetkých aspektov self-konceptu.</p>
+<div class="cols">
+<div class="box def"><span class="lab">SELF-COMPLEXITY</span>veľa rolí = veľa aspektov self. <b>Vysoká</b> komplexita → zlyhanie v jednej oblasti tlmia ostatné. <b>Nízka</b> (pár veľkých oblastí) → tá istá udalosť je zničujúca. <mark>Komplexné sebaponímanie = lepšie zvládanie negatívnych udalostí</mark> (mnohokrát potvrdené).</div>
+<div class="box def"><span class="lab">VARIABILITA SEBAÚCTY</span>hladina ≠ variabilita (fluktuácia) – <b>odlišné mechanizmy</b>. Vyššia variabilita u ľudí, ktorých sebaúcta závisí od spätnej väzby iných, lebo: <b>A</b> citlivosť na sociálne hodnotenie · <b>B</b> obavy o pohľad na seba · <b>C</b> spoliehanie na sociálne zdroje hodnotenia · <b>D</b> negatívne reakcie na hodnotenie.</div>
+</div>
+
+<h4>3 · Sociálna identita – JA, ktoré sa ukazuje iným</h4>
+<p>Časť nás, ktorou vytvárame dojem, aby iní vedeli, kto sme a čo od nás čakať; na rozdiel od self-konceptu obsahuje <mark>sociálne pozorovateľné, verejne dostupné prvky</mark> (pohlavie, etnicita). 2 charakteristiky: <b>kontinuita</b> (nemenné: pohlavie, povolanie, meno, rodinný stav; verejné vzorce: športovec, partner) a <b>kontrast</b> (odlišuje nás, jedinečnosť v očiach iných). Vývin identity – <span class="a">Erikson</span>.</p>
+<div class="box def"><span class="lab">KRÍZA IDENTITY</span>úzkosť pri snahe definovať / redefinovať individualitu a spoločenskú reputáciu</div>
+<div class="vs">
+<div class="l" style="background:var(--q-bg);border-color:var(--q)"><b>Deficit identity</b> – nevytvoril si adekvátnu identitu → problém so zásadnými rozhodnutiami (VŠ? oženiť sa?); opúšťa staré hodnoty – prázdnota aj nadšenie; <b>zraniteľní voči propagande a kultom</b>.</div>
+<div class="mid">vs.</div>
+<div class="r"><b>Konflikt identity</b> – <b>nezlučiteľnosť</b> dvoch a viac aspektov identity (kariéra vs. oddaná matka); pri ťažkých životných rozhodnutiach; typicky <b>adolescencia a stredný vek</b>.</div>
+</div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="topic" id="t5">
+<div class="thead"><span class="tn">TÉMA 05</span><h2>Motívy a potreby</h2></div>
+<div class="vs">
+<div class="l" style="background:var(--def-bg);border-color:var(--def)"><b>Psychológia osobnosti</b>: „<i>Prečo ľudia robia to, čo robia?</i>“ – hľadá túžbu / motív, ktorý ich poháňa</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Psychológia motivácie</b>: „<i>Čo vlastne chcú?</i>“</div>
+</div>
+<p>Psychológia motivácie (podobne ako dispozičná PsyO) zdôrazňuje: ľudia sa líšia <b>typom a silou</b> motívov · rozdiely sú <b>merateľné</b> · súvisia so životnými výsledkami (obchodný úspech, spokojnosť v manželstve) · sú <b>stabilné v čase</b> · odpovedajú na otázku „prečo“. Prístup cez motívy je <mark>na polceste medzi intrapsychickou a dispozičnou doménou</mark>.</p>
+
+<h3>Potreby – Murray</h3>
+<div class="cols">
+<div><div class="box def"><span class="lab">DEFINÍCIA · POTREBA (MURRAY)</span>„potenciál alebo pripravenosť reagovať určitým spôsobom za určitých okolností… podstatné meno vyjadrujúce, že určitý trend sa môže opakovať“.</div>
+<p class="mini">Potreby <b>organizujú vnímanie</b> (vidíme, čo chceme vidieť – kto má potrebu moci, vidí v situáciách príležitosť šéfovať) a <b>organizujú činnosť</b> (potreba výkonu → obetuje sa, tvrdo pracuje). Každá potreba = túžba/zámer + emócie + akčné tendencie + črty. <i>Afiliácia: túžba po vzťahoch · teplo, vrelosť, kooperatívnosť · trávenie času s inými · ústretovosť, priateľskosť, lojalita.</i></p>
+<div class="box aut"><span class="lab">TAT – TEMATICKÝ APERCEPČNÝ TEST</span>sada nejednoznačných <b>obrázkov</b>, k nim respondent rozpráva príbeh, čo sa stalo; <b>hlavná idea</b>: príbehy obsahujú témy zodpovedajúce jeho potrebám a motívom.</div></div>
+<table class="cmp">
+<tr><th>Skupina</th><th>Potreba – opis</th></tr>
+<tr><td rowspan="3">potreby <b>ambícií</b></td><td><b>Úspech</b> – ovládať, organizovať, plniť ťažké úlohy rýchlo a nezávisle, prekonávať prekážky, prevýšiť súperov</td></tr>
+<tr><td><b>Exhibovanie</b> – byť videný a počutý, stredobod pozornosti, ohromovať, fascinovať, baviť</td></tr>
+<tr><td><b>Poriadok</b> – čistota, organizovanosť, rovnováha, presnosť</td></tr>
+<tr><td>zachovania <b>statusu</b></td><td><b>Dominancia</b> – ovplyvňovať a riadiť iných presviedčaním, príkazmi, zvádzaním; ovládať prostredie</td></tr>
+<tr><td rowspan="4">súvisiace so <b>sociálnou silou</b></td><td><b>Poníženie</b> – akceptovať kritiku a obviňovanie, pasívne sa podriadiť, priznať menejcennosť</td></tr>
+<tr><td><b>Agresivita</b> – silne prekonať opozíciu, pomstiť sa, napadnúť, trestať</td></tr>
+<tr><td><b>Autonómia</b> – zbaviť sa obmedzení, odolať nátlaku, byť slobodný a nepripútaný</td></tr>
+<tr><td><b>Vyhýbanie sa obviňovaniu</b> – vyhnúť sa poníženiu za každú cenu, nekonať zo strachu z neúspechu či posmechu</td></tr>
+<tr><td rowspan="3"><b>sociálnej náklonnosti</b></td><td><b>Afiliácia</b> – spolupráca, recipročná interakcia, priblížiť sa, zostať verný priateľom</td></tr>
+<tr><td><b>Výchova</b> – starať sa o druhých v núdzi, súcit, pomáhať, chrániť, liečiť</td></tr>
+<tr><td><b>Pomoc</b> – prijímať pomoc, mať potreby uspokojené inými</td></tr>
+</table>
+</div>
+<div class="box warn"><span class="lab">POZOR</span>V poznámkach „POTREBA AMICIÍ“ = <b>potreby ambícií</b>. Pri TAT je v poznámkach „sada nejednoznačných príbehov“ – v skutočnosti ide o <b>obrázky</b>, ku ktorým sa príbeh vymýšľa.</div>
+
+<h3>The Big Three – motív úspechu, moci a intimity</h3>
+<p>Murray navrhol desiatky motívov, výskum sa sústreďuje na 3 fundamentálne:</p>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-mne"><span class="n">nAch · achievement</span><b>Úspech</b>uprednostňujú výzvu <b>určitú, ale nie príliš veľkú</b> · osobnú zodpovednosť za výsledok · úlohy so <b>spätnou väzbou</b> o výkone. Veľa zistení o rodových a kultúrnych rozdieloch, zvyšovaní motivácie.</div>
+<div class="card c-warn"><span class="n">nPow · power</span><b>Moc</b> = túžba mať vplyv. Koreluje s hádkami, zvolením do študentských funkcií, rizikom pri hazarde, asertivitou v malej skupine, „<b>prestížnym majetkom</b>“ (<span class="a">Winter, 1973</span> – športové autá, kreditky, menovky na dverách); záujem o kontrolu; muži s vysokou nPow chcú závislé manželky a častejšie ich zneužívajú (1987); za priateľov volia nepopulárnych (nesúťažia o prestíž).</div>
+<div class="card c-def"><span class="n">nInt · intimacy</span><b>Intimita</b> = pripravenosť na vrelú, blízku, komunikatívnu interakciu. Viac myslia na vzťahy, príjemnejšie emócie pri ľuďoch, viac úsmevu a očného kontaktu, začínajú konverzácie, píšu viac listov. <span class="no">Nie sú to len extraverti</span> – pár veľmi dobrých priateľov, úprimné rozhovory namiesto večierkov, viac počúvajú, nedominantní, nie sebastrední.</div>
+</div>
+
+<h3>Humanistická tradícia – motív sebaaktualizácie</h3>
+<p>Dôraz na <b>uvedomenie si potrieb, voľbu a osobnú zodpovednosť</b> za zmysluplný život; potreba <b>rastu</b> a realizácie plného potenciálu; ľudská povaha pozitívna. <mark>Freud, Murray, McClelland vidia pôvod motívov v nedostatku (deficite)</mark> – úspech, moc, intimita sú <b>deficitné motívy</b>; humanizmus = motivácia <b>rastom</b> (subtílny, ale dôležitý rozdiel).</p>
+<div class="fig2">
+<div><h4>Maslow – hierarchia potrieb</h4>
+<svg viewBox="0 0 260 150" width="100%" style="max-width:270px;display:block;margin:auto">
+<polygon points="130,4 158,32 102,32" fill="#8fa8d8"/><polygon points="102,34 158,34 186,62 74,62" fill="#7cb87a"/><polygon points="74,64 186,64 214,92 46,92" fill="#ecc45a"/><polygon points="46,94 214,94 242,122 18,122" fill="#e9925a"/><polygon points="18,124 242,124 258,146 2,146" fill="#d7605a"/>
+<g font-size="8.5" font-weight="700" fill="#222" style="fill:#222"><text x="113" y="27" style="fill:#222">SA</text><text x="104" y="52" style="fill:#222">úcta</text><text x="88" y="82" style="fill:#222">láska, prináležanie</text><text x="98" y="112" style="fill:#222">bezpečie</text><text x="82" y="140" style="fill:#222">fyziologické potreby</text></g></svg>
+<p class="mini">Nižšie potreby zvyčajne uspokojíme skôr · nižšie sú pri neuspokojení <b>naliehavejšie</b> · vyššie sú menej dôležité pre prežitie, a teda menej naliehavé.</p></div>
+<div><h4>Kenrick – update Maslowa (evolučný pohľad)</h4>
+<div class="ladder" style="font-size:12.5px">
+<div style="background:#f6f0b0;color:#222"><b>7 · rodičovstvo</b> (parenting)</div>
+<div style="background:#c9ecd6;color:#222">6 · udržanie partnera (mate retention)</div>
+<div style="background:#c9ecd6;color:#222">5 · získanie partnera (mate acquisition)</div>
+<div style="background:#d8dcf6;color:#222">4 · status / úcta</div>
+<div style="background:#c8e8f2;color:#222">3 · afiliácia</div>
+<div style="background:#f3c6e6;color:#222">2 · sebaochrana</div>
+<div style="background:#f6d3c3;color:#222">1 · bezprostredné fyziologické potreby</div>
+</div><p class="mini">Pridal potreby <b>nájsť a udržať partnera</b> a <b>vychovať deti</b> (rozmnoženie, gény pre ďalšie generácie); sebaaktualizácia na vrchole chýba.</p></div>
+</div>
+<div class="cols">
+<div class="box def"><span class="lab">FLOW (PRÚDENIE) · MIHALY CSIKSZENTMIHALYI</span>subjektívny stav úplného zapojenia do činnosti – zabúdame na čas, únavu, seba. Zriedkavé; podmienky: <b>rovnováha zručností a výzvy · jasný cieľ · okamžitá spätná väzba</b>. Silná motivačná sila, znak (aspoň chvíľkovej) sebarealizácie.</div>
+<div><b>15 charakteristík sebaaktualizujúcich ľudí (Maslowove prípadové štúdie):</b>
+<ol class="mini" style="columns:2;column-gap:16px"><li>dôverné vnímanie reality</li><li>prijatie seba, iných, prírody/osudu</li><li>spontánnosť</li><li>zameranie na problém (filozofické, etické)</li><li>afinita k samote</li><li>nezávislosť od kultúry, nejdú s módou</li><li>„začiatočnícky rozum“ – všedné ako po prvý raz</li><li>častejšie vrcholové zážitky</li><li>túžba pomáhať</li><li>hlboké väzby s málo ľuďmi</li><li>demokratické hodnoty, bez predsudkov</li><li>rozlišujú prostriedky a ciele</li><li>filozofický humor</li><li>kreativita (vidieť spojenia)</li><li>rezistencia k enkulturácii</li></ol></div>
+</div>
+
+<h3>Carl Rogers (1902 – 1987)</h3>
+<p>Zameral sa na <b>spôsoby, ako podporiť sebarealizáciu</b> → <span class="k">terapia zameraná na klienta</span>. Ľudia sú v podstate <b>dobrí</b>, prirodzený stav je byť plne funkčný; za určitých podmienok sa v pohybe k sebarealizácii zastavia.</p>
+<div class="cols3">
+<div class="box aut"><span class="lab">NAPLNO FUNGUJÚCI ČLOVEK</span>na ceste k sebarealizácii (nemusí byť sebarealizovaný, ale nie je blokovaný); otvorený novým skúsenostiam, <b>fokus na prítomnosť</b>, dôveruje sebe a svojim pocitom, nehľadá rady, často neštandardný, záväzky si stanovuje sám</div>
+<div class="box aut"><span class="lab">CESTA K TOMU BYŤ SÁM SEBOU</span>deti sa rodia s <b>túžbou po pozitívnom rešpekte</b>; potrebujú <mark>bezpodmienečný pozitívny rešpekt</mark> – prijatie bez podmienok, aj pri disciplíne → skúsenosti prijímajú, nie popierajú; prijmú aj svoje slabosti</div>
+<div class="box aut"><span class="lab">ÚZKOSŤ A OBRANA</span>úzkosť = zážitok <b>nezhodný so self-konceptom</b>. Plne fungujúci <b>zmení self-koncept</b>; menej funkčné = zmeniť <b>zážitok</b> obranným mechanizmom – Rogers zdôraznil <span class="k">skreslenie</span> (modifikujú prežívanie, nie sebaobraz)</div>
+</div>
+<div class="box q"><span class="lab">PRÍKLAD · OBRANNÝ MECHANIZMUS SKRESLENIA</span>„Láskavý“ človek sa v konflikte správa nepriateľsky → „<i>On ma vyprovokoval, ja som reagoval primerane</i>“ – upraví interpretáciu situácie, aby nemusel meniť sebaobraz. Dlhodobo <span class="no">nefunkčné</span> – potláča sebareflexiu, problém sa opakuje.</div>
+<p>Problém so sebarealizáciou nie kvôli nízkemu IQ, ale strate kontaktu s <b>vlastnými emóciami</b>. <span class="k">Emocionálna inteligencia</span> – 5 zložiek: poznať vlastné emócie · regulovať ich · motivovať sa · vedieť, ako sa cítia iní · ovplyvňovať, ako sa cítia iní. <span class="a">Bar-On (2001)</span>: EI korelovala so sebaaktualizačnou tendenciou; <mark>EI je pre sebarealizáciu dôležitejšia ako IQ</mark>.</p>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="topic" id="t6">
+<div class="thead"><span class="tn">TÉMA 06</span><h2>Údaje a meranie osobnosti</h2></div>
+<h3>S akými údajmi pracuje psychológia osobnosti? (S-O-T-L)</h3>
+<div class="cards">
+<div class="card c-def"><span class="n">S · self-report</span><b>S-údaje</b>osoba vypovedá o sebe – rozhovor, vlastné záznamy, dotazníky; štruktúrované aj neštruktúrované; <b>experience sampling</b> (denné snímkovanie)</div>
+<div class="card c-aut"><span class="n">O · observer-report</span><b>O-údaje</b>jeden alebo viac pozorovateľov (deti → rodičia; závislí, ktorí nevedia podať informácie)</div>
+<div class="card c-sch"><span class="n">T · test data</span><b>T-údaje</b>štandardizované testy, projektívne techniky, fyziologické údaje (fMRI, EEG, CAT, MEG, CT)</div>
+<div class="card c-mne"><span class="n">L · life-outcome</span><b>L-údaje</b>verejne dostupné: svadby, rozvody, pokuty, bary, zbrojný preukaz, zamestnanie, kriminálna minulosť, koníčky</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">S-O-T-L</span> → <b>S</b>ám o sebe · <b>O</b>statní o mne · <b>T</b>est · <b>L</b>ife (stopy v živote)</div>
+<table class="cmp">
+<tr><th style="width:9%"></th><th>Výhody</th><th>Nevýhody / poznámky</th></tr>
+<tr><td><b>S</b></td><td>prístup k informáciám nedostupným iným (obvyklá úzkosť, pocity, emócie, túžby, presvedčenia, sebaúcta, ako ho vnímajú iní, obavy, fantázie, ciele) → <mark>nevyhnutný zdroj</mark></td><td>musia byť <b>ochotní a schopní</b> odpovedať · nie vždy <b>úprimní</b> (nekonvenčné zážitky, nežiaduce vlastnosti) · chýba presné <b>sebapoznanie</b> → preto aj pozorovatelia</td></tr>
+<tr><td><b>O</b></td><td>informácie z iných zdrojov nedostupné (dojem na iných, reputácia, konflikty, postavenie v skupine); <b>viac pozorovateľov</b> (inter-rater reliabilita), self-report len 1 osoba; blízki pozorovatelia (intimate observers). <span class="a">Fetchenhauer, Groothuis a Pradel (2010)</span>: altruizmus rozpoznaný už za <span class="y">20</span> sekúnd. <span class="a">Santayana (1905/1980)</span>: pozorovateľ niekedy dospeje k pravdám, o ktorých človek sám netuší.</td><td>blízki – skreslenia. <b>Naturalistické</b> pozorovanie: realistický kontext, ale <span class="no">bez kontroly</span> (extraverti viac kyberšikanujú). <b>Laboratórne</b>: kontrola, ale <span class="no">obetovanie realizmu</span></td></tr>
+<tr><td><b>T</b></td><td>štandardizovaná situácia odhalí rozdiely v reakciách na identické podmienky (<span class="a">Block, 1977</span>); dá sa kontrolovať kontext, eliminovať cudzie vplyvy. Fyziológia, projektívne techniky (<b>Rorschach</b> – premietnutie O do škvrny)</td><td>respondenti hádajú účel a prispôsobujú sa · rôzne chápanie situácie · úzkosť · neuvedomené ovplyvňovanie výskumníkom · charakteristiky výskumníka</td></tr>
+<tr><td><b>L</b></td><td>S- a O-dáta sa často používajú na <b>predikciu L-dát</b>: záznamy o jazde (poisťovne), kreditné karty a reklamy, sledovanie webov a spam; e-mail <i>honey.bunny77@…</i> = o niečo extravertnejší (<span class="a">Back, Schmukle a Egloff, 2008</span>)</td><td>budúce otázky: impulzivita → nehody, honba za statusom → prestížne nákupy kartou, sexuálna túžba → pornostránky</td></tr>
+</table>
+<div class="box q"><span class="lab">PRÍKLAD T-DÁT · MURRAY 1948 (ASSESSMENT OF MEN)</span>Postaviť most cez potôčik (drevo, lano, náradie) len inštruovaním 2 asistentov („vševedko“ a „nechápavý“), ktorí ho úmyselne frustrujú. Údajne sa meria vodcovstvo, v skutočnosti <b>tolerancia frustrácie</b> a výkon v nepriaznivých podmienkach.</div>
+
+<h3>Hodnota nástrojov (psychometria a psychodiagnostika)</h3>
+<div class="cols">
+<div><div class="box def"><span class="lab">RELIABILITA – PRÍKLAD</span>reálne IQ = <span class="y">115</span>: perfektne reliabilná metodika → 115 pri každom testovaní; menej → <span class="y">112 – 118</span>; ešte menej → <span class="y">100 – 130</span> (od priemeru po hranicu geniality).</div>
+<div class="box warn"><span class="lab">RESPONSE SETS (MNOŽINY ODPOVEDÍ)</span>odpovedanie <span class="no">nezávislé od obsahu</span> položky: <b>súhlasenie</b> (áno/nie bez ohľadu na obsah → riešenie: opačne bodované položky) · <b>extrémne reakcie</b> (krajné body škály, vyhýbanie sa stredu).</div>
+<p class="mini"><b>Validita</b>: face (zjavná), kriteriálna, konvergentná, diskriminačná, konštruktová. <b>Generalizovateľnosť</b> = miera, v akej si metodika zachováva validitu v rôznych kontextoch (skupiny, prostredia).</p></div>
+<div><div class="box def"><span class="lab">SOCIÁLNA ŽIADÚCNOSŤ (PAULHUS)</span>odpovedanie tak, aby sa javili v lepšom svetle – častý zdroj chýb self-reportu. <b>Dvojkomponentový model:</b><br><b>1. Seba-klamanie (SDE)</b> – <b>úprimný</b> štýl (verí si), nerealisticky pozitívne kognitívne charakteristiky, dištancovanie od bežných obmedzení.<br><b>2. Impression management (IM)</b> – <b>vedomé</b> predstieranie, preháňanie žiaduceho správania.<br><i>Religiózni majú vyššiu prívetivosť – vysoko žiaduca vlastnosť.</i></div>
+<p class="mini">2 názory: sociálna žiadúcnosť je <b>skreslenie</b> (odstrániť) vs. <b>platná súčasť</b> žiaducich čŕt (šťastie, svedomitosť, príjemnosť). Škály: <b>BIDR</b> (Balanced Inventory of Desirable Responding, Paulhus), <b>Crowne–Marlowe</b> Social Desirability Scale.</p></div>
+</div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="topic" id="t7">
+<div class="thead"><span class="tn">TÉMA 07</span><h2>Faktorové modely: Big Five, HEXACO, temná triáda</h2></div>
+<div class="cols">
+<div><h4>Identifikácia najdôležitejších vlastností (3 prístupy)</h4>
+<ol class="steps">
+<li><div><b>Lexikálny</b> – rozdiely sú pozorovateľné a ľudia si na ne vymysleli slová; kritériá <i>synonym frequency</i> a <i>cross-cultural universality</i></div></li>
+<li><div><b>Štatistický</b> – štatisticky nájsť hlavné „súradnice“ mapy osobnosti; faktorová analýza; často <b>ateoretický</b></div></li>
+<li><div><b>Teoretický</b> – teória určí dôležité premenné (Freud, Maslow)</div></li>
+</ol></div>
+<div><h4>Taxonómie vlastností</h4>
+<p class="mini"><span class="a">Robert Hogan</span> (1983): „História teórie osobnosti pozostáva z ľudí, ktorí tvrdia, že ich súkromní démoni sú všeobecnou príčinou utrpenia.“ Taxonómie: Eysenckov hierarchický model · <b>circumplexové (kruhové)</b> modely – <span class="a">Timothy Leary, Jerry Wiggins</span> (rozdiely temperamentové, charakterové, materiálne, postojové, mentálne, fyzické).</p>
+<p class="mini"><b>Interpersonálne črty</b> = čo ľudia robia medzi sebou. Interpersonálne vzťahy = <b>výmena</b> dvoch zdrojov: <mark>láska a status</mark> – „dyadické interakcie s jasnými sociálnymi (status) a emocionálnymi (láska) dôsledkami“ (<span class="a">Wiggins, 1979</span>) = 2 osi <b>Wigginsovho cirkumplexu</b>. <span class="k">Ortogonalita</span> = dimenzie nezávislé, pravouhlé. → T 13 dotazník interpersonálnej diagnózy <b>ICL</b>.</p></div>
+</div>
+
+<h3>Big Five</h3>
+<p>Empirické zovšeobecnenie <b>kovariácie</b> vlastností. <span class="a">Digman a Inouye (1986)</span>: pri veľkom množstve ratingových škál možno takmer celú osobnosť opísať <b>5 robustnými faktormi</b> (nájdené aj inými meraniami). Pravdepodobne <mark>výskumne najvplyvnejší model</mark>; 5 faktorov je nutných a takmer postačujúcich (vlastnosti kovariujú: asertívni a sociabilní bývajú veselí a energickí → spoločný faktor E). → dotazník <b>NEO-FFI</b>.</p>
+<div class="cols">
+<table class="cmp">
+<tr><th>Faktor</th><th>Póly (príklady)</th></tr>
+<tr><td><b>O</b> – otvorenosť</td><td>vynaliezavý – praktický · rozmanitosť – rutina · nezávislosť – konformita</td></tr>
+<tr><td><b>C</b> – svedomitosť</td><td>organizovaný – neusporiadaný · opatrný – neopatrný · ukáznený – neukáznený</td></tr>
+<tr><td><b>E</b> – extraverzia</td><td>spoločenský – samotársky · vtipný – rozvážny · citlivý – zdržanlivý</td></tr>
+<tr><td><b>A</b> – prívetivosť</td><td>ohľaduplný – bezcitný · dôverčivý – podozrievavý · ochotný – neochotný</td></tr>
+<tr><td><b>N</b> – neuroticizmus</td><td>pokojný – úzkostlivý · istý – pochybujúci · spokojný – nespokojný</td></tr>
+</table>
+<div><div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">OCEAN</span> → <b>O</b>tvorenosť · <b>C</b> (svedomitosť) · <b>E</b>xtraverzia · <b>A</b> (prívetivosť) · <b>N</b>euroticizmus</div>
+<div class="box sch"><span class="lab">STABILITA V ŽIVOTE</span>od adolescencie do staroby pozvoľna <b>klesá N a E</b>, <b>stúpa A a C</b>; <b>O stúpa do cca 25 rokov</b>, potom pozvoľna klesá.</div>
+<p class="mini"><b>Kultúra</b> neovplyvňuje typ ani počet faktorov – štruktúra je rovnaká naprieč kultúrami; vysvetlenie aj <b>dedičnosťou</b> (výskumy príbuzných a dvojčiat).</p></div>
+</div>
+<h4>Empirické koreláty Big Five</h4>
+<div class="cols">
+<div class="box def"><span class="lab">EXTRAVERZIA</span>časté sociálne interakcie, veľa rozprávajú; <mark>sociálna pozornosť = hlavný rys</mark>; väčší vplyv, vedúce pozície; extrovertní muži odvážnejší k ženám (introverti plachí, uprednostňujú online kontakt); šťastnejší (najmä keď sa správajú extravertne); zapojení a radostní v práci; viac spolupracujú; fyzicky aktívnejší a silnejší; jazdia rýchlo, počúvajú hudbu pri šoférovaní, <b>viac nehôd</b> aj smrteľných; menej šetria; dovolenka na pláži (introverti hory)</div>
+<div class="box def"><span class="lab">PRÍVETIVOSŤ</span>ústretoví, vyjednávanie (nízka A = presadzovanie moci v konflikte); harmonická interakcia, kooperatívna rodina; prosociálni, empatickí, pomáhajú, tvrdo odsudzujú antisociálne činy; deti menej často obeťami šikany v ranej adolescencii; dobrí v „čítaní myšlienok“, viac odpúšťajú. Opačný pól = <b>agresivita</b> (búchanie dverami, hádky, zvýšený hlas, poškodzovanie majetku)</div>
+<div class="box def"><span class="lab">SVEDOMITOSŤ</span>pracovití, cieľavedomí, lepšie výsledky v škole; vyššia spokojnosť s prácou, angažovanejšie vzťahy; <b>oddialia uspokojenie</b> (šetrenie, investovanie); úspech v práci = nízka prokrastinácia + perfekcionizmus + motivácia k úspechu; častejšie cvičia, menej priberajú; vášeň a vytrvalosť v dlhodobých cieľoch; dobrovoľníctvo. <b>Nízka C</b>: rizikový sex, reagujú na iných partnerov aj vo vzťahu; u väzňov častejšie zatknutia. <span class="no">Nevýhoda</span>: väčší pokles pohody pri nezamestnanosti</div>
+<div class="box def"><span class="lab">NEUROTICIZMUS – EMOČNÁ STABILITA</span>premenlivosť nálad; väčšia únava počas dňa; disociatívne skúsenosti, myšlienky na samovraždu; horšie zdravie, viac fyzických symptómov, menej zdravého správania, viac alkoholu; problémy vo vzťahoch, sexuálna úzkosť, väčšia pravdepodobnosť PTSD (trauma intenzívne a dlho), na stres reagujú únavou; menší profesionálny úspech; self-handicapping. Vysoký N <b>prekonáva stabilných</b> v nezvyčajne rušnom, meniacom sa kancelárskom prostredí. <b>Afektívna volatilita</b> ovplyvňuje mnohé sféry od sexuality po úspech</div>
+</div>
+<div class="box def"><span class="lab">INTELEKT – OTVORENOSŤ VOČI SKÚSENOSTI</span>Položky (<span class="a">Watson, 2003</span>): „Po prebudení neviem, či som to zažil alebo sa mi snívalo“, „Viem, že snívam“, „Ovládam obsah snov“, „Sen mi pomohol vyriešiť problém“ → vysoká O: viac si pamätajú sny, viac bdelých, živších, „prorockých“ snov a snov riešiacich problémy. Experimentovanie s jedlami aj vzťahmi. Príčina: rozdiely v spracovaní informácií – ťažšie ignorujú predtým zažité podnety, „brány vnímania otvorenejšie“ (<span class="a">Peterson, Smith a Carson, 2002</span>). Vysoká O = kreativita, menej predsudkov a rasových stereotypov, politicky liberálnejší, tetovanie, piercing, hudba a umenie, viac medzipohlavných priateľstiev na sieťach; nízka O = <b>tunelové videnie</b>.</div>
+<h4>Kombinácie Big Five – realitu lepšie predikuje kombinácia než jedna dispozícia</h4>
+<table class="cmp">
+<tr><th>Výsledok</th><th>Kombinácia</th><th>Výsledok</th><th>Kombinácia</th></tr>
+<tr><td><b>dobré známky</b> (Chamorro-Premuzic a Furnham, 2003)</td><td>C + emočná stabilita (menej prokrastinujú)</td><td><b>alkohol</b> (Hong a Paunonen, 2009; Paunonen, 2003)</td><td>vysoká E + nízka C; nízka C = patologické pitie (Grano a kol., 2004)</td></tr>
+<tr><td><b>akademická nečestnosť</b> (Giluk a Postlethwaite, 2015)</td><td>nízka C + nízka A</td><td><b>patologický gambling</b> (Bagby a kol., 2007; MacLaren, Myrseth)</td><td>vysoký N + nízka C</td></tr>
+<tr><td><b>počítačové zručnosti</b> (Gnambs, 2015)</td><td>vysoká C + vysoká O + nízka E</td><td><b>agresivita</b> (Ode, Robinson a Wilkowski, 2008)</td><td>vysoký N; vysoká A <b>zmierňuje</b> nálady</td></tr>
+<tr><td><b>poslušnosť autorite</b> (Bègue et al., 2014)</td><td>vysoká C + vysoká A</td><td><b>násilní zločinci</b> (Shimotsukasa a kol., 2019)</td><td>nízka A + vysoká E</td></tr>
+<tr><td><b>vyššie vzdelanie a zárobok</b> (O'Connell a Sheikh, 2011)</td><td>stabilita + vysoká O + vysoká C</td><td><b>výstup na Mount Everest</b> (Egan a Stelmack, 2003)</td><td>vysoká E + stabilita + psychoticizmus</td></tr>
+<tr><td><b>rizikový sex</b> (Miller et al., 2004; Trobst et al., 2002)</td><td>vysoká E + vysoký N + nízka C + nízka A</td><td><b>šťastie</b> (Chen a Furnham)</td><td>vysoká E + nízky N</td></tr>
+</table>
+
+<h3>HEXACO a temná triáda</h3>
+<div class="fig2">
+<div><p><b>HEXACO</b> = Big Five + 6. faktor <span class="k">čestnosť – pokora</span> (Honesty-Humility; <span class="a">Ashton, Lee a de Vries, 2014</span>). Faktory (slajd): <b>H</b> – autenticita, integrita, (moc), pokora · <b>E</b>motionality – odolnosť, tolerancia stresu, nezávislosť, empatia · e<b>X</b>traverzia – spoločenskosť, tímovosť, entuziazmus · <b>A</b> – súcit, ohľaduplnosť, kooperácia, trpezlivosť · <b>C</b> – organizácia, sebadisciplína, detail, plánovanie · <b>O</b> – údiv, zvedavosť, kreativita.</p>
+<p class="mini">Faktoriálne modely (slajd): Big Five, HEXACO a <b>D-faktor</b> (temný faktor – egoizmus, machiavellizmus, morálne odpútanie, narcizmus, psychologický nárok, psychopatia, sadizmus, vlastný záujem, zlomyseľnosť).</p></div>
+<div class="vs" style="grid-template-columns:1fr">
+<div class="l"><b>Vysoká čestnosť – pokora</b>: úprimne a pokorne sa ospravedlnia (a menej porušujú pravidlá) · vysoko spolupracujú v hrách · úprimne veriaci · ľahšie morálne a sexuálne znechutenie · dlhodobý záväzok k jednému partnerovi, investície do detí</div>
+<div class="r"><b>Nízka čestnosť – pokora</b>: vykorisťujúci, sabotujú v práci, trestná činnosť · porušujú spoločenské zmluvy, podvádzajú v hrách · chvastajú sa · mstia sa partnerovi pri odmietnutí · egoizmus, narcizmus, vykorisťovanie → <b>temná triáda</b></div>
+</div>
+</div>
+<p><b>Temná triáda</b> = <mark>narcizmus, machiavellizmus, psychopatia</mark> – dispozičná doména <b>nad rámec 5-faktorového modelu</b> (<span class="a">Paulhus a Williams, 2002</span>).</p>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-warn"><b>Machiavellizmus</b>manipulácia a využívanie iných, nedostatok úprimnosti (<span class="a">Christie a Geis, 1970</span>), nízka pokora a čestnosť</div>
+<div class="card c-warn"><b>Narcizmus</b>paradox <b>grandiózneho, no zraniteľného</b> sebaponímania (<span class="a">Morf a Rhodewalt, 2001</span>); potreba pozitívnych reakcií, skresľovanie reality, úzkosť pri nesúlade s predstavou, obetuje vzťahy pre status (<span class="a">Campbell et al., 2004</span>); <span class="no">nespája sa</span> s predstavou vyššej morálnosti, využíva druhých (<span class="a">Bartoš, 2010</span>)</div>
+<div class="card c-warn"><b>Psychopatia</b>nedostatok emocionálneho prežívania, ľahostajnosť k prežívaniu iných (<span class="a">Praško, 2009</span>), chýba vina (Ketelaar a Au, 2003), nestály životný štýl, manipulácia, antisociálne tendencie (<span class="a">Hare, 2003</span>), prediktor podvádzania (Nathanson et al., 2006)</div>
+</div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="topic" id="t8">
+<div class="thead"><span class="tn">TÉMA 08</span><h2>Psychoanalytický a neopsychoanalytický prístup</h2></div>
+<h3>Freud – psychická energia</h3>
+<div class="fig2">
+<div><p>Ľudská povaha stojí na <b>psychickej energii</b>, ktorá motivuje všetku aktivitu (<i>zákon zachovania energie</i>). Zdroj: základné inštinkty <b>sex a agresia</b>, neskôr preformulované:</p>
+<div class="vs" style="margin:4px 0"><div class="l"><b>Libido</b> – akékoľvek nutkanie uspokojujúce potreby, udržiavajúce život, orientované na potešenie</div><div class="mid">vs.</div><div class="r"><b>Thanatos</b> – inštinkt ničenia, agresia voči iným</div></div>
+<p class="mini">Každý má <b>fixné množstvo</b> energie – čo sa minie na jedno správanie, chýba inde (inštinkt smrti nasmerovaný do športu → menej energie na deštrukciu).</p>
+<div class="box aut"><span class="lab">PSYCHICKÝ DETERMINIZMUS – NIČ SA NEDEJE NÁHODNE</span>„nehody“ (nesprávne meno, zmeškané stretnutie, rozbitie cudzej veci) = motivované podvedomie. <span class="k">Parapraxie</span> (brepty, prerieknutia) = prenikanie nevedomia do reči. Každý psychologický problém (depresia, obsesie, sexuálna dysfunkcia) má príčinu v <b>nevedomej motivácii</b>.</div></div>
+<div><svg viewBox="0 0 240 170" width="100%" style="max-width:240px;display:block;margin:auto" aria-label="ľadovec">
+<rect x="0" y="48" width="240" height="122" fill="var(--sch-bg)"/><line x1="0" y1="48" x2="240" y2="48" stroke="var(--sch)" stroke-width="1.5"/>
+<polygon points="120,6 150,48 90,48" fill="var(--paper)" stroke="var(--ink)"/><polygon points="90,48 150,48 175,95 65,95" fill="var(--paper)" fill-opacity=".7" stroke="var(--ink)" stroke-dasharray="3 2"/><polygon points="65,95 175,95 205,162 35,162" fill="var(--paper)" fill-opacity=".45" stroke="var(--ink)" stroke-dasharray="3 2"/>
+<g font-size="9" font-weight="700"><text x="102" y="40">vedomie</text><text x="92" y="76">podvedomie</text><text x="95" y="134">nevedomie</text></g>
+<g font-size="7.5"><text x="158" y="22">vrchol ľadovca</text><text x="178" y="62">na hladine</text><text x="182" y="120">pod hladinou</text></g></svg><p class="figcap">Prečo (niekedy) nevieme, prečo robíme to, čo robíme</p></div>
+</div>
+<h4>Príklady nevedomia</h4>
+<div class="cols">
+<div class="box q"><span class="lab">KORTIKÁLNA SLEPOTA</span>poškodené primárne zrakové centrum (CMP, nehoda) – oči fungujú, rozpoznávanie nie. „Vidíte balón?“ – <span class="no">nie</span>; „ukážte na červený balón“ – ukáže správne, farbu uhádne nad úroveň náhody = <mark>jedna časť mysle vie, o čom iná nevie</mark>.</div>
+<div class="box q"><span class="lab">„VYSPI SA NA TO“ – NEVEDOMÉ ROZHODOVANIE</span>výskum áut (2006): 4 min. premýšľania vs. 4 min. rozptýlenia hádankou. Pri <b>4 atribútoch</b> lepšia „vedomá“ skupina, pri <b>12 atribútoch</b> „nevedomá“ → <mark>jednoduché úsudky vedome, komplexné nevedome</mark>.</div>
+</div>
+
+<h3>Štruktúra osobnosti</h3>
+<table class="cmp">
+<tr><th style="width:14%"></th><th>ID</th><th>EGO</th><th>SUPEREGO</th></tr>
+<tr><td>funkcia</td><td><b>rezervoár</b> psychickej energie</td><td><b>exekutíva</b> („výkonná moc“); obmedzuje ID na realitu, presmeruje tlak ID do prijateľných aktivít</td><td><b>ochrana hodnôt a ideálov</b> spoločnosti; internalizovaná morálka (rodičia, škola, náboženstvo; identifikácia s rodičmi)</td></tr>
+<tr><td>princíp</td><td><b>princíp slasti</b> – okamžité uspokojenie, netoleruje odklad</td><td><b>princíp reality</b> – odkladá uspokojenie, kým nenastane vhodná situácia</td><td>určuje dobré / zlé; vina, hanba, zahanbenie vs. hrdosť; ideály dokonalosti</td></tr>
+<tr><td>myslenie</td><td><b>primárne</b> procesy – bez logiky a ukotvenia v realite (sny, fantázie)</td><td><b>sekundárne</b> procesy – stratégie riešenia problémov</td><td>nie je viazané realitou – štandardy môžu byť perfekcionistické, tvrdé</td></tr>
+<tr><td>kde</td><td>nevedomie; dominuje v detstve</td><td>vedomie aj podvedomie</td><td>všetky úrovne (vedomie, podvedomie, nevedomie)</td></tr>
+</table>
+<p>ID, EGO a SUPEREGO sú v neustálej interakcii (často v konflikte). <b>Anxieta</b> vzniká, keď je kontrola EGA ohrozená realitou, ID alebo tvrdým SUPEREGOM; vyvážená myseľ bez úzkosti = <b>silné EGO</b>.</p>
+
+<h3>Dynamika – úzkosť a obranné mechanizmy</h3>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-sch"><span class="n">vonkajšia hrozba</span><b>Objektívna úzkosť</b>= strach; reakcia na reálnu vonkajšiu hrozbu (pri ostatných dvoch hrozba <b>zvnútra</b>)</div>
+<div class="card c-warn"><span class="n">ID × EGO</span><b>Neurotická úzkosť</b>EGO môže stratiť kontrolu nad neprijateľným nutkaním z ID</div>
+<div class="card c-def"><span class="n">EGO × SUPEREGO</span><b>Morálna úzkosť</b>chronická hanba, vina z nenaplnenia noriem; <span class="k">škrupulantstvo</span> = prehnaná úzkostlivosť</div>
+</div>
+<p class="mini">Úlohou EGA je pri všetkých troch znížiť úzkosť – <span class="k">obranné mechanizmy</span> (snahy brániť sa voči úzkosti); človek sa môže brániť tak úspešne, že úzkosť vedome nikdy nepocíti.</p>
+<div class="cards">
+<div class="card c-def"><span class="n">univerzálny · predchodca ostatných</span><b>Represia (potlačenie)</b>neprijateľné myšlienky, pocity a nutkania sa nedostanú do vedomia („nikdy sa to nestalo“); nepríjemné spomienky zabudnuté</div>
+<div class="card c-def"><b>Popretie / odmietnutie</b>trvá na tom, že veci <b>nie sú také, aké sú</b> („nie je to tak, ako to vyzerá“); odmieta vidieť fakty</div>
+<div class="card c-def"><b>Presunutie / presmerovanie</b>impulz z ohrozujúceho zdroja na neohrozujúci cieľ (hnev z práce → na rodinu); aj sexuálne pudy, strach</div>
+<div class="card c-def"><b>Racionalizácia</b>prijateľné dôvody pre neprijateľné výsledky; vymyslené vysvetlenie namiesto skutočného (častá u VŠ študentov)</div>
+<div class="card c-def"><b>Reaction formation</b> (opačné reagovanie)potlačenie nutkania prejavovaním <b>opačného</b> správania</div>
+<div class="card c-def"><b>Projekcia</b>vlastné neprijateľné vlastnosti „premietame“ na iných a nenávidíme ich za ne. Podobné: <b>efekt falošného konsenzu</b> (1977) – iní sú ako ja</div>
+<div class="card c-aut"><span class="n">najadaptívnejší</span><b>Sublimácia</b>sexuálne / agresívne inštinkty do sociálne žiaducej činnosti (rúbať drevo v hneve, futbal, box, horolezectvo, armáda)</div>
+</div>
+<div class="box warn"><span class="lab">POZOR · ZÁKLADNÁ ATRIBUČNÁ CHYBA</span>V poznámkach ako špecifická forma popierania s 2 definíciami: (1) neúspech pripisujem okolnostiam, úspech sebe – to je presnejšie <b>sebaobslužné skreslenie</b>; (2) <b>nadhodnocovanie dispozičných faktorov u iných</b> oproti situačným (učiteľ pripisuje zlyhanie študenta jeho charakteru, nie náročnosti predmetu) = klasická definícia zo sociálnej psychológie. Over si, ako to uvádzala prednášajúca.</div>
+<p class="mini"><b>Ďalšie obranné mechanizmy:</b> agresia, introjekcia, anticipácia, disociácia, hédonická adaptácia, humor, identifikácia, projektívna identifikácia, regresia, transgresia, štiepenie, šikana, egocentrizmus, vytesnenie, somatizácia, izolácia, obídenie prekážky, kompenzácia, fixácia… Psychosexuálne štádiá → vývinová psychológia; analýza snov, voľné asociácie, projektívne techniky → psychoterapia.</p>
+<p><b>Význam psychoanalýzy:</b> 1. pochopenie fungovania mysle · 2. vplyv na psychoterapiu – <i>talking cure</i>, načúvanie pacientovi, životná história. Pojmy nevedomie a obranné mechanizmy používajú aj nepsychoanalytici; dnes má Freudova teória v PsyO <span class="no">len malú úlohu</span>, no treba ju poznať.</p>
+
+<h3>Neopsychoanalytický prístup</h3>
+<p>Príklad dcéry <b>Garyho Ramonu</b> – koncept <b>potlačených spomienok</b>. „<i>Freud, like Elvis, has been dead for a number of years but continues to be cited with some regularity.</i>“ Súčasní analytici už nepíšu o ID a potlačenej sexualite, ale o <b>vzťahoch v detstve a konfliktoch v dospelosti</b> (intimita, nesprávni partneri; 1983). <mark>Lepšia výskumná podpora.</mark></p>
+<div class="cols">
+<ol class="steps">
+<li><div><b>nevedomie</b> stále hrá veľkú rolu (nie však všadeprítomnú)</div></li>
+<li><div>správanie = <b>kompromis</b> v konfliktoch emócií, motivácií, myšlienok</div></li>
+<li><div><b>detstvo</b> je dôležité – vzťahové štýly v dospelosti</div></li>
+<li><div><b>mentálne reprezentácie</b> seba a vzťahov usmerňujú interakcie</div></li>
+<li><div>vývoj = aj prechod od <b>nezrelého, závislého</b> k zrelému, nezávislému vzťahovaniu sa</div></li>
+</ol>
+<div><div class="box warn"><span class="lab">FALOŠNÉ SPOMIENKY</span><span class="k">Imagination inflation</span> – spomienka „nafúknutá“ predstavivosťou → zámena predstavy so skutočnosťou. <span class="k">Confirmatory bias</span> – hľadáme len potvrdzujúce dôkazy. Terapeut presvedčený o traume z detstva ju bude hľadať, sugestibilní pacienti si predstavujú udalosti, terapeut ako autorita → <b>spoločná realita</b>, ktorá nie je pravdivá. <i>(Pokus: zoznam 15 slov – bed, rest, tired, dream, snooze, doze… – ľudia si „pamätajú“ aj nevyslovené slovo.)</i></div>
+<p class="mini">Súčasné názory: <b>kognitívne</b> vs. <b>motivované</b> nevedomie · <span class="k">podprahový priming</span> (Cola; doplň so_p → soap / soup).</p></div>
+</div>
+<div class="fig2">
+<div><h4>Erikson – ego psychológia</h4>
+<p class="mini">Primárna funkcia EGA = <b>bezpečná identita</b>; identita je dôležitý vývinový úspech, <b>dosahuje sa</b> (nie je automatická); <b>psychologický</b> (nie psychosexuálny) konflikt; kultúrne rituály prechodu pomáhajú pri kríze identity. <b>Zrelá identita</b> = prechod krízou a jej vyriešenie spojením s hodnotami, vzťahmi, kariérou (opak plytkej, nezrelej). Bez krízy / bez skúmania alternatív (prevzaté hodnoty autority) → <span class="k">uzavretie identity</span> (moralistická, konvenčná). <span class="k">Moratórium</span> = spoločensky schválené odloženie záväzkov, skúmanie alternatív.</p></div>
+<table class="cmp" style="font-size:12px">
+<tr><th>Obdobie</th><th>Kríza (adaptívne vs. maladaptívne riešenie)</th></tr>
+<tr><td>dojčenské</td><td>dôvera vs. nedôvera</td></tr><tr><td>batoľa</td><td>autonómia vs. hanba a pochybnosti</td></tr><tr><td>rané detstvo</td><td>iniciatíva vs. vina</td></tr><tr><td>mladší školský vek</td><td>usilovnosť vs. menejcennosť</td></tr><tr><td>adolescencia</td><td><b>identita vs. zmätenie rolí</b></td></tr><tr><td>mladá dospelosť</td><td>intimita vs. izolácia</td></tr><tr><td>dospelosť</td><td>generativita vs. stagnácia</td></tr><tr><td>staroba</td><td>integrita vs. zúfalstvo</td></tr>
+</table>
+</div>
+<div class="cols">
+<div class="box aut"><span class="lab">KAREN HORNEYOVÁ – FEMINISTICKÁ INTERPRETÁCIA</span><b>penis</b> = symbol sociálneho tlaku, nie orgán, po ktorom ženy túžia; dievčatá nechcú byť chlapcami · roly žien určujú <b>kultúrne a sociálne tlaky</b>, nie biológia · vďaka nej pojmy <b>maskulinita / feminita</b> = <b>gender</b> rozdiely, nie <b>sex</b> rozdiely</div>
+<div class="box aut"><span class="lab">ĎALŠIE TÉMY</span><b>SELF a narcizmus</b> – <span class="a">Kernberg</span>, <span class="a">Kohut</span> (deti potrebujú <b>zrkadlenie</b> emócií a úspechov od rodičov; ak chýba → narcizmus; narcizmus nielen porucha, ale aj obranný mechanizmus) · teória <b>attachmentu</b></div>
+</div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="topic" id="t9">
+<div class="thead"><span class="tn">TÉMA 09</span><h2>Kognitívne prístupy k osobnosti</h2></div>
+<p><b>Príklad: zabitie Mr. Diallo</b> – chyby v kognícii a percepcii s katastrofálnymi následkami; ľudia najprv <b>vnímajú a myslia, potom konajú</b>. PsyO zaujíma, ako sa ľudia líšia v spracovaní informácií, štýloch vnímania a myslenia, stratégiách riešenia problémov. <b>Technika vzorkovania myšlienok</b> (scéna: matka s krvácajúcim dieťaťom): <span class="k">personalizujúce</span> poznávanie (spomienky na vlastné podobné udalosti) vs. <span class="k">objektivizujúce</span> (závažnosť poranenia, cievy). <b>Neckerova kocka</b> – kde je predná stena? Ak sa líšime v jednoduchej kocke, o čo viac v sociálnom svete.</p>
+<div class="box sch"><span class="lab">TRI ÚROVNE KOGNÍCIÍ (A ROZDIELOV MEDZI ĽUĎMI)</span>
+<div class="path" style="margin:2px 0">
+<div class="st c-sch"><span class="n">1</span><b>Percepcia</b>Neckerova kocka, závislosť od poľa</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">2</span><b>Interpretácia</b>ako si veci vysvetľujeme, komu pripisujeme vinu (dopravná nehoda)</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">3</span><b>Vedomé ciele</b>normy na hodnotenie seba a iných, čo je v živote dôležité; špecifické pre vek a kultúru</div>
+</div><span class="mini">+ posledná téma kognitívnych prístupov = <b>inteligencia</b></span></div>
+
+<h3>Percepcia – závislosť / nezávislosť od poľa</h3>
+<p>Vnímanie nie je kópia faktov, ale ich <b>mentálna reprezentácia</b>. <span class="a">Herman Witkin</span> <span class="y">1954</span> – <span class="k">field dependence</span>: osobnosť sa prejaví v tom, ako ľudia vnímajú prostredie. <b>Test tyče s rámom</b> (aj naklonená miestnosť) a <b>test vložených figúr</b> (závislí „vidia les, nie stromy“).</p>
+<table class="cmp">
+<tr><th style="width:18%"></th><th>Závislí od poľa</th><th>Nezávislí od poľa</th></tr>
+<tr><td>test tyče s rámom</td><td>ovplyvnení rámom</td><td>neberú ohľad na rám, poloha tela</td></tr>
+<tr><td>vložené figúry</td><td>pomaly hľadajú, zameranie na celok</td><td>rýchlo nájdu, zameranie na časti</td></tr>
+<tr><td>odbor VŠ</td><td>spoločenské vedy, vzdelávanie, humanitné</td><td>prírodné vedy, matematika, technika</td></tr>
+<tr><td>sociálne vzťahy</td><td>orientovaní na iných, sociálne informácie, citliví na náznaky, fyzická blízkosť, <b>vyššie soc. zručnosti</b></td><td>samostatní, odstup, nezáleží im na názoroch iných, nesociálne činnosti, nižšie soc. záujmy</td></tr>
+<tr><td>strelecké / policajné simulácie</td><td>pozorní ku kontextu, ale preťažení v podnetovo bohatých situáciách</td><td>ignorujú rušivé podnety, detaily, lepšie dekódujú tváre (aj pri Diallovi by boli lepší)</td></tr>
+<tr><td>učenie</td><td>keď informácie prichádzajú po kúskoch</td><td>v multimediálnom (hypermediálnom) prostredí</td></tr>
+<tr><td>ďalšie</td><td>dobrí vo vnímaní celku, chápu podstatu</td><td>hľadanie vzorov, kreatívnejší, rýchlejšie jazyky; <b>pyrotechnici</b> majú vyššiu nezávislosť</td></tr>
+</table>
+<p class="mini"><span class="a">Bastone a Heater</span>: dekódovanie emócií zo <span class="y">72</span> tvárí – nezávislí od poľa výrazne lepší, ale <mark>len pri ťažkých úlohách</mark> (dobrí v hľadaní a interpretácii vzorov). <b>Čo je lepšie?</b> Ani jedno – štýly sú adaptívne v rôznych kontextoch.</p>
+<div class="box def"><span class="lab">TOLERANCIA BOLESTI – TEÓRIA REDUKOVANIA / ZOSILŇOVANIA</span>nízka tolerancia = NS <b>zosilňuje</b> podnety (<b>augmentéri</b> – hluk vnímajú silnejšie); vysoká = NS <b>tlmí</b> (<b>reduktori</b> – menšia reakcia na svetlo a hluk). Reduktori vyhľadávajú silnú stimuláciu (optimálne vzrušenie): viac kávy, fajčenia, drog, hlasná hudba, nižší prah nudy. Škála preferencií (hard rock vs. soft pop, akčné filmy vs. komédie, kontaktné športy, bubnové sólo vs. flauta, priveľa vs. primálo cvičenia) – kto volí stimulujúce možnosti = reduktor.</div>
+
+<h3>Interpretácia</h3>
+<p><b>Bratia Menendezovci</b> (obvinení z vraždy rodičov): 1. proces – sebaobrana; 2. proces – sprisahali sa kvôli majetku → rovnaké fakty, <b>odlišný výklad</b>. Rôzne interpretácie viny, zodpovednosti a očakávaní (zlá známka, chudnutie, priateľka).</p>
+<div class="box warn"><span class="lab">POZOR</span>V poznámkach pri 2. procese „uznala za <b>nevinných</b>“ – podľa zmyslu má byť <b>vinných</b> (sprisahali sa a zavraždili rodičov). Meno: Menendezovci.</div>
+<div class="box aut"><span class="lab">TEÓRIA OSOBNÝCH KONŠTRUKTOV · GEORGE KELLY</span><mark>Ľudia sú ako vedci</mark> – chcú pochopiť, predpovedať a kontrolovať udalosti; bez vysvetlenia trpia viac. <span class="k">Konštrukt</span> = slovo zahŕňajúce súbor pozorovaní a ich význam (gravitácia – vidíme len padajúce jablko); <span class="k">osobné konštrukty</span> = tie, ktoré človek bežne používa na interpretáciu a predpoveď (bystrý, arogantný…). <b>Rozdiely v osobnosti = rozdiely v interpretácii</b> (najmä sociálneho) sveta – každý sa pozerá cez svoju „šošovku“ (športový – nešportový vs. inteligentný – neinteligentný). Konštrukty sú <b>bipolárne</b>.<br><b>Fundamentálny postulát</b>: „procesy človeka sú psychologicky usmerňované spôsobmi, akými predvída udalosti“. Dôsledok spoločného: podobné systémy konštruktov → psychologická podobnosť (páry vychádzajú, ak interpretujú svet podobne). <b>Úzkosť</b> = konštrukty nedokážu pochopiť okolnosti, udalosti sú nepredvídateľné.</div>
+<div class="cols">
+<div><b>Ako konštrukty zlyhávajú:</b> <b>príliš strnulé a nepriepustné</b> (manžel s konštruktom „manželka nemusí pracovať“ nechápe jej túžbu po práci) · <b>aplikované príliš liberálne / prísne</b> (každého zaradí ako inteligentný/neinteligentný a nezmení názor). Signál: skúsenosti, ktorým nerozumie alebo ich nepredvídal. Súčasť <b>kognitívnej revolúcie</b>.</div>
+<div class="box q"><span class="lab">APLIKÁCIA</span>klient s nízkym sebavedomím hodnotí seba len cez „úspešný – neúspešný“ → rozšíriť spektrum konštruktov (pracovitý – lenivý, odvážny – bojazlivý) → vyváženejší sebaobraz.</div>
+</div>
+
+<h3>Locus of control – Julian Rotter</h3>
+<div class="vs">
+<div class="l"><b>Interný LOC</b> – všeobecné očakávanie, že posilňujúce udalosti sú <b>pod kontrolou človeka</b> a je za výsledky zodpovedný (úspech = úsilie, povýšenie = kompetencie, problémy rieši vlastnými schopnosťami). Odolnejší voči stresu, lepšie sa adaptujú (Rotter), väčšia kontrola nad zdravím, v strese aktívne menia situáciu; počas <b>COVID-19</b> zodpovednejšie dodržiavali opatrenia (veria, že ich správanie chráni ich aj iných).</div>
+<div class="mid">vs.</div>
+<div class="r"><b>Externý LOC</b> – udalosti sú <b>mimo kontroly</b> – osud, šťastie, náhoda, politika, iní ľudia. V strese bezmocnosť, pasivita; menej ochotní dodržiavať opatrenia. <b>Milgram</b>: externí častejšie poslúchali autoritu aj napriek vážnym morálnym obavám.</div>
+</div>
+<p class="mini"><b>Je LOC meniteľný?</b> Áno – <b>KBT</b>. <b>Nevýhoda interného LOC</b>: pri nevyliečiteľnej chorobe blízkeho alebo tragédii sa cítia vinní („mal som niečo urobiť“) → prekážka zvládania.</p>
+<div class="cols">
+<div class="box def"><span class="lab">NAUČENÁ BEZMOCNOSŤ (SELIGMAN)</span>očakávanie, že <b>konzekvencia je nezávislá od vlastnej reakcie</b>, čo A) znižuje motiváciu kontrolovať ju, B) interferuje s naučením, že ju kontrolovať možno. Neadekvátne zhodnotenie opakovaných skúseností – nekontroluje ani tam, kde by mohol; aj po náhodnom úspechu stratégiu nezopakuje.</div>
+<div><b>Kauzálne atribúcie</b> – ako si vysvetľujeme príčiny: <b>internalistické · externalistické · fatalistické</b>.<br><b>Atribučné štýly</b> – 3 dimenzie (príklad: zlá známka za projekt): <b>internálne – externálne</b> · <b>stabilné – nestabilné</b> (trvalé vs. náhodné) · <b>globálne – špecifické</b> (zasahuje mnoho vecí, napr. IQ, vs. len túto situáciu).
+<table class="cmp mini" style="margin-top:4px"><tr><th>„Rozišla sa so mnou…“</th><th>optimistický štýl</th><th>pesimistický štýl</th></tr>
+<tr><td>int./ext.</td><td>externé: nútili ju rodičia</td><td>interné: som z nižšej vrstvy, bez ambícií</td></tr>
+<tr><td>stab./nestab.</td><td>nestabilné: teraz má charitu</td><td>stabilné: som nižší než ona</td></tr>
+<tr><td>glob./špec.</td><td>špecifické: zistila o Julie</td><td>globálne: som bezohľadný, neverný</td></tr></table></div>
+</div>
+
+<h3>Personal project analysis (Little)</h3>
+<p><span class="k">Osobný projekt</span> = súbor relevantných akcií na dosiahnutie zvoleného cieľa (schudnúť, nájsť priateľov, cvičiť, prihlásiť sa na školu, vzťah s Bohom…); prirodzená jednotka fungovania O. So šťastím a životnou spokojnosťou najviac súvisí: <mark>pocit kontroly nad projektmi, absencia stresu z nich, optimizmus, že sa podaria</mark>. <span class="a">Little</span>: úspešné zavŕšenie projektov rozhoduje, či prosperujeme, alebo vedieme život „v tichom zúfalstve“. PPA = ukážka <b>idiografického</b> (nie nomotetického) prístupu; projekty majú význam pre pohodu, zdravie, motiváciu; ľudia ich prispôsobujú črtám a kontextu (= dynamika O); využitie v praxi pri dlhodobých cieľoch.</p>
+
+<h3>Sociálno-kognitívne témy: Bandura, Dweck</h3>
+<p><b>Klasický behaviorizmus</b>: organizmy <span class="no">pasívne</span> odpovedajú na prostredie. <span class="a">Bandura (1925–)</span>: <b>aktívny</b> charakter správania – zámery, predvídavosť, reflexia, sledovanie a hodnotenie vlastného pokroku, učenie pozorovaním → <span class="k">kognitívna teória sociálneho učenia</span>.</p>
+<div class="cols">
+<div class="box def"><span class="lab">SELF-EFFICACY · SEBAÚČINNOSŤ (BANDURA)</span><mark>presvedčenie, že človek dokáže vykonať špecifický postup na dosiahnutie cieľa</mark>. Vysoká → úsilie, vytrvalosť, vyššie ciele; VŠ študenti vytrvalejší a úspešnejší. Sebaúčinnosť ↔ výkon (obojsmerne). Zložitú úlohu rozdeliť na čiastkové ciele; zvyšuje ju aj <b>modelovanie</b>.</div>
+<div class="box q"><span class="lab">KAZUISTIKY</span><b>Sociálna úzkosť</b> („nedokážem začať rozhovor“) → rozpoznať úspechy, postupná expozícia, modelovanie a nácvik, pozitívna spätná väzba, zvládanie stresu, zápis úspechov. <b>Pán Jozef, 42, alkohol</b> („aj tak zlyhám“) → zmena presvedčení, malé kroky (1 deň nepiť), posilňovanie úspechov, modelovanie (podporné skupiny), zvládacie stratégie, hodnoty a dôvody, pripomínanie úspechov.</div>
+</div>
+<div class="box aut"><span class="lab">CAROL DWECK · TEÓRIA ORIENTÁCIE NA MAJSTROVSTVO</span>Prečo niektorí pri neúspechu vytrvajú a iní to vzdajú? Rozhodujú <b>implicitné presvedčenia o inteligencii</b>:
+<div class="vs" style="margin:4px 0"><div class="r"><b>Entitná teória</b> – inteligencia je nemenná → vyhýbanie sa výzvam, menej úsilia, skoršie vzdávanie, horšie výsledky</div><div class="mid">vs.</div><div class="l"><b>Prírastková teória</b> – inteligencia sa dá zvýšiť úsilím → vyhľadávajú výzvy, lepšia motivácia a známky</div></div>
+<mark>Chváliť za snahu, nie za inteligenciu</mark>: „si také múdre dievča“ → zlá známka = som hlúpa; „nie každý môže byť dobrý v matematike“ posilňuje entitnú vieru. Pochvala za snahu („tvoja snaha sa vyplatila“) → inteligencia premenlivá, <b>stabilná sebaúcta</b>, úspech spojený s úsilím.</div>
+<h4>Inteligencia – veľká téma kognitívnej psychológie</h4>
+<p class="mini">Otázky: vedomosti alebo schopnosť učiť sa? · jeden <b>G faktor</b> alebo viac inteligencií? · len kognitívne alebo aj nekognitívne? · kultúrna podmienenosť? · rastie v čase? (<b>Flynnov efekt</b> – rast IQ skóre, napr. Ravenove matice podľa grafu o cca 27 bodov 1947 – 2002; aj <b>reverzný Flynnov efekt</b>) · inteligencia vs. rýchlosť spracovania. <b>Čo zaujíma PsyO</b> (10 vzťahov): inteligencia a <b>temperament</b> (nízka stabilita → horšie využitie schopností v strese) · <b>Big Five</b> (súvis s otvorenosťou) · <b>emocionálna inteligencia</b> (vzťahy, stres, zrelosť) · <b>sebaúčinnosť</b> (bez nej sa vyhýbajú výzvam) · <b>motivácia</b> (menej motivovaní pri jednoduchých úlohách) · <b>sociálna inteligencia</b> a extraverzia/empatia · <b>coping</b> (adaptívne stratégie – plánovanie) · <b>kreativita</b> (kognícia + odvaha riskovať) · <b>hodnoty a morálka</b> (predvídanie dôsledkov) · <b>životný cyklus</b> (úspech, ale aj vyššie očakávania a stres).</p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="topic" id="t10">
+<div class="thead"><span class="tn">TÉMA 10</span><h2>Zážitková (skúsenostná) doména: emócie a šťastie</h2></div>
+<div class="cols">
+<div><p><b>Emocionálne stavy</b> – prechodné, so špecifickou príčinou <span class="no">vs.</span> <b>emocionálne črty</b> – konzistentný vzor emocionálnych reakcií naprieč situáciami.</p>
+<p><b>Kategorický prístup</b> – niekoľko <b>základných emócií</b> s typickým výrazom (nenaučené – aj nevidiaci sa tvária podobne) = súčasť ľudskej povahy. <b>Dimenzionálny prístup</b> – emócie na kontinuu (smutný – veselý); ako ich <b>prežívame</b> (nie ako o nich premýšľame); faktorovou analýzou → <span class="k">cirkumplexný model</span> s dimenziami <b>vzrušivosť × príjemnosť</b>; podobné emócie sa vyskytujú spolu, majú rôznu intenzitu.</p></div>
+<svg viewBox="0 0 260 175" width="100%" style="max-width:260px;display:block;margin:auto" aria-label="cirkumplex emócií"><circle cx="130" cy="88" r="78" fill="var(--paper)" stroke="var(--line)"/><line x1="40" y1="88" x2="220" y2="88" stroke="var(--ink)"/><line x1="130" y1="6" x2="130" y2="170" stroke="var(--ink)"/>
+<g font-size="8.5" font-weight="700"><text x="104" y="5">AKTIVÁCIA</text><text x="100" y="175">DEAKTIVÁCIA</text><text x="2" y="84">NEPRÍJEMNÉ</text><text x="214" y="84">PRÍJEMNÉ</text></g>
+<g font-size="7.8"><text x="68" y="40">strach, hnev</text><text x="62" y="58">napätie, nervozita</text><text x="148" y="40">nadšenie, záujem</text><text x="150" y="58">šťastie, hrdosť</text><text x="66" y="118">smútok, vina</text><text x="70" y="136">nuda, letargia</text><text x="148" y="118">spokojnosť</text><text x="148" y="136">pokoj, uvoľnenie</text></g></svg>
+</div>
+
+<h3>Obsah – pozitívne emócie (šťastie)</h3>
+<div class="cols">
+<div><div class="box aut"><span class="lab">AUTORI · ŠŤASTIE</span><b class="a">Aristoteles</b> – šťastie je <b>najvyššie dobro</b>, cieľ života, vyplýva z <b>cnostného života</b> (nadväzujú teórie zmysluplného života).<br><b class="a">William James</b> – šťastie = <mark>pomer úspechov k ašpiráciám</mark> → A) viac dosiahnuť, alebo B) redukovať túžby.</div>
+<p class="mini">Systematicky od <span class="y">70. rokov</span> 20. st. (<i>Journal of Happiness Studies</i>). 2 komplementárne zložky (silno korelujú → všeobecný konštrukt): <b>kognitívna</b> (život má zmysel, spokojnosť so životom) a <b>afektívna / hedonická</b> (pomer pozitívnych a negatívnych emócií). Šťastní sú menej urážliví, menej zameraní na seba, menej chorí, kooperatívnejší, sociálne zručnejší, kreatívnejší, zhovievavejší, dôverčivejší.</p></div>
+<div><p class="mini"><b>Meranie:</b> % času za 6 mesiacov šťastný / neutrálny / nešťastný (súčet 100 %) – VŠ študenti priemerne <span class="y">65 / 15 / 20 %</span>. Škála životnej spokojnosti: 5 tvrdení na škále 1 – 7 („Vo väčšine aspektov sa môj život približuje ideálom…“, „Ak by som mohol prežiť život znova, takmer nič by som nezmenil“).</p>
+<p class="mini">Šťastie koreluje s kvalitou manželstva, dlhovekosťou, sebaúctou, spokojnosťou s prácou (<span class="a">Diener et al., 1999</span>), <span class="no">len slabo</span> s bohatstvom jednotlivca; <b>obojsmerná kauzalita</b> (šťastie pomáha získať vzťahy, zdravie, prácu). Rodové rozdiely <span class="y">&lt; 1 %</span>; okolnosti sa vekom menia (vo vyššom veku financie a zdravie); etnicita nesúvisí; národné rozdiely (<i>World Happiness Report 2023</i>).</p>
+<p class="mini"><span class="a">Costa, McCrae a Zonderman (1987)</span>: šťastní v roku 1973 boli šťastní aj o <b>10 rokov</b> neskôr. <span class="a">Brickman, Coates a Janoff-Bulman (1978)</span>: výhercovia lotérie do <b>6 mesiacov</b> neboli šťastnejší než kontrolná skupina.</p></div>
+</div>
+
+<h3>Štýl emocionálneho života – intenzita afektu (AIM)</h3>
+<div class="cols">
+<table class="cmp">
+<tr><th></th><th>Nízka intenzita afektu</th><th>Vysoká intenzita afektu</th></tr>
+<tr><td><b>častý pozitívny afekt</b></td><td>spokojnosť, nenútená vyrovnanosť, vnútorný pokoj</td><td>búrlivosť, živelná radosť, nadšenie</td></tr>
+<tr><td><b>častý negatívny afekt</b></td><td>chronická melanchólia, mierne trvalé nešťastie, skľúčenosť</td><td>akútny negatívny afekt, distres, vyčerpanie, depresia, epizódy úzkosti</td></tr>
+</table>
+<p class="mini"><b>Vysoké AIM</b>: veľa chuti zo života, vrcholy nadšenia, ale aj silné negatívne reakcie (smútok, vina, úzkosť); „<b>opotrebovanie NS</b>“ – svalové napätie, bolesti brucha a hlavy, únava. <b>Nízke AIM</b>: stabilní, nerozčúlia sa, no pozitívne emócie neprežívajú silno – a nemajú psychosomatické dôsledky. (Graf: nálada 2 osôb počas 84 dní – nízka vs. vysoká variabilita.)</p></div>
+
+<h3>Obsah – negatívne emócie</h3>
+<p>Na rozdiel od príjemných sa vyskytujú v <b>odlišných variantoch</b>; dispozície: <b>úzkosť, depresia, hnev</b>.</p>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-def"><span class="n">1</span><b>Neuroticizmus</b>úzkosť, strach, obavy, mrzutosť, podráždenie; nestabilné nálady, dlhšie zotavenie; biologické aj kognitívne teórie; sťažujú sa na <b>zdravie</b>; <b>citliví na ohrozujúce informácie</b> aj pri malých udalostiach</div>
+<div class="card c-sch"><span class="n">2</span><b>Depresia a melanchólia</b>v niektorom období postihne cca <span class="y">20 %</span> ľudí (USA). <b>Model diatéza – stres</b>: zraniteľnosť + stresujúca udalosť – <span class="no">ani jedno samo nestačí</span>. <b>Beckova kognitívna teória</b>: kognitívna schéma skresľuje informácie negatívne. Neurotransmiterová teória: nerovnováha v synapsách</div>
+<div class="card c-warn"><span class="n">3</span><b>Hnev a hostilita</b>tendencia reagovať na frustrácie hnevom, agresiou, podráždením, nevôľou, hrubosťou. Skúma sa vznik a dôsledky – <b>ischemická choroba srdca</b> (typ A); hnev = strata kontroly – biologický podklad? (neurokriminológia: poškodenia mozgu u násilníkov)</div>
+</div>
+<div class="box sch"><span class="lab">BECK · KOGNITÍVNA TRIÁDA A SKRESLENIA</span>depresívna schéma zasahuje 3 oblasti: <b>JA – svet – budúcnosť</b> („Nie som dobrý. Svet je proti mne. Budúcnosť je pochmúrna.“) · skreslenia: <b>prehnané zovšeobecňovanie</b> („nič sa mi nedarí“), <b>svojvoľné závery</b> („učiteľka nemala čas – nemá ma rada“), <b>personalizácia</b> („prehrali sme, je to moja vina“), <b>katastrofizácia</b> („nespravím skúšku → nedostanem sa na medicínu → mám skončiť školu“).</div>
+
+<h3>Big Five a šťastie · Primals</h3>
+<div class="cols">
+<div><div class="box aut"><span class="lab">COSTA A MCCRAE</span>šťastie = relatívne vysoký <b>pozitívny</b> a nízky <b>negatívny</b> afekt v čase. <mark>Extraverzia → pozitívne emócie, neuroticizmus → negatívne emócie</mark>.</div>
+<div class="flow"><span>E</span><b>→</b><span>pozitívny afekt</span><b>→</b><span><b>subjektívna pohoda</b></span><b>←</b><span>negatívny afekt</span><b>←</b><span>N</span></div>
+<p class="mini">Dva modely (schéma): črty <b>priamo</b> zvyšujú citlivosť na situácie vyvolávajúce afekt, alebo <b>nepriamo</b> – E/N vedú k <b>životnému štýlu</b>, ktorý prináša viac pozitívnych / negatívnych výsledkov.</p></div>
+<div class="box def"><span class="lab">PRIMÁRNE PRESVEDČENIA O SVETE (PRIMALS)</span>jednoduché presvedčenia o <b>celkovom charaktere sveta</b>, formulované adjektívami („svet je nebezpečný / štedrý“); odrážajú percepciu, nezávisia od jazyka, <b>pod úrovňou vedomia</b>, veľký emočný význam. <span class="a">Clifton et al. (2019)</span>: <span class="y">26</span> Primals hierarchicky – <span class="y">7</span> pod „svet je <b>bezpečný</b>“, <span class="y">7</span> „<b>lákavý</b>“, <span class="y">3</span> „<b>živý</b>“; zastrešujúce: <mark>svet je dobré miesto</mark>. Najviac skúmané (50+ rokov) – <b>viera v spravodlivý svet</b>: zdravý coping, ochrana pred stresom, výkon, subjektívna pohoda. Úrovne presvedčení: o sebe, budúcnosti a prostredí = kognitívna triáda.</div>
+</div>
+<table class="cmp mini">
+<tr><th style="width:24%">Výskum</th><th>Zistenie</th></tr>
+<tr><td><span class="a">Vasquez et al. (2021)</span></td><td>svet je dobrý, otvorenosť budúcnosti, stotožnenie s ľudstvom → <b>posttraumatický rast</b>; podozrievavosť, intolerancia neistoty, úzkosť zo smrti (aj identifikácia s ľudstvom) → <b>PTS</b></td></tr>
+<tr><td><span class="a">Clifton a Meindl (2022)</span></td><td>negatívne Primals → menší pracovný úspech a spokojnosť, horšie zdravie, negatívne emócie, depresia, mierne viac suicidality, výrazne horšia spokojnosť a prosperovanie</td></tr>
+<tr><td><span class="a">Stahlmann a Ruch (2023)</span></td><td>pozitívne Primals (svet je dobrý; alive, safe, enticing) → silné stránky charakteru: nádej, spiritualita, vďačnosť, zvedavosť, vodcovstvo</td></tr>
+<tr><td><span class="a">Bain et al. (2023)</span></td><td>presvedčenie, že svet sa mení / dá sa zmeniť → podpora / odpor voči sociálnej zmene (udržateľnosť, technológie, voľby)</td></tr>
+</table>
+<p class="mini">Primals ovplyvňujú vďačnosť, zvedavosť, nádej, dôveru, sebaúčinnosť, zmysel života, pohodu, K-V riziko, depresiu, úzkosť, stres a súvisia s E, A, N. <b>Príklad „svet je nádherný vs. škaredý“</b>: nadšený fotograf prírody (patologicky – ignoruje praktické aspekty → vyvažovať estetické a funkčné) vs. „všetko je nevkusné“ (→ depresia, odcudzenie; nácvik vnímania krásy, práca s negatívnymi filtrami, vďačnosť). „<b>Svet je nebezpečný</b>“ → opatrnosť, stres, izolácia, vyhýbanie sa príležitostiam, zdravotné problémy.</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="topic" id="t11">
+<div class="thead"><span class="tn">TÉMA 11</span><h2>Pohlavné rozdiely</h2></div>
+<div class="cols">
+<div><p><span class="k">Pohlavné rozdiely</span> = priemerné rozdiely mužov a žien v správaní a osobnosti · <span class="k">rod, rodové rozdiely, rodové stereotypy</span> = presvedčenia, ako sa muži a ženy líšia / mali by líšiť.</p>
+<p><span class="a">Eleanor Maccoby a Carol Jacklin</span> (<span class="y">1974</span>) – psychológia rodových rozdielov: ženy o niečo lepšie <b>verbálne</b>, muži v <b>matematike a priestore</b>; z osobnosti jediný rozdiel – <b>muži agresívnejší</b>; záver: rozdiely sú <span class="no">nepatrné a triviálne</span> → masívna kritika → systematické skúmanie, <b>metaanalýzy</b>, pohlavie vo vzorkách aj v politikách.</p></div>
+<div class="box sch"><span class="lab">VEĽKOSŤ EFEKTU d</span>
+<div class="cols" style="gap:4px 10px"><div><span class="y">0,20</span> malý rozdiel<br><span class="y">0,50</span> stredný<br><span class="y">0,80</span> veľký</div>
+<div class="mini">hod loptičkou <span class="y">d = 2</span> (2 SD v prospech mužov) · priemer známok VŠ <span class="y">0,04</span> · verbálne <span class="y">−0,11</span> · matematika <span class="y">0,15</span> · rotácia objektov <span class="y">0,73</span> (1990)</div></div>
+<svg viewBox="0 0 280 70" width="100%" style="display:block;margin-top:4px"><path d="M10 64 C 60 64, 80 10, 115 10 S 170 64, 220 64" fill="none" stroke="var(--warn)" stroke-width="2"/><path d="M60 64 C 110 64, 130 10, 165 10 S 220 64, 270 64" fill="none" stroke="var(--sch)" stroke-width="2"/><line x1="5" y1="64" x2="275" y2="64" stroke="var(--muted)"/><g font-size="8.5"><text x="92" y="8">ženy</text><text x="160" y="8">muži</text></g></svg>
+<span class="mini">Aj pri veľkom efekte niektoré ženy dohodia ďalej než priemerný muž (distribúcie sa prekrývajú).</span></div>
+</div>
+<div class="box warn"><span class="lab">POZOR · ZNAMIENKO d</span><b>kladné d</b> = vyššie skóre <b>mužov</b>, <b>záporné d</b> = vyššie skóre <b>žien</b> (napr. úzkosť −0,54 = ženy úzkostnejšie; emočná stabilita −0,49 = muži stabilnejší, ženy vyššie v neuroticizme). Pri hneve chlapcov (temperament detí) je v poznámkach −0,34 – podľa tejto konvencie by malo byť +0,34.</div>
+<div class="vs">
+<div class="l" style="background:var(--q-bg);border-color:var(--q)"><b>Minimalisti</b> – rozdiely sa preceňujú, sú malé, bez významných dôsledkov</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--sch-bg);border-color:var(--sch)"><b>Maximalisti</b> – efekty sú ako pri väčšine javov v psychológii; aj malé rozdiely môžu mať veľkú praktickú významnosť (prosociálnosť → počet ľudí, o ktorých sa dlhodobo starajú)</div>
+</div>
+
+<h3>Temperament u detí (3 – 13 rokov)</h3>
+<p class="mini">Temperament = biologicky založené emocionálne a behaviorálne konzistencie, objavujú sa skoro a predpovedajú psychopatológiu a osobnosť.</p>
+<table class="cmp">
+<tr><th>Črta</th><th>d</th><th>Zistenie</th></tr>
+<tr><td><b>inhibičná kontrola</b> (kontrola nevhodných reakcií)</td><td class="y">0,41</td><td rowspan="2">dievčatá lepšia sebakontrola, chlapci impulzívnejší; inhibičná kontrola súvisí s neskoršou <b>svedomitosťou</b> – rozdiel sa v dospelosti <b>vytráca</b></td></tr>
+<tr><td>impulzivita</td><td class="y">0,72</td></tr>
+<tr><td><b>percepčná senzitivita</b> (jemné podnety)</td><td class="y">0,38</td><td>v prospech dievčat</td></tr>
+<tr><td><b>surgencia</b> (dominancia, sociabilita, sebavedomie, aktivita, impulzívnosť)</td><td class="y">0,38</td><td>chlapci vyššie; vysoká surgencia + nízka inhibičná kontrola → <b>disciplinárne problémy</b> a <b>fyzická agresivita</b> (2005: <span class="y">d = 0,60</span>, cca 13 rokov)</td></tr>
+<tr><td><b>negatívna afektivita</b></td><td>≈ 0</td><td>dievčatá viac strachu (<span class="y">0,34</span>), chlapci viac hnevu (<span class="y">−0,34</span> v poznámkach)</td></tr>
+</table>
+
+<h3>Big Five – pohlavné rozdiely</h3>
+<table class="cmp">
+<tr><th style="width:18%">Faktor</th><th style="width:10%">d</th><th>Facety a súvislosti</th></tr>
+<tr><td><b>Extraverzia</b></td><td class="y">0,15</td><td>malý rozdiel v 50 kultúrach; ženy: <b>vrelosť −0,29, hravosť −0,26</b>; muži: <b>asertivita 0,24, vyhľadávanie vzrušenia 0,25</b> (aktivita 0,09). Muži viac cenia <b>hodnotu moci</b> (127 vzoriek, 70 krajín); v zmiešaných skupinách častejšie <b>prerušujú</b></td></tr>
+<tr><td><b>Prívetivosť</b></td><td class="y">−0,32</td><td>ženy vyššie: <b>dôvera −0,25</b> (ochota spolupracovať, vidieť dobro), <b>nežnosť / citlivosť −0,97</b> (empatia, súcit), <b>skromnosť −0,26</b>; ženy kooperatívnejšie v zmiešaných interakciách, muži v rovnakopohlavných; ženy sa častejšie <b>usmievajú</b> (−0,6)</td></tr>
+<tr><td><b>Agresivita</b> (opak A)</td><td class="y">0,40 – 0,86</td><td>muži fyzicky agresívnejší: <b>TAT 0,86</b> &gt; peer report <b>0,63</b> &gt; self-report <b>0,40</b>; agresívne predstavy <b>0,84</b>. Muži spáchajú cca <span class="y">90 %</span> vrážd (obete väčšinou muži); vrchol po puberte a začiatkom 20-ky, po 50-ke pokles. Príčiny: ženy citlivejšie na <b>trest (−0,33)</b>, muži nižšia <b>empatia</b>. Vzťahová agresia (urážky, klebety) – bez rozdielu alebo mierne vyššie ženy</td></tr>
+<tr><td><b>Spoľahlivosť</b> (svedomitosť)</td><td class="y">−0,14</td><td>nepatrný; väčší len <b>poriadkumilovnosť</b> (−0,13 až −0,24) – aj malý efekt má kumulatívne účinky (hádky o upratovanie)</td></tr>
+<tr><td><b>Emočná stabilita</b></td><td class="y">−0,49</td><td><mark>najväčší rozdiel z Big Five</mark>; úzkosť <b>−0,54</b> (najväčší naprieč kultúrami), <b>bojazlivosť −1,04</b>, pocit zraniteľnosti</td></tr>
+<tr><td><b>Intelekt – otvorenosť</b></td><td class="y">−0,07</td><td>žiadne celkové rozdiely; ženy vyššie vo <b>fantázii (−0,31)</b> a <b>pocitoch (−0,42)</b>, predstavy 0,03</td></tr>
+</table>
+<p class="mini"><b>Multivariačne</b> (viac vlastností naraz) sú rozdiely <b>podstatne väčšie</b> – ako tvár: podľa jedného znaku ťažko, podľa celej tváre <span class="y">95 %</span> presnosť; z osobnostného profilu sa pohlavie určí s <span class="y">85 %</span> presnosťou.</p>
+<div class="cols">
+<div><h4>Základné emócie – frekvencia a intenzita</h4>
+<table class="cmp mini"><tr><th>Emócia</th><th>Frekv.</th><th>Intenz.</th><th>Emócia</th><th>Frekv.</th><th>Intenz.</th></tr>
+<tr><td>pozitívne (PE)</td><td>−0,20</td><td>−0,23</td><td>negatívne (NE)</td><td>−0,14</td><td>−0,25</td></tr>
+<tr><td>náklonnosť</td><td>−0,30</td><td>−0,25</td><td>strach</td><td>−0,17</td><td>−0,26</td></tr>
+<tr><td>radosť</td><td>−0,16</td><td>−0,26</td><td>hnev</td><td>−0,05</td><td>−0,14</td></tr>
+<tr><td>spokojnosť</td><td>−0,13</td><td>−0,18</td><td>smútok</td><td>−0,16</td><td>−0,28</td></tr>
+<tr><td>hrdosť</td><td>ns</td><td>ns</td><td>vina</td><td>ns</td><td>0,07</td></tr></table>
+<p class="mini">Ženy prežívajú pozitívne aj negatívne emócie <b>častejšie a intenzívnejšie</b> (najviac náklonnosť, radosť; strach, smútok, aj znechutenie); <b>hrdosť</b> bez rozdielu; <b>vina</b> minimálny rozdiel – <span class="no">proti stereotypu</span>. Efekty malé; ženy intenzívnejšie žiarlia pri citovej nevere.</p></div>
+<div><h4>Sebaúcta (globálna) – d = 0,21 (muži vyššie)</h4>
+<svg viewBox="0 0 280 92" width="100%" style="display:block"><line x1="10" y1="72" x2="275" y2="72" stroke="var(--muted)"/>
+<g fill="var(--sch)"><rect x="18" y="45" width="34" height="27"/><rect x="62" y="33" width="34" height="39"/><rect x="106" y="16" width="34" height="56"/><rect x="150" y="41" width="34" height="31"/><rect x="194" y="55" width="34" height="17"/><rect x="238" y="70" width="34" height="2"/></g>
+<g font-size="8"><text x="22" y="41">0,16</text><text x="66" y="29">0,23</text><text x="110" y="12">0,33</text><text x="154" y="37">0,18</text><text x="198" y="51">0,10</text><text x="238" y="66">−0,03</text>
+<text x="18" y="84">7–10</text><text x="62" y="84">11–14</text><text x="106" y="84">15–18</text><text x="150" y="84">19–22</text><text x="194" y="84">23–59</text><text x="242" y="84">60+</text></g></svg>
+<p class="mini">Vrchol rozdielu v <b>15 – 18 rokoch</b>, od 60 prakticky identickí. Stereotyp o výrazne horšom sebavedomí žien je <b>prehnaný</b>, no aj malé rozdiely sú dôležité pre pohodu.</p></div>
+</div>
+
+<h3>Sexualita, záujmy, empatia</h3>
+<div class="cols">
+<div><p class="mini"><b>Sexuálna rozmanitosť</b>: muži permisívnejší k príležitostnému sexu (<span class="y">0,45</span>), častejšie pornografia (<span class="y">0,63</span>), stabilné naprieč generáciami; viac partnerov, fantázií, ochota k sexu s neznámym; ťažšie priateľstvá s opačným pohlavím (iniciujú kvôli príťažlivosti, ukončia pri neopätovaní). Sexuálna agresivita – <b>podskupina mužov</b> s vysokou temnou triádou, nízkou empatiou, nepriateľskou maskulinitou. Ženy vyššie v <b>emocionálnych investíciách</b> (<span class="y">−0,39</span>; láska, romantika, prítulnosť, súcit, vášeň) – vyššia citová pripútanosť k deťom aj partnerom; ženy 18 – 39 viac túžia po rodine.</p></div>
+<div><div class="box def"><span class="lab">DIMENZIA „ĽUDIA – VECI“ · d = 1,35</span>„veci“ = neosobné predmety (stolár, automechanik, poľnohospodár) – častejšie <b>muži</b>; „ľudia“ = starostlivosť, vedenie (učiteľ, sociálny pracovník, sestra) – častejšie <b>ženy</b>. Dievčatá sa opisujú cez blízke vzťahy a skupinovú harmóniu.</div>
+<div class="box def"><span class="lab">EMPATIZÁCIA vs. SYSTEMATIZÁCIA</span>vcítenie do myšlienok a pocitov (ženy vyššie) vs. pochopenie, ako systémy fungujú, vstupy → výstupy (muži vyššie) → profesijné preferencie; podobné zistenia už pred 100 rokmi.</div></div>
+</div>
+<h4>Maskulinita, feminita, androgýnia, pohlavné roly</h4>
+<div class="fig2">
+<div><p class="mini"><b>30. roky</b>: rozdiely v položkách (kúpeľ vs. sprcha) → jedna dimenzia maskulinita – feminita. Potom 2 dimenzie: <b>maskulinita</b> = asertivita, odvaha, dominancia, sebestačnosť, inštrumentálnosť; <b>feminita</b> = starostlivosť, vyjadrovanie emócií, empatia; vysoko v oboch = <span class="k">androgýnny</span> (70. roky, podpora feminizmu – „to najlepšie z oboch“). Štúdie však ukázali <b>jednu bipolárnu črtu</b>. Posun k <span class="k">inštrumentalite</span> (práca s predmetmi, priame plnenie úloh, nezávislosť) a <span class="k">expresivite</span> (plakať, empatia, starostlivosť) a k <b>rodovým schémam</b> (spracovanie sociálnych informácií podľa pohlavia). Predpoklad: zo socializácie; no 2001 – rodovo typizované správanie má miernu <b>dedičnosť</b> aj v rámci pohlavia. Vysoko maskulínny muž + vysoko feminínna žena → skorší sex u adolescentov; páry priemerné vzhľadom na pohlavie sa častejšie rozídu.</p></div>
+<table class="cmp" style="text-align:center"><tr><th></th><th>nízka maskulinita</th><th>vysoká maskulinita</th></tr><tr><td><b>nízka feminita</b></td><td>nediferencovaný</td><td>maskulínny</td></tr><tr><td><b>vysoká feminita</b></td><td>feminínny</td><td><b>androgýnny</b></td></tr></table>
+</div>
+
+<h3>Teórie pohlavných rozdielov</h3>
+<div class="cards">
+<div class="card c-sch"><span class="n">ako</span><b>Teória socializácie</b>rodičia, učitelia, médiá posilňujú mužské / ženské správanie (najrozšírenejšia). <span class="a">Bandura (1977)</span> – učenie pozorovaním <b>modelov</b> svojho pohlavia aj bez priameho posilňovania. Dôkazy: závislosť podporovaná u dievčat, chlapci sa môžu túlať, otcovia sa viac fyzicky hrajú so synmi, rodovo odlišné hračky; medzikultúrne: otcovia menej komunikujú s dcérami, dievčatá viac domácich prác, chlapci súťaživejší, v <span class="y">82 %</span> kultúr dievčatá k starostlivosti (1989), dievčatá k sexuálnej zdržanlivosti. <span class="no">Problém kauzality</span> (deti vyvolávajú správanie rodičov?) a nevysvetľuje pôvod praktík</div>
+<div class="card c-def"><span class="n">ako</span><b>Teória sociálnych rolí</b>rozdiely vznikajú rozdelením do profesijných a rodinných rolí (živiteľ vs. žena v domácnosti → dievčatá ošetrujúce, chlapci tvrdí). Experiment: rola <b>supervízora</b> → dominancia, podriadeného → submisivita, po výmene rolí sa správanie otočí. Nevysvetľuje pôvod rolí. Test v <span class="y">55</span> kultúrach (17 000 ľudí): <mark>najrovnostárskejšie krajiny majú najväčšie, nie najmenšie rozdiely</mark> (opakovane replikované)</div>
+<div class="card c-warn"><span class="n">ako</span><b>Hormonálne teórie</b>rozdiely spôsobujú hormóny, nie zaobchádzanie. Testosterón: ženy <span class="y">200 – 400</span> pg/ml (najnižšia časť cyklu) a <span class="y">285 – 440</span> (pred ovuláciou); muži <span class="y">5 140 – 6 460</span> pg/ml → po puberte <b>viac ako 10-násobok</b>. Súvisí s agresivitou, dominanciou, sexuálnou túžbou, ale kauzalita nejasná (mení sa po víťazstve fanúšikov, po vzrušení). Nevysvetľuje pôvod</div>
+<div class="card c-aut"><span class="n">prečo</span><b>Evolučná teória</b>pohlavia sú podobné tam, kde čelili <b>podobným</b> adaptačným problémom (chuť na cukor, soľ, tuk, bielkoviny), líšia sa tam, kde čelili <b>odlišným</b> – sexualita: žena 9 mesiacov tehotenstva, zabezpečenie zdrojov, zlý výber partnera je pre ňu nákladnejší → náročné preferencie (muž ochotný investovať); príležitostný sex výhodnejší pre mužov</div>
+</div>
+<div class="box mne"><span class="lab">INTEGRATÍVNA PERSPEKTÍVA</span>socializácia a hormóny odpovedajú, <b>ako</b> sa pohlavia líšia; evolúcia, <b>prečo</b>. Treba všetky 3 úrovne: sociálne faktory · hormonálne a fyziologické vplyvy · evolučné procesy.</div>
+<h4>Psycholingvistika – jazyk na Facebooku (Big Five, pohlavie, vek)</h4>
+<table class="cmp mini">
+<tr><td><b>ženy</b></td><td>emočne zafarbený jazyk, vzťahy, viac zámen 1. os. j. č. a emotívnych výrazov (introspekcia), pozitívne emócie</td><td><b>muži</b></td><td>analytický, fakty, záujmy, úspech a status, formálnejší; objekty, činnosti, súťaženie</td></tr>
+<tr><td><b>mladší</b></td><td>emócie, sociálne aktivity, „ja“, škola, priatelia, zábava; extrémne pozitívne aj negatívne emócie</td><td><b>starší</b></td><td>rodina, práca, zdravie, politika, povinnosti; praktický, vyrovnanejší tón</td></tr>
+<tr><td><b>E</b></td><td>spoločenské aktivity, zábava, optimizmus</td><td><b>N</b></td><td>negatívne slová, emocionálne ťažkosti, introspekcia</td></tr>
+<tr><td><b>A</b></td><td>láskavosť, harmónia, srdečný tón</td><td><b>O / C</b></td><td>O: sofistikované slová, umenie, filozofia · C: práca, zodpovednosť, praktický tón</td></tr>
+</table>
+</section>
+
+<!-- ============ 12 ============ -->
+<section class="topic" id="t12">
+<div class="thead"><span class="tn">TÉMA 12</span><h2>Poruchy osobnosti</h2></div>
+<p><b>Príznaky porúch osobnosti (PO):</b> impulzívne a rizikové správanie, ťažké vzťahy, výkyvy nálad, kognitívna porucha, samovražedné správanie, sebapoškodzovanie, závislosti, paranoja, nestabilné vnímanie seba, nestále správanie.</p>
+<p>Vlastnosti opisujú konzistentnosti v správaní, myslení, konaní; <mark>PO = maladaptívne variácie alebo kombinácie normálnych osobnostných vlastností</mark> – v oblastiach: <b>a)</b> vlastnosti · <b>b)</b> emócie · <b>c)</b> kognície · <b>d)</b> motívy · <b>e)</b> medziľudské správanie · <b>f)</b> predstavy o sebe.</p>
+<div class="cols">
+<div class="box def"><span class="lab">A · VLASTNOSTI – EXTRÉMY DIMENZIÍ</span>extrémne nízka dôvera + vysoké nepriateľstvo → <b>paranoidná</b> · veľmi nízka spoločenskosť + vysoká úzkosť → <b>vyhýbavá</b> · vysoká spoločenskosť + nízka úzkosť → <b>histriónska</b>. Na opis PO sú užitočné faktory ako Big Five.</div>
+<div class="box def"><span class="lab">D · MOTIVÁCIA</span>maladaptívne variácie najmä potreby <b>moci a intimity</b>: extrémny nedostatok motivácie k intimite (niektoré PO) · prehnaná potreba moci · potreba byť nadradený a chválený → <b>narcistická</b> · extrémna motivácia k poriadku a detailom → <b>obsedantno-kompulzívna</b></div>
+<div class="box def"><span class="lab">C · KOGNÍCIA</span>(vnímanie, interpretácia, plánovanie) rutinné nesprávne interpretácie zámerov iných: paranoik – ostatní ho chcú dostať; histrionik – ostatní ho majú radi; hraničná – nevinné poznámky ako opustenie, kritika, odmietnutie → skreslené sociálne poznávanie pri každej PO</div>
+<div class="box def"><span class="lab">B · EMÓCIE</span>pri <b>7</b> PO extrémne rozdiely: <b>extrémna nestálosť</b> (hraničná) · <b>extrémy špecifických emócií</b> – úzkosť (vyhýbavá), strach (paranoidná), hnev (narcistická). Väčšina PO má <b>emocionálne jadro</b></div>
+<div class="box def"><span class="lab">F · SEBAPONÍMANIE</span>chýba <b>stabilita</b> (rozhodovanie, potreba uisťovania) · <b>extrémne vysoké</b> (narcizmus) alebo <b>extrémne nízke</b> (závislá PO) sebahodnotenie; „JA“ = dôležitá perspektíva</div>
+<div class="box def"><span class="lab">E · SOCIÁLNE VZŤAHY</span>problémy s <b>intimitou</b> (prílišný odstup alebo rýchle zblíženie) · <b>deficit empatie</b> pri väčšine PO · <b>nedostatočné sociálne zručnosti</b> (schizoid nezačne rozhovor, histrionik sa správa neprimerane)</div>
+</div>
+
+<h3>Čo je porucha? Čo je abnormálne?</h3>
+<div class="box def"><span class="lab">DEFINÍCIA · PSYCHICKÁ PORUCHA</span>vzorec správania alebo prežívania, ktorý je <b>nepríjemný a bolestivý</b>; vedie k <b>postihnutiu / zhoršeniu</b> v dôležitých oblastiach (práca, manželstvo, vzťahy); spojený so <b>zvýšeným rizikom</b> ďalšieho utrpenia, straty funkčnosti, smrti alebo uväznenia. Porucha = <b>konceptuálna (pojmová) entita</b> – abstraktná, ale užitočná na rozlíšenie normálneho a patologického.</div>
+<div class="cols">
+<div><p class="mini"><b>Štatistická definícia abnormality</b> – čokoľvek odlišné od normálu (aj farbosleposť, homosexualita pred 30 rokmi); mení sa v čase a kultúre. <b>Psychologická</b> – neobvyklé myšlienky, vnímanie, presvedčenia nezodpovedajúce okolnostiam, problémy žiť v spoločenstve, neefektívne zvládanie, vyššie riziko problémov, správanie viac škodí, ako pomáha.</p>
+<p class="mini"><b>DSM-5</b> (Diagnostic and Statistical Manual of Mental Disorders, <span class="y">2013</span>) – snaha (<span class="no">neúspešná</span>) urobiť diagnostiku menej kategorickú a viac dimenzionálnu.</p></div>
+<div class="vs" style="grid-template-columns:1fr">
+<div class="r" style="background:var(--q-bg);border-color:var(--q)"><b>Kategorický pohľad</b> – <b>kvalitatívny</b> rozdiel medzi tými, čo poruchu majú a nemajú; PO kvalitatívne odlišné od normálnych extrémov čŕt</div>
+<div class="l"><b>Dimenzionálny pohľad</b> – každá porucha = <b>kontinuum</b> od normality po závažné narušenie; líšia sa len <b>v miere</b>. Problémom je človek až na extrémnych koncoch; extrémy sa kombinujú (OC osobnosť = extrémne vysoká C + N). <span class="a">Costa, Widiger</span>: dimenzionálny pohľad je <mark>spoľahlivejší a zmysluplnejší</mark>.</div>
+</div>
+</div>
+<p class="mini"><i>Príklad kontinua asociálnosti:</i> rezervovaný a nezaujíma sa o pocity iných → chýba túžba pomáhať → rezervovaný a ľahostajný → aktívne ubližuje a využíva → často a vážne ubližuje.</p>
+<div class="box def"><span class="lab">PORUCHA OSOBNOSTI (DSM-5)</span>trvalý vzorec prežívania a správania, ktorý sa <b>výrazne odlišuje od očakávaní kultúry</b> jednotlivca. Črty sú pozorovateľné v <b>širokom spektre situácií</b>; črta je maladaptívna a nepružná a spôsobuje poruchu alebo utrpenie (svedomitý → 10× kontrola zámkov každú noc, 5× spotrebiče ráno). Prejav vo <mark>viac ako jednej oblasti: myslenie · cítenie · vychádzanie s inými · kontrola vlastného správania</mark>. Vzorec je <b>rigidný</b>, naprieč situáciami, s <b>dlhou históriou</b> (dospievanie, detstvo); <span class="no">nie</span> je dôsledkom drog, liekov, zdravotného stavu (úraz hlavy) ani prejavom inej duševnej poruchy.</div>
+<div class="cols3">
+<div class="box warn"><span class="lab">PROBLÉM KULTÚRY</span>imigranti istý čas vykazujú problémy podobné PO</div>
+<div class="box warn"><span class="lab">PROBLÉM VEKU</span>krízy identity v adolescencii pripomínajú PO → diagnostika PO <b>nie pred 18. rokom</b></div>
+<div class="box warn"><span class="lab">PROBLÉM POHLAVIA</span>muži častejšie antisociálna PO; ženy častejšie internalizované problémy (sebapoškodzovanie)</div>
+</div>
+
+<h3>Integrácia 3 konceptov – Henriques (2017)</h3>
+<div class="fig2">
+<div><p class="mini">Spája <b>Learyho interpersonálny cirkumplex</b>, <b>Beckov koncept sociotropie – autonómie</b> a PO. <b>Leary</b> (psychoanalytická tradícia Freud → Sullivan → Murray): 2 dimenzie – <b>afiliácia</b> (nenávisť – láska, horizontálne) a <b>kontrola</b> (submisivita – dominancia, vertikálne); kvadranty: súťaživý-narcistický, zodpovedný-hypernormálny, rebelujúci-nedôverčivý, poddajný-závislý.</p>
+<div class="vs" style="margin:4px 0">
+<div class="l" style="background:var(--sch-bg);border-color:var(--sch)"><b>Autonómia</b>: 1. nezávislé dosahovanie cieľov · 2. citlivosť na kontrolu inými. Zameraní na seba, nezávislosť / dominancia, hyperreaktívni na prekážky cieľov.</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--mne-bg);border-color:var(--mne)"><b>Sociotropia</b>: 1. preferencia afiliácie · 2. strach z kritiky a odmietnutia. Závislí od iných, podriaďujú sa kvôli blízkosti, hyperreaktívni na stratu lásky.</div>
+</div>
+<p class="mini"><b>Beck</b>: oba štýly súvisia s rozvojom <b>depresie</b>. Podľa DSM-5 <span class="y">10</span> PO usporiadaných na 3 úrovniach: <b>1. dominancia – podriadenosť · 2. afiliácia – nepriateľstvo · 3. autonómia – závislosť</b>; niektoré PO sú <b>polárne protiklady</b> vzťahového štýlu. Predpoklad vs. realita na SAS-cirkumplexe: antisociálna (ľudia sú na využitie) a narcistická (som výnimočný) = dominancia; histriónska (potrebujem zapôsobiť) = afiliácia; paranoidná, pasívno-agresívna = hostilita; vyhýbavá (iní mi ublížia) a závislá (som bezmocný) = submisia; v skutočnosti najviac prípadov vyhýbavej (n = 142) a OC (n = 109).</p></div>
+<svg viewBox="0 0 270 250" width="100%" style="max-width:270px;display:block;margin:auto" aria-label="hviezda porúch">
+<polygon points="135,18 165,72 228,72 196,125 228,178 165,178 135,232 105,178 42,178 74,125 42,72 105,72" fill="var(--sch-bg)" stroke="var(--sch)"/>
+<line x1="135" y1="50" x2="135" y2="200" stroke="var(--ink)" stroke-width="1.4"/><line x1="80" y1="95" x2="190" y2="155" stroke="var(--warn)" stroke-width="1.4"/><line x1="80" y1="155" x2="190" y2="95" stroke="var(--muted)" stroke-width="1.4"/>
+<g font-size="8"><text x="118" y="62">dominantný</text><text x="114" y="212">submisívny</text><text x="56" y="92" fill="var(--warn)">hostilný</text><text x="170" y="168" fill="var(--warn)">potrebný</text><text x="58" y="168">odpútaný</text><text x="160" y="90">pozornosť</text></g>
+<g font-size="8.5" font-weight="700"><text x="104" y="12">narcistická</text><text x="2" y="66">antisociálna</text><text x="214" y="66">histriónska</text><text x="6" y="196">schizoidná</text><text x="220" y="196">závislá</text><text x="108" y="246">vyhýbavá</text></g></svg>
+</div>
+
+<h3>10 porúch v 3 klastroch</h3>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-warn"><span class="n">erraticus = nestály, nepredvídateľný</span><b>Erratický klaster</b>dramatické, emocionálne, nestabilné; problémy s ovládaním emócií a s inými; neriadia sa normami · <b>antisociálna, hraničná, histriónska, narcistická</b></div>
+<div class="card c-def"><span class="n">ako byť odlišný</span><b>Excentrický klaster</b>v spoločnosti sa necítia dobre, iní ich vidia ako zvláštnych; nízke nepsychotické príznaky schizofrénie · <b>schizoidná</b> (nezáujem), <b>schizotypová</b> (nepohoda), <b>paranoidná</b> (podozrievavosť)</div>
+<div class="card c-mne"><span class="n">nervozita, obavy, stres</span><b>Anxiózny klaster</b>vyhýbanie sa úzkosti; <b>neurotický paradox</b> – riešia úzkosť spôsobom, ktorý vytvára väčší problém („sami sebe nepriateľmi“) · <b>vyhýbavá, závislá, obsedantno-kompulzívna</b></div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span>Erratický = <span class="acr">A-H-H-N</span> „<b>A</b>ž <b>H</b>ysterické <b>H</b>rané <b>N</b>álady“ · Excentrický = <span class="acr">S-S-P</span> „<b>S</b>ám, <b>S</b>trange, <b>P</b>odozrievavý“ · Anxiózny = <span class="acr">V-Z-O</span> „<b>V</b>yhýba sa, <b>Z</b>ávisí, <b>O</b>bsedantne kontroluje“</div>
+
+<h4>Erratický klaster</h4>
+<div class="box warn"><span class="lab">ANTISOCIÁLNA PO · NEÚCTA K OSTATNÝM (SOCIOPAT, PSYCHOPAT)</span>málo sa starajú o práva, pocity, šťastie iných. Už v <b>detstve</b> porušovanie pravidiel; ustálený vzorec → s vekom horšie (sila, kognícia, sexuálna zrelosť): klamstvo, hádky, drobné krádeže → vlámania, napadnutia. <mark>Bez problémov do 16 rokov → nepravdepodobná</mark>; väčšina detí s problémami „vyrastie“. <b>Asociálny</b> = nezaujíma sa o normy, nerešpektuje zákony, chladnokrvný, manipuluje a klame pre odmenu (peniaze, moc, sex). <b>Znaky:</b> opakované klamanie (podvádzanie úradov ich teší) · impulzivita (neschopnosť plánovať; väzni ľutujú, že ich chytili, nie čin; časté striedanie práce) · iritabilita · bezohľadnosť (alkohol za volantom) · nezodpovednosť (nuda z rutiny, dlhy) · chýbajúce výčitky a vina, ľahostajnosť k utrpeniu.<br>
+<b>Psychopatia vs. antisociálna PO:</b> antisociálna – dôraz na <b>pozorovateľné správanie</b> (klamstvo, kriminalita, konflikty s autoritami); psychopatia – <b>subjektívne charakteristiky</b> (nevie cítiť vinu, povrchný šarm, bezcitnosť). Teórie pôvodu: <b>biologická</b> (deficit strachu a úzkosti) a <b>sociálne učenie</b> (desenzibilizácia opakovaným násilím). Antisociálne správanie s vekom klesá – „najlepšia terapia = starnutie vo väzení“, dramaticky po <span class="y">40</span> rokoch (DSM-5). Psychopatia a úspech: politika, šport, biznis.</div>
+<div class="cols">
+<div class="box warn"><span class="lab">HRANIČNÁ (BORDERLINE) PO · NESTABILITA</span>nestabilné vzťahy, správanie, emócie aj predstavy o sebe. Intenzívne, nepredvídateľné, manipulatívne vzťahy so suicidálnymi pokusmi · povrchné, meniace sa hodnoty a ciele, názory podľa dojmov · silné emócie (panika, hnev, zúfalstvo) · výkyvy lásky a nenávisti. Príčina: <b>skorá strata lásky rodičov</b> (smrť, zneužívanie, zanedbávanie, závislosť rodiča) → iným sa nedá veriť. So stabilným, trpezlivým, prijímajúcim partnerom môžu mať uspokojivý vzťah.</div>
+<div class="box warn"><span class="lab">HISTRIÓNSKA PO · POZORNOSŤ A EMOCIONALITA</span>prehnane dramatickí, stredobod pozornosti, šarmantní, koketní, nevhodne zvodní; dôležitý fyzický vzhľad, chcú zapôsobiť (krikľavo, okázalo); dramaticky vyjadrujú názory; veľmi <b>sugestibilní</b> (názory nie na faktoch); rozčúlia sa bez pozornosti; povrchný emocionálny štýl – túžba po novinkách, záujem netrvá. Kultúrne špecifiká + rodové stereotypy (mačo, hyperfeminínne obliekanie).</div>
+</div>
+<div class="box warn"><span class="lab">NARCISTICKÁ PO · OBDIV, VLASTNÁ DÔLEŽITOSŤ, NEDOSTATOK POCHOPENIA</span>nadhodnocujú úspechy, podceňujú prácu iných, snívajú o moci a obdive, očakávajú zvláštne privilégiá bez zásluh; <b>pocit nadradenosti</b> – stýkajú sa len s výnimočnými. <span class="k">Narcistický paradox</span>: <mark>grandiózne sebavedomie je krehké</mark>, potrebujú neustály obdiv, extrémne citliví na kritiku. Nevidia potreby iných, hovoria o sebe, viac zámen „ja, mne, môj“, výkony hodnotia lepšie než iní; závidia, znevažujú úspechy iných. V práci môžu byť úspešní, intímne vzťahy problematické.</div>
+
+<h4>Excentrický klaster</h4>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-def"><b>Schizoidná PO</b>osobnosť <b>odštiepená</b> (schizma) od sociálnych vzťahov; <b>nemajú potrebu ani túžbu</b> po intimite či priateľstve, málo/žiadni blízki, radšej sami; obmedzený, nevýrazný citový život, ľahostajní ku kritike aj pochvale, nereagujú na sociálne podnety; extrémna sociálna apatia; kultúrne špecifiká</div>
+<div class="card c-def"><b>Schizotypová PO</b>v sociálnych vzťahoch <b>veľmi nepríjemne</b>, zvláštnosť a výstrednosť; úzkostní najmä s cudzími (a úzkosť neklesá), pocit nezapadania; nezvyčajné vnímanie hraničiace s halucináciami, zvláštne presvedčenia; bez očného kontaktu, nezvyčajné oblečenie; genotyp zraniteľný voči <b>schizofrénii</b>; prospešné? → herci</div>
+<div class="card c-def"><b>Paranoidná PO</b>extrémne <b>nedôverčiví</b>, v iných vidia hrozbu; predpokladajú, že ich chcú využiť a oklamať (bez dôkazov), nespravodlivé zaobchádzanie; chránia súkromie, hľadajú skryté motívy, nesprávne interpretujú; neodpúšťajú, žalujú pre maličkosti; <b>patologická žiarlivosť</b>; hádavosť provokuje nepriateľstvo iných → potvrdenie</div>
+</div>
+<h4>Anxiózny klaster</h4>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-mne"><b>Vyhýbavá PO</b>všadeprítomný pocit <b>nedostatočnosti</b> a citlivosť na kritiku; <mark>extrémny strach z kritiky a odmietnutia</mark> → vyhýbajú sa novým priateľstvám a miestam (premárnené príležitosti = neurotický paradox); tichí, plachí, osamelí; zraniteľné city; veľmi nízke sebavedomie; málo sociálnej opory; <b>túžia</b> po kontakte, fantazírujú o vzťahoch, ale intimite sa vyhýbajú</div>
+<div class="card c-mne"><b>Závislá PO</b>nadmerná potreba <b>starostlivosti</b>; submisívni, aby sa o nich iní postarali; potrebujú povzbudenie a rady, <b>zodpovednosť presúvajú na iných</b>, ťažko sa rozhodujú; vyhýbajú sa nezhodám (súhlasia aj s nesprávnym); ťažko pracujú samostatne (predstierajú neschopnosť); tolerujú aj zneužívanie a šikanu</div>
+<div class="card c-mne"><b>Obsedantno-kompulzívna PO</b>zaujatie <b>poriadkom a dokonalosťou</b>; detaily, pravidlá, rituály, harmonogramy; vysoké nároky – nikdy spokojní (neodovzdá BP); práca na úkor voľna a priateľstiev; nepružní v etike, „jediný správny spôsob – môj“; nedelegujú; hromadia nepotrebné veci, lakomí, tvrdohlaví. Adaptívne <b>do bodu</b>, kým nenaruší produktivitu a vzťahy</div>
+</div>
+<div class="box warn"><span class="lab">POZOR · OCD ≠ OBSEDANTNO-KOMPULZÍVNA PORUCHA OSOBNOSTI</span><b>OCD</b> = úzkostná porucha, závažnejšia, <b>vtieravé nežiaduce myšlienky + rituálne správanie</b>. Ľudia s OC poruchou osobnosti majú zvýšené riziko OCD aj iných úzkostných porúch.</div>
+
+<div class="cols">
+<div><h4>Súhrn PO podľa self-konceptu, emócií, správania, vzťahov (tab. 19.11)</h4>
+<table class="cmp mini">
+<tr><th>PO</th><th>Self-koncept</th><th>Emócie</th><th>Správanie</th><th>Vzťahy</th></tr>
+<tr><td><b>antisoc.</b></td><td>nepútaný pravidlami</td><td>bez výčitiek, popudlivý, agresívny</td><td>bezohľadný, impulzívny</td><td>ľahostajný k právam iných</td></tr>
+<tr><td><b>hraničná</b></td><td>vágny, meniaci sa, bez identity</td><td>nestabilné, hnev, hanba, vina</td><td>nepredvídateľné, sebapoškodzovanie</td><td>intenzívne, strach z opustenia</td></tr>
+<tr><td><b>histr.</b></td><td>žiaduci, šarmantný</td><td>okázalé na verejnosti</td><td>extravagantný</td><td>vyhľadáva pozornosť</td></tr>
+<tr><td><b>narcist.</b></td><td>jedinečný, obdivuhodný</td><td>nárok, pomsta pri neuznaní</td><td>predvádza sa</td><td>závisť, bez empatie</td></tr>
+<tr><td><b>schizoid.</b></td><td>samotár bez ambícií</td><td>nevýrazné, málo potešenia</td><td>pasívny</td><td>odpútaný, bez priateľov</td></tr>
+<tr><td><b>schizotyp.</b></td><td>iný, outsider</td><td>vysoká sociálna úzkosť</td><td>výstredný, zvláštne presvedčenia</td><td>úzkostne sa vyhýba</td></tr>
+<tr><td><b>paranoid.</b></td><td>obeť</td><td>ohrozený, podozrievavý, žiarlivý</td><td>nedôverčivý, zatrpknutý</td><td>mylné interpretácie, v strehu</td></tr>
+<tr><td><b>vyhýbavá</b></td><td>nedostatočný</td><td>strach z kritiky a odmietnutia</td><td>tichý, plachý</td><td>uťahuje sa</td></tr>
+<tr><td><b>závislá</b></td><td>potrebný, bez smeru</td><td>neistý, nerozhodný</td><td>hľadá uistenie</td><td>submisívny, vyhýba sa konfliktu</td></tr>
+<tr><td><b>OC</b></td><td>rigidný, vysoké štandardy</td><td>podráždený, tvrdohlavý</td><td>workoholik, detaily</td><td>nemá čas na priateľov</td></tr>
+</table></div>
+<div><h4>Prevalencia PO (podľa grafu, približne)</h4>
+<svg viewBox="0 0 270 200" width="100%" style="display:block">
+<g font-size="8.5" text-anchor="end"><text x="78" y="14">antisociálna</text><text x="78" y="32">hraničná</text><text x="78" y="50">histriónska</text><text x="78" y="68">narcistická</text><text x="78" y="88">schizoidná</text><text x="78" y="106">schizotypová</text><text x="78" y="124">paranoidná</text><text x="78" y="144">vyhýbavá</text><text x="78" y="162">závislá</text><text x="78" y="180">obsedantno-k.</text></g>
+<g fill="var(--warn)"><rect x="82" y="5" width="122" height="12"/><rect x="82" y="23" width="53" height="12"/><rect x="82" y="41" width="18" height="12"/><rect x="82" y="59" width="27" height="12"/></g>
+<g fill="var(--def)"><rect x="82" y="79" width="99" height="12"/><rect x="82" y="97" width="67" height="12"/><rect x="82" y="115" width="94" height="12"/></g>
+<g fill="var(--mne)"><rect x="82" y="135" width="103" height="12"/><rect x="82" y="153" width="18" height="12"/><rect x="82" y="171" width="144" height="12"/></g>
+<line x1="82" y1="188" x2="262" y2="188" stroke="var(--muted)"/><g font-size="8"><text x="80" y="198">0</text><text x="123" y="198">1</text><text x="168" y="198">2</text><text x="213" y="198">3</text><text x="250" y="198">4 %</text></g></svg>
+<p class="mini">Najčastejšia <b>obsedantno-kompulzívna</b> (~3 %) a <b>antisociálna</b> (~2,7 %); najzriedkavejšie histriónska a závislá (~0,4 %).</p>
+<div class="box q"><span class="lab">KOMORBIDITA</span><span class="y">25 – 50 %</span> osôb spĺňa kritériá viacerých PO · mnohé poruchy majú spoločné znaky · diferenciálna diagnóza je náročná.</div></div>
+</div>
+</section>
+
+<!-- ============ PASCE ============ -->
+<section class="topic" id="pasce">
+<div class="thead"><span class="tn">PASCE</span><h2>Najčastejšie skúškové pasce</h2></div>
+<div class="cols">
+<div>
+<div class="trap" data-n="1"><b>Allport 1937</b> (kniha, oddelil osobnosť a charakter) vs. <b>Allport 1961</b> (definícia „dynamická organizácia psychofyzických systémov“) · <b>Murray 1938</b>.</div>
+<div class="trap" data-n="2"><b>Charakter</b> (Allport) = osobnosť <i>hodnotená</i> · u <b>Cloningera (2003)</b> = vedomá reflexia seba a vôľové konanie, na rozdiel od dedičného <b>temperamentu</b>.</div>
+<div class="trap" data-n="3"><b>Nomotetický</b> (všeobecné zákonitosti, „štatistici“) vs. <b>idiografický</b> (jedinečný človek, „prípadové štúdie“; PPA je idiografická).</div>
+<div class="trap" data-n="4"><b>Implicitné</b> teórie (súkromné, Heider 1958) ≠ <b>formálne</b> (vedecké, Big Five). Teória je <b>užitočná/neužitočná</b>, nie pravdivá/nepravdivá.</div>
+<div class="trap" data-n="5"><b>Kretschmer</b> (astenik, atletik, pyknik → schizotýmny, viskózny, cyklotýmny) vs. <b>Sheldon</b> (endo-, mezo-, ektomorfia). <b>Frenológia = Gall</b> (lebka).</div>
+<div class="trap" data-n="6"><b>Typ A</b> = koronárny (súťaživosť, nepriateľstvo) · <b>B</b> = pohoda · <b>C</b> = potláčanie, somatizácia · <b>D</b> = negatívna afektivita + sociálna inhibícia. A a B: <b>Friedman a Rosenman</b>.</div>
+<div class="trap" data-n="7"><b>Extravert = NÍZKA</b> excitačná úroveň kôry (potrebuje viac stimulácie) · <b>introvert = VYSOKÁ</b>. Ľahko sa to otočí!</div>
+<div class="trap" data-n="8"><b>Neuróza ≠ neuroticizmus.</b> <b>Psychoticizmus</b> pridal Eysenck <b>neskôr</b> (PEN).</div>
+<div class="trap" data-n="9"><b>Cattell</b>: povrchová črta (pozorovanie) vs. základná (faktorová analýza); 4500 slov → 12 faktorov → 16PF; <b>B = schopnosť</b>, <b>Q1–Q4 = dynamické</b>. Dynamické črty: postoje → sentimenty → ergy.</div>
+<div class="trap" data-n="10"><b>BAS</b> = odmena, približovanie, <b>impulzivita</b>, nucleus accumbens · <b>BIS</b> = trest, vyhýbanie, <b>anxieta</b>, amygdala. Na impulzívnych nefunguje trest.</div>
+<div class="trap" data-n="11"><b>Zuckerman</b> 4 faktory: dobrodružstvo · zážitky · disinhibícia · náchylnosť k nude. <b>Hebb</b> = optimálna úroveň vzrušenia (nie redukcia napätia!).</div>
+<div class="trap" data-n="12"><b>Cloninger</b>: NS–dopamín · HA–GABA, serotonín · RD–noradrenalín, serotonín · P–glutamát, serotonín; charakter SD, CO, ST.</div>
+<div class="trap" data-n="13"><b>Ranný typ</b> = kratší rytmus · <b>večerný</b> = dlhší, oneskorené hodiny, lepšie nočné zmeny, ale rizikový faktor pre zdravie.</div>
+</div>
+<div>
+<div class="trap" data-n="14"><b>I-self</b> (poznávajúce, subjekt) vs. <b>Me-self</b> (poznávané = self-koncept); James: materiálne JA je <b>základ</b>.</div>
+<div class="trap" data-n="15"><b>Self-koncept</b> (širší, súhrn) vs. <b>self-schéma</b> (špecifická šablóna). <b>Possible selves</b> = budúce JA.</div>
+<div class="trap" data-n="16"><b>Higgins</b>: skutočné vs. <b>ideálne</b> JA → smútok, sklamanie · vs. <b>ought-self</b> → vina, úzkosť.</div>
+<div class="trap" data-n="17"><b>Defenzívny pesimizmus</b> (nízke očakávania, ale <b>tvrdo pracuje</b>) vs. <b>self-handicapping</b> (vytvorí si <b>alibi</b>, neučí sa).</div>
+<div class="trap" data-n="18"><b>Deficit</b> identity (žiadna identita, zraniteľnosť voči kultom) vs. <b>konflikt</b> identity (nezlučiteľné aspekty; adolescencia, stredný vek).</div>
+<div class="trap" data-n="19"><b>Deficitné motívy</b> (Freud, Murray, McClelland: úspech, moc, intimita) vs. <b>rast</b> (humanizmus, sebaaktualizácia). Vysoká nInt <b>≠</b> extraverzia.</div>
+<div class="trap" data-n="20"><b>Maslow</b> = charakteristiky sebaaktualizujúcich ľudí · <b>Rogers</b> = ako podporiť sebarealizáciu (bezpodmienečný pozitívny rešpekt, obrana skreslením) · <b>Kenrick</b> = evolučný update (partner, rodičovstvo).</div>
+<div class="trap" data-n="21"><b>S-O-T-L</b> údaje; <b>seba-klamanie</b> = úprimné vs. <b>impression management</b> = vedomé (Paulhus).</div>
+<div class="trap" data-n="22"><b>OCEAN</b>; s vekom ↓ N a E, ↑ A a C, O ↑ do 25. <b>HEXACO</b> = + čestnosť-pokora (Ashton, Lee, de Vries 2014). <b>Temná triáda</b> = narcizmus, machiavellizmus, psychopatia (Paulhus a Williams 2002).</div>
+<div class="trap" data-n="23"><b>Neurotická</b> úzkosť = ID × EGO · <b>morálna</b> = EGO × SUPEREGO · <b>objektívna</b> = vonkajšia hrozba. <b>Represia</b> (nikdy sa to nestalo) vs. <b>popretie</b> (nie je to tak, ako vyzerá). Najadaptívnejšia = <b>sublimácia</b>.</div>
+<div class="trap" data-n="24"><b>Kelly</b> = ľudia ako vedci, bipolárne konštrukty · <b>Rotter</b> = LOC · <b>Seligman</b> = naučená bezmocnosť · <b>Witkin</b> = závislosť od poľa · <b>Dweck</b> = entitná vs. prírastková teória · <b>Bandura</b> = sebaúčinnosť, reciprocita.</div>
+<div class="trap" data-n="25"><b>d</b>: + muži / − ženy; najväčší Big Five rozdiel = <b>emočná stabilita (−0,49)</b>, bojazlivosť −1,04; „ľudia – veci“ <b>1,35</b>; sebaúcta vrchol rozdielu 15–18 r.; rovnostárske krajiny = <b>väčšie</b> rozdiely.</div>
+<div class="trap" data-n="26"><b>Antisociálna PO</b> (správanie) vs. <b>psychopatia</b> (subjektívne črty); <b>OCD ≠ OC porucha osobnosti</b>; PO sa nediagnostikuje pred 18; klastre: erratický (A-H-H-N), excentrický (S-S-P), anxiózny (V-Z-O).</div>
+</div>
+</div>
+</section>
+
+</div>

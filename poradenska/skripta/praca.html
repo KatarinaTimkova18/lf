@@ -1,0 +1,794 @@
+<title>Psychológia práce a organizácie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#faf7f3;--paper:#fffdf9;--ink:#2a2420;--muted:#7a6d62;--line:#e7ddd2;
+  --gold:#b08433;--gold-soft:#f6ecd8;
+  --def:#6b4fa0;--def-bg:#f1ecf8;
+  --aut:#2f7a55;--aut-bg:#e8f3ec;
+  --warn:#b23a35;--warn-bg:#fbe9e7;
+  --mne:#b9770e;--mne-bg:#fdf1dc;
+  --sch:#2f6aa3;--sch-bg:#e7f0f9;
+  --q:#5f5a55;--q-bg:#f0eeeb;
+  --hl:#fff1a8;
+  --serif:"Libre Baskerville",Georgia,serif;--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#171412;--paper:#201c19;--ink:#efe7de;--muted:#a99b8e;--line:#3a332d;
+  --gold:#d9ad5c;--gold-soft:#3a2f1c;
+  --def:#b9a0e6;--def-bg:#2a2336;--aut:#7fc9a0;--aut-bg:#1d2c24;--warn:#ef8b84;--warn-bg:#3a2221;
+  --mne:#f0b75a;--mne-bg:#3a2e18;--sch:#8fbbe8;--sch-bg:#1c2836;--q:#c9c2bb;--q-bg:#2a2622;--hl:#5a4c12}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#171412;--paper:#201c19;--ink:#efe7de;--muted:#a99b8e;--line:#3a332d;
+  --gold:#d9ad5c;--gold-soft:#3a2f1c;
+  --def:#b9a0e6;--def-bg:#2a2336;--aut:#7fc9a0;--aut-bg:#1d2c24;--warn:#ef8b84;--warn-bg:#3a2221;
+  --mne:#f0b75a;--mne-bg:#3a2e18;--sch:#8fbbe8;--sch-bg:#1c2836;--q:#c9c2bb;--q-bg:#2a2622;--hl:#5a4c12}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans)}
+.wrap{max-width:920px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--serif);font-weight:700;line-height:1.2}
+h1{font-size:34px;margin:6px 0 4px}
+h2{font-size:24px;margin:0}
+h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:22px 0 8px;padding-left:10px;border-left:3px solid var(--gold)}
+h4{font-size:14.5px;margin:14px 0 6px}
+p{margin:6px 0}
+ul,ol{margin:4px 0 6px;padding-left:20px}
+li{margin:2px 0}
+.hero{position:relative;border-bottom:2px solid var(--gold);padding-bottom:16px;margin-bottom:16px}
+.mono{position:absolute;right:0;top:-6px;font-family:var(--serif);font-weight:700;font-size:64px;color:var(--gold);letter-spacing:-.02em;line-height:1}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.sub{color:var(--muted);margin:4px 0 10px;max-width:60ch}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11.5px;padding:3px 10px;border-radius:99px;background:var(--gold-soft);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;margin:10px 0 4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.toc{columns:2;gap:24px;font-size:14px;margin:8px 0 0;padding:12px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.toc a{color:var(--ink);text-decoration:none}
+.toc div{break-inside:avoid;margin:2px 0}
+.toc b{font-family:var(--mono);color:var(--gold);margin-right:6px}
+.topic{margin-top:34px}
+.thead{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.tn{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;white-space:nowrap}
+.date{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.box{border-left:4px solid;border-radius:6px;padding:8px 12px;margin:8px 0;position:relative}
+.box>.lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;font-weight:600;display:block;margin-bottom:2px}
+.def{border-color:var(--def);background:var(--def-bg)}.def>.lab{color:var(--def)}
+.aut{border-color:var(--aut);background:var(--aut-bg)}.aut>.lab{color:var(--aut)}
+.warn{border-color:var(--warn);background:var(--warn-bg)}.warn>.lab{color:var(--warn)}
+.mne{border-color:var(--mne);background:var(--mne-bg)}.mne>.lab{color:var(--mne)}
+.sch{border-color:var(--sch);background:var(--sch-bg)}.sch>.lab{color:var(--sch)}
+.q{border-color:var(--q);background:var(--q-bg)}.q>.lab{color:var(--q)}
+mark{background:var(--hl);color:inherit;padding:0 2px;border-radius:2px}
+.k{color:var(--def);font-weight:700}
+.a{color:var(--aut);font-weight:700}
+.y{font-family:var(--mono);color:var(--gold);font-weight:600;font-size:.94em}
+.no{color:var(--warn);font-weight:600}
+.acr{font-family:var(--mono);font-weight:700;letter-spacing:.08em}
+table{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:13.5px;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--gold-soft);font-weight:600}
+tr{break-inside:avoid}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 16px}
+@media (max-width:640px){.cols,.cols3{grid-template-columns:1fr}.toc{columns:1}.mono{font-size:44px}}
+.steps{list-style:none;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:5px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;break-inside:avoid}
+.steps li::before{content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font:600 12px/22px var(--mono);text-align:center}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;break-inside:avoid}
+.flow span{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:13px}
+.flow b{color:var(--gold)}
+.tl{border-left:2px solid var(--gold);padding-left:14px;margin:6px 0}
+.tl div{position:relative;margin:4px 0;break-inside:avoid}
+.tl div::before{content:"";position:absolute;left:-19px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.ladder{display:flex;flex-direction:column;gap:3px;margin:6px 0}
+.ladder div{background:var(--gold-soft);border-radius:4px;padding:4px 10px}
+.trap{border-left:4px solid var(--warn);background:var(--warn-bg);border-radius:6px;padding:8px 12px 8px 40px;margin:6px 0;position:relative;break-inside:avoid}
+.trap::before{content:attr(data-n);position:absolute;left:10px;top:8px;font:700 15px var(--mono);color:var(--warn)}
+.part{margin:34px 0 0;padding:12px 16px;border-radius:10px;background:var(--gold-soft);font-family:var(--serif);font-size:20px}
+svg text{fill:var(--ink);font-family:var(--sans)}
+/* infographic components */
+.path{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:8px 0;break-inside:avoid}
+.path .st{flex:1 1 140px;min-width:0;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--c,var(--gold));border-radius:10px;padding:8px 10px;font-size:13px}
+.path .st .n{display:block;font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--c,var(--gold));text-transform:uppercase;margin-bottom:2px}
+.path .st b{display:block;font-size:13.5px;margin-bottom:2px}
+.path .ar{align-self:center;color:var(--gold);font-weight:700;font-size:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:7px;margin:8px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c,var(--gold));border-radius:8px;padding:7px 10px;font-size:13px;break-inside:avoid;min-width:0}
+.card .n{font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--c,var(--gold));text-transform:uppercase;display:block}
+.card b{display:block;font-size:13.5px}
+.c-def{--c:var(--def)}.c-aut{--c:var(--aut)}.c-warn{--c:var(--warn)}.c-mne{--c:var(--mne)}.c-sch{--c:var(--sch)}.c-q{--c:var(--q)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:stretch;margin:8px 0;break-inside:avoid}
+.vs>div{border-radius:10px;padding:9px 12px;min-width:0}
+.vs .l{background:var(--aut-bg);border:1px solid var(--aut)}.vs .r{background:var(--warn-bg);border:1px solid var(--warn)}
+.vs .mid{align-self:center;font:700 14px var(--mono);color:var(--muted);padding:0}
+.tw{overflow-x:auto}.cmp td,.cmp th{font-size:13px}
+.fig{display:block;margin:8px auto;max-width:100%;height:auto;break-inside:avoid}
+.figcap{font-size:12px;color:var(--muted);text-align:center;margin-top:-4px}
+@media (max-width:640px){.vs{grid-template-columns:1fr}.vs .mid{text-align:center}}
+
+.small{font-size:12.5px;color:var(--muted)}
+@media print{
+  @page{size:A4;margin:9mm}
+  .path .st,.card{font-size:7.8pt}.path .st b,.card b{font-size:8.2pt}
+  body{font-size:8.3pt;line-height:1.4;background:#fff}
+  .wrap{max-width:none;padding:0}
+  h1{font-size:22pt}h2{font-size:14pt}h3{font-size:8pt;margin:10px 0 4px}h4{font-size:8.6pt;margin:7px 0 3px}
+  .mono{font-size:40pt}
+  .topic{margin-top:14px}
+  .box{padding:4px 8px;margin:4px 0;break-inside:avoid}
+  table{font-size:7.6pt;margin:3px 0 6px}th,td{padding:2px 5px}
+  h2,h3,h4,.thead{break-after:avoid}
+  .toc{font-size:8pt;padding:6px 10px}
+  .steps li,.flow,.tl div,svg,.trap{break-inside:avoid}
+  a{color:inherit}
+}
+/* doplnky pre PsyO */
+.arrow{display:inline-flex;align-items:center;gap:6px;color:var(--warn);font:700 12px var(--mono);letter-spacing:.04em;border:1.5px solid var(--warn);border-radius:6px;padding:2px 8px;background:var(--warn-bg)}
+.arrow::before{content:"⟵";font-size:16px;line-height:1}
+.mini{font-size:12.5px}
+.fig2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:center}
+@media (max-width:640px){.fig2{grid-template-columns:1fr}}
+.tag{font:600 10px var(--mono);padding:1px 6px;border-radius:4px;background:var(--q-bg);color:var(--q);margin-left:4px;letter-spacing:.06em}
+td.y,.nw{white-space:nowrap}
+@media print{.cmp td,.cmp th{font-size:7.6pt}.mini{font-size:7.6pt}.arrow{font-size:7.4pt}}
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <div class="mono">PPO</div>
+  <div class="meta">Prešovská univerzita · Psychológia · Bc. · ZS 2025/2026</div>
+  <h1>Psychológia práce a organizácie</h1>
+  <p class="sub">doc. PhDr. Taťjana Búgelová, CSc. · Psychológia práce 1 – prednášky + doplnkové prednášky v jednom. Skúška = krúžkovací test z prednášok (primárne prednášky; literatúra: Berryová, Štikar; Organizačné správanie – Kravčáková).</p>
+  <div class="pills"><span class="pill">11 tém</span><span class="pill">celé na skúšku</span><span class="pill">Skúškové pasce: 22</span></div>
+  <div class="legend">
+    <span><i style="background:var(--def)"></i>definícia / pojem</span>
+    <span><i style="background:var(--aut)"></i>autor / teória</span>
+    <span><i style="background:var(--warn)"></i>pozor</span>
+    <span><i style="background:var(--mne)"></i>mnemotechnika</span>
+    <span><i style="background:var(--sch)"></i>schéma</span>
+    <span><i style="background:var(--q)"></i>otázka / príklad z prednášky</span>
+  </div>
+  <p class="small">V texte: <mark>žlté</mark> = dôležité na skúšku · <span class="k">fialový</span> = kľúčový pojem · <span class="a">zelený</span> = autor · <span class="y">1912</span> = rok/číslo · <span class="no">červená</span> = protiklad / „nie“.</p>
+  <nav class="toc">
+    <div><a href="#t1"><b>01</b>Práca a jej význam pre človeka</a></div>
+    <div><a href="#t2"><b>02</b>Detská hra a práca</a></div>
+    <div><a href="#t3"><b>03</b>Psychológia práce a organizácie: predmet, vývoj</a></div>
+    <div><a href="#t4"><b>04</b>Názory na človeka v pracovnom procese</a></div>
+    <div><a href="#t5"><b>05</b>Psychológ práce a etika</a></div>
+    <div><a href="#t6"><b>06</b>Pracovný výkon a výkonnosť</a></div>
+    <div><a href="#t7"><b>07</b>Únava, biorytmus, pracovný čas</a></div>
+    <div><a href="#t8"><b>08</b>Pracovná záťaž a stres</a></div>
+    <div><a href="#t9"><b>09</b>Pracovná motivácia</a></div>
+    <div><a href="#t10"><b>10</b>Človek a pracovné prostredie</a></div>
+    <div><a href="#t11"><b>11</b>Človek a sociálne prostredie organizácie</a></div>
+    <div><a href="#pasce"><b>!!</b>Najčastejšie skúškové pasce</a></div>
+  </nav>
+</header>
+
+<!-- ============ 01 ============ -->
+<section class="topic" id="t1">
+<div class="thead"><span class="tn">TÉMA 01</span><h2>Práca – prirodzená ľudská aktivita a jej význam pre človeka</h2><span class="date">24. 9. 2025</span></div>
+<div class="box q"><span class="lab">OTÁZKY Z PREDNÁŠKY (3)</span>
+<b>Patrí práca k základným ľudským potrebám?</b> <span class="no">Nie</span> – existujú nezamestnaní, lenivci, povaľači; potrebná je <b>aktivita</b>, práca ako taká nie je primárna potreba.<br>
+<b>Čo je výhodnejšie – pracovať alebo nepracovať?</b> <mark>Pracovať</mark> – peniaze a výhody na potreby mimo práce, psychická aj fyzická aktivita, poznanie, čo zvládneme, potešenie z práce. Citát autora: „ak vás práca nenapĺňa, utečte z nej čo najrýchlejšie – zotrvanie urobí viac škody“.<br>
+<b>Aké sú paralely medzi hrou a prácou?</b> tematické hry (na učiteľku, doktorku, predavačku, kaderníčku) = imitácia práce blízkych → prvé „upevňovacie techniky“ k práci.</div>
+<div class="cols">
+<div class="box def"><span class="lab">DEFINÍCIA · PRÁCA</span><mark>cieľavedomá činnosť človeka zameraná na dosiahnutie zmysluplného cieľa, za ktorú získava odmenu</mark> (interpretácia pracovného pomeru). Odmena: <b>materiálna</b> (peniaze, firemné benefity) / <b>nemateriálna</b> (voľno, kariérny postup, lepšia práca, kvalitnejšie podmienky).<br>Ďalej: ľudská činnosť, ktorá <b>mení prírodné a kultúrne prostredie</b>, zdroj materiálnych a kultúrnych hodnôt; účelové vynakladanie úsilia a aplikácia znalostí a zručností; <b>psychika umožňuje prácu a zároveň sa v nej mení</b>. Práca = zamestnanie = <b>platená činnosť</b>.</div>
+<div><p><b>Čo sa rozvíja v pracovnej činnosti:</b> schopnosti, psychické procesy (pamäť, koncentrácia – trénovateľné), profesionálne záujmy, postoje, životné názory, charakterové i fyzické vlastnosti.</p>
+<div class="box warn"><span class="lab">POZOR</span><b>Emócia je stav</b> – pociťovanie „teraz“, mení sa pod vplyvom prostredia, ale <span class="no">nevyvíja sa a nedá sa trénovať</span> (je neopakovateľná, bipolárna, vyjadruje aktuálny stav psychiky).</div>
+<p><b>Postoj</b> – 3 zložky: <b>kognitívna</b> (racionálna) · <b>emocionálna</b> (ako sa cítime) · <b>konatívna</b> (konanie).</p></div>
+</div>
+<p><b>Prečo ľudia pracujú (10):</b> peniaze · robiť niečo užitočné · zážitok úspechu, prestíže, uznania · rozvoj schopností · pocit moci · vyšší spoločenský status · pocit dôležitosti a sebaúcty · sebaobjavovanie (čo viem, dokážem, na čo si trúfnem) · reálna sebareflexia · radosť, potešenie.</p>
+<div class="cols3">
+<div class="box aut"><span class="lab">GIDDENS (2013) · 6 CHARAKTERISTÍK PLATENEJ PRÁCE</span><ol style="margin:0"><li><b>peniaze</b> – zdroj uspokojenia potrieb</li><li><b>úroveň činností</b> – získavanie a zdokonaľovanie zručností</li><li><b>rozmanitosť žitia</b> – kontext odlišný od domova, úspech a neúspech</li><li><b>štruktúra času</b> – rytmus dňa (nezamestnaný nemá rutinu)</li><li><b>sociálny kontakt</b> – priateľstvá, širšie aktivity</li><li><b>osobná identita</b> – stabilná sociálna identita; sebaúcta mužov často na finančnom príspevku rodine</li></ol></div>
+<div class="box aut"><span class="lab">JAHODOVÁ (1979) · 5 POTRIEB USPOKOJOVANÝCH ZAMESTNANÍM</span><ol style="margin:0"><li>reálna <b>štruktúra času</b> (dni, týždne, roky)</li><li>pravidelne zdieľaná <b>sociálna skúsenosť</b> mimo rodiny</li><li>podiel na <b>cieľoch, ktoré jedinca presahujú</b></li><li>vymedzenie <b>statusu a identity</b> (status získaný vs. zdedený; pozícia = miesto, ktoré zastávame)</li><li>vynucuje si <b>aktivity</b>, ku ktorým bez práce nie je motivovaný</li></ol></div>
+<div class="box aut"><span class="lab">MIKULÁŠTÍK (2015) · 5 PSYCHOSOCIÁLNYCH FUNKCIÍ PRÁCE</span><ol style="margin:0"><li><b>aktivita a kompetencia</b> – schopnosti, pocit obohatenia</li><li><b>osobná identita</b> – sebakoncepcia, sebarealizácia</li><li><b>sociálne uznanie</b> – užitočnosť, sociálna identita</li><li><b>kooperácia a interakcia</b> – skupinová identita</li><li><b>časová štruktúrovanosť</b> – biorytmy, plánovanie života</li></ol></div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA · GIDDENS</span><span class="acr">P-Ú-R-Š-S-I</span> → „<b>P</b>eniaze <b>Ú</b>plne <b>R</b>ozmanito <b>Š</b>truktúrujú <b>S</b>ociálnu <b>I</b>dentitu.“</div>
+
+<h3>História vzniku práce</h3>
+<p>O práci hovoríme odvtedy, odkedy človek koná <b>uvážene a premyslene, nie pudovo</b> (etológia: čím nižší vývojový stupeň, tým viac pudového správania).</p>
+<div class="tl">
+<div><b>1. Homo habilis</b> (človek zručný, cca <span class="y">10 000 r. pred n. l.</span>) – kamenné nástroje, lov menších zvierat, zber rastlín</div>
+<div><b>2. Homo sapiens</b> (človek rozumný) – lov mamutov (najdôležitejšia práca), spracovanie kože, nástroje z kostí, šitie odevu, zásoby</div>
+<div><b>3. Roľník</b> (dôležitý stupeň) – usadí sa, poľnohospodárstvo a remeslá, keramika, <b>výmenný obchod</b>, teritórium</div>
+<div><b>4. Výroba železa</b> (<span class="y">2000 r. pred n. l.</span>) – prvé mestá, nové profesie (remeslá, stavebníctvo, vojenstvo, súdnictvo, obchod…); <b>stratifikácia</b> spoločnosti – sociálne triedy, otroctvo (Egypt)</div>
+<div><b>5. Staroveké Grécko a Rím</b> – <b>prvé peniaze</b> (každý mestský štát s vlastným znakom), nové povolania; prácou je len <b>fyzická práca</b> – ťažká, špinavá, <mark>práca = trest</mark> (bohovia takého človeka prekliali); duševné činnosti = <b>kontemplatívne</b>, nepovažované za prácu</div>
+<div><b>6. Stredovek</b> (<span class="y">13. – 14. st.</span>) – nevoľníctvo (pripútanosť k pôde), pracovná mobilita remeselníkov; <mark>práca nie je boží trest, ale služba Bohu</mark>; Tomáš Akvinský: „práca človeka šľachtí“</div>
+<div><b>7. Renesancia</b> (od <span class="y">15. st.</span>) – osvietenstvo (Kalvín), kníhtlač (Gutenberg); <mark>práca = cnosť</mark>, nie je hanba mať z nej radosť</div>
+<div><b>8. Novovek</b> – práca už nie je nutné zlo; manufaktúry, strojová (sériová) výroba, lacná práca dospelých aj detí; súčasne úsilie o <b>kultiváciu</b> pracovných činností a prostredia</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA · NÁZOR NA PRÁCU</span>antika <b>TREST</b> → stredovek <b>SLUŽBA BOHU</b> → renesancia <b>CNOSŤ</b> → novovek <b>už nie nutné zlo</b></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="topic" id="t2">
+<div class="thead"><span class="tn">TÉMA 02</span><h2>Detská hra a práca – vzťahy a súvislosti</h2><span class="date">1. 10. 2025</span></div>
+<p>Predpokladom rozvoja vzťahu k práci (pozitívneho aj negatívneho) je <b>hra v detstve</b> – ide o <b>napodobňovanie, imitáciu</b> ľudského konania. Vzťah hry a práce je veľmi blízky; hračky imitujú súčasný svet a prácu.</p>
+<div class="tl">
+<div><span class="a">Platón</span> (<span class="y">427 – 347 pred n. l.</span>) – praktický význam hry, najmä pre <b>učenie</b></div>
+<div><span class="a">Aristoteles</span> (<span class="y">384 – 322 pred n. l.</span>) – deti povzbudzovať, aby v hrách <b>napodobňovali činnosť dospelých</b></div>
+<div><b>17. – 18. st.</b> – <span class="a">Komenský, Rousseau, Pestalozzi</span>: hra ako predpoklad neskorších pracovných aktivít</div>
+<div><span class="a">Ch. Darwin</span> (<span class="y">1809 – 1882</span>) – skúmal vývin hry svojich detí v kontexte živočíšnej ríše</div>
+<div><span class="a">Karl Groos</span> (<span class="y">1861 – 1946</span>, švajčiarsky filozof) – <mark>hra = všeobecný impulz k precvičovaniu inštinktov, úzko spojený s napodobňovaním</mark>; dôležitá pre mláďatá s málo zdedenými formami činnosti; <b>čím prispôsobivejší a inteligentnejší druh, tým dlhšie obdobie ochrany v mladosti</b></div>
+</div>
+<div class="cols">
+<div class="box def"><span class="lab">CHARAKTERISTIKA HRY (4)</span><b>dobrovoľná</b> (hra na príkaz je len reprodukcia) · <b>ohraničená v čase</b> (naháňačka, polčasy, dostavaná stavebnica) · <b>ohraničená v priestore</b> (reálny – ihrisko, šachovnica / vymyslený – obchod, hrad) · <b>má pravidlá</b> (zaužívané aj vlastné; ich porušenie hru rozbíja)</div>
+<div class="box def"><span class="lab">PSYCHOLOGICKÉ ZNAKY HRY</span>hrá sa <b>pre samotnú hru, pre potešenie</b> · <span class="no">neprináša vonkajší materiálny úžitok</span> (na rozdiel od práce) · <b>zmysel sama v sebe</b> · pocit výnimočnosti bytia v inom svete · napätie a radosť · aktivizuje <b>všetky stránky osobnosti</b> (myslím, cítim, konám)</div>
+</div>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-sch"><span class="n">funkcia hry</span><b>Všeobecná</b>fyziologický základ (organizmus zaznamenáva vplyvy a využíva ich vo vývoji) · hra simuluje realitu = <b>skúsenosť</b> (dieťa sa učí prehrávať)</div>
+<div class="card c-aut"><span class="n">psychologická (rozvojová)</span><b>4 oblasti</b>zvládať pocity a emócie (regulácia) · fantázia, predstavivosť, tvorivosť (personifikácia) · vôľa, odvaha, vytrvalosť · cítiť a pracovať s inými</div>
+<div class="card c-mne"><span class="n">spoločenská</span><b>3 oblasti</b>vytvára sociálne vzťahy · možnosť prejaviť sa a sebarealizovať · kultivuje medziľudské vzťahy</div>
+</div>
+<p class="mini"><b>Hra, učenie a práca</b> = 3 aspekty ľudskej aktivity, ktoré napĺňajú celý život. <b>Pracovná činnosť</b> = cieľavedomá činnosť za účelom transformácie, prispôsobenia a privlastnenia si produktov prostredia; úlohy definuje iná osoba, inštitúcia alebo sám aktér; sprostredkuje peniaze alebo produkt; vyvoláva radosť; má psychosociálne funkcie (Mikuláštík, 2015). Súčasťou 2. prednášky bol aj test ochoty k pracovitosti.</p>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="topic" id="t3">
+<div class="thead"><span class="tn">TÉMA 03</span><h2>Psychológia práce a organizácie – predmet, história, odvetvia</h2><span class="date">1. 10. 2025</span></div>
+<div class="tl">
+<div><span class="y">1879</span> – <span class="a">W. Wundt</span>, prvé psychologické laboratórium v Lipsku → psychológia samostatnou vedou</div>
+<div><b>rozhranie 19. – 20. st.</b> – psychológia práce ako samostatný odbor <b>aplikovanej</b> psychológie</div>
+<div><span class="y">1903</span> – <span class="a">W. Stern</span>: termín psychotechnika (diferenciálna psychológia – meranie interindividuálnych odlišností)</div>
+<div><span class="y">1912</span> – <span class="a">Hugo Münsterberg</span> (<span class="y">1863 – 1916</span>): <mark>„Psychológia a hospodársky život“ / „Psychológia a efektívnosť v priemysle“</mark> – prvá (EU) učebnica psychológie práce; meral schopnosti a dával ich do súvisu s výkonom, fyzikálne a sociálne aspekty výkonu, pozornosť a monotónia; založil <b>psychotechniku</b></div>
+<div><span class="y">1917</span> – <span class="a">R. M. Yerkes</span>: <b>Army α a Army β</b> (1. sv. vojna); <i>Journal of Applied Psychology</i>; <span class="a">W. D. Scott</span> – personálny výber</div>
+<div><span class="y">1921</span> – <span class="a">J. McKeen Cattell</span>: mentálne testy, Psychological Corporation</div>
+<div><span class="y">1927 – 32</span> – <span class="a">E. Mayo</span>: Hawthornské štúdie · <b>2. sv. vojna</b> – zdokonalenie výberových metód, počiatky AC (assessment centier); po vojne rozmach mimo akademickej obce</div>
+</div>
+<div class="cols">
+<div class="box def"><span class="lab">PSYCHOTECHNIKA (ROZMACH V 20. ROKOCH 20. ST.)</span>„technika uplatňovania psychológie v hospodárskom živote“; súbor metód na zisťovanie výkonu, schopností, zručností a dispozícií pre povolanie. <b>Podstata</b>: problémy v práci vznikajú, lebo sa na miesta dostávajú ľudia bez predpokladov. <b>Cieľ</b>: rozdiely v schopnostiach, posudzovanie spôsobilosti – <mark>„správny človek na správnom mieste“</mark>. Dnes v exponovaných profesiách (manažéri, vodiči, operátori velínov).</div>
+<div><div class="vs" style="grid-template-columns:1fr">
+<div class="l"><b>Pozitíva (3)</b>: 1. rozvoj <b>diagnostických metód</b> (najväčšie pozitívum; testy Alpha a Beta) · 2. základy <b>priemyselnej psychológie</b> · 3. vzťah <b>človek – stroj</b> (prispôsobiť stroj človeku, redukovať únavu) a človek – prostredie</div>
+<div class="r"><b>Nevýhody / kritika</b>: človek ako <b>statická</b> bytosť, nie dynamická · keď nebol vhodný, nemal na výber · adaptácia človeka na technické podmienky má <b>vnútorné obmedzenia</b> → nový postup: <mark>prispôsobovať techniku človeku</mark> (inžinierska psychológia), už pri projektovaní systémov</div>
+</div></div>
+</div>
+
+<h3>Definície a predmet PPaO</h3>
+<div class="box aut"><span class="lab">DEFINÍCIE</span>
+<b class="a">APA (2008)</b> – vedecké štúdium ľudského správania v organizáciách a na pracovisku; odvodenie princípov individuálneho, skupinového a organizačného správania a ich aplikácia pri riešení problémov v práci. Aplikuje princípy na výber, školenie, hodnotenie, pracovné podmienky, úrazy, analýzu práce, spokojnosť, vedenie, tímy, motiváciu.<br>
+<b class="a">Štikar a Hoskovec (2003)</b> – praktické využitie výsledkov výskumu v pracovnej činnosti a jej vzťah k psychickým vlastnostiam, stavom a procesom, ktoré činnosť umožňujú a sú ňou utvárané.<br>
+<b class="a">Kubáni (2005)</b> – špeciálna disciplína o <b>zákonitostiach psychickej regulácie pracovnej činnosti</b>; práca = činnosť, ktorou človek mení svet a tým aj seba.<br>
+<b class="a">Paulík (2018)</b> – <b>predmet</b>: komplexná analýza pracovných podmienok a ich pôsobenia na človeka a vplyv osobnej rovnice a správania na reguláciu, priebeh a výsledky činnosti.</div>
+<p><mark>Predmet = vzťahy medzi psychikou a pracovnou činnosťou</mark>; psychická regulácia činností a ich viacúrovňová integrácia. Činnosť regulujú: psychické procesy (vnímanie, pozornosť, pamäť, myslenie), stavy a vzťahy k okoliu, motivácia, vlastnosti, schopnosti a návyky (pracovitosť, svedomitosť) + vonkajšie podmienky (Štikar a Hoskovec, 2003). <span class="y">1973</span> v USA premenovanie na <b>Psychológiu práce a organizácie</b> – záujem aj o správanie v organizáciách (organizované správanie je viac než súčet častí). Angl. <b>I/O Psychology</b> (14. divízia APA); synonymá: business, employment, industrial, management, occupational, organizational, work psychology. <b>Interdisciplinárna aplikovaná</b> disciplína, zároveň teoretická (Kubáni, 2005).</p>
+<div class="box sch"><span class="lab">SCHÉMA · MIESTO PPAO V SYSTÉME PSYCHOLOGICKÝCH VIED</span>
+<table class="cmp" style="margin:2px 0"><tr><th>Teoretické</th><th>Špeciálne</th><th>Aplikované</th></tr>
+<tr><td>biologická, všeobecná, sociálna, vývinová · psychológia osobnosti · psychológia životného prostredia</td><td>psychometria · metodológia · psychodiagnostika · psycholingvistika</td><td><b>psychológia práce a organizácie</b> · klinická, forenzná, pedagogická, poradenská · športu, zdravia</td></tr></table></div>
+<div class="cards">
+<div class="card c-def"><span class="n">1</span><b>Personálna</b>výber, umiestňovanie, školenie, povyšovanie, hodnotenie, poradenstvo zamestnancov</div>
+<div class="card c-sch"><span class="n">2</span><b>Inžinierska</b>interakcia človek – technické zariadenie / systém (činnosť operátora, deľba funkcií s automatom)</div>
+<div class="card c-aut"><span class="n">3</span><b>Psychológia manažmentu</b>rozhodovanie, vedenie, vzťahy pri riadení; perspektíva <b>zamestnávateľa</b></div>
+<div class="card c-mne"><span class="n">4</span><b>Psychológia povolania</b>profesijné správanie v životnom cykle z pohľadu <b>pracovníka</b>; základ kariérového poradenstva</div>
+<div class="card c-q"><span class="n">5 – 8</span><b>Ďalšie</b>kariérové poradenstvo · psychológia trhu / marketingu · ekonomická (spotreba, voľby, rozhodovanie) · dopravná</div>
+</div>
+<div class="cols">
+<div><h4>Oblasti uplatnenia v podniku (Provazník, 1997)</h4>
+<ol class="steps">
+<li><div><b>Rutinné</b> – posúdenie psychickej spôsobilosti (konkurzy, rizikové činnosti); psychológ len odporúča</div></li>
+<li><div><b>Expertízne</b> – systém práce s ľuďmi, adaptácia, úprava prostriedkov, bezpečnosť a hygiena (farby, hluk, svetlo)</div></li>
+<li><div><b>Poradenské a výchovno-vzdelávacie</b> – poradenstvo vedúcim, zamestnancom a rodinám, školenia, tréningy</div></li>
+<li><div><b>Výskumné</b> – rozvoj poznatkov, využiteľné aj v podniku</div></li>
+</ol></div>
+<div><h4>Problémové okruhy (Letovancová)</h4>
+<p class="mini">analýza práce (profesiogramy, psychodiagnostika) · jednotlivec v organizácii (výber, predikcia úspešnosti, hodnotenie, spoľahlivosť) · pracovný výkon a výkonnosť (režim práce a odpočinku) · motivácia a spokojnosť · utváranie pracovného prostredia (homocentrický prístup, farby, dizajn) · sociálne správanie (komunikácia, kooperácia, konflikty, tímy) + vedenie a riadenie, štýly riadenia a rozhodovania, ľudské zdroje, PR, reklama, trh.</p></div>
+</div>
+<h4>Vývoj PPaO – 3 etapy</h4>
+<div class="path">
+<div class="st c-sch"><span class="n">A · 19./20. st.</span><b>Industriálna</b>diferenciálna psychológia, Stern, Münsterberg, Cattell, Scott, Army α/β, Mayo, AC</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">B · 50. roky 20. st.</span><b>Organizačná</b>Lewin (skupinové správanie), Human Relations, teórie motivácie (McGregor, Fiedler, Vroom); vzniká <b>personálna psychológia</b>; <span class="y">1965</span> Miles: od human relations k <b>human resources</b>; od 70. r. súčasť personalistiky; od 90. r. outsourcing (externé poradenstvá)</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">C · 21. st.</span><b>4. priemyselná revolúcia (FIR)</b>technológie menia prácu; prehodnotiť analýzu práce, tímy, výber, tréning, talenty, riadenie výkonu; intervencie pre vedúcich pri transformácii (Ghislieri et al., 2018)</div>
+</div>
+<h4>Inštitucionalizácia</h4>
+<div class="tl">
+<div><span class="y">1892</span> – <b>APA</b> (nespokojnosť aplikovaných psychológov → snahy o nezávislé organizácie)</div>
+<div><span class="y">1920</span> – <b>IAAP</b> (International Association of Applied Psychology) – najstaršia nadnárodná psychologická organizácia</div>
+<div><span class="y">1937</span> – <b>AAAP</b>, sekcia D – Industrial and Business (1938) · <span class="y">1945</span> – 14. divízia APA (Industrial and Business Psychology)</div>
+<div><span class="y">1982</span> – <b>SIOP</b> (Society for Industrial and Organizational Psychology, divízia APA; prepojená aj s APS od 1988)</div>
+<div><span class="y">1991</span> – <b>EAWOP</b> (European Association of Work and Organizational Psychology)</div>
+</div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="topic" id="t4">
+<div class="thead"><span class="tn">TÉMA 04</span><h2>Vývoj názorov na človeka v pracovnom procese</h2><span class="date">8. 10. 2025</span></div>
+<p>3 základné prúdy (existujú dodnes, závisia od charakteru práce):</p>
+<div class="path">
+<div class="st c-sch"><span class="n">1</span><b>Mechanocentrický</b>človek = súčasť technického systému</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">2</span><b>Sociocentrický</b>človek = sociálna bytosť</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">3</span><b>Antropocentrický</b>človek = tvorivá, sebarealizujúca sa bytosť</div>
+</div>
+<div class="box sch"><span class="lab">1 · MECHANOCENTRICKÝ PRÍSTUP</span>Priekopníci: <span class="a">F. W. Taylor</span> (<span class="y">1856 – 1915</span>, americký podnikateľ, zakladateľ <b>„vedeckého riadenia“</b>) a <span class="a">F. B. Gilbreth</span> (<span class="y">1868 – 1924</span>) s manželkou psychologičkou <span class="a">L. M. Gilbrethovou</span> (<span class="y">1878 – 1932</span>) – nespolupracovali, ale spolu = <b>časové a pohybové štúdie</b>; Gilbrethovci → rozvoj <span class="k">ergonómie</span> (úprava nástrojov a predmetov, aby boli anatomicky vyhovujúce a čo najmenej unavovali – rúčky, nastaviteľné stoličky).<br>
+Človek = prírodná bytosť, správanie redukované na elementárne reakcie (Bedrnová, Nový, 1994); riadenie elementárnych pohybov → maximálna racionalizácia → <b>technokratizácia</b>; zabúda sa na sociálnu štruktúru; motivácia <b>hmotnými podnetmi</b> (peniaze, odmeny, privilégiá); personálna práca = racionálny výber potrebného počtu pracovníkov.
+<div class="cols" style="margin-top:4px">
+<div><b>Taylorove opatrenia (7):</b> racionálne využívanie práce a prostriedkov · prísne predpisy na nástroje a materiál · štandardizácia nástrojov a operácií · presná evidencia pracovného času · <b>chronometráž</b> (časovo-pohybové štúdie) a kontrola operácií · <b>diferencovaná úkolová mzda</b> (najvyšší dosiahnuteľný výkon = najvyšší plat; kritika – „mučí ľudí“) · nové rozdelenie práce v riadení</div>
+<div><b>Prínos:</b> ideálne pracovné postupy bez zbytočných pohybov · <b>deľba práce</b> · nové metódy kontroly · <b>funkčný</b> namiesto líniového typu riadenia · <b>princíp minimaxu</b> (minimálna námaha, maximálny efekt). Produktivita <mark>+100 až 200 %</mark>, zárobky <mark>+50 %</mark>. „Taylorizmus“ kritizovaný – človek motivovaný len <b>materiálnou reciprocitou</b>.</div>
+</div></div>
+<div class="box aut"><span class="lab">2 · SOCIOCENTRICKÝ PRÍSTUP – HAWTHORNSKÉ ŠTÚDIE</span><span class="a">G. E. Mayo</span> (<span class="y">1880 – 1949</span>, Harvard), výskum od <span class="y">1924</span> cca <b>10 rokov</b> vo firme <b>Western Electric Co.</b> v Hawthorne pri Chicagu.
+<ul style="margin:3px 0"><li>výkon stúpal na experimentálnych aj <b>kontrolných</b> pracoviskách (bez zmien), dokonca aj pri <b>zámernom zhoršení</b> podmienok (osvetlenie, prestávky)</li>
+<li>príčiny: <b>1.</b> pracovníci pociťovali <b>uznanie</b>, že boli zaradení do výskumu (záujem vedenia) · <b>2.</b> nové, priaznivejšie pracovné aj osobné <b>vzťahy</b> (aj s majstrom) · <b>3.</b> vyššia úroveň sociálneho styku → vyššie uspokojenie</li>
+<li>zlé fyzikálne prostredie + dobré vzťahy → výkon neklesal; dobré prostredie + zlé vzťahy → výkon klesal</li></ul>
+<div class="box def" style="margin:4px 0"><span class="lab">HAWTHORNSKÝ EFEKT</span>niekto pracuje zvlášť usilovne, lebo si váži príležitosť zúčastniť sa na niečom <b>novom, zvláštnom, významnom</b>.</div>
+Potvrdený význam <b>pracovnej skupiny</b> a <b>neformálnych skupín</b> (Schein, 1969); formálne (vstup kvôli cieľu) vs. neformálne (kvôli blízkym ľuďom) skupiny. <b>Mayova škola ľudských vzťahov (Human Relations)</b>: pracovník uspokojuje <b>sociálne potreby</b> (styk, uznanie, náklonnosť, informovanosť, kompetencia); dôraz na uvedomelosť, prijatie cieľov organizácie, hmotná aj nehmotná stimulácia (sociálne služby) → báza <b>sociálnej psychológie práce</b>. U nás potláčaná, pozornosť až od <span class="y">60. rokov</span>.</div>
+<div class="box def"><span class="lab">3 · ANTROPOCENTRICKÝ PRÍSTUP</span>súčasné chápanie (Bedrnová, Nový, 1994): človek je bytosť <b>tvorivá, pružná, nápaditá</b>; ucelený, vysoko individualizovaný a organizovaný, prosociálne orientovaný otvorený systém; súvisí s prechodom od výroby predmetov k <b>službám a ideám</b>. Riadenie: <b>humanizácia práce</b>, obohacovanie práce, autonómne skupiny, <b>podniková demokracia</b>. Človek sa rozhoduje sám za seba – sloboda so sebadisciplínou a zodpovednosťou; základný motív = <b>spoluúčasť</b>. Človek by mohol chcieť: <b>1.</b> realizovať tvorivý potenciál · <b>2.</b> mať kompetencie · <b>3.</b> niesť zodpovednosť · <b>4.</b> saturovať sociálne potreby.</div>
+<div class="box warn"><span class="lab">POZOR · ROKY V POZNÁMKACH</span><b>Taylor</b> raz 1868 – 1915, raz <b>1856 – 1915</b> (správne 1856). <b>Gilbrethová</b> uvedená 1878 – 1932 (Lillian Gilbreth žila do 1972). <b>Hawthorne</b>: výskum od 1924 cca 10 rokov vs. na inom mieste 1927 – 32. Over si, čo uvádzala prednášajúca.</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><b>M</b>echano = <b>M</b>ašina (Taylor, peniaze) · <b>S</b>ocio = <b>S</b>kupina (Mayo, vzťahy) · <b>A</b>ntropo = <b>A</b>utonómia (tvorivosť, spoluúčasť)</div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="topic" id="t5">
+<div class="thead"><span class="tn">TÉMA 05</span><h2>Činnosť psychológa práce a etické aspekty</h2></div>
+<p><b>Psychológ práce</b> = špecialista na ľudské zdroje vzdelaný v psychológii práce a organizácie; 3 oblasti: <b>intervencia, diagnostika, výskum</b>.</p>
+<table class="cmp">
+<tr><th style="width:24%">Činnosť</th><th>Obsah a výstupy</th></tr>
+<tr><td><b>1. Výber pracovníkov</b> (selection)</td><td>z <b>analýzy pracovnej pozície</b> → obsah, kritériá, prediktory; výber do <b>firemnej kultúry</b>; spolupráca s personalistami a manažérmi; metódy: výberové interview, testy osobnosti a schopností; právne predpisy. Výstup = podklad pre rozhodnutie (charakteristika, návrh, poradie, odporúčanie); pri profesiách so zákonným posúdením psychickej spôsobilosti je <mark>verdikt psychológa rozhodujúci</mark></td></tr>
+<tr><td><b>2. Meranie výkonu</b> (performance measurement)</td><td>kľúčové súvislosti výkonu, systémy monitorovania jednotlivcov aj tímov; výstupy: opisy činností, časti systému hodnotenia, sledovanie psychického stavu a spôsobilosti, nové metódy, tréning posudzovateľov</td></tr>
+<tr><td><b>3. Systém hodnotenia</b> (appraisal)</td><td>tvorba, zavedenie, vyhodnocovanie účinnosti s tímom manažérov; analýzy, návrhy procesov, príprava pracovníkov</td></tr>
+<tr><td><b>4. Rozvoj pracovníkov</b> (training)</td><td>analýza tréningových potrieb, program, realizácia; najmä <b>soft skills</b> (komunikácia, asertivita, vyjednávanie, konflikty, stres); <b>koučing</b> (individuálny rozvoj, poznať aj špecifiká práce)</td></tr>
+<tr><td><b>5. Organizačný rozvoj a zmena</b></td><td>analýza organizácie, podklady pre firemnú kultúru a etiku, návrh a implementácia zmeny, práca so skupinami</td></tr>
+<tr><td><b>6. BOZP</b> (safety and health)</td><td>príčiny úrazov a nehôd, záťaž, lektorovanie kurzov BOZP, prevencia, <b>ergonómia a dizajn práce</b>; spolupráca s hygienikmi, lekármi, ergonómami</td></tr>
+<tr><td><b>7. Zamestnanecké a kariérne poradenstvo</b></td><td>silné a slabé stránky, rozhodnutia, posudky, poradenstvo aj v osobných a rodinných veciach</td></tr>
+<tr><td><b>8. Ďalšie</b></td><td>prieskumy motivácie, postojov, spokojnosti; marketing a marketingové prieskumy</td></tr>
+</table>
+<div class="cols">
+<div><div class="box def"><span class="lab">PRIMUM NON NOCERE, BONUM FACERE</span>predovšetkým neškodiť, robiť a podporovať dobro. Psychológia = exponovaná profesia, vysoké nároky na osobnosť (vedomosti, skúsenosti, obetavosť, odolnosť, kreativita); pomáha etika, hodnoty profesie, <b>sebareflexia a supervízia</b>.</div>
+<p class="mini"><b>Kontrola kvality</b>: <b>zhora</b> (inštitúcie, kontrolné orgány) · <b>zdola</b> (trh, klientská sebaobrana) · <b>profesijná sebakontrola</b> (asociácie, komory). Dozor: <b>etické komisie a supervízori</b>; štandard = <b>etické kódexy</b>, pomôcka = prípadové štúdie (Paulík, 2018). Kódexy: British Psychological Society, APA – integrita, čestnosť, rešpekt, rovnosť príležitostí; voči médiám neprekračovať kompetenciu. Psychológ je povinný: brať len úlohy, na ktoré je kvalifikovaný; jasné hranice, informovaný súhlas, dôvernosť, zodpovednosť za metódy, ukončenie intervencie, kolegiálny rešpekt.</p></div>
+<div><div class="box warn"><span class="lab">ETICKÝ KÓDEX SKP (2016) · ŠPECIFIKÁ PPAO</span>Slovenská komora psychológov; vychádza zo zákona č. <b>578/2004 Z. z.</b> Pri službách organizácii (posudzovanie spôsobilosti, výberové konanie, hodnotenie) môže psychológ poskytnúť informácie v nevyhnutnom rozsahu objednávateľovi <mark>len na základe preukázateľného informovaného súhlasu dotknutej osoby</mark>; pri zachovaní dôstojnosti, cti a dobrého mena.</div>
+<p class="mini"><b>Postgraduál:</b> špecializačné štúdium – klinická, poradenská, <b>pracovná a organizačná</b> psychológia; certifikovaná činnosť – dopravná psychológia. <span class="y">17. 2. 2022</span> novela zákona 578/2004 – <b>zrušená povinnosť prípravy na výkon práce v zdravotníctve</b> (§ 33 ods. 3).</p></div>
+</div>
+<div class="cols">
+<div class="box aut"><span class="lab">EUROPSY – EURÓPSKY CERTIFIKÁT Z PSYCHOLÓGIE</span>štandardy vzdelávania a výcviku schválené <b>EFPA</b>; smernica Rady <b>89/48/EEC</b> (uznávanie diplomov po min. 3-ročnom štúdiu). 1. publikácia: <i>Europsycholog</i> (2009, Česká asociace psychologů práce a organizace). <b>4 odbory</b>: pedagogická a školská · klinická a zdravia · práce a organizácie · ostatné. <b>3 fázy</b>: Bc. <span class="y">180</span> kreditov · Mgr. <span class="y">120</span> · supervidovaná prax <span class="y">1 rok (60)</span> + písomný sľub (etický kódex EFPA) (Wagnerová, 2011).</div>
+<div class="box def"><span class="lab">GDPR (OD 2018, CELÁ EÚ)</span>pravidlá ochrany pred neoprávneným zasahovaním do súkromia. <b>Osobné údaje</b> = informácie, podľa ktorých možno jedinca identifikovať. <b>Citlivé údaje</b> = národnosť, rasa, etnicita, politické postoje, odbory, náboženstvo, odsúdenie, zdravie, sexuálny život, genetické údaje. Psychológ = <b>spracovateľ</b> osobných údajov; pri podnikaní živnostenský zákon č. 455/1991 Sb. (prístup, archivácia, skartácia) (Paulík, 2018).</div>
+</div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="topic" id="t6">
+<div class="thead"><span class="tn">TÉMA 06</span><h2>Pracovný výkon a pracovná výkonnosť</h2><span class="date">22. 10. 2025</span></div>
+<p>Pri analýze treba rozlíšiť <b>psychickú pracovnú spôsobilosť</b> a <b>psychický pracovný potenciál</b> (Reiskup).</p>
+<div class="vs">
+<div class="l" style="background:var(--sch-bg);border-color:var(--sch)"><b>Psychologická pracovná spôsobilosť</b> = optimálny stupeň <b>zhody psychického profilu človeka</b> (temperament, schopnosti) <b>s psychickým profilom práce</b>. Ovplyvňujú ju <b>objektívne vonkajšie</b> činitele: podmienky prostredia, organizácia práce, materiálne podmienky, pracovné prostriedky, sociálna situácia.</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--def-bg);border-color:var(--def)"><b>Psychologický pracovný potenciál</b> = individuálny <b>fond psychickej energie</b>, schopností a vlastností, ktoré určujú psychickú kapacitu a celkovú výkonnosť („energetický fond“). Determinovaný <b>subjektívnymi</b> faktormi: biologické špecifiká (kondícia, vek), psychické funkcie, všeobecné a špeciálne schopnosti, osobné a pracovné vlastnosti.</div>
+</div>
+<div class="vs">
+<div class="l" style="background:var(--mne-bg);border-color:var(--mne)"><b>Výkon</b> = výsledok činnosti dosiahnutý v danom čase a za daných okolností; <b>finálny stav</b>, cieľ (ne)dosiahnutý. Fyzikálne <span class="acr">V = P / t</span> (práca / čas) – zjednodušené, bez psychologického a fyziologického hľadiska. Výkon jednotlivca sa mení aj v krátkych intervaloch → vhodnejšie uvažovať o výkonnosti.</div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--aut-bg);border-color:var(--aut)"><b>Výkonnosť</b> = <b>potenciál, pripravenosť</b> podať výkon (vzdelanie, motivácia, tréning, zdravie); súbor vlastností a dispozícií; mení sa počas zmeny, dňa, týždňa, roka (Štikar, 2003). <span class="a">Hartl a Hartlová (2004)</span>: schopnosť vykonávať pohybovú, intelektuálnu alebo kombinovanú činnosť; hodnotí sa <b>množstvo</b> (rýchlosť), <b>presnosť</b> (chyby) a <b>miera únavy</b>.</div>
+</div>
+
+<h3>Modely pracovného výkonu</h3>
+<div class="cols">
+<div class="box aut"><span class="lab">GAGNÉ A FLEISHMAN (1959)</span><span class="acr">VÝKON = SCHOPNOSTI × MOTIVÁCIA</span><br>Výskumy (Vaněk, Hošek, Man): <mark>schopnosti 25 %</mark> variácie výkonu, <mark>motivácia v danej oblasti 50 %</mark>, motivácia v príbuzných / alternatívnych činnostiach 25 % (u každého inak).</div>
+<div class="box aut"><span class="lab">WISWEDE</span><span class="acr">V = M × S × Mž</span> = motivácia × schopnosti × možnosti. Na 1. mieste <b>motivácia</b> (vonkajšia – stimulácia/tlak aj vnútorná), 2. <b>schopnosti</b> (pripravenosť), 3. <b>možnosti</b> (prostredie, nástroje, technológie, sociálne prostredie); navzájom sa podmieňujú.</div>
+</div>
+<div class="fig2">
+<div class="box aut"><span class="lab">DELHES – ODVODENÝ OD YERKES-DODSONOVHO ZÁKONA</span>výkon rastie s motiváciou po <b>optimum</b>, potom stagnuje / klesá. Silná motivácia <b>zužuje vonkajšie pole</b> (vidí len cieľ, nie okolnosti), rastie vnútorné napätie → horší motorický aj mentálny výkon; nadmerná aj slabá motivácia vedie k <b>demotivácii</b>.<br><i>Príklad: dieťa na zápase, rodič kričí z tribúny → rozrušenie, chyby, sústredí sa na dôsledky zlyhania, nie na výkon; pri hneve pauza pred výkonom.</i></div>
+<svg viewBox="0 0 250 120" width="100%" style="max-width:250px;display:block;margin:auto"><line x1="25" y1="100" x2="245" y2="100" stroke="var(--muted)"/><line x1="25" y1="100" x2="25" y2="8" stroke="var(--muted)"/><path d="M28 96 C 80 96, 95 16, 132 16 S 185 96, 240 96" fill="none" stroke="var(--sch)" stroke-width="2.4"/><line x1="132" y1="16" x2="132" y2="100" stroke="var(--gold)" stroke-dasharray="3 3"/><g font-size="9"><text x="104" y="11">optimálna motivácia</text><text x="185" y="114">motivácia →</text><text x="2" y="60" transform="rotate(-90 10 60)">výkon</text></g></svg>
+</div>
+<div class="cols">
+<div class="box aut"><span class="lab">BORKOWSKA</span><span class="acr">VEDIEŤ – MÔCŤ – CHCIEŤ</span>: ak sú tieto 3 premenné prepojené a saturované → dobrá predikcia kvalitného výkonu.</div>
+<div class="box aut"><span class="lab">CATTELL · 4 ZLOŽKY VÝKONU</span><b>1. centrálne (mentálne) schopnosti</b> – intelekt = inteligencia obohatená o skúsenosť (psychológ 80 %, murár 50 %) · <b>2. lokálne</b> – zmysly a motorika (psychológ 60 %; murár zmysly 67 %, motorika 70 – 80 %) · <b>3. inštrumentálne štruktúry</b> – zručnosti z učenia (psychológ 90 %, murár 40 %) · <b>4. neintelektové faktory</b> – motivácia, ašpirácia, nálada, únava, emócie (psychológ 60 – 70 %, murár 70 %). Používa sa pri <b>profesiogramoch</b>.</div>
+</div>
+
+<h3>Determinanty výkonnosti (Provazník a kol., 1997)</h3>
+<div class="cards">
+<div class="card c-sch"><span class="n">1 · objektívne</span><b>Technické, ekonomické, organizačné</b>technické vybavenie · úprava pracoviska · vonkajšie fyzické podmienky · technológie · hygiena a bezpečnosť · prideľovanie a organizácia práce · odmeňovanie (stála a pohyblivá zložka mzdy) · pracovná doba, zmennosť · realizácia zmien</div>
+<div class="card c-aut"><span class="n">2</span><b>Spoločenské</b>práca s ľuďmi v podniku · kvalita vedenia · pozícia a prestíž profesie (kariéra má aj subjektívnu stránku – „najlepšie buchty v meste“) · vzťahy (neformálne kontakty s nadriadeným zvyšujú spokojnosť; zdvorilosť, rešpekt) · osobný a rodinný život · komunikácia · ašpirácie · celospoločenské podmienky</div>
+<div class="card c-def"><span class="n">3</span><b>Osobnostné</b>telesné a duševné predpoklady · odborná pripravenosť, kvalifikácia · vlastnosti vrátane morálnych · pracovné a záujmové zameranie, motivácia · trvalý a aktuálny zdravotný stav</div>
+<div class="card c-warn"><span class="n">4</span><b>Situačné</b>podnikové vplyvy (inovácia, reorganizácia, rekvalifikácia, hrozba straty práce) · mimoriadne rodinné a osobné udalosti, úrazy, konflikty · celospoločenské (politické, hospodárske) udalosti</div>
+</div>
+<p class="mini"><b>Čím práca vyžaduje menej schopností</b> (kreativity, inteligencie), tým viac rastie význam <b>finančnej stimulácie</b>; čím je zaujímavejšia a umožňuje sebarealizáciu, tým menej prioritná je finančná odmena. Pri zmenách je z hľadiska biorytmu výhodný <b>týždenný stereotyp</b> striedania, najobľúbenejší bol model <b>„2-2-2“</b>. <b>Motivácia</b> je vnímaná ako pudová záležitosť, <b>ašpirácia</b> ako „vec verejná“ (cieľ si stanovím; pri neúspechu ho zmením alebo opakujem) – zmarenie pudovej motivácie môže mať fatálne následky.</p>
+<div class="mini"><b>Objektívne podmienky</b> (systém riadenia, vybavenie, prostredie, technológia, motivačné podnety, vzťahy) vs. <b>subjektívne osobnostné determinanty</b> (zdravie, odbornosť, schopnosti, morálka, motivácia) – Mikuláštík (2015). <b>Kritériá merania výkonu (6):</b> množstvo (kvantita) · kvalita · množstvo chýb · stabilita v čase (únava) · priebeh činnosti (efektivita operácií) · náročnosť zaťaženia.</div>
+
+<h3>Výkonová krivka</h3>
+<div class="fig2">
+<div><p class="mini">Grafické znázornenie pracovnej aktivity (rozloženie síl počas 24 h); pomáha pri dennom režime a deľbe práce; porovnanie inter- a intraindividuálne aj medzi profesiami.</p>
+<ol class="steps mini">
+<li><div><b>zahrievanie</b> – adaptácia na výkon (<span class="y">1 – 1,5 h</span>, podľa trénovanosti)</div></li>
+<li><div><b>zvyšovanie výkonu</b> – nad 75 %, kulminácia medzi <span class="y">2. – 3. h</span></div></li>
+<li><div><b>výkonové plató</b> – <span class="y">80 – 85 %</span></div></li>
+<li><div><b>znižovanie</b>, prudký pokles → <b>5.</b> prestávka (obed)</div></li>
+<li><div>6. druhé zahrievanie · 7. zvyšovanie · 8. plató na nižšej úrovni (<span class="y">60 %</span>) · 9. finálna fáza</div></li>
+</ol></div>
+<svg viewBox="0 0 270 125" width="100%" style="max-width:270px;display:block;margin:auto"><line x1="22" y1="102" x2="265" y2="102" stroke="var(--muted)"/><line x1="22" y1="102" x2="22" y2="6" stroke="var(--muted)"/>
+<path d="M24 70 C 45 50, 55 22, 70 24 S 95 50, 110 48 S 135 38, 150 45 S 190 75, 215 92 S 235 104, 245 96 S 258 70, 262 60" fill="none" stroke="var(--sch)" stroke-width="2.2"/>
+<g font-size="8"><text x="22" y="114">6</text><text x="62" y="114">10</text><text x="100" y="114">14</text><text x="140" y="114">18</text><text x="180" y="114">22</text><text x="215" y="114">2</text><text x="248" y="114">6 h</text><text x="0" y="55" transform="rotate(-90 8 55)">výkon</text></g></svg>
+</div>
+<div class="cols">
+<div class="box sch"><span class="lab">KRIVKA PRI DUŠEVNEJ PRÁCI</span>zahrievanie → zvyšovanie → plató dlhší čas súvisle (<span class="y">cca 3 h</span>) → <b>prestávka max. 20 min</b> (<span class="no">nevykonávať odlišnú činnosť</span>, inak znova 1. fáza) → pokračovanie. Bez prestávky po 3 h hrozí <b>mentálny blok</b> (výpadok psychických procesov). <b>Vôľa</b> kompenzuje počiatočnú únavu a v vypätí zvýši produktivitu, ale potom nasleduje progresívny pokles a vyhasnutie.</div>
+<div><p class="mini"><b>Typológia kriviek (4):</b> maximálne nasadenie na začiatku s postupným poklesom · po rozohriatí stála hladina, ku koncu pozvoľný pokles · maximum po niekoľkých výkyvoch · maximum až vo finálnej fáze.<br><b>Podľa náročnosti:</b> <b>ľahká</b> práca – nerovnomerná krivka (koncentrácia, emócie) · <b>stredne ťažká</b> – stabilnejšia, rastie a ku koncu plynulo klesá · <b>veľmi namáhavá</b> – podobná, kratšia, nižšia úroveň · <b>duševná</b> – rozhoduje psychický stav, zameranosť, rušivé vplyvy, biorytmy. <b>Individuálna pracovná krivka</b> – cvik zvyšuje výkon, únava znižuje, návyky pomáhajú (Mikuláštík, 2015).</p>
+<div class="box def"><span class="lab">PRACOVNÉ TEMPO</span>intenzita práce; <mark>optimálna záťaž = 80 %</mark> – výdrž celú dobu bez výraznej únavy a chybovosti. Tempo vyššie → záťaž, únava pred 8 h; nižšie (napr. 50 %) → horšia kvalita a tiež únava.</div></div>
+</div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="topic" id="t7">
+<div class="thead"><span class="tn">TÉMA 07</span><h2>Únava, stavy podobné únave, biorytmus, pracovný čas</h2></div>
+<div class="box def"><span class="lab">DEFINÍCIA · ÚNAVA</span><mark>„psychofyzický stav organizmu, ktorý je zákonitým dôsledkom predchádzajúceho energetického výdaja“</mark>; stav vyčerpania energie vo svalových a nervových bunkách → potreba odpočinku. Prirodzený dôsledok každej práce; <b>škodlivá</b> až vtedy, keď organizmus nevie zvládnuť nároky. Prejavuje sa zmenami napätia v CNS. Vôľou sa jej dá vzdorovať len obmedzene; unaviteľnosť je individuálna, s vekom rastie (Nakonečný, 1997). Fyziologická norma spánku <span class="y">4 h</span> (relatívna regenerácia), na štandardné fungovanie stačí <span class="y">6 h</span>.</div>
+<div class="cols">
+<div><h4>Typy únavy (Búgelová)</h4>
+<p class="mini"><b>1. svalová</b> – kyselina mliečna, parciálna/komplexná · <b>2. nervová</b> – narušenie synaptických spojov · <b>3. zmyslová</b> – otupenie zmyslov, najčastejšie <b>zraková</b> (vyše 80 % informácií vnímame zrakom) · <b>4. psychická</b>. <b>Subjektívna únava</b> – sama nemerateľná (len cez kvalitu psychických procesov – <b>Bourdonova skúška</b>), má <b>ochrannú funkciu</b>; ľudia málo citliví na únavu sa ľahko preťažia.</p>
+<p class="mini"><b>Druhy únavy (Scherrer, 1995):</b> svalová (periférna) · zraková (psychosenzorická) · všeobecná telesná · duševná · nervová (motorická) · z monotónie · <b>chronická</b> · <b>posturálna</b> (poloha tela).</p></div>
+<div><h4>Únava podľa prospešnosti</h4>
+<div class="ladder">
+<div><b>1. nutná, prirodzená</b> – následky miznú do 1 dňa</div>
+<div><b>2. zbytočná</b> – zo zlej organizácie práce</div>
+<div style="background:var(--warn-bg)"><b>3. škodlivá</b> – do 2. dňa sa neodstráni, hromadí sa, dlho neviditeľná, potom sa prejaví naraz</div>
+</div>
+<p class="mini"><b>Symptómy (6):</b> poruchy vnímania · pohybovej koordinácie · pozornosti a koncentrácie · myslenia · sociálnych vzťahov · úrovne aktivity (vitality). <b>Test osobného tempa</b> – tabuľka 10 × 14, čiarky v polminútových intervaloch. Psychická a fyzická kondícia úzko súvisia (<b>kalokagatia</b>).</p></div>
+</div>
+<div class="cols">
+<div class="box sch"><span class="lab">FYZICKÁ ÚNAVA</span><b>objektívna</b> – pokles výkonu (nervovosvalová regulácia, živiny, metabolizmus) · <b>subjektívna</b> – pocity <b>pred</b> objektívnou únavou (averzia, slabosť, negatívne ladenie, pomalšie reakcie). Pocit nemusí zodpovedať skutočnej vyčerpanosti; motivácia ju kompenzuje. Stupňuje sa: <b>preťaženie</b> (nároky &gt; schopnosti, strata vôľovej kontroly) → <b>vyčerpanie</b> (slabosť, búšenie srdca, zvracanie, nespavosť, mdloby, teplota; nemožno pokračovať).</div>
+<div class="box sch"><span class="lab">DUŠEVNÁ ÚNAVA</span>znížená pohotovosť vynakladať energiu; ochabnutosť, poruchy percepcie, koncentrácie, koordinácie a myšlienkových operácií; napätie, podráždenosť, ľahostajnosť k chybám, horšia morálka a vzťahy. Bežná zmizne pri zmene činnosti, krátkom odpočinku alebo po <span class="y">15 – 30 min</span> spánku. <span class="no">Pozor na zámenu únavy a úzkosti.</span> Príčiny: konflikty, frustrácia, „nepokojné profesie“, časová tieseň, rutina, životospráva (spánok &lt; 7 h, kofeín, alkohol), zdravie, lieky.</div>
+</div>
+<p class="mini"><b>Prevencia:</b> ↓ rušnosť, ↑ osvetlenie, primeraná teplota · ↓ chaos, časový stres, monotónia · lepší vedúci · objektívne hodnotenie · pozitívna motivácia, dobré vzťahy, rešpekt. <b>Dovolenka</b> = aktívna rekreácia v zmenenom prostredí so zmenou činnosti (duševná → fyzická), nie „ničnerobenie“.</p>
+<h4>Stavy podobné únave</h4>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-def"><b>Monotónia</b>stav <b>zníženej psychickej aktivity</b> pri dlhej, opakujúcej sa jednostrannej činnosti; symptómy zážitkové (ospalosť, pozornosť), výkonové (pokles, kolísanie), fyziologické (↓ tlak, ↓ svalové napätie); príčina v <b>individuálnych dispozíciách</b>; podporuje ju únava, lieky na spanie, alkohol. Krivka: zahrievanie → adaptácia → monotónia → „okno“ → pauza s protichodnou činnosťou (3 okná za hodinu = skončiť)</div>
+<div class="card c-mne"><b>Nadmerná saturácia</b>stav <b>averzie, nechuti</b>, afektívny odpor voči činnosti; pocit zotrvávania na mieste; práca nemusí byť jednotvárna; príčiny v <b>motivácii</b></div>
+<div class="card c-warn"><b>Preťaženie</b>od psychických funkcií sa žiada <b>viac, než sú schopné</b> vykonať</div>
+</div>
+
+<h3>Biorytmus</h3>
+<div class="cols">
+<div><p class="mini">Pravidelne sa opakujúce zmeny aktivity organizmu; výkon kolíše počas dňa, týždňa, mesiaca, roka aj života. <b>Ranný typ (škovránok)</b> – ľahko vstáva, optimum v 1. polovici dňa (<span class="y">5:00 – 11:00</span>, resp. 6 – 11), deň <span class="y">24 h</span> · <b>večerný typ (sova)</b> – ráno malátny, optimum v 2. polovici (po 19:00), deň <span class="y">25 h</span> („naťahuje“ aktivitu) · <b>nevyhranený</b> – prispôsobí sa. Typ sa dá dočasne zmeniť, ale je geneticky daný. Útlm u všetkých <span class="y">1:00 – 3:00</span> (učenie zbytočné, malá pamäťová stopa); podľa 2. prednášky spoločný útlm 24:00 – 4:00. Vplyv biorytmov nemožno preceňovať.</p></div>
+<table class="cmp"><tr><th>Rytmus</th><th>Obdobie a prejav</th></tr>
+<tr><td><b>cirkadiánny</b></td><td>deň; 2 vrcholy – plató <span class="y">9 – 12</span> a <span class="y">15 – 18</span> h</td></tr>
+<tr><td><b>cirkaseptánny</b></td><td>týždeň; 1 vrchol v strede (<b>streda</b>)</td></tr>
+<tr><td><b>cirkatrigintánny</b></td><td>mesiac (napr. menštruačný cyklus)</td></tr>
+<tr><td><b>cirkanuálny</b></td><td>rok (lepšie v lete, depresie na jar a v zime)</td></tr></table>
+</div>
+
+<h3>Pracovný čas</h3>
+<div class="cols">
+<div><p class="mini"><b>Pracovný čas</b> = úsek, keď je zamestnanec k dispozícii zamestnávateľovi. <b>Nominálny</b> = prítomnosť na pracovisku (odpracované + prestávky + nepracovné aktivity, prestoje) vs. <b>skutočný</b> = reálne odpracované hodiny. <span class="k">Parkinsonov zákon</span>: <mark>práca sa predlžuje, aby naplnila čas na ňu vyhradený</mark> (rovnaký výkon za 8 aj 9 h; Berry, 2009). <b>Pružný PČ</b> – iný začiatok a koniec pri rovnakej dĺžke, so základnou dobou; výkon nemení, ale <b>znižuje absentérstvo</b>. <b>Zhustený týždeň</b> (napr. 4/40, 10 – 12 h × 3 – 4 dni) – výhoda 3 dni voľna, nevýhoda dlhý deň. EÚ: SR 37,5 h (max. 40), ČR 40, FR 35 (max. 48), Švajčiarsko ~41 (max. 50).</p>
+<p class="mini"><b>Zmeny:</b> 1-zmenná (5 × 8 h = plný úväzok) · 2 – 3-zmenná (6 – 14, 14 – 22, 22 – 6; pevný a striedavý systém, veľká záťaž) · nepravidelná prevádzka.</p></div>
+<div class="tl mini">
+<div><b>16. st.</b> – Španielsko 8 h · koniec <b>18. st.</b> 10 – 16 h denne, fabriky 24/7</div>
+<div><span class="y">1866</span> – požiadavka 8 h dňa (Medzinárodná asociácia robotníkov, Ženeva)</div>
+<div><span class="y">1886</span> – demonštrácie v USA, bombový útok → sviatok práce <b>1. 5.</b></div>
+<div><span class="y">1914</span> – Ford: 8 h a dvojnásobný plat</div>
+<div><span class="y">1918</span> – 8 h v Československu · <span class="y">1919</span> – ILO, dohovor o 8 h (52 krajín)</div>
+<div>5-dňový týždeň: Francúzsko <span class="y">1936</span>, USA <span class="y">1938</span>, väčšina v 60. rokoch; ČSSR <span class="y">1968</span> (41 h); <span class="y">1969</span> prieskum voľných sobôt</div>
+<div>od <b>90. rokov</b> experimenty (5 × 6 h finančne neúnosné, 4 × 10 h vyhovuje len časti)</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="topic" id="t8">
+<div class="thead"><span class="tn">TÉMA 08</span><h2>Pracovná záťaž a stres</h2></div>
+<div class="cols">
+<div class="box def"><span class="lab">ZÁŤAŽ</span>situácia / stav vyvolávajúci <b>napätie</b> a vyžadujúci <b>zvýšený výdaj energie</b> na zvládnutie či adaptáciu; porušenie rovnováhy medzi vnútorným stavom systému a prostredím (homeostáza). Stupeň = intenzita vonkajších vplyvov × vlastnosti systému (výkonnosť, kapacita). Záťaž ako <b>zážitok, reakcia a podnet</b> (Štikar, 2003). <b>Pracovná záťaž</b> = súhrnné nároky z interakcie s činnosťou a prostredím; fyzická a psychická. <b>Pracovná kapacita</b> = odolnosť voči nárokom (Paulík, 2018).</div>
+<div class="vs" style="grid-template-columns:1fr">
+<div class="l"><b>Záťaž</b> = akákoľvek aktivita, sme <b>spôsobilí</b> ju zvládnuť a dopracovať sa k cieľu</div>
+<div class="r"><b>Stres</b> = nie som si vedomý dostatočnej spôsobilosti záťaž zvládnuť; <b>pracovný stres</b> = zvláštny prípad záťaže, keď sú nároky a dispozície v <b>rozpore</b>, neprimerané adaptačným možnostiam (preťaženie, nevyužitie, nedostatočná stimulácia). <mark>Intenzita stresu je tým väčšia, čím väčšia disproporcia</mark>; zdroje záťaže = potenciálne stresory</div>
+</div>
+</div>
+<p class="mini"><b>Pri hodnotení záťaže 3 kategórie:</b> A) požiadavky na činnosť + fyzikálne podmienky · B) správanie jedinca navonok aj vnútorné prežívanie · C) nároky na osobnostné vlastnosti – cez <b>profesiogramy</b> (štruktúru práce zistím od ľudí, ktorí ju robia – čo je najľahšie/najťažšie, kedy sú unavení – a od nadriadených).</p>
+<div class="cols">
+<div><h4>Zdroje záťaže v práci (19)</h4>
+<p class="mini">1 predlžovanie pracovnej doby · 2 veľa práce, málo času, tempo · 3 rozhodovanie bez času a informácií, krátke termíny · 4 nadmerné zmeny, kúskovanie času, rozptyľovanie · 5 viac činností naraz · 6 preťaženie zmyslov (nasýtenie, monotónia) · 7 jednostranné držanie tela, málo pohybu, bez prestávok · 8 nevhodné prostredie (vzduch, svetlo, hluk, teplota) · 9 nejasná organizačná štruktúra · 10 zlá organizácia · 11 prílišná zodpovednosť, nevyváženosť právomoci a zodpovednosti · 12 sociálne konflikty · 13 činnosť bez predpokladov · 14 neúmerne vysoká motivácia, obavy z neúspechu · 15 nedostatok citového uspokojenia a zmysluplnosti · 16 zlý spánok · 17 zlá životospráva · 18 prerušovanie a nedokončenie práce · 19 nedostatočná príprava.<br><b>Mimopracovné (4):</b> problémy v rodine a partnerstve · zlá životospráva a zdravie · nedostatok citových hodnôt a sebarealizácie · dochádzanie do práce.</p></div>
+<div><h4>Stupne záťaže</h4>
+<div class="ladder">
+<div style="background:var(--warn-bg)"><b>4 · Extrémna</b> – obrovský rozpor, nemožno vzdorovať; psychické zlyhanie, poruchy správania, trvalé následky na zdraví, narušené vzťahy</div>
+<div style="background:var(--mne-bg)"><b>3 · Hraničná</b> – výrazný nesúlad, ísť „na doraz“, siahnuť na dno rezerv; kladné účinky chýbajú; <mark>odhaľuje skutočnú kvalitu osobnosti a skupín</mark></div>
+<div style="background:var(--aut-bg)"><b>2 · Zvýšená</b> – nové situácie, zvýšené úsilie; <mark>nevyhnutná, urýchľuje rast a rozvoj</mark></div>
+<div><b>1 · Bežná</b> – známe situácie, zautomatizované správanie; nestimuluje rozvoj</div>
+</div></div>
+</div>
+
+<h4>Základné typy psychickej záťaže (6)</h4>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-def"><span class="n">1</span><b>Neprimerané úlohy</b>A) prílišná kvalita požiadaviek (nad možnosti) · B) nerešpektujú zákonitosti NS a psychiky – jednostrannosť, <b>monotónia</b> (protiklad kreativity, pasivita, apatia) · C) <b>príliš nízke</b> požiadavky – degradujú, pocit nevyužitia, strata návykov</div>
+<div class="card c-sch"><span class="n">2</span><b>Problémové situácie</b><mark>cieľ je daný, ale chýbajú prostriedky</mark> (Nakonečný); nástup do práce, nový kolektív či funkcia, nová agenda, nová technika. Situácia je <b>otvorená</b>, hľadá sa riešenie</div>
+<div class="card c-warn"><span class="n">3</span><b>Frustrujúce situácie</b>frustrare = zmariť; pri smerovaní k cieľu <b>prekážka</b>; riešenie nenájdeme / sme presvedčení, že ho niet → blokáda, menejcennosť, ↓ sebadôvera; pocity neúspechu, nespravodlivosti, závisti, nepochopenia. Prežívanie závisí od temperamentu a autoregulácie</div>
+<div class="card c-mne"><span class="n">4</span><b>Konfliktné situácie</b>conflictus = zrážka dvoch protichodných tendencií s rovnakou funkciou a opačným znamienkom; spoločný pojem = <b>motív</b></div>
+<div class="card c-q"><span class="n">5</span><b>Deprimujúce (deprivačné)</b>deprivácia = <b>dlhodobý nedostatok</b> niečoho, čo človek potrebuje fyzicky či psychicky</div>
+<div class="card c-def"><span class="n">6</span><b>Stresové situácie</b>nadmerná záťaž; prejavuje sa v prežívaní, reakcii a podnete; vždy porušenie psychofyzickej rovnováhy exogénnymi aj endogénnymi činiteľmi</div>
+</div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">N-P-F-K-D-S</span> → „<b>N</b>a <b>P</b>ráci <b>F</b>rustrácia, <b>K</b>onflikt, <b>D</b>eprivácia, <b>S</b>tres.“ · <b>problémová</b> = riešenie hľadám · <b>frustrujúca</b> = riešenie nevidím</div>
+<p class="mini"><b>3 formy psychickej záťaže:</b> <b>senzorická</b> (periférne zmysly) · <b>mentálna</b> (spracovanie informácií – pozornosť, pamäť, myslenie) · <b>emocionálna</b> (afektívna odozva – <b>psychosociálny stres</b> zo spoločenského kontextu a <b>technostres</b> = obavy z techniky) (Štikar, 2003; Paulík, 2018).</p>
+
+<h3>Teórie a modely stresu</h3>
+<table class="cmp">
+<tr><th style="width:26%">Model</th><th>Podstata</th></tr>
+<tr><td><b>A · Teória životných udalostí</b> (LCU; Holmes a Rahe)</td><td>poradie udalostí vyžadujúcich sociálne znovu-prispôsobenie; v práci napr. zrušenie projektu, nový šéf, nedobrovoľná zmena či sťahovanie pracoviska; celkový stres = produkt všetkých vplyvov. Škála: smrť manžela/ky <span class="y">100</span>, rozvod 73, rozluka 65, väzenie 63, smrť blízkeho 63, zranenie/choroba 53, manželstvo 50, <b>prepustenie z práce 47</b>, zmierenie 45, <b>dôchodok 45</b>, zdravie člena rodiny 44, tehotenstvo 40, sexuálne ťažkosti 39, nový člen rodiny 39, <b>obchodné prispôsobenie 39</b>, financie 38, smrť priateľa 37, <b>iná oblasť práce 36</b>, hádky 35, hypotéka 32, uzavretie hypotéky/pôžičky 30, <b>zmena pracovných povinností 29</b>, dieťa odchádza 29, svokrovci 29, osobný úspech 28, partner začne/skončí prácu 26</td></tr>
+<tr><td><b>B · Zhoda človek – prostredie</b> (P-E fit; French)</td><td>stresová hodnota závisí od <b>percepcie</b> (odhad požiadaviek aj vlastných kapacít a motivácie); stres = vnímaná podstatná nerovnováha požiadaviek a kapacít, keď zlyhanie má vážne následky. Ochrana: <b>sociálna podpora</b>, obrana ja (regresia, represia, projekcia)</td></tr>
+<tr><td><b>C · Stresová zraniteľnosť</b> (typ A a B)</td><td><b>typ A</b> – netrpezlivosť, časová tieseň, súťaživosť, agresívne úsilie, nepriateľskosť → <b>ischemická choroba srdca</b>; reč: hlasná, rýchla, výbušná, prerušuje, „áno, áno“, povzdychy, jednoslovné odpovede. <b>Typ B</b> – trpezlivosť, nesúťaživosť; mäkký, tichší, monotónny hlas, zdĺhavé odpovede, zriedka prerušuje. <b>Typ X</b> – rysy oboch v nerozvinutej forme</td></tr>
+<tr><td><b>D · Príčiny a následky pracovného stresu</b> (Motowidlo, Packard, Manning)</td><td>individuálne charakteristiky (skúsenosti, typ A, obava z hodnotenia) ovplyvňujú intenzitu a frekvenciu stresových udalostí → subjektívny stres (afekty, úzkosť, hostilita, depresia) → <b>pokles výkonu</b></td></tr>
+<tr><td><b>E · Vitamínový model</b> (Warr)</td><td>nelineárne vzťahy: <b>„vitamín C“</b> – účinok rastie po bod, potom bez ďalšieho vplyvu (plat, bezpečnosť) · <b>„vitamín D“</b> – určitá dávka pomáha, viac škodí (autonómia, sociálna podpora)</td></tr>
+<tr><td><b>G · Job demand – job control</b> (Karasek)</td><td>nároky × voľnosť rozhodovania: nízke + malá = <b>pasívna</b> práca · nízke + veľká = <b>nízka záťaž</b> · vysoké + malá = <mark>vysoko záťažová – najškodlivejšia</mark> · vysoké + veľká = <b>aktívna</b> práca (málo negatívnych účinkov)</td></tr>
+</table>
+<div class="box warn"><span class="lab">POZOR</span>V poznámkach sú modely označené A – E a potom <b>G</b> (písmeno F chýba) – nejde o chýbajúci model, len o číslovanie.</div>
+
+<h3>Stresory</h3>
+<div class="cols">
+<div><p class="mini"><b>Podľa prostredia (Štikar):</b> 1. <b>pracovný proces</b> (množstvo, čas, charakter práce; pozornosť, nepravidelnosť, stereotyp) · 2. <b>fyzikálne a biologické</b> (úrazy, choroby z povolania, hluk, svetlo, klíma, para, dym) · 3. <b>sociálno-psychologické</b> (zodpovednosť, izolácia, konflikty, frustrácia, nedostatočné hodnotenie) – <b>rušivé</b> alebo <b>ohrozujúce</b> (status, sebarealizácia).</p>
+<p class="mini"><b>Podľa skupiny a zdroja (9):</b> svalová záťaž · senzorická · mentálna · hluk a vibrácie · osvetlenie · klíma · chemické látky · pracovné úrazy · sociálne faktory.</p></div>
+<div><p class="mini"><b>Klasifikácia stresorov:</b> fyzikálne · <b>rolí</b> (nejednoznačnosť, konflikt rolí) · vysoké požiadavky + kontrola vs. nízke požiadavky a monotónia · nedostatočná kontrola nad prácou, riziko · zodpovednosť a nedostatok informácií · harmonogram (časový tlak, zmeny, nadčasy) · <b>sociálne</b> (konflikty, sexuálne obťažovanie, <b>mobbing</b>) · organizačná zmena (fúzie, prepúšťanie, technológie) · neistota zamestnania · neadekvátne hodnotenie, malá šanca na povýšenie · <b>traumatické</b> (katastrofy; vojaci, policajti, hasiči).</p></div>
+</div>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-warn"><span class="n">reakcia 1</span><b>Fyziologická</b>krátkodobá / dlhodobá; vyšší krvný tlak, tep, cholesterol → ischemická choroba srdca; oslabená imunita; kardiovaskulárne a pohybové ochorenia</div>
+<div class="card c-def"><span class="n">reakcia 2</span><b>Afektívna</b>krátkodobé poruchy nálad; dlhodobo depresívne symptómy, tieseň; <b>syndróm vyhorenia</b> = emocionálne vyčerpanie, depersonalizácia, zníženie osobného úspechu</div>
+<div class="card c-sch"><span class="n">reakcia 3</span><b>Behaviorálna</b>zúžená pozornosť, znížená pracovná pamäť; viac násilia, agresie a nepriateľstva na pracovisku (Sonnentag a Frese, 2003)</div>
+</div>
+<h4>Zvládanie stresu</h4>
+<div class="cols">
+<div><b>Stratégie (poznámky z 15. 11.):</b>
+<ol class="mini"><li><b>apatia</b> – nereaguje → beznádej až depresia</li><li><b>vyhnutie sa</b> – „uskočenie bokom“ → dlhodobý strach</li><li><b>napadnutie útočníka</b> – agresia ako jediné riešenie</li><li><b>posilňovanie vlastných zdrojov sily</b> – výcvik sebakontroly a sebaovládania</li></ol>
+<div class="box warn"><span class="lab">DÔLEŽITÉ</span>intenzita stresu je vždy <b>subjektívna</b>; stresor je tým ťažší, čím viac ohrozuje <b>„JA“ a EGO</b> (sebaúctu, sebaobraz, sebahodnotenie, globálne sebavedomie).</div></div>
+<div class="box aut"><span class="lab">KŘIVOHLAVÝ · KONCEPCIA ZVLÁDANIA STRESU</span>situácia je <b>nezmeniteľná</b> alebo <b>zmeniteľná</b>.<br><span style="color:var(--aut)"><b>2 správne rozhodnutia:</b></span> bojovať s tým, čo sa dá zmeniť · prijať bez diskusie, čo je nezmeniteľné.<br><span class="no">2 nesprávne:</span> bojovať, aj keď je situácia beznádejná · pokorne prijať, aj keď je nádej na zmenu.<br><b>Stratégia boja (5):</b> zvýšiť informovanosť · priama činnosť · utlmiť činnosti, ktoré by situáciu zhoršili · rozhovor so sebou (racionálne prehodnotenie, rebríček hodnôt) · požiadať iných o pomoc.</div>
+</div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="topic" id="t9">
+<div class="thead"><span class="tn">TÉMA 09</span><h2>Pracovná motivácia a zdroje motivácie</h2><span class="date">29. 11.</span></div>
+<div class="cols">
+<div class="box def"><span class="lab">MOTIVÁCIA</span>lat. <i>movere</i> = pohyb. <b>Mimointelektový činiteľ</b>; <mark>najvyšší typ autoregulácie organizmu</mark>, riadi vzťah organizmu k životným podmienkam; človek = bio-psycho-sociálna jednota. Odráža vnútorné činitele (vrodené aj naučené) aj vonkajšie zdroje, ktoré sa interiorizujú; <b>dynamické tendencie osobnosti</b>. Integruje aktivitu k cieľu (snaženie, chcenie, ašpirácia, túžba, záujem, potreba…). Vyjadruje <b>silu a smer</b> správania; aktivuje, smeruje a udržuje ho (Armstrong a Taylor, 2015).</div>
+<div><p class="mini"><b>Odpovedá na otázky:</b> čím bolo konanie vyvolané / prečo sa zmenilo, čo chcel dosiahnuť · prečo sa prejavili práve tieto podnety.</p>
+<p class="mini"><b>3 zložky motivácie</b> (Arnold et al.): <b>smer</b> (čo chce dosiahnuť) · <b>úsilie</b> (ako veľmi sa snaží) · <b>vytrvalosť</b> (ako dlho).</p>
+<p class="mini"><b>Motívy pracovného konania:</b> <b>aktívne</b> – priamo podporujú výkon (byť úspešný) · <b>podporujúce</b> – vytvárajú priestor (priateľská atmosféra) · <b>potláčajúce</b> – odvádzajú od výkonu (neformálne rozhovory, zábavy). <b>Vôľa</b> = behaviorálna kategória – čím príťažlivejší cieľ, tým viac vôle.</p></div>
+</div>
+<h3>Zdroje motivácie: potreby, návyky, záujmy, ideály a hodnoty (+ postoje)</h3>
+<div class="fig2">
+<div><p class="mini"><b>Potreba</b> = pociťovaný/prežívaný <b>nedostatok alebo nadbytok</b> niečoho dôležitého pre život.</p>
+<div class="path" style="margin:2px 0"><div class="st c-def"><span class="n">1</span>vznik potreby (nedostatok)</div><span class="ar">→</span><div class="st c-warn"><span class="n">2</span>napätie, nerovnováha</div><span class="ar">→</span><div class="st c-mne"><span class="n">3</span>motivácia (pohnútka)</div><span class="ar">→</span><div class="st c-sch"><span class="n">4</span>pracovné správanie</div><span class="ar">→</span><div class="st c-aut"><span class="n">5</span>uspokojenie</div><span class="ar">→</span><div class="st c-q"><span class="n">6</span>spätná väzba, nové / vyššie potreby</div></div></div>
+<div><p class="mini"><b>Návyky</b> – opakovaný, zautomatizovaný spôsob konania v situácii; vytvára ich výchova a sebavýchova. <b>Záujmy</b> – trvalejšie zameranie na oblasť; stránky: <b>šírka, hĺbka, stálosť, činorodosť</b>. <b>Ideál</b> – model, vzor, vodidlo konania (to, čo si cení alebo čo mu chýba). <b>Hodnota</b> – niečo žiaduce, čo si človek váži; hodnotový systém – súlad = spokojnosť, nesúlad = nespokojnosť. <b>Postoje</b> – vzťah k objektu; 3 zložky (konatívna, kognitívna, afektívna) – čím vyššia korelácia, tým pevnejší postoj.</p></div>
+</div>
+<div class="cols">
+<div><h4>Maslowova hierarchia potrieb (v práci)</h4>
+<table class="cmp"><tr><th>Úroveň</th><th>V práci (Štikar, 2003)</th></tr>
+<tr><td>5 · sebaaktualizácia (poznávacie, estetické)</td><td>pracovná sebarealizácia</td></tr>
+<tr><td>4 · uznanie a úcta (Adler: túžba po moci)</td><td>titul, povýšenie</td></tr>
+<tr><td>3 · príslušnosť a láska</td><td>prijatie skupinou</td></tr>
+<tr><td>2 · istota a bezpečie</td><td>sociálne a dôchodkové zaistenie</td></tr>
+<tr><td>1 · biologické</td><td>plat</td></tr></table>
+<p class="mini"><b>Kritika</b>: hierarchia nie je jednoznačná – aj bez nasýtenia máme potrebu bezpečia či lásky. <b>Proaktívni vs. reaktívni</b> ľudia: „proaktívny prežije, reaktívny zomrie“.</p></div>
+<div><h4>Alderfer – ERG teória (bez rigidnej hierarchie)</h4>
+<div class="ladder">
+<div style="background:var(--aut-bg)"><b>G · Growth (rast)</b> = sebaaktualizácia + časť úcty – plné využitie schopností</div>
+<div style="background:var(--def-bg)"><b>R · Relatedness (vzťahy)</b> = sociálne potreby + úcta – podpora, rešpekt kolegov</div>
+<div style="background:var(--mne-bg)"><b>E · Existence (existencia)</b> = fyziologické + bezpečie – plat, istoty</div>
+</div><p class="mini">Pravidlá, kedy začnú pôsobiť vyššie potreby alebo sa <b>kompenzujú intenzívnejšími nižšími</b> (Štikar et al., 2003).</p></div>
+</div>
+
+<h3>Motivácia vs. stimulácia</h3>
+<div class="vs">
+<div class="l"><b>Motivácia</b> = <b>vnútorná</b> (popudová) pohnútka – chcem dosiahnuť subjektívny cieľ. Dôležitejšia pri <b>silnom záujme</b> a <b>zložitých</b> úlohách.</div>
+<div class="mid">vs.</div>
+<div class="r"><b>Stimulácia</b> = <b>vonkajšia</b> pohnútka, tlak zvonku; podnecuje/obmedzuje aktivitu; maximálny účinok, keď je v <b>súlade</b> s cieľmi, potrebami, hodnotami, situáciou (inak nepôsobí). Najefektívnejšia pri <b>malom záujme</b> a <b>jednoduchých</b> úlohách; čím menší osobný vklad, tým účinnejšia materiálna stimulácia. Ideál: stimul sa pretransformuje na vlastný motív.</div>
+</div>
+<div class="cols">
+<div><b>Prostriedky stimulácie (9):</b>
+<ol class="mini"><li>hmotná zainteresovanosť (plat, mzda, odmeny)</li><li>neformálne hodnotenie práce a osobnosti (úcta, rešpekt)</li><li>spoločenské hodnotenie profesie (prestíž)</li><li>fyzikálne podmienky a režim – <b>konštantný stimul</b> (vyhovujúce = nevýznamné) vs. <b>aktívna úprava</b> (pracovník ich môže meniť)</li><li>hodnotenie v pracovnej skupine</li><li>porovnávanie s prácou kolegov</li><li>podpora aktívnej účasti na činnosti firmy (participácia, informácie)</li><li>možnosť realizovať nápady (kreativita, samostatnosť)</li><li>osobnosť a správanie priameho nadriadeného (prirodzená autorita)</li></ol></div>
+<div><div class="box aut"><span class="lab">PODMIENKY EFEKTÍVNEJ MOTIVÁCIE A STIMULÁCIE (3)</span>1. identifikácia s <b>prácou</b> · 2. identifikácia s <b>profesiou</b> (prestížna, vážená) · 3. identifikácia s <b>podnikom</b> (ciele, kultúra, úspechy)</div>
+<div class="box def"><span class="lab">PENIAZE · STIMULAČNÁ vs. MOTIVAČNÁ HODNOTA</span><b>stimulačná</b> = tlak na štandardný výkon cez odmeňovanie · <b>motivačná</b> = príťažlivosť finančnej odmeny, ktorá poháňa k cieľu. Peniaze sú vždy v <b>prvej päťke</b> motivačných faktorov.</div></div>
+</div>
+<table class="cmp">
+<tr><th>Vzťah k peniazom (3)</th><th>Charakteristika</th></tr>
+<tr><td><b>1. finálny produkt</b> („zhromažďovači“)</td><td>sporia, uspokojenie z množstva; ľahko motivovateľní peniazmi, urobia aj menej atraktívnu prácu</td></tr>
+<tr><td><b>2. prostriedok uspokojenia potrieb</b></td><td>poznajú svoju cenu na trhu, neberú hocijakú prácu (sebarealizácia); peniaze lákajú, keď sa kryjú s ich odbornosťou</td></tr>
+<tr><td><b>3. ľahostajne až laxne</b> („dva extrémy“)</td><td>extrémne bohatí (práca = realizácia potenciálu) · ľudia hlboko pod životným minimom, ktorí rezignovali (ťažko motivovateľní aj priemernou odmenou)</td></tr>
+</table>
+<div class="cols">
+<div class="box sch"><span class="lab">PLAT A ODMENA</span>Plat = vopred dohodnutá suma za dohodnuté činnosti. Motivačný účinok trvá cca <mark>6 – 12 mesiacov</mark>, potom pokles alebo stagnácia. Zvýšenie platu pôsobí až pri <mark>dvojcifernom % (≥ 10 %)</mark>. Predĺženie účinku: <b>viac častí</b> (týždenný plat) · čím jednoduchšia práca, tým väčšia orientácia na financie; čím atraktívnejšia, tým väčšia trpezlivosť. Ďalšie formy: príplatky, odmeny, cieľové prémie, honoráre.<br><b>Odmena</b> = kladný podnet vyvolávajúci príjemný zážitok, posilňuje správanie; na rozdiel od <b>benefitov</b> (nepeňažné) obvykle v peniazoch.</div>
+<div><b>Kedy peňažná odmena demotivuje (6):</b>
+<ol class="mini"><li>nižšia než kolegova za porovnateľnú prácu (ukrivdenosť → menej úsilia; riešenie: jasné kritériá, odmena len za prácu navyše)</li><li><b>rovnaká</b> napriek objektívne vyššiemu výkonu (<span class="no">nivelizácia</span> – nik nie je spokojný)</li><li>príliš <b>neskoro</b> (efekt posilnenia – <b>Skinner</b>; nepamätá si, za čo)</li><li><b>predčasne</b> pred odovzdaním (najprv práca, potom pláca)</li><li><b>nejasná výška</b> („budete určite spokojná“)</li><li>výška <b>devalvuje</b> prácu (poddimenzovaná = urážka osoby)</li></ol></div>
+</div>
+
+<h3>Teórie pracovnej motivácie</h3>
+<div class="cols">
+<div class="box aut"><span class="lab">HERZBERG · DVOJFAKTOROVÁ TEÓRIA</span><b>vonkajšie = hygienické faktory</b> – podmienky práce a prostredia; ovplyvňujú <b>pohodu a spokojnosť</b>, rýchlo sa opotrebujú (zvykneme si) · <b>vnútorné = motivátory</b> – vzťah k činnosti, zaujímavosť, uspokojenie z práce; prejavujú sa vo <b>výkonnosti</b>, nevyčerpateľná sila</div>
+<div class="box aut"><span class="lab">VROOM · TEÓRIA OČAKÁVANIA</span><span class="acr">MOTIVÁCIA = OČAKÁVANIE × INŠTRUMENTALITA × VALENCIA</span><br><b>očakávanie</b> = pravdepodobnosť dosiahnutia cieľa · <b>inštrumentalita</b> = proces činnosti na dosiahnutie cieľa · <b>valencia</b> = subjektívna hodnota cieľa s emocionálnym nábojom. Vysvetľuje, prečo sa nepokúšame o to, čo nedokážeme (očakávanie = 0) alebo čo vedie k nepríjemným záverom (negatívna valencia).</div>
+<div class="box aut"><span class="lab">ADAMS · TEÓRIA SPRAVODLIVOSTI</span>sociálne porovnávanie <b>úsilia a ziskov</b> s kolegami; ak dávam viac a dostávam menej → <b>kognitívna disonancia</b> → spravidla <b>upravím úsilie</b>; nespravodlivosť znižuje výkonnosť a kazí vzťahy; dojem nadhodnotenia, podhodnotenia, spravodlivosti</div>
+<div class="box aut"><span class="lab">McGREGOR · TEÓRIA X A Y</span><b>X</b> – nerád pracuje, vyhýba sa práci, robí len nutné, treba ho viesť odmenou a trestom · <b>Y</b> – prirodzene aktívny, tvorivý, vynaliezavý; stačí povzbudzovať prácou, ocenením, podmienkami pre rast</div>
+<div class="box aut"><span class="lab">LOCKE A LATHAM · VYTYČOVANIE CIEĽOV</span>ciele = ústredný znak motivácie (nie potreby; ich dosiahnutie uspokojí potreby). Ciele opisuje: <b>špecifickosť</b> (od nejasných po špecifické = motivujúce) · <b>náročnosť</b> · <b>zložitosť</b> (konflikty cieľov). Využitie pri hodnotení výkonu podľa cieľov a spätnej väzbe (Berryová, 2009). → <b>MBO – Managing by Objectives</b> (<span class="a">P. Drucker</span>, <span class="y">1954</span>)</div>
+<div class="box aut"><span class="lab">SEBADETERMINAČNÁ TEÓRIA (SDT; RYAN A DECI, 2000)</span>potreba rastu a naplnenia; psychologický rast pri naplnení pocitov <mark>kompetencie · pripútanosti · autonómie</mark>. Vnútorná motivácia, ak je práca dôležitá a podnetná, primerane autonómna, rozvíja schopnosti a umožňuje úspech či kariéru. Manažér: <b>autonómia</b> (vlastný plán, zameranie na výsledok) · <b>dokonalosť</b> (cesta k zlepšovaniu) · <b>účel</b> (vysvetliť nielen ako, ale aj <b>prečo</b>) (Armstrong a Taylor, 2015)</div>
+</div>
+<div class="box sch"><span class="lab">SCHÉMA · TAXONÓMIA MOTIVÁCIE (RYAN A DECI, 2000)</span>
+<div class="path" style="margin:2px 0">
+<div class="st c-q"><span class="n">neosobné</span><b>Amotivácia</b>nízka kompetencia, bez zámeru</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">externé · neautonómna</span><b>Externá regulácia</b>vonkajšie odmeny a tresty</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">trochu externé · neautonómna</span><b>Introjekcia</b>ego angažovanie, sebapotvrdenie, súhlas iných</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">trochu interné · autonómna</span><b>Identifikácia</b>vedomé ocenenie dôležitosti správania</div><span class="ar">→</span>
+<div class="st c-sch"><span class="n">interné · autonómna</span><b>Integrácia</b>kongruentné s hodnotami, asimilované k Ja</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">interné</span><b>Vnútorná motivácia</b>záujem, potešenie, uspokojenie</div>
+</div>
+<span class="mini"><b>Vonkajšia motivácia</b> = odmeny (mzda, pochvala, povýšenie) a tresty (disciplinárne riadenie, odobratie nenárokovej zložky, kritika); tresty môžu motivovať (chceme sa im vyhnúť), vonkajšia motivácia je <b>dočasná</b>; členíme ju podľa <b>vnímaného miesta kauzality</b>.</span></div>
+<div class="cols">
+<div><h4>Využitie teórií v práci (Berry, 2009)</h4>
+<p class="mini"><b>A) Plány stimulácie platom</b> (vonkajšia) – výkonová mzda, tovar, služby, prémie, bonusy, pohyblivý čas, dôchodkové fondy → produktivita, tempo, dochádzka; overiť vhodnosť prémie, jasne podmieniť výkonom. <b>B) Redizajn práce</b> (vnútorná) – uspokojiť vyššie potreby, nefinančný prínos, vlastné ciele; komplexnejšia činnosť; <b>horizontálne</b> rozšírenie (viac zložitosti a zodpovednosti za produkt) a <b>vertikálne</b> (účasť na rozhodovaní). <b>C) Modifikácia správania</b> – sociálne posilnenie (pochvala, uznanie), <b>kupónový systém</b> (okamžité odmeny), hracie karty za včasný príchod a losovanie o 20 dolárov → <mark>účinnejšie ako priame odmeňovanie</mark>.</p></div>
+<div><h4>Faktory stratégií motivácie a prínos pre personalistiku (8)</h4>
+<p class="mini">1 ľudia sú motivovaní, keď sú <b>oceňovaní</b> (riadenie výkonu, dohodnuté očakávania) · 2 vonkajšie motivátory účinné, ale krátkodobé, vnútorné hlboké a dlhodobé (systém celkovej odmeny, uznanie, motivujúce pracovné miesta) · 3 peniaze nemotivujú každého rovnako (odmeňovanie podľa výkonu nie je zázrak) · 4 práca má dať prostriedky k snom, autonómiu a priestor pre schopnosti · 5 príležitosti na <b>rast</b> (vzdelávanie) · 6 <b>kultúra organizácie</b> motivuje · 7 <b>štýl vedenia</b> (sústava schopností manažérov, AC, rozvojové programy) · 8 potreba <b>dosiahnuť úspech</b> (spätná väzba).</p></div>
+</div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="topic" id="t10">
+<div class="thead"><span class="tn">TÉMA 10</span><h2>Človek a pracovné prostredie</h2></div>
+<div class="cols">
+<div class="box def"><span class="lab">PRACOVNÉ PROSTREDIE</span>súhrn <b>prírodných a umelých podmienok</b>, za ktorých pracovník vykonáva činnosť, ktoré naňho pôsobia a sú podmienené úrovňou rozvoja spoločnosti. Ovplyvňuje ho organizácia práce, technický rozvoj, architektúra interiérov a exteriérov, fyzikálne faktory, hygiena. Vplyv <span class="no">nie je na každého rovnaký a nepôsobí automaticky</span> – rozhoduje osobnosť, postoje, identifikácia, motivácia; extrémne hodnoty však pôsobia nepodmienene. Ideál: <b>funkčné, hygienické, estetické</b> → produktivita a pohoda.</div>
+<div><p class="mini"><b>V širšom zmysle:</b> 1. pracovné interiéry · 2. estetická organizácia, fyzikálne faktory (hluk, osvetlenie, mikroklíma) · 3. organizačné zabezpečenie bezpečného prostredia · 4. ochranné prostriedky a zariadenia, bezpečné farby. <b>V užšom zmysle:</b> činitele v bezprostrednom styku (človek – stroj), technické vybavenie.</p>
+<p class="mini"><b>História:</b> záujem od zač. <b>19. st.</b>, spočiatku len pracovné úrazy; vedecky medzi svetovými vojnami (redukcia úrazov a chorôb z povolania – oplatí sa zamestnávateľovi). Koniec 19. st. <b>Anglicko</b> – vysoká starostlivosť o robotníkov, preto sa tam Marx nepresadil.</p>
+<p class="mini"><b>Nebezpečný činiteľ</b> → možnosť <b>úrazu</b> (nechránený brúsny kotúč) vs. <b>škodlivý činiteľ</b> → <b>ochorenie</b> / zníženie pracovnej schopnosti (prach → choroba z povolania). Činitele: <b>fyzikálne</b> (stroje, teplota, svetlo, vlhkosť, hluk, vibrácie) · <b>chemické</b> (jedy, omamné látky, žieraviny, horľaviny, výbušniny) · <b>biologické</b> · <b>psychofyziologické</b>.</p></div>
+</div>
+
+<h3>1 · Osvetlenie</h3>
+<div class="cols">
+<div><p class="mini">Oko je najlepšie prispôsobené <b>dennému svetlu</b> (viditeľné spektrum <span class="y">380 – 760 nm</span>); kolíše, preto sa dopĺňa umelým. Jednotka <b>lux (lx)</b>, meria <b>luxmeter</b>. Cieľ: zabrániť zrakovej únave, ↑ pohoda, produktivita, presnosť, bezpečnosť. Optimum závisí od úlohy, času pri zrakovej práci, dôležitosti zraku pre výkon, individuálnych rozdielov.</p>
+<table class="cmp"><tr><th>Priestor / práca</th><th>Intenzita</th></tr>
+<tr><td>schodiská, chodby</td><td class="y">20 lx</td></tr><tr><td>staveniská</td><td class="y">40 – 80 lx</td></tr><tr><td>bežné práce (obrábanie, údržba)</td><td class="y">100 (– 150) lx</td></tr><tr><td>rysovanie</td><td class="y">300 lx</td></tr><tr><td>stále umelé osvetlenie</td><td class="y">300 – 400 lx</td></tr><tr><td>jemná práca</td><td class="y">500 – 1000 lx (?)</td></tr><tr><td>slnko napoludnie</td><td class="y">100 000 lx</td></tr></table>
+<p class="mini">Zvýšenie do <span class="y">150 – 200 lx</span> → výkon <mark>+4 až 35 %</mark>. Osvetlenie ovplyvňuje výkon, kvalitu aj úrazy.</p></div>
+<div><p class="mini"><b>Kvalita osvetlenia:</b> intenzita (podľa druhu práce) · <b>rovnomernosť</b> (bez kontrastov s okolím) · <b>tienenie</b> (nepriame svetlo bez tieňov je nevhodné – orientácia) · obmedzenie <b>oslnenia</b> (nadmerný jas) · <b>farba svetla</b> (žiarivky studené, žiarovky teplejšie).</p>
+<div class="box sch"><span class="lab">ZÁSADY OSVETLENIA (5)</span><ol class="mini" style="margin:0"><li>svetlo nesmie <b>oslňovať</b> (žiadny priamy zdroj v zornom poli)</li><li>žiadne <b>ostré rozhranie</b> svetla a tieňa (zrak sa rýchlo unaví)</li><li>svetlo <b>spredu a zľava</b> (zhora), aby sme si netienili pravou rukou – ľaváci opačne</li><li><b>miestne</b> osvetlenie (lampa) úspornejšie ako stropné</li><li>pri strojoch vždy <b>núdzové</b> osvetlenie</li></ol></div>
+<p class="mini">Vhodnejšie žiarovky (teplé tóny) než žiarivky; celkové osvetlenie najlepšie nepriamo cez svetlé steny. <b>Príliš intenzívne svetlo</b> skryje detaily a chyby, prekáža periférii. <b>Počítač</b> – celkové osvetlenie nízkej intenzity; PC + papier – celkové aj bodové.</p></div>
+</div>
+<div class="box warn"><span class="lab">POZOR · ROZDIELNE ČÍSLA V POZNÁMKACH</span>bežné práce raz <b>100 lx</b>, raz <b>100 – 150 lx</b>; jemná práca je v poznámkach zlepené „500100 lx“ (pravdepodobne 500 – 1000 lx) a slnko „105 lx“ = 10<sup>5</sup> = <b>100 000 lx</b>. Over si, čo uvádzala prednášajúca.</div>
+
+<h3>2 · Farebná úprava pracoviska</h3>
+<div class="cols">
+<div><p class="mini"><b>Význam (4):</b> <b>funkčný</b> (orientácia, atmosféra) · <b>bezpečnostný</b> (signalizácia; úrazovosť <span class="y">−2 až 50 %</span>) · <b>estetický</b> (pohoda) · <b>ekonomický</b> (produktivita až <span class="y">+25 %</span>, menej úrazov; svetlejšie farby = priestor väčší). Farba = kvalitatívna zložka zrakového vnemu: <b>tón</b> (subjektívne vnímanie) · <b>svetlosť</b> (pohlcovanie svetla; biely papier odráža 85 – 95 %) · <b>sýtosť</b> (čistota). Zohľadňuje sa: druh a trvanie práce · tvar, veľkosť, poloha pracoviska · farba materiálu · farba a intenzita svetla · teplota · vek a pohlavie (starší nemajú radi sýte, kontrastné farby).</p></div>
+<table class="cmp">
+<tr><th>Farby</th><th>Pôsobenie a použitie</th></tr>
+<tr><td style="background:#fbe0cf;color:#222"><b>teplé</b> (červená, žltá, oranžová)</td><td>dojem tepla, živé, povzbudzujúce, aktívne; v <b>chladných</b> miestnostiach (S, SZ), pri nočnej práci</td></tr>
+<tr><td style="background:#d6e9f5;color:#222"><b>studené</b> (zelená, modrá)</td><td>dojem chladu, upokojujú, šetria zrak; <b>duševná práca</b>, stály výkon; teplé prevádzky (pekáreň), okná na J/JV, jednotvárna práca; obľúbené u starších a mužov</td></tr>
+<tr><td><b>neutrálne</b> (biela, sivá, čierna)</td><td>biela – najvyššia odrazivosť (85 – 95 %) → <b>stropy</b>; sivá – potlačenie rušivých prvkov</td></tr>
+</table>
+</div>
+<div class="cards" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+<div class="card" style="--c:#d7263d"><span class="n">červená</span><b>STOP</b>požiarna ochrana, zastavenie strojov</div>
+<div class="card" style="--c:#f08c00"><span class="n">oranžová</span><b>Bezprostredné nebezpečenstvo</b>žiarenie, elektrický prúd; čierny text na oranžovom</div>
+<div class="card" style="--c:#e3b600"><span class="n">žltá</span><b>POZOR</b>prekážky, prvý a posledný schod, vozíky</div>
+<div class="card" style="--c:#2f9e44"><span class="n">zelená</span><b>Bezpečie</b>únikové východy, bezpečnostné zariadenia, spúšťanie strojov</div>
+<div class="card" style="--c:#1c7ed6"><span class="n">modrá</span><b>Príkaz</b>zvýšenie bezpečnosti, bezpečný stav</div>
+</div>
+
+<h3>3 · Hluk</h3>
+<div class="cols">
+<div><p class="mini">Zvuk = kmitanie telies; ucho počuje <span class="y">16 – 20 000 Hz</span>. <b>Hluk</b> = nepríjemné, rušivé a škodlivé zvuky. Zdroje: mechanický · rezonančný · aerodynamický a hydraulický · údermi. Logaritmická hladina intenzity – <b>bel</b> (max. 13 B), v praxi <b>dB</b>; <b>dB(A)</b> zohľadňuje vyššiu citlivosť ucha na vysoké frekvencie.</p>
+<p class="mini"><b>Vplyv hluku:</b> <b>a) obťažujúci</b> – sťažuje výkon, bez patologických zmien · <b>b) rušivý</b> – zmeny výkonu (presnosť, rýchlosť, pozornosť), bez zmien organizmu · <b>c) škodlivý</b> – organizmus aj výkon: vegetatívny NS, sluch, iné orgány (zraková ostrosť a rozlišovanie farieb ↓ u <span class="y">25 %</span>, svalové napätie, mozgové potenciály).</p></div>
+<div class="box sch"><span class="lab">PÁSMA HLUKU PODĽA LEHMANA</span>
+<div class="ladder mini">
+<div style="background:#f3c4c4;color:#222"><b>nad 130 dB</b> – bolesť, nenapraviteľné poškodenie vnútorného ucha</div>
+<div style="background:#f6d3c3;color:#222"><b>95 – 130 dB</b> – duševné a telesné reakcie, poškodenie sluchu (hlučné továrne, štart lietadla)</div>
+<div style="background:#f8e3b5;color:#222"><b>65 – 95 dB</b> – <b>absolútny</b> hluk, rýchlo škodlivý <b>bez ohľadu na postoj</b> (krik, rušná križovatka)</div>
+<div style="background:#f6efc0;color:#222"><b>30 – 65 dB</b> – <b>relatívny</b> hluk (rozhovor, ulica); škodlivosť závisí od <b>citového postoja</b></div>
+<div style="background:#d8eccf;color:#222"><b>do 30 dB</b> – prírodné prostredie (dážď, vietor)</div>
+<div style="background:#e6e6e6;color:#222"><b>0 dB</b> – bezzvukovosť – <span class="no">pre človeka škodlivá</span></div>
+</div></div>
+</div>
+
+<h3>4 · Mikroklimatické podmienky (Kollárik et al., 2011)</h3>
+<div class="cols">
+<div><p class="mini"><b>a) Teplota</b> – ideál <span class="y">17 – 20 °C</span> pri ľahkej práci; pri stredne ťažkej o <span class="y">1,1 °C</span> nižšie, pri ťažkej o <span class="y">2,5 °C</span>. Potenie reguluje od <span class="y">21 °C</span> do <span class="y">36 °C</span>; zlyhanie termoregulácie = <b>úpal</b>. Človek je citlivejší na <b>vyššie</b> teploty; extrémne vysoké spomaľujú reakcie, zhoršujú rozhodovanie a svalový výkon. <b>b) Vlhkosť</b> – normálna <span class="y">30 – 70 %</span>; vyššia = väčšia nepohoda. <b>c) Prúdenie (prievan)</b> – nad <span class="y">2 m/s</span> negatívne (nepokoj, sústredenie, nachladnutie). <b>d) Sálavá teplota</b> – od strojov; možnosť opustiť priestor, dostatok tekutín. Najmä <b>extrémne nízke teploty</b> zvyšujú frekvenciu a závažnosť úrazov.</p></div>
+<table class="cmp mini"><tr><th>°C</th><th>Vlhkosť</th><th>Výkon (stredne ťažká a ťažká práca)</th></tr>
+<tr><td rowspan="3" class="y">21</td><td>40 %</td><td>veľmi dobrý</td></tr><tr><td>85 %</td><td>dobrý pri striedaní práce a odpočinku</td></tr><tr><td>91 %</td><td>znížený, únava a depresia</td></tr>
+<tr><td rowspan="4" class="y">26</td><td>30 %</td><td>veľmi dobrý</td></tr><tr><td>65 %</td><td>znížený, rýchla únava</td></tr><tr><td>80 %</td><td>namáhavý, častý odpočinok</td></tr><tr><td>100 %*</td><td>práca nemožná</td></tr>
+<tr><td rowspan="5" class="y">32</td><td>25 %</td><td>veľmi dobrý</td></tr><tr><td>50 %</td><td>silne znížený</td></tr><tr><td>65 %</td><td>skoro nemožná</td></tr><tr><td>81 %</td><td>vyčerpávajúca, ↑ telesná teplota</td></tr><tr><td>90 %</td><td>ohrozuje zdravie</td></tr></table>
+</div>
+<p class="mini">*V tabuľke z poznámok je riadok „100 % – práca nemožná“ zalomený na začiatok bloku 32 °C; podľa logiky patrí k 26 °C – over si.</p>
+<div class="cols">
+<div class="box def"><span class="lab">BEZPEČNOSŤ PRÁCE ZÁVISÍ OD</span><b>výkonových možností človeka</b> (charakter – zodpovednosť, znalosti a skúsenosti, telesné, zmyslové, duševné predpoklady) a <b>požiadaviek práce</b> (druh činnosti, situácia, predpisy, konštrukcia prostriedkov)</div>
+<div class="box warn"><span class="lab">PRÍČINY CHYBNÉHO VÝKONU (7)</span>nedostatok úsudkových schopností · nedostatok znalostí · chýbajúce osobnostné vlastnosti · prechodné stavy · únava z dlhej práce a nevyspania · alkohol a drogy · prechodné emócie (rodina, spoločnosť) pohlcujúce pozornosť</div>
+</div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="topic" id="t11">
+<div class="thead"><span class="tn">TÉMA 11</span><h2>Človek a sociálne prostredie organizácie</h2></div>
+<div class="vs">
+<div class="l" style="background:var(--sch-bg);border-color:var(--sch)"><b>Pracovná skupina</b> = 2 a viac pracovníkov, ktorí sú v <b>sociálnej interakcii</b>, plnia pracovné úlohy, majú <b>spoločné aj individuálne</b> ciele (zodpovednosť nesie každý sám), sú vzájomne čiastočne závislí, identifikujú sa vo vzťahu k organizácii, prebieha dynamika (Kollárik et al., 2011). <i>Napr. obchodníci poisťovne.</i></div>
+<div class="mid">vs.</div>
+<div class="r" style="background:var(--aut-bg);border-color:var(--aut)"><b>Pracovný tím</b> = ľudia zameraní na (dočasnú) úlohu, pracujú <b>koordinovane</b>, každý prispieva schopnosťami k <b>spoločnému cieľu</b> (Hayes, 2005); spolupráca nevyhnutná, <b>úzka vzájomná závislosť</b>, <b>zodpovednosť nesú všetci</b>, vedúci len formálny, <mark>silná spolupatričnosť a identita</mark>. <i>Napr. tím v sanitke.</i></div>
+</div>
+<div class="cols">
+<div><p class="mini"><b>a) Všeobecné tímy:</b> výrobné · poskytujúce služby · riadiace · projektové (časovo ohraničené) · expertné · poradenské. <b>b) Špecifické tímy</b> – nekonvenčné, bez tradičných vývinových štádií, dlhá príprava (posádky lietadiel, vojenské a policajné jednotky, top-manažment, medzinárodné, virtuálne).</p>
+<p class="mini"><b>Charakteristiky skupiny:</b> a) <b>veľkosť</b> (podľa úlohy; pre tím 5 – 7 – 10) · b) <b>demografické zloženie</b> (heterogenita ↑ efektivitu a kreativitu, negatívum fluktuácia) · c) <b>osobnosť</b> (svedomitosť → výkonové a plánovacie úlohy, extraverzia → rozhodovacie) · d) <b>kognitívne schopnosti</b> (vzťah k efektivite <span class="y">0,19 – 0,30</span>; „čím viac, tým lepšie“, no dôležitá primeranosť cieľom). Ďalšie dimenzie (Mikuláštík, 2015): súdržnosť, flexibilita, pevnosť, polarizácia, stabilita, intimita, autonómia, atraktívnosť, pozície, participácia, závislosť.</p></div>
+<div class="box def"><span class="lab">SKUPINOVÁ SOCIALIZÁCIA</span>proces vzájomného vplyvu: nováčik sa prispôsobuje skupine (<b>asimilácia</b>) a zároveň prispôsobuje skupinu sebe (<b>akomodácia</b>). Nesplnené očakávania → nižšia spokojnosť a odchod; kľúčom k ich prekonaniu sú <b>pozitívne vzťahy</b>. Skupina vzniká na pozadí organizačných noriem, rolí a zdieľaných významov; jej formovanie vždy určuje <b>organizačný kontext</b>, základný proces = socializácia (Kollárik et al., 2011).</div>
+</div>
+
+<h3>Vývin pracovnej skupiny</h3>
+<div class="box sch"><span class="lab">TUCKMANOV MODEL</span>
+<div class="path" style="margin:2px 0">
+<div class="st c-q"><span class="n">1 · forming</span><b>Formovanie</b>zoznamovanie, zdvorilosť, opatrnosť; hľadajú sa pravidlá, ciele, roly; silná autorita vedúceho; „Kto je kto?“</div><span class="ar">→</span>
+<div class="st c-warn"><span class="n">2 · storming</span><b>Búrenie</b>konflikty, emocionalita, súperenie o vplyv, výkon môže klesať; dôležitá komunikácia</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">3 · norming</span><b>Normovanie</b>spoločné normy, stabilné roly, súdržnosť, dôvera, spolupatričnosť</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">4 · performing</span><b>Výkon</b>efektívne, samostatne, minimum konfliktov, vysoká motivácia – ideál</div><span class="ar">→</span>
+<div class="st c-mne"><span class="n">5 · adjourning</span><b>Ukončenie</b>pri dočasných tímoch; uvoľnenie väzieb, hodnotenie, emócie</div>
+</div></div>
+<div class="box mne"><span class="lab">MNEMOTECHNIKA</span><span class="acr">FORM – STORM – NORM – PERFORM – ADJOURN</span> (rýmuje sa) → „sformujeme sa, pohádame, dohodneme, makáme, rozídeme sa“</div>
+<div class="cols">
+<div class="box aut"><span class="lab">GERSICK · MODEL PRERUŠENÉHO EKVILIBRIA</span>vývin určuje <b>externý stimul (termín úlohy)</b>. <b>Fáza útlmu</b> – interakciami vznikajú stabilné normy aktivity → <b>významná zmena</b> (skupina zistí, že doterajšia činnosť nevedie k cieľu, reorganizuje sa) → zvýšenie výkonu. Pre tímy riešiace problémy a končiace po úlohe. Modely Tuckmana a Gersickovej sú podľa autorov <b>protikladné alebo komplementárne</b>.</div>
+<div class="box def"><span class="lab">INTEGRÁCIA OBOCH (KOZLOWSKI ET AL.) · 4 FÁZY</span>1. začlenenie do prostredia · 2. získanie vedomostí a schopností na úlohu · 3. vyjednávanie rolí v dyádach, kľúčové roly · 4. tím ako flexibilná sieť rolí pripravená riešiť problémy</div>
+</div>
+
+<h3>Efektivita tímu – model vstup → proces → výstup (McGrath)</h3>
+<div class="path">
+<div class="st c-sch"><span class="n">vstupy</span><b>Interné</b> schopnosti, zručnosti, osobnosť, zloženie, štruktúra · <b>externé</b> školenia, odmeny, štruktúra organizácie, klíma, kultúra</div><span class="ar">→</span>
+<div class="st c-def"><span class="n">procesy</span><b>Kognitívne, emocionálne, behaviorálne</b> – podporujú / potláčajú synergiu potenciálov členov</div><span class="ar">→</span>
+<div class="st c-aut"><span class="n">výstupy</span><b>Interné</b> spokojnosť, sebaúčinnosť · <b>externé</b> výkon, produktivita, kvalita</div>
+</div>
+<div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card c-def"><span class="n">A · kognitívne procesy</span><b>Kognitívne reprezentácie</b>zdieľané predstavy o tíme, úlohách, prostredí (klíma, koherencia). <b>Zdieľaná pamäť</b> – kto čo vie, na koho sa obrátiť. <b>Skupinové učenie</b> – stabilné zmeny vo vedomostiach, pozitívne aj negatívne skúsenosti</div>
+<div class="card c-mne"><span class="n">B · emocionálne procesy</span><b>Kohézia, emócie, účinnosť, konflikty</b><b>Kohézia</b> = ochota podieľať sa na práci a cieľoch → vyšší výkon; zvyšuje ju jednoznačnosť noriem a cieľov a adekvátna kompozícia. <b>Skupinové emócie</b> – pozitívna atmosféra ↓ absencia, negatívna inhibuje prosociálnosť; jeden člen môže „nakaziť“ tím. <b>Positivity ratio 3 : 1</b> (Losada, Heaphy, 2004). <b>Skupinová účinnosť</b> = zdieľané presvedčenie o schopnosti splniť úlohu (suma sebaúčinností), koreluje s výkonom (šport). <b>Konflikt</b> = vnímaný rozpor záujmov; stratégie <b>preventívne</b> a <b>reaktívne</b></div>
+<div class="card c-aut"><span class="n">C · behaviorálne procesy</span><b>Koordinácia, kooperácia, komunikácia</b><b>Koordinácia</b> = riadenie aktivít členov k úlohe; prvky: skupinové ciele, úlohy a aktivity, členovia, ich zladenie; časová závislosť. <b>Kooperácia</b> = vedomý príspevok k cieľu; vyššia pri kolektívnej orientácii; ovplyvňuje ju najmä <b>veľkosť</b> skupiny. <b>Komunikácia</b></div>
+</div>
+<div class="box q"><span class="lab">ZNAKY ÚČINNEJ A TVORIVEJ SKUPINY (MIKULÁŠTÍK, 2015)</span>vedomé ciele · neformálna, uvoľnená, ústretová atmosféra · ochota navzájom počúvať a vypočuť si <b>nesúhlas</b> (konštruktívna spätná väzba) · rozhodnutia <b>konsenzom</b> · po dohode rozdelenie úloh · <mark>vodcovstvo je služba, nie prestíž</mark> – strieda sa, nejde o boj o moc</div>
+
+<h3>Skupinové roly</h3>
+<p class="mini"><b>Rola</b> = súhrn očakávaní od jedinca, jeho účasť a funkcia v interakcii; súvisí so statusom, normami (konformita), štylizáciou správania. <b>Pozícia</b> je daná mierou <b>obľúbenosti</b> a <b>osobnej moci</b>.</p>
+<div class="cols">
+<div><div class="ladder mini">
+<div><b>populárna</b> – príťažlivá pre cca <span class="y">90 %</span></div>
+<div><b>obľúbená</b> – <span class="y">60 %</span></div>
+<div><b>akceptovaná</b> – cca <span class="y">40 %</span></div>
+<div><b>trpená</b> – len malý počet (<span class="y">10 %</span>)</div>
+<div><b>mimostojaca</b> – bez preferencií</div>
+</div></div>
+<p class="mini"><b>Miera moci:</b> <b>vodca</b> (dominuje, presadzuje sa) · <b>pomocník</b> (aktívne podporuje vodcu) · <b>súputník</b> (pasívne sa „vezie“) · <b>odborník, expert</b> (vlastné teritórium) · <b>moralista</b> (stráži normy) · <b>opozičník</b> (ohrozuje pozíciu vodcu; provokatér a kverulant ju nepodkopávajú). <b>Periférne roly:</b> čierna ovca, outsider, obľúbenec, šašo, zabávač, rozmaznané dieťa, monopolista, hviezda (Mikuláštík, 2015).</p>
+</div>
+<div class="box sch"><span class="lab">BELBINOVE TÍMOVÉ ROLY (9) – TÍM FUNGUJE NAJLEPŠIE, AK SÚ ZASTÚPENÉ RÔZNE ROLY</span>
+<table class="cmp" style="margin:2px 0">
+<tr><th>Skupina</th><th>Rola</th><th>Prínos</th><th>Slabina</th></tr>
+<tr><td rowspan="3"><b>myšlienkové</b> (nápady)</td><td><b>Plant</b> – tvorca, inovátor</td><td>nové nápady, kreatívny, originálny</td><td>ignoruje detaily a realitu</td></tr>
+<tr><td><b>Monitor Evaluator</b> – hodnotiteľ</td><td>analyzuje, hodnotí riziká, logický, objektívny</td><td>chladný, málo motivujúci</td></tr>
+<tr><td><b>Specialist</b> – špecialista</td><td>hlboké odborné znalosti</td><td>úzky záber</td></tr>
+<tr><td rowspan="3"><b>sociálne</b> (vzťahy)</td><td><b>Coordinator</b> – koordinátor</td><td>organizuje, rozdeľuje úlohy, podporuje spoluprácu</td><td>príliš deleguje</td></tr>
+<tr><td><b>Teamworker</b> – tímový hráč</td><td>dobré vzťahy, rieši konflikty</td><td>vyhýba sa rozhodnutiam</td></tr>
+<tr><td><b>Resource Investigator</b> – vyhľadávač zdrojov</td><td>príležitosti, kontakty, komunikatívny, nadšený</td><td>rýchlo stráca záujem</td></tr>
+<tr><td rowspan="3"><b>realizačné</b> (výkon)</td><td><b>Implementer</b> – realizátor</td><td>nápady na kroky, systematický, spoľahlivý</td><td>menej flexibilný</td></tr>
+<tr><td><b>Completer Finisher</b> – dokončovateľ</td><td>detaily, kontrola kvality, precízny</td><td>perfekcionista</td></tr>
+<tr><td><b>Shaper</b> – usmerňovač, motor</td><td>tlačí k výsledkom, dynamický, rozhodný</td><td>vyvoláva konflikty</td></tr>
+</table></div>
+<div class="cols">
+<div><p class="mini"><b>Tvorba tímu</b> = proces, pri ktorom sa zo skupiny jednotlivcov stáva efektívny tím (formovanie, konflikt, normovanie, výkon); sleduje sa výkon aj vzťahy, komunikácia a roly. <b>Dôležité prvky:</b> jasný cieľ · vhodný výber členov · rozdelenie rolí · efektívna komunikácia · dôvera a spolupráca · motivácia a spätná väzba.</p>
+<div class="box def"><span class="lab">TEAMBUILDING</span>starostlivé budovanie tímu – spolupráca, zvládanie náročných situácií, komunikácia; využiť jedinečnosť každého člena. <mark>Bez identifikácie tím nefunguje</mark> – je to len skupina jednotlivcov.</div></div>
+<div><b>Prístupy budovania tímu (Hayes, 2005):</b>
+<ol class="steps mini">
+<li><div><b>interpersonálny</b> – porozumieť kolegom, lepšie komunikovať</div></li>
+<li><div><b>definovania rolí</b> – roly, očakávania, normy, zodpovednosť</div></li>
+<li><div><b>hodnotový</b> – zosúladiť postoje, ciele a hodnoty</div></li>
+<li><div><b>zameraný na úlohu</b> – úloha tímu a schopnosti členov</div></li>
+<li><div><b>prijatia sociálnej identity</b> – vedomie jednoty, porozumenie, hrdosť na členstvo</div></li>
+</ol></div>
+</div>
+</section>
+
+<!-- ============ PASCE ============ -->
+<section class="topic" id="pasce">
+<div class="thead"><span class="tn">PASCE</span><h2>Najčastejšie skúškové pasce</h2></div>
+<div class="cols">
+<div>
+<div class="trap" data-n="1"><b>Práca NIE je</b> základná ľudská potreba (potrebná je aktivita). Výhodnejšie je <b>pracovať</b>.</div>
+<div class="trap" data-n="2"><b>Giddens 2013 = 6</b> charakteristík platenej práce · <b>Jahodová 1979 = 5</b> potrieb · <b>Mikuláštík 2015 = 5</b> psychosociálnych funkcií.</div>
+<div class="trap" data-n="3">Antika: práca = <b>trest</b> · stredovek: <b>služba Bohu</b> (Akvinský) · renesancia: <b>cnosť</b>. Železo 2000 pred n. l., peniaze v Grécku a Ríme.</div>
+<div class="trap" data-n="4"><b>Groos</b> – hra = impulz k precvičovaniu inštinktov; inteligentnejší druh = dlhšia ochrana v mladosti. Hra <span class="no">neprináša materiálny úžitok</span>.</div>
+<div class="trap" data-n="5"><b>Wundt 1879</b> (laboratórium) ≠ <b>Münsterberg 1912</b> (1. učebnica, psychotechnika) ≠ <b>Stern 1903</b> (termín psychotechnika) · Army α/β <b>1917</b> (Yerkes) · premenovanie na PPaO <b>1973</b>.</div>
+<div class="trap" data-n="6"><b>Psychotechnika</b> = človek sa prispôsobuje práci („správny človek na správnom mieste“) vs. <b>inžinierska psychológia</b> = technika sa prispôsobuje človeku.</div>
+<div class="trap" data-n="7"><b>Taylor</b> = mechanocentrizmus, chronometráž, úkolová mzda, minimax, +100–200 % produktivity · <b>Gilbrethovci</b> = ergonómia · <b>Mayo</b> = sociocentrizmus, Hawthorne (Western Electric).</div>
+<div class="trap" data-n="8"><b>Hawthornský efekt</b>: výkon rástol aj v kontrolnej skupine a aj pri <b>zhoršení</b> podmienok – kvôli uznaniu a vzťahom.</div>
+<div class="trap" data-n="9">Inštitúcie: <b>APA 1892 · IAAP 1920 · AAAP 1937 · 14. divízia 1945 · SIOP 1982 · EAWOP 1991</b>.</div>
+<div class="trap" data-n="10">Informácie z posudzovania môže psychológ dať firme <b>len s informovaným súhlasom</b> posudzovaného (kódex SKP 2016). EuroPsy: 180 + 120 + 60 kreditov.</div>
+<div class="trap" data-n="11"><b>Spôsobilosť</b> = zhoda profilu človeka a práce (objektívne činitele) vs. <b>potenciál</b> = fond energie (subjektívne faktory).</div>
+</div>
+<div>
+<div class="trap" data-n="12"><b>Výkon</b> = výsledok · <b>výkonnosť</b> = pripravenosť. Gagné-Fleishman: S × M (25 / 50 / 25 %) · Wiswede: M × S × možnosti · Borkowska: vedieť – môcť – chcieť · Delhes: Yerkes-Dodson.</div>
+<div class="trap" data-n="13">Optimálne pracovné tempo <b>80 %</b>; duševná práca: plató ~3 h, prestávka <b>max. 20 min</b> bez inej činnosti.</div>
+<div class="trap" data-n="14">Únava <b>nutná</b> (1 deň) · <b>zbytočná</b> (zlá organizácia) · <b>škodlivá</b> (nezmizne do 2. dňa). <b>Monotónia</b> (↓ aktivita, dispozície) ≠ <b>saturácia</b> (averzia, motivácia) ≠ <b>preťaženie</b>.</div>
+<div class="trap" data-n="15">Biorytmy: cirkadiánny (deň) · cirkaseptánny (týždeň – <b>streda</b>) · cirkatrigintánny (mesiac) · cirkanuálny (rok). Ranný typ 24 h, večerný 25 h.</div>
+<div class="trap" data-n="16"><b>Parkinsonov zákon</b> – práca vyplní vyhradený čas. Pružný PČ ↓ absentérstvo, výkon nemení.</div>
+<div class="trap" data-n="17"><b>Zvýšená</b> záťaž je nevyhnutná pre rast; <b>hraničná</b> odhaľuje kvalitu osobnosti. <b>Problémová</b> situácia (chýbajú prostriedky, hľadám) ≠ <b>frustrujúca</b> (prekážka, riešenie nevidím).</div>
+<div class="trap" data-n="18"><b>Karasek</b>: najškodlivejšie = vysoké nároky + malá voľnosť · <b>Warr</b>: vitamín C (plat, bezpečnosť) vs. D (autonómia, sociálna podpora) · <b>Holmes-Rahe</b>: smrť partnera 100, prepustenie 47.</div>
+<div class="trap" data-n="19"><b>Křivohlavý</b>: bojovať so zmeniteľným, prijať nezmeniteľné. Stratégie: apatia, vyhnutie, napadnutie, posilňovanie zdrojov.</div>
+<div class="trap" data-n="20"><b>Motivácia</b> = vnútorná (zložité úlohy, záujem) vs. <b>stimulácia</b> = vonkajšia (jednoduché úlohy, malý záujem). Plat motivuje <b>6–12 mesiacov</b>, zvýšenie od <b>10 %</b>.</div>
+<div class="trap" data-n="21"><b>Herzberg</b>: hygienické faktory = spokojnosť · motivátory = výkon. <b>Vroom</b>: O × I × V · <b>Adams</b>: spravodlivosť, disonancia · <b>McGregor</b>: X / Y · <b>Locke-Latham</b>: ciele · <b>Drucker 1954</b>: MBO · <b>SDT</b>: kompetencia, pripútanosť, autonómia · <b>Alderfer</b>: ERG.</div>
+<div class="trap" data-n="22"><b>Skupina</b> (individuálna zodpovednosť) ≠ <b>tím</b> (spoločná zodpovednosť). Tuckman 5 fáz vs. <b>Gersick</b> (termín, prerušené ekvilibrium). Belbin <b>9 rolí</b> v 3 skupinách. Hluk: <b>relatívny</b> 30–65 dB (záleží na postoji) vs. <b>absolútny</b> 65–95 dB.</div>
+</div>
+</div>
+</section>
+
+</div>

@@ -1,0 +1,1017 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Základy školskej psychológie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: jeden stĺpec skrípt (max 920px), téma = sekcia s číslom, informácie v typových rámčekoch farebne kódovaných podľa druhu */
+:root{
+  --bg:#faf7f3; --surface:#ffffff; --fg:#24202a; --muted:#6b6470; --line:#e5ddd3; --soft:#f3eee7;
+  --gold:#94680f;      /* nadpisy tém, štruktúra */
+  --plum:#8a3a6c;      /* definície, kľúčové pojmy */
+  --green:#2e6a4e;     /* autori, teórie */
+  --red:#a33a3a;       /* pozor, upozornenia */
+  --amber:#a8660c;     /* mnemotechnika */
+  --blue:#2d5d8e;      /* schémy, vizualizácia */
+  --slate:#566070;     /* otázky zo seminára, príklady */
+  --mark:#f6e7b8;
+  --serif:"Libre Baskerville",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17141a; --surface:#211d25; --fg:#ece6ef; --muted:#a69daa; --line:#3a3341; --soft:#2a2530;
+  --gold:#d9ae55; --plum:#d98bbb; --green:#7cc4a0; --red:#e58a8a; --amber:#e8a952; --blue:#86b4e6; --slate:#a8b2c2; --mark:#5a4a1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17141a; --surface:#211d25; --fg:#ece6ef; --muted:#a69daa; --line:#3a3341; --soft:#2a2530;
+  --gold:#d9ae55; --plum:#d98bbb; --green:#7cc4a0; --red:#e58a8a; --amber:#e8a952; --blue:#86b4e6; --slate:#a8b2c2; --mark:#5a4a1c; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.62;margin:0}
+.wrap{max-width:920px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{text-wrap:balance}
+p{margin:.5em 0}
+a{color:var(--plum)}
+strong{font-weight:600}
+
+/* HERO */
+.hero{position:relative;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:28px;overflow:hidden}
+.hero .ghost{position:absolute;right:0;top:-6px;font-family:var(--serif);font-weight:700;font-size:clamp(70px,16vw,150px);color:var(--gold);opacity:.9;line-height:1;letter-spacing:-.02em;pointer-events:none;user-select:none}
+.hero .ghost::after{content:'';display:block;height:3px;background:var(--gold);margin-top:6px;opacity:.6}
+@media (max-width:560px){.hero .ghost{position:static;font-size:64px;margin-bottom:6px}.hero .ghost::after{width:60px}}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);padding:6px 12px;border-radius:3px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(32px,6vw,52px);line-height:1.12;margin:22px 0 14px}
+.hero h1 em{color:var(--plum);font-style:normal}
+.hero .lead{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:17px;max-width:62ch;margin:0 0 18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);background:var(--surface);padding:5px 11px;border-radius:3px;color:var(--muted)}
+
+/* LEGENDA + OBSAH */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:18px 0}
+.lg{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:4px}
+.lg b{color:var(--c);font-weight:600;display:block;font-size:13px;letter-spacing:.04em}
+.toc{columns:2 280px;gap:28px;margin:12px 0 0;padding:0;list-style:none;font-size:15px}
+.toc li{break-inside:avoid;padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
+.toc .n{font-family:var(--mono);font-size:12px;color:var(--gold);min-width:44px;padding-top:2px}
+.toc a{color:var(--fg);text-decoration:none}
+.toc a:hover{color:var(--plum);text-decoration:underline}
+.toc .tag{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--plum);border:1px solid color-mix(in srgb,var(--plum) 35%,transparent);border-radius:3px;padding:0 5px;height:fit-content}
+
+/* ČASTI */
+.part{margin:56px 0 8px;padding:18px 20px;border-radius:6px;background:color-mix(in srgb,var(--pc) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--pc) 30%,transparent)}
+.part .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--pc)}
+.part h2{font-family:var(--serif);margin:4px 0 0;font-size:26px}
+.part p{margin:6px 0 0;color:var(--muted);font-size:15px}
+
+/* TÉMA */
+.topic{border-top:1px solid var(--line);margin-top:48px;padding-top:30px}
+.th{display:flex;gap:22px;align-items:baseline;margin-bottom:20px}
+.th .num{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.08em;white-space:nowrap}
+.th h2{font-family:var(--serif);font-size:clamp(25px,4vw,33px);line-height:1.2;margin:0}
+h3.sub{font-family:var(--sans);font-weight:700;font-size:14.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);border-left:3px solid var(--gold);padding-left:12px;margin:34px 0 14px}
+h4.mini{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--blue);margin:22px 0 8px}
+
+/* RÁMČEKY */
+.box{--c:var(--plum);background:color-mix(in srgb,var(--c) 6%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 22%,var(--line));border-left:4px solid var(--c);border-radius:6px;padding:14px 18px;margin:14px 0;break-inside:avoid}
+.box>.lbl{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-bottom:4px;font-weight:600}
+.box p:first-of-type{margin-top:0}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.def{--c:var(--plum)} .au{--c:var(--green)} .warn{--c:var(--red)} .mn{--c:var(--amber)} .sch{--c:var(--blue)} .qa{--c:var(--slate)}
+.box.mono{font-family:var(--mono);font-size:14px;line-height:1.7}
+.mn .code{font-family:var(--mono);font-weight:600;color:var(--amber);font-size:17px;letter-spacing:.06em}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0}
+.grid2>.box{margin:0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+.grid3>.box{margin:0}
+
+/* ZVÝRAZNENIA */
+.k{color:var(--plum);font-weight:600}          /* kľúčový pojem */
+.a{color:var(--green);font-weight:600}          /* autor */
+.h{background:var(--mark);padding:0 3px;border-radius:2px;color:inherit}  /* dôležité */
+.x{color:var(--red);font-weight:600}             /* negácia / pozor v texte */
+.y{font-family:var(--mono);font-size:.88em;color:var(--gold);font-weight:600}  /* rok, číslo */
+.src{display:inline-block;font-family:var(--mono);font-size:11.5px;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);background:var(--surface);border-radius:3px;padding:1px 7px;white-space:nowrap;vertical-align:1px}
+.muted{color:var(--muted)}
+
+/* ZOZNAMY */
+ul{padding-left:1.25em;margin:.5em 0}
+ul li{margin:.25em 0}
+ul li::marker{color:var(--gold)}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:12px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:6px 0 6px 42px;border-bottom:1px dashed var(--line)}
+ol.steps>li:last-child{border-bottom:0}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--sc,var(--gold)) 13%,var(--surface));color:var(--sc,var(--gold));border:1px solid color-mix(in srgb,var(--sc,var(--gold)) 40%,transparent);font-family:var(--mono);font-size:13px;font-weight:600;display:grid;place-items:center}
+ol.steps.plum{--sc:var(--plum)} ol.steps.green{--sc:var(--green)} ol.steps.red{--sc:var(--red)} ol.steps.blue{--sc:var(--blue)}
+ol.steps ul{margin-top:4px}
+
+/* TABUĽKY */
+.tw{overflow-x:auto;margin:14px 0}
+table.t{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface)}
+table.t th{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-align:left;font-weight:600;padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom;background:var(--bg)}
+table.t td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t td:first-child{font-weight:600}
+table.t tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 55%,var(--surface))}
+table.t.c td:first-child{font-weight:400}
+.yes{color:var(--green);font-weight:600} .no{color:var(--red);font-weight:600}
+
+/* SCHÉMY */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.fb{font-family:var(--mono);font-size:13.5px;border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:8px 12px}
+.fb.hl{border-color:var(--gold);color:var(--gold);font-weight:600}
+.fb.bl{border-color:color-mix(in srgb,var(--blue) 50%,transparent);color:var(--blue)}
+.fb.pl{border-color:color-mix(in srgb,var(--plum) 50%,transparent);color:var(--plum)}
+.fb small{display:block;font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400}
+.arr{color:var(--gold);font-weight:700}
+.cont{margin:16px 0}
+.cont .bar{height:10px;border-radius:5px;background:linear-gradient(90deg,var(--green),var(--amber),var(--red))}
+.cont .labels{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}
+.cont .labels div{font-size:12.5px;line-height:1.35;border-top:2px solid var(--line);padding-top:6px}
+.cont .labels b{display:block;font-size:13px}
+.ladder{display:grid;gap:6px;margin:14px 0}
+.ladder div{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:12px;padding:8px 12px;border-radius:5px;background:color-mix(in srgb,var(--lc) 11%,var(--surface));border:1px solid color-mix(in srgb,var(--lc) 30%,transparent)}
+.ladder span{font-family:var(--mono);font-weight:600;color:var(--lc);font-size:15px}
+.tl{list-style:none;margin:14px 0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:6px 0 10px 14px}
+.tl li::before{content:"";position:absolute;left:-25px;top:13px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--tc,var(--gold))}
+.tl .yr{font-family:var(--mono);font-weight:600;color:var(--tc,var(--gold));font-size:14px}
+.era{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tc);margin:4px 0 0 -18px;padding:3px 10px;background:color-mix(in srgb,var(--tc) 10%,var(--surface));display:inline-block;border-radius:3px}
+svg.fig{width:100%;height:auto;display:block;max-width:100%}
+.figcap{font-size:13px;color:var(--muted);text-align:center;margin-top:4px}
+
+/* SLOVNÍK + PASCE */
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin:14px 0}
+.gl div{border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:10px 14px;font-size:14.5px;break-inside:avoid}
+.gl b{font-family:var(--serif);font-style:italic;color:var(--gold);font-weight:700;margin-right:6px}
+.trap{counter-increment:t}
+.traps{counter-reset:t}
+.trap .lbl::after{content:" " counter(t)}
+
+footer{margin-top:60px;border-top:1px solid var(--line);padding-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+:focus-visible{outline:2px solid var(--plum);outline-offset:2px}
+
+@media (max-width:560px){
+  .th{flex-direction:column;gap:4px}
+  .cont .labels{grid-template-columns:1fr 1fr}
+  body{font-size:15.5px}
+}
+@media print{
+  @page{size:A4;margin:9mm 10mm 10mm}
+  :root{--bg:#fff;--surface:#fff}
+  body{font-size:8.1pt;line-height:1.32}
+  .wrap{max-width:none;padding:0}
+  .hero{padding-bottom:10px;margin-bottom:10px}
+  .hero .ghost{font-size:54pt;top:0}
+  .hero h1{font-size:24pt;margin:8px 0 6px}
+  .hero .lead{font-size:9.5pt;margin-bottom:8px}
+  .eyebrow,.pill{font-size:7pt;padding:2px 7px}
+  .legend{gap:6px;margin:8px 0;grid-template-columns:repeat(3,1fr)}
+  .lg{font-size:8pt;padding:5px 8px}
+  .lg b{font-size:7.5pt}
+  .toc{font-size:8.5pt;columns:2}
+  .toc li{padding:2px 0}
+  .part{margin:16px 0 4px;padding:8px 12px;break-after:avoid}
+  .part h2{font-size:15pt}
+  .part p{font-size:8.5pt}
+  .topic{break-before:auto;margin-top:12px;padding-top:8px}
+  .th{margin-bottom:8px;gap:14px}
+  .th h2{font-size:16pt}
+  .th .num{font-size:8pt}
+  h3.sub{font-size:8.4pt;margin:10px 0 5px;padding-left:8px}
+  h4.mini{font-size:8.4pt;margin:10px 0 4px}
+  p{margin:.3em 0}
+  ul{margin:.3em 0}
+  ul li{margin:.1em 0}
+  .box{padding:5px 9px;margin:5px 0;border-radius:4px;border-left-width:3px}
+  .box>.lbl{font-size:6.8pt;margin-bottom:2px}
+  .box.mono{font-size:8pt;line-height:1.5}
+  .mn .code{font-size:10pt}
+  .grid2,.grid3{gap:6px;margin:6px 0}
+  .grid2{grid-template-columns:repeat(2,1fr)}
+  .grid3{grid-template-columns:repeat(3,1fr)}
+  .tw{margin:6px 0;overflow:visible}
+  table.t{font-size:8pt}
+  table.t th{font-size:6.8pt;padding:4px 6px}
+  table.t td{padding:2px 6px}
+  ol.steps{margin:6px 0}
+  ol.steps>li{padding:2px 0 2px 26px}
+  ol.steps>li::before{width:18px;height:18px;font-size:7.5pt;top:2px}
+  .flow{gap:5px;margin:6px 0}
+  .fb{font-size:7.8pt;padding:4px 7px}
+  .fb small{font-size:7pt}
+  .src{font-size:6.8pt;padding:0 4px}
+  svg{max-height:62mm;width:auto;max-width:100%}
+  .tl{margin:6px 0;padding-left:12px}
+  .tl li{padding:1px 0 2px 10px}
+  .tl li::before{width:8px;height:8px;left:-18px;top:5px}
+  .tl .yr{font-size:8.6pt}
+  .era{font-size:6.8pt;padding:1px 6px;margin:2px 0 0 -12px}
+  .ladder{gap:3px;margin:6px 0}
+  .ladder div{padding:3px 8px;gap:8px;grid-template-columns:30px 1fr}
+  .ladder span{font-size:9pt}
+  .gl{gap:4px 14px!important}
+  .flow,.ladder,.gl div,tr,ol.steps>li{break-inside:avoid}
+  .grid2>.box,.grid3>.box{break-inside:auto}
+  .box{break-inside:auto}
+  .gl{grid-template-columns:repeat(3,1fr)!important;gap:3px 8px!important;margin:6px 0}
+  .gl div{padding:3px 6px;font-size:7.6pt;border-radius:3px}
+  h3.sub,h4.mini,.th{break-after:avoid}
+  a{color:inherit;text-decoration:none}
+  [style*='font-size:14px'],[style*='font-size:13px']{font-size:7.6pt!important}
+  .pyr svg{max-height:34mm}
+  .pyr{margin:4px 0;gap:16px}
+}
+.hl3{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 18px}
+.hl2{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 18px}
+@media (max-width:560px){.hl3,.hl2{grid-template-columns:1fr}}
+.pyr{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;margin:10px 0}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="ghost" aria-hidden="true">ŠP</div>
+  <span class="eyebrow">PREŠOVSKÁ UNIVERZITA · PSYCHOLÓGIA · 3. ROČNÍK Bc. · 2026/2027</span>
+  <h1>Základy školskej<br><em>psychológie</em></h1>
+  <p class="lead">Študijné skriptá na zápočet a skúšku. Spracované podľa vlastných poznámok z prednášok a seminárov.</p>
+  <div class="pills">
+    <span class="pill">12 tém</span><span class="pill">Autori · Zákony · Členenia</span><span class="pill">Mnemotechniky</span><span class="pill">Skúškové pasce</span>
+  </div>
+</header>
+
+<h3 class="sub">Ako čítať farby</h3>
+<div class="legend">
+  <div class="lg" style="--c:var(--plum)"><div><b>DEFINÍCIA / POJEM</b>Čo to je. Fialová farba v texte = kľúčový pojem.</div></div>
+  <div class="lg" style="--c:var(--green)"><div><b>AUTOR / TEÓRIA</b>Kto čo tvrdí. Zelené mená = autori.</div></div>
+  <div class="lg" style="--c:var(--red)"><div><b>POZOR</b>Časté chyby, výnimky, nepresnosti v poznámkach.</div></div>
+  <div class="lg" style="--c:var(--amber)"><div><b>MNEMOTECHNIKA</b>Pomôcka na zapamätanie zoznamu.</div></div>
+  <div class="lg" style="--c:var(--blue)"><div><b>SCHÉMA</b>Vizuálny prehľad.</div></div>
+  <div class="lg" style="--c:var(--slate)"><div><b>OTÁZKA ZO SEMINÁRA</b>Otázky z hodiny aj s odpoveďou.</div></div>
+</div>
+<p class="muted" style="font-size:14px">V texte: <span class="h">žlté zvýraznenie</span> = dôležité na skúšku · <span class="y">1965</span> = rok/číslo · <span class="src">§ / zákon</span> = predpis · <span class="x">červená</span> = protiklad, „nie“.</p>
+
+<h3 class="sub">Obsah</h3>
+<ol class="toc">
+  <li><span class="n">01</span><a href="#t1">Škola a školský systém na Slovensku</a></li>
+  <li><span class="n">02</span><a href="#t2">Funkcie školy</a></li>
+  <li><span class="n">03</span><a href="#t3">Vznik a vývoj školskej psychológie</a></li>
+  <li><span class="n">04</span><a href="#t4">Školská vs. pedagogická a poradenská psychológia</a></li>
+  <li><span class="n">05</span><a href="#t5">Školské kurikulum</a></li>
+  <li><span class="n">06</span><a href="#t6">Školská trieda ako sociálna skupina</a></li>
+  <li><span class="n">07</span><a href="#t7">Klíma školy a triedy</a></li>
+  <li><span class="n">08</span><a href="#t8">Školská psychológia ako profesia</a></li>
+  <li><span class="n">09</span><a href="#t9">Štruktúra práce školského psychológa</a></li>
+  <li><span class="n">10</span><a href="#t10">Diagnostické metódy a postupy</a></li>
+  <li><span class="n">11</span><a href="#t11">Spolupráca s rodičmi a učiteľmi</a></li>
+  <li><span class="n">12</span><a href="#t12">Prevencia a intervencia</a></li>
+  <li><span class="n">!</span><a href="#pasce">Najčastejšie skúškové pasce</a></li>
+</ol>
+
+<!-- ========== TÉMA 1 ========== -->
+<section class="topic" id="t1">
+<div class="th"><span class="num">TÉMA 01</span><h2>Škola a školský systém na Slovensku</h2></div>
+
+<div class="grid2">
+<div class="box def"><span class="lbl">Škola / školské zariadenie</span>
+<p>= <span class="k">výchovno-vzdelávacia inštitúcia</span> zriadená podľa osobitného predpisu; zároveň <b>budova / sídlo</b> danej inštitúcie.</p>
+<p><b>Delenie podľa zriaďovateľa:</b> a) samosprávy miest a obcí / štátny zriaďovateľ · b) cirkevný · c) súkromný</p></div>
+<div class="box au"><span class="lbl">Hvozdík (1986) – škola ako systém</span>
+<p>Škola = <span class="k">systém</span>, ktorý tvoria <b>subsystémy a prvky</b>, kde každý prvok má svoju <b>funkciu</b>.</p>
+<ul>
+<li><b>subsystémy</b> = 1. a 2. stupeň, trieda, učiteľský zbor, vedenie školy, rada školy</li>
+<li><b>prvky</b> = jednotlivci tvoriaci subsystémy</li>
+<li><b>funkcia</b> = subsystémy a prvky plnia svoje funkcie (učitelia vzdelávajú, žiaci sa učia)</li>
+</ul></div>
+</div>
+<p>Vzťahy medzi prvkami a subsystémami tvoria <span class="k">štruktúru</span>:</p>
+<div class="grid2">
+<div class="box def"><span class="lbl">a) Horizontálna</span><p>vzťahy medzi <b>rovnocennými</b> – napr. žiaci, učitelia</p></div>
+<div class="box def"><span class="lbl">b) Vertikálna</span><p><b>nadradenosť / podradenosť</b> – napr. vzťah učiteľ – žiak</p></div>
+</div>
+<p class="h" style="display:inline-block">Škola je miesto, kde sa rozvíja potenciál žiaka aj učiteľa a kde sa rozvíjajú vzťahy.</p>
+
+<h3 class="sub">Rýchly exkurz vývoja školského systému <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(vraj nebude skúšať)</span></h3>
+<ul class="tl">
+<li><span class="yr">do 1918</span> – <b>nepriaznivá situácia</b>: nemožnosť študovať po slovensky, len po maďarsky</li>
+<li><span class="yr">1918–1938</span> (1. ČSR) – <b>unitárny</b> (jednotný) školský systém, cieľ zvýšiť vzdelanosť; rozvoj školstva (cirkevné školy)</li>
+<li><span class="yr">1939–1945</span> – ideologické obdobie, vplyv náboženstva</li>
+<li><span class="yr">1948–1989</span> – <b>znárodnenie školstva</b>, <i>model jednotnej školy</i>: štátna kontrola, českí učitelia, všetko rovnaké pre všetkých (postup, metódy, čas, informácie), 6–15 rokov, silný režim, málo autonómie, všetko diktované, postavené na strachu; ale bezplatné, sociálne dostupné, vysoká úroveň vzdelávania</li>
+<li><span class="yr">po 1989</span> – modifikácia modelu jednotnej školy: 8-ročné a športové gymnáziá, jazykové školy…; ďalšie reformy (kurikulárne, súkromné, cirkevné školy)</li>
+</ul>
+
+<div class="box sch"><span class="lbl">Schéma · Školská sústava na Slovensku dnes</span>
+<div class="tw"><table class="t c">
+<thead><tr><th>Vek</th><th>Stupeň</th><th>Popri tom</th></tr></thead>
+<tbody>
+<tr><td class="y">3–6</td><td><b>Materská škola</b> (predprimárne vzdelanie)</td><td rowspan="5"><b>ZUŠ</b>, <b>konzervatóriá</b>; <b>špeciálne + súkromné + cirkevné školy</b></td></tr>
+<tr><td class="y">6–10</td><td><b>I. stupeň ZŠ</b> (primárne vzdelanie)</td></tr>
+<tr><td class="y">10/11–15</td><td><b>II. stupeň ZŠ</b> (nižšie stredné vzdelanie); od 11 aj <b>8-ročné gymnáziá</b></td></tr>
+<tr><td class="y">15–19</td><td><b>SŠ</b>: gymnáziá, bilingválne gymnáziá, SOŠ</td></tr>
+<tr><td class="y">19+</td><td><b>Univerzity a VŠ</b> → <b>postgraduálne štúdium</b></td></tr>
+<tr><td>dospelí</td><td colspan="2"><b>Vzdelávanie dospelých</b> = UTV (univerzita tretieho veku)</td></tr>
+</tbody></table></div></div>
+
+<h3 class="sub">Školské zariadenia</h3>
+<div class="box def"><span class="lbl">Definícia</span><p>= inštitúcia / súčasť školského systému, ktorá zabezpečuje <b>podporné, výchovné, poradenské, voľnočasové, stravovacie</b> a iné činnosti súvisiace s výchovou a vzdelávaním.</p></div>
+<div class="tw"><table class="t">
+<thead><tr><th>Druh</th><th>Patria sem</th></tr></thead>
+<tbody>
+<tr><td>1. Výchovno-vzdelávacie</td><td>ŠKD · CVČ (centrá voľného času) · domovy mládeže</td></tr>
+<tr><td>2. Špeciálne výchovné</td><td><span class="k">Diagnostické centrum</span> <span class="y">(5)</span> · <span class="k">Reedukačné centrum</span> <span class="y">(11)</span> · <span class="k">Liečebno-výchovné sanatórium</span> <span class="y">(7)</span></td></tr>
+<tr><td>3. Výchovného poradenstva a prevencie</td><td><b>Centrá poradenstva a prevencie (CPaP)</b> · špeciálno-pedagogická poradňa pri špeciálnych ZŠ · detské integračné centrá – od <span class="y">1. 9. 2008</span> CŠPP</td></tr>
+<tr><td>4. Účelové</td><td>zariadenia školského stravovania · škola v prírode · stredisko služieb škole</td></tr>
+</tbody></table></div>
+
+<h3 class="sub">Zmeny v edukácii v slovenských školách v 21. storočí</h3>
+<ul>
+<li><b>nová školská legislatíva</b> (zákony, vyhlášky, smernice, nariadenia) = príprava ŠVP pre MŠ, ZŠ a SŠ</li>
+</ul>
+<div class="grid2">
+<div class="box def"><span class="lbl">ŠVP – štátny vzdelávací program</span><p>= <b>štátom stanovený</b> súbor poznatkov a zručností (kompetencií), ktoré treba u žiaka rozvíjať; profil absolventa, vzdelávacie oblasti, rámcový učebný plán. Je <b>jednotným základom pre ŠkVP</b>.</p></div>
+<div class="box def"><span class="lbl">ŠkVP – školský vzdelávací program</span><p>Tvoria ho <b>učitelia, vedenie školy a školská rada</b>; určuje, <b>podľa čoho sa žiaci v danej škole vzdelávajú</b>.</p></div>
+</div>
+<p><b>Plán obnovy a odolnosti SR</b> = balík reforiem a investícií. <b>Ciele nového ŠVP vyplývajúce z Plánu obnovy:</b></p>
+<ol class="steps plum">
+<li>podpora <span class="h">praktických zručností</span> (gramotnosti: finančná, digitálna, čitateľská), <b>kritického myslenia</b> + <b>zelená a digitálna transformácia</b> (ekologické zmýšľanie)</li>
+<li><span class="h">učebnicová reforma</span> – príprava nových učebníc</li>
+<li>zmena <span class="h">koncepcie prípravy pedagógov</span> + podporných tímov (psychológ, špeciálny pedagóg…)</li>
+<li><span class="h">inklúzia</span> sociálne a zdravotne znevýhodnených žiakov</li>
+</ol>
+<div class="box au"><span class="lbl">Novela školského zákona č. 245 · od 1. 7. 2022 vznik NIVAM</span>
+<div class="flow" style="margin:4px 0">
+<div class="fb">MPC<small>Metodicko-pedagogické centrum</small></div><span class="arr">+</span>
+<div class="fb">ŠPÚ<small>Štátny pedagogický ústav</small></div><span class="arr">+</span>
+<div class="fb">IUVENTA<small>Slovenský inštitút mládeže</small></div><span class="arr">+</span>
+<div class="fb">NÚCEM<small>Národný ústav certifikovaných meraní vzdelávania</small></div><span class="arr">=</span>
+<div class="fb hl">NIVAM<small>Národný inštitút vzdelávania a mládeže</small></div>
+</div>
+<p>+ školenia, súťaže, konferencie, monitorovanie, výskum…</p></div>
+<p><b>Ďalšie zmeny a problémy:</b></p>
+<ul>
+<li>dôraz na <b>ďalšie a celoživotné vzdelávanie</b> pedagogických a odborných zamestnancov; príprava <b>štandardov profesií</b> v školách</li>
+<li>výrazný nárast <span class="k">sociálno-patologických javov</span> – šikana, záškoláctvo, kriminalita, násilie, drogy, rasizmus, xenofóbia, alkoholizmus → prevenciou sú besedy</li>
+<li><b>kríza slovenskej rodiny</b> – presun výchovy na školu, slabá spolupráca rodičov so školou, rast agresie rodičov voči učiteľom</li>
+<li>nedostatočné personálne a kvalifikačné zabezpečenie škôl + veľa učiteľov v dôchodkovom veku</li>
+<li>záťaž, stres, <b>syndróm vyhorenia</b> – príčiny: byrokracia, administratíva, nezhody, tlak vedenia, práca</li>
+<li><span class="h">potreba školských psychológov na školách</span> → národné programy „Pomáhajúce profesie v edukácii detí a žiakov I., II.“ a <b>„Podpora pomáhajúcich profesií III.“</b> = tzv. <span class="k">POP programy</span> („financovanie podporných profesií v školstve“)</li>
+</ul>
+</section>
+
+<!-- ========== TÉMA 2 ========== -->
+<section class="topic" id="t2">
+<div class="th"><span class="num">TÉMA 02</span><h2>Funkcie školy</h2></div>
+
+<div class="box mn"><span class="lbl">Mnemotechnika – 6 funkcií</span><p><span class="code">O-P-K-A-D-S</span> – „<b>O</b>pi <b>P</b>raje <b>K</b>aždej <b>A</b>nde <b>D</b>obrý <b>S</b>en“: <b>O</b>rganizovanie vyučovania · <b>P</b>ersonalizačná · <b>K</b>valifikačná · <b>A</b>kulturačná · <b>D</b>iferenciačná/selektívna · <b>S</b>ocializačná</p></div>
+
+<h4 class="mini">1 · Organizovanie vyučovacieho procesu (= vzdelávacia)</h4>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Aké majú byť vyučovacie podmienky?</b></p>
+<ul>
+<li><b>materiálne</b></li>
+<li><b>organizačné</b> – rozvrh, zoznamy počtu žiakov, školský poriadok, spôsob hodnotenia</li>
+<li><b>sociálno-psychologické</b> – najmä úloha psychológa: vzťahy žiak – žiak, žiak – učiteľ</li>
+<li><b>pedagogicko-psychologické</b> – predpoklady učiteľa, vedieť zaujať žiakov</li>
+<li><b>didaktické</b> – aké didaktické pomôcky mám k dispozícii</li>
+</ul></div>
+<div class="tw"><table class="t">
+<thead><tr><th>Úroveň</th><th>Obsah</th></tr></thead>
+<tbody>
+<tr><td>Makroorganizácia</td><td>rôzne úrovne školského systému; príprava na vyučovanie, tvorba vyučovacích programov – <b>schvaľuje školská rada</b> na základe ŠkVP</td></tr>
+<tr><td>Mikroorganizácia</td><td>samotný proces vyučovania, <b>vyučovacia hodina</b> organizovaná učiteľom, jeho predmet</td></tr>
+<tr><td>Prvky</td><td>obsah vzdelávania (osnovy, normy, poznatky, vedomosti) – učiteľ – žiak; sloboda a tvorivosť učiteľov a žiakov; učenie jednotnými prostriedkami + povinnosti a samostatnosť; rozvoj kognitívnej aj <b>nekognitívnej</b> stránky osobnosti</td></tr>
+</tbody></table></div>
+
+<div class="box sch"><span class="lbl">Schéma · Didaktický trojuholník</span>
+<div class="flow" style="justify-content:center">
+<div class="fb pl">UČITEĽ</div><span class="arr">⇄</span><div class="fb hl">OBSAH</div><span class="arr">⇄</span><div class="fb pl">ŽIAK</div>
+</div>
+<div class="grid2">
+<div class="box def" style="margin:0"><span class="lbl">Informatívna funkcia vyučovania</span><p>učiteľ zvláda obsah učiva a poznatky <b>odovzdáva</b> žiakom</p></div>
+<div class="box def" style="margin:0"><span class="lbl">Formatívna funkcia vyučovania</span><p>učiteľ dáva zadanie, žiak <b>kooperuje</b> a dáva spätnú väzbu; prináša sám obsah alebo ho naštuduje (projekt), dáva otázky k textu</p></div>
+</div></div>
+
+<p>Nekognitívne stránky osobnosti sa rozvíjajú pri <span class="k">formatívnej funkcii</span>:</p>
+<div class="box mn"><span class="lbl">Mnemotechnika (z poznámok)</span><p><span class="code">K-E-M-S-A-K</span></p></div>
+<div class="tw"><table class="t">
+<tbody>
+<tr><td>K – kognitivizácia</td><td>rozvoj myslenia – divergentné, logické, tvorivé; riešenie problémov</td></tr>
+<tr><td>E – emocionalizácia</td><td>nekognitívne stránky – prežívanie, empatia, vnútorný svet, porozumenie, vnímanie iných aj seba</td></tr>
+<tr><td>M – motivácia a aktivizácia</td><td>nadšenie, bádateľstvo, záľuby, záujmy, túžby, ciele</td></tr>
+<tr><td>S – socializácia a komunikácia</td><td>komunikácia a vzťahy cez školské povinnosti, projekty, skupinovú prácu</td></tr>
+<tr><td>A – axiologizácia</td><td>rozvoj hodnôt, zdravý hodnotový systém</td></tr>
+<tr><td>K – kreativizácia</td><td>tvorivosť, sloboda myslenia v realizovaní</td></tr>
+</tbody></table></div>
+<p><b>Iné zložky rozvíjania nekognitívnych stránok:</b> 1. učenie · 2. hra · 3. práca · 4. medziľudská komunikácia · 5. umelecká činnosť · 6. odpočinok</p>
+<div class="box au"><span class="lbl">Tvorivo-humanistická výchova (Zelina)</span><p>Resp. <span class="a">Zelinov</span> <b>integrálny model fungovania človeka</b>. Ďalej: využiť konkurenčné prostredie pre progres · <b>diverzifikácia</b> metodických postupov a typov výučby · elektronizácia, digitalizácia, debyrokratizácia · využívanie <b>IKT</b> (tablety, interaktívne tabule, online vyučovanie, vyhľadávanie zdrojov).</p></div>
+
+<h4 class="mini">2 · Personalizačná (= výchovná)</h4>
+<p>Rozvoj žiaka ako <b>samostatne konajúcej a tvorivej osobnosti</b> – rozvíja najmä <span class="h">formatívnu stránku</span>.</p>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>V čom môže byť problém na strane učiteľa?</b> Veľkosť skupiny – lepšie sú menšie skupiny.</p></div>
+
+<h4 class="mini">3 · Kvalifikačná</h4>
+<p>Príprava žiaka na <b>povolanie</b> – poznatky, certifikáty, vysvedčenia, osvedčenia; škola má byť preto otvorená a <span class="h">flexibilná pre požiadavky praxe</span>. Škola sprostredkúva:</p>
+<div class="grid3">
+<div class="box def"><span class="lbl">Základná kvalifikácia</span><p>čítanie, písanie, počítanie</p></div>
+<div class="box def"><span class="lbl">Funkcionálna</span><p>spôsobilosti, zručnosti, schopnosti žiakov</p></div>
+<div class="box def"><span class="lbl">Extrafunkcionálna</span><p>výber povolania, tvorivosť, samostatnosť, disciplína, vytrvalosť v práci</p></div>
+</div>
+
+<h4 class="mini">4 · Akulturačná</h4>
+<p>Osvojenie si <b>kultúrnosti myslenia a konania</b>, odovzdávanie hodnôt generáciám, dedičstvo, umenie.</p>
+
+<h4 class="mini">5 · Diferenciačná a selektívna</h4>
+<div class="grid3">
+<div class="box def"><span class="lbl">Diferenciačná</span><p>snaží sa chyby <b>odstrániť a pracovať s nimi</b> – prečo sa žiak niečo nenaučil; dáva každému <b>rovnakú šancu</b></p></div>
+<div class="box def"><span class="lbl">Selektívna</span><p><b>hľadá chyby</b> – čo sa žiak nenaučil; hľadala najlepšiu osobnosť</p></div>
+<div class="box def"><span class="lbl">Dnes: rozvíjajúca</span><p>rozvoj <b>každej</b> osobnosti, všetkých žiakov – nielen tých šikovnejších</p></div>
+</div>
+<div class="box qa"><span class="lbl">Otázky zo seminára</span>
+<p><b>Čo patrí k nástrojom selekcie?</b> Známky, hodnotenie, diplomy, kvantifikovanie výkonu; kto mal horšie známky, ostal na nižšej úrovni vzdelávania.</p>
+<p><b>Čo vyjadrujú známky?</b> Schopnosť adaptovať sa na požiadavky učiteľa; hodnotu na škále priradenú vedomostiam a zvládnutiu učiva.</p>
+<p><b>Známe osoby, ktoré odolali selekcii?</b> Umelci (Cher, Anderson – spisovateľ, Walt Disney, Picasso, Andy Warhol), športovci, politici (Churchill), herci (Salma Hayek), vedci (Einstein, Edison, Bell), Bill Gates, Ady Hajdu.</p></div>
+
+<h4 class="mini">6 · Socializačná</h4>
+<p>Začlenenie sa do spoločnosti a vzťahov medzi spolužiakmi / rovesníkmi; rešpektovanie školských noriem.</p>
+
+<div class="box au"><span class="lbl">Gillernová – 4 funkcie školy</span><p>personalizačná · kvalifikačná · socializačná · <b>integračná</b></p></div>
+
+<h3 class="sub">Ako škola napĺňa funkcie / ciele</h3>
+<div class="grid3">
+<div class="box def"><span class="lbl">a) Explicitne = kurikulum</span><p>predpísané pravidlá vyučovania (napr. školský poriadok), z nich sa odvíjajú osnovy / programy</p></div>
+<div class="box def"><span class="lbl">b) Implicitne = skryté kurikulum</span><p>vzťahy, aký je učiteľ, <b>klíma a atmosféra</b> školy a triedy; nikde nenapísané pravidlá (napr. medzi žiakmi)</p></div>
+<div class="box def"><span class="lbl">c) Mimo vyučovania = extrakurikulum</span><p><b>jednorazové</b> – exkurzia, výlet, divadlo, branné cvičenie, prednáška, škola v prírode, lyžiarsky; <b>dlhotrvajúce</b> – krúžky, školský časopis, spevácky zbor</p></div>
+</div>
+</section>
+
+<!-- ========== TÉMA 3 ========== -->
+<section class="topic" id="t3">
+<div class="th"><span class="num">TÉMA 03</span><h2>Vznik a vývoj školskej psychológie</h2></div>
+
+<h3 class="sub">3 dominantné oblasti, ktoré prispeli k vzniku školskej psychológie</h3>
+<ol class="steps">
+<li>Záujem o <b>psychológiu dieťaťa</b></li>
+<li>Uplatňovanie <b>psychodiagnostických metód</b></li>
+<li>Aplikovanie <b>experimentálnej pedagogiky</b> – metóda pedagogického výskumu, výsledky zdrojov vzdelávacích procesov</li>
+</ol>
+
+<h3 class="sub">Priekopníci</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Autor</th><th>Prínos</th></tr></thead>
+<tbody>
+<tr><td><span class="a">W. Stern</span> <span class="y">1911</span></td><td>vývinová psychológia dieťaťa / osobnosti; forenzný psychológ; <span class="h">prvý navrhol IQ</span> na vyjadrenie výšky schopností; dotazník / depistáž; dielo „Otázky, metódy a výsledky testovania IQ“</td></tr>
+<tr><td><span class="a">Stejskal</span> <span class="y">1930</span></td><td>„O úlohách školního psychologa“; <b>požiadavka zaviesť psychologické služby do škôl</b> (bývalé ČS)</td></tr>
+<tr><td><span class="a">Ohera</span> <span class="y">1934</span></td><td>„Funkce školního psychologa“; vymedzil <b>prácu v kompetencii psychológa</b> (20.–30. roky)</td></tr>
+</tbody></table></div>
+<p><b>Ohera – práca v kompetencii psychológa:</b></p>
+<div class="hl2">
+<ul><li>poradenstvo</li><li>zhodnotenie vývinu žiakov ako podklad pre výber SŠ</li><li>práca s neprospievajúcimi žiakmi</li><li>vyjadrenie sa k priestupkom proti školskej disciplíne</li></ul>
+<ul><li>diagnostika duševných schopností a osobnosti žiakov</li><li>spolupráca pri výskume školského prostredia</li><li>spolupráca s učiteľmi a rodičmi</li></ul>
+</div>
+
+<h3 class="sub">Vývoj na Slovensku</h3>
+<ul class="tl">
+<li style="--tc:var(--red)"><span class="era" style="--tc:var(--red)">50. roky · psychológia = „ideologický nepriateľ“</span></li>
+<li style="--tc:var(--red)">Příhoda, Ďurič, Grác, Pardel, Štefanovič, Blaškovič, Kačáni…; psychologická tematika len ako súčasť kníh</li>
+<li style="--tc:var(--green)"><span class="era" style="--tc:var(--green)">60.–70. roky · rozvoj školskej psychológie</span></li>
+<li style="--tc:var(--green)"><span class="yr">1965</span> – <span class="h">Katedra pedagogickej psychológie s oddelením školskej psychológie</span> na FF UK v BA – <span class="a">prof. Ladislav Ďurič</span>; 2-odborové štúdium (psychológia + pedagogika alebo cudzí jazyk; polovica pedagóg – polovica psychológ)</li>
+<li style="--tc:var(--green)"><span class="yr">1967</span> – <b>Kabinet školskej psychológie</b> (<span class="a">Blaškovič</span>) – metodické a odborné usmerňovanie</li>
+<li style="--tc:var(--green)"><span class="yr">1970</span> – <span class="h">akceptácia školskej psychológie</span> ako samostatnej teoreticko-aplikovanej disciplíny (J. Hvozdík, L. Ďurič, O. Blaškovič, M. Jurčo); koncepcia práce ŠP; <b>3. zjazd Slovenskej psychologickej spoločnosti</b> v Tatranskej Lomnici</li>
+<li style="--tc:var(--green)"><span class="yr">1973–1975</span> – experimentálne overovanie náplne práce ŠP na vybraných ZŠ a SŠ</li>
+<li style="--tc:var(--amber)"><span class="era" style="--tc:var(--amber)">Po roku 1975 · takmer 15 rokov nepriaznivé obdobie</span></li>
+<li style="--tc:var(--amber)"><span class="yr">1986</span> – <span class="a">Ján Hvozdík</span>: „Základy školskej psychológie“ = <span class="h">1. európska učebnica školskej psychológie</span></li>
+<li style="--tc:var(--amber)"><span class="yr">pol. 80. rokov</span> nové kurzy ŠP v BA · <span class="yr">koniec 80. rokov</span> pokusy zaviesť ŠP ako samostatnú profesiu</li>
+<li style="--tc:var(--amber)"><span class="yr">jún 1989</span> – metodická inštrukcia MŠ: na každej škole školský psychológ – <span class="x">neuskutočnilo sa</span></li>
+<li style="--tc:var(--plum)"><span class="era" style="--tc:var(--plum)">Po nežnej revolúcii (november 1989)</span></li>
+<li style="--tc:var(--plum)"><span class="yr">1990</span> – <span class="h">Asociácia školskej psychológie ČSFR (AŠP)</span>; predseda <span class="a">A. Furman</span> + Gajdošová, Heréyiová, Valihorová, Kárikova; prvé stretnutie v KE</li>
+<li style="--tc:var(--plum)"><span class="yr">1991–2002</span> – časopis AŠP „Školský psychológ / Školní psycholog“ · <span class="yr">od 1991</span> špecializácia na ŠP počas 5-ročného štúdia na FF UK v BA</li>
+<li style="--tc:var(--plum)"><span class="yr">1993</span> – rozdelenie ČSFR; <span class="yr">1993–1994</span> fungovala len slovenská AŠP (1. subjekt registrovaný v oboch republikách); 16. medzinárodné kolokvium <b>ISPA</b> na UMB v BB → AŠP členom ISPA; NR SR schválila <b>zákon o školských zariadeniach</b> (ráta s funkciou ŠP)</li>
+<li style="--tc:var(--plum)"><span class="yr">od 1994</span> – na 3. zjazde AŠP schválená <b>spoločná AŠP SR a ČR</b> + prijaté etické normy práce</li>
+<li style="--tc:var(--plum)"><span class="yr">1996</span> – <b>vyhláška o výchovnom poradenstve</b></li>
+</ul>
+<div class="grid2">
+<div class="box au"><span class="lbl">AŠP SR a ČR dnes</span><p>Predseda AŠP ČR – <span class="a">Mgr. et Mgr. Jan Mareš, PhD.</span>; predseda AŠP SR – <span class="a">PaedDr. Lucia Košťálová</span>.</p>
+<p>Podujatie „Novinky v pedagogickej a školskej psychológii“, od <span class="y">2003</span> na Slovensku <b>„Ďuričove dni“</b>; odborné semináre „Aktuálne otázky školskej psychológie“.</p></div>
+<div class="box au"><span class="lbl">ISPA – Medzinárodná asociácia školskej psychológie</span>
+<ul>
+<li><span class="y">zač. 70. rokov</span> – <span class="a">Frances Mullenová</span> (sekcia ŠP APA) + <span class="a">Calvin Catterall</span> (NASP, USA)</li>
+<li><span class="y">1972</span> – <b>ISPC</b> (International School Psychology Committee); cieľ: celosvetová spolupráca školskej a edukačnej psychológie</li>
+<li>časopisy: od <span class="y">1973</span> „World Go Round“, od <span class="y">2013</span> „School &amp; Educational Psychology“</li>
+<li><span class="y">1974–1981</span> – Catterall: putovné semináre, kolokviá (od 1975), kniha „Psychológia v školách z medzinárodného hľadiska“ (1976–1979)</li>
+<li><span class="y">1982</span> – vznik <span class="h">ISPA</span>, 1. predseda <span class="a">Anders Poulsen</span>; aktuálne <span class="a">Véronique Le Mézec</span>; každoročné medzinárodné konferencie</li>
+</ul></div>
+</div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je „1976–1079“ – ide o <b>1976–1979</b>; „3. jazda AŠP“ = <b>3. zjazd</b>; americká asociácia je štandardne <b>NASP</b> (v poznámkach NSPA).</p></div>
+</section>
+
+<!-- ========== TÉMA 4 ========== -->
+<section class="topic" id="t4">
+<div class="th"><span class="num">TÉMA 04</span><h2>Školská vs. pedagogická a poradenská psychológia</h2></div>
+<div class="tw"><table class="t">
+<thead><tr><th></th><th>Pedagogická psychológia</th><th>Školská psychológia</th><th>Poradenská psychológia</th></tr></thead>
+<tbody>
+<tr><td>Čo je</td><td>veda o psychologických zákonitostiach výchovno-vzdelávacieho procesu v školách a iných výchovných zariadeniach; výchova a vzdelávanie v najširšom zmysle</td><td><b>samostatná, aplikovaná</b> disciplína – uplatňuje psychologické poznatky, metódy a techniky <b>v podmienkach školy</b></td><td>širší záber – pomáha riešiť problémy človeka na celej <b>biodromálnej</b> ceste</td></tr>
+<tr><td>Rozdiel</td><td>viac <b>teoretická</b>, všeobecná</td><td><b>praktická</b>, konkrétna; poradenstvo zúžené na školské situácie (žiak, učiteľ, rodičia)</td><td>miesto výkonu: <b>poradňa</b> (ŠP v <b>škole</b>)</td></tr>
+</tbody></table></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">ŠP v širšom zmysle</span><p>tzv. <b>malá pedagogická psychológia</b>, predmet „<span class="k">pedagogicko-psychologický</span>“</p></div>
+<div class="box def"><span class="lbl">ŠP v užšom zmysle</span><p><b>náplň práce</b> školského psychológa = konkrétny výkon v škole, predmet „<span class="k">profesio-psychologický</span>“</p></div>
+</div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je „to, čo robí školský psychológ“ zapísané pri širšom zmysle, ale podľa logiky (profesio-psychologický predmet) patrí k <b>užšiemu</b> zmyslu. Over si, ako to uvádzala prednášajúca.</p></div>
+</section>
+
+<!-- ========== TÉMA 5 ========== -->
+<section class="topic" id="t5">
+<div class="th"><span class="num">TÉMA 05</span><h2>Školské kurikulum</h2></div>
+<div class="grid2">
+<div class="box au"><span class="lbl">Duke</span><p>Kurikulum = <b>akákoľvek učebná skúsenosť</b>, plánovanie a riadenie v škole za účelom dosiahnutia stanoveného cieľa; zahŕňa aj <b>učebné prostredie</b>, ktoré tiež ovplyvňuje učenie.</p></div>
+<div class="box au"><span class="lbl">Průcha</span><p><b>V širšom zmysle</b> = akékoľvek učenie (plánované aj neplánované) v škole či iných inštitúciách.<br><b>V užšom zmysle</b> = <span class="k">program výučby (osnovy)</span>.</p>
+<p class="muted" style="font-size:14px">Alternatívne pojmy: učebné osnovy, učebný plán, obsah vzdelávania, vzdelávací plán, učivo.</p></div>
+</div>
+<p><b>Typológia:</b> <span class="k">predpísané</span> – z ministerstva školstva · <span class="k">osvojené</span> – čo sa naučí · <span class="k">realizované</span> – transformované do vyučovania</p>
+
+<h3 class="sub">Typológia podľa Duka</h3>
+<div class="grid2">
+<div class="box def"><span class="lbl">1 · Skryté kurikulum</span>
+<ul>
+<li>vzniká <b>neformálne</b>, je nepísané (nepísané osnovy)</li>
+<li>vytvára sa cez <b>socioekonomické faktory</b> školy – materiálne a finančné zabezpečenie, vybavenie, personál</li>
+<li>manifestuje <b>kultúru školy</b>, sociálnu klímu školy a triedy (naladenie), skúsenosti žiakov, prístup k vyučovaniu</li>
+<li>ovplyvňuje sociálne a osobné kompetencie žiakov, ich <b>úspešnosť</b> a <b>adaptáciu</b> na školu</li>
+</ul></div>
+<div class="box def"><span class="lbl">2 · Otvorené kurikulum</span>
+<p><b>Formálne</b>, oficiálny dokument; zverejnené osnovy, schvaľuje vedenie na pedagogických radách.</p>
+<ul>
+<li><b>základné</b> – všeobecný základ na všetkých úrovniach</li>
+<li><b>náhradné</b> – žiaci s hendikepom, špeciálne školy</li>
+<li><b>akademické</b> – nadaní žiaci, akcelerujú</li>
+<li><b>relevantné</b> – pragmatická, praktická príprava</li>
+<li><b>progresívne</b> – alternatívne školstvo, potreby žiakov aj učiteľov; flexibilnejšie, prvky tvorivosti</li>
+</ul></div>
+</div>
+<div class="box mn"><span class="lbl">Mnemotechnika – otvorené kurikulum</span><p><span class="code">Z-N-A-R-P</span> – „<b>Z</b>a <b>N</b>ami <b>A</b>j <b>R</b>ozumní <b>P</b>rídu“: základné · náhradné · akademické · relevantné · progresívne</p></div>
+<ul>
+<li><b>Zmeny v kurikule</b> sú súčasťou reforiem: <span class="k">makrozmeny</span> (v rámci krajiny) a <span class="k">mikrozmeny</span> (v konkrétnej škole či triede).</li>
+<li><b>Ďalšie delenie:</b> podľa <b>cieľov</b> (rozvoj kognitívnych procesov, technológia vyučovania, sebarealizácia žiakov) a podľa <b>teórií vzdelávania</b> (spirituálne, personalistické, psycho-kognitívne, technologické).</li>
+</ul>
+
+<h3 class="sub">Čo má / nemá kurikulum obsahovať</h3>
+<div class="grid2">
+<div class="box warn"><span class="lbl">Nemá</span><ul>
+<li>uprednostňovať kognitívny rast pred emocionálno-afektívnym a naopak – využívať obe stránky</li>
+<li>stresovať žiaka nahromadením poznatkov – s rastom nárokov má dávať podnety na myslenie (príklady zo života, prepájanie teórie s praxou, pomôcky, pozorovanie procesu, skupinové fórum)</li>
+</ul></div>
+<div class="box au"><span class="lbl">Má</span><ul>
+<li>dávať skúsenosť <b>byť vedený aj viesť</b> (viesť diskusiu, rozdeľovať činnosti)</li>
+<li>dávať priestor nadaniu, záujmom, potrebám, individualizácii – ale aj skupinovej práci, aby jednotlivec nebol na úkor ostatných</li>
+<li>obsahovať očakávania učiaceho sa aj vyučujúceho a dávať priestor ich tvorivosti (ako progresívne kurikulum)</li>
+</ul></div>
+</div>
+<div class="box sch"><span class="lbl">Schéma · Obrátenie pyramídy cieľov</span>
+<div class="pyr">
+<svg viewBox="0 0 220 150" width="220" role="img" aria-label="Pôvodná pyramída"><polygon points="110,6 214,144 6,144" fill="var(--soft)" stroke="var(--blue)" stroke-width="2"/><line x1="78" y1="50" x2="142" y2="50" stroke="var(--blue)" stroke-dasharray="5 4"/><line x1="44" y1="96" x2="176" y2="96" stroke="var(--blue)" stroke-dasharray="5 4"/>
+<g font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600" fill="var(--fg)" text-anchor="middle"><text x="110" y="34" font-size="9">Myslieť</text><text x="110" y="45" font-size="9">a konať</text><text x="110" y="78">Porozumieť</text><text x="110" y="126">Zapamätať si informácie</text></g></svg>
+<span class="arr" style="font-size:28px">→</span>
+<svg viewBox="0 0 220 150" width="220" role="img" aria-label="Obrátená pyramída"><polygon points="6,6 214,6 110,144" fill="var(--soft)" stroke="var(--blue)" stroke-width="2"/><line x1="40" y1="52" x2="180" y2="52" stroke="var(--blue)" stroke-dasharray="5 4"/><line x1="74" y1="98" x2="146" y2="98" stroke="var(--blue)" stroke-dasharray="5 4"/>
+<g font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600" fill="var(--fg)" text-anchor="middle"><text x="110" y="33">Myslieť a konať</text><text x="110" y="80">Porozumieť</text><text x="110" y="118">Zapamätať</text></g></svg>
+</div>
+<p>Pôvodne bolo najviac priestoru na <b>zapamätanie informácií</b>, najmenej na myslenie a konanie. Nové kurikulum pyramídu <span class="h">obracia</span>: najviac <b>myslieť a konať</b>, potom porozumieť vedomostiam, najmenej zapamätať si informácie.</p></div>
+
+<h3 class="sub">Kurikulárna reforma ZŠ</h3>
+<ul>
+<li>nový obsah vzdelávania – <b>viacročné cykly</b></li>
+<li>neodovzdávať hotové informácie, ale vytvárať situácie, v ktorých ich žiaci <b>interpretujú</b></li>
+<li>vyučovať <span class="h">formatívne, nie informatívne</span></li>
+<li>v budúcnosti – škola <b>inkluzívneho</b> charakteru</li>
+</ul>
+<div class="flow"><div class="fb">potreba nových učebníc</div><span class="arr">+</span><div class="fb">zmena VŠ prípravy pedagógov</div><span class="arr">=</span><div class="fb hl">INKLÚZIA + DIGITÁLNA + ZELENÁ ŠKOLA</div></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je „vyučovať formatívne, nie neformatívne“ – zmysel je <b>formatívne, nie informatívne</b> (pozri informatívnu vs. formatívnu funkciu v téme 2).</p></div>
+</section>
+
+<!-- ========== TÉMA 6 ========== -->
+<section class="topic" id="t6">
+<div class="th"><span class="num">TÉMA 06</span><h2>Školská trieda ako špecifická sociálna skupina</h2></div>
+<div class="box def"><span class="lbl">Definícia</span><p>Trieda = <span class="h">malá, formálna sociálna skupina</span>, ktorá vzniká v rámci inštitúcie (školy).</p>
+<ul><li><b>malá</b> – všetci sa poznajú, komunikujú tvárou v tvár, vzájomne sa ovplyvňujú</li>
+<li><b>formálna</b> – vzniká na podnet zvonku, odkiaľ je daná štruktúra, úlohy a cieľ (výchovno-vzdelávací)</li></ul></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je v definícii „formatívna“ skupina, ale v vysvetlení „formálna“ – správne je <b>formálna</b>.</p></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Ideálna trieda</span><p>poznali sa predtým, komunikácia, súdržnosť, spoločné ciele</p></div>
+<div class="box def"><span class="lbl">Reálna trieda</span><p>funguje na iných princípoch – nie každá je súdržná, skupinky, rebeli. Sleduje sa <b>súdržnosť</b>, <b>pozitívne emocionálne vzťahy</b>, <b>priaznivá klíma</b>.</p></div>
+</div>
+
+<h3 class="sub">Typy tried</h3>
+<p class="muted" style="font-size:14px">Podľa vyhranenosti štruktúry, súdržnosti a miery stotožnenia sa s výchovno-vzdelávacími cieľmi.</p>
+<div class="ladder">
+<div style="--lc:var(--slate)"><span>1</span><p style="margin:0"><b>Difúzna</b> – nevyhranená štruktúra, chýba súdržnosť aj spoločný cieľ; je na začiatku, po vytvorení</p></div>
+<div style="--lc:var(--blue)"><span>2</span><p style="margin:0"><b>Asociačná</b> – základy trvalejších vzťahov (sympatie, kontakt, spoločné záujmy, predošlá história); súdržnosť naznačená, <b>chýba spoločný cieľ</b></p></div>
+<div style="--lc:var(--amber)"><span>3</span><p style="margin:0"><b>Kooperatívna</b> – jasné pozície a roly, spolupatričnosť, spoločné ciele (napr. dohodnú sa na výhovorke, ujdú zo školy)</p></div>
+<div style="--lc:var(--green)"><span>4</span><p style="margin:0"><b>Kolektív</b> – jasná štruktúra, vysoká súdržnosť, ciele <b>sociálne žiaduce</b> (v súlade so školskými normami); ideál – skôr <span class="h">teoretická fikcia</span> ako realita</p></div>
+</div>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">D-A-K-K</span> – „<b>D</b>nes <b>A</b>j <b>K</b>ačky <b>K</b>ooperujú“: difúzna → asociačná → kooperatívna → kolektív. Rozdiel kooperatívna vs. kolektív = či sú ciele <b>sociálne žiaduce</b>.</p></div>
+
+<h3 class="sub">Štádiá vývinu triedy</h3>
+<p class="muted" style="font-size:14px">Závisia od veku žiakov a typu školy; opis zodpovedá vývinu triedy na SŠ.</p>
+<ol class="steps">
+<li><b>Počiatočné</b> – zoznamovanie; pol roka až celý rok; najprv difúzna, potom sa štrukturujú pozície a roly, žiaci sa oboznamujú s normami; viac sa venujú štúdiu; učitelia zadávajú požiadavky a kritériá hodnotenia; zoznamovanie so žiakmi, učiteľmi, prostredím aj sebou</li>
+<li><b>Prostredné</b> – stabilizácia; tvorba dvojíc a podskupín; intenzívny skupinový život – voľnočasové aktivity sú dôležitejšie ako učenie</li>
+<li><b>Posledné</b> – ukončenie štúdia, skúšky; opäť vyšší záujem o učenie (neplatí univerzálne)</li>
+</ol>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Prečo a podľa čoho vznikajú podskupiny?</b> Niečo jednotlivcov spája – priateľstvá, záujmy, spoločné cestovanie do školy, sedia spolu v triede.</p></div>
+
+<h3 class="sub">Činitele ovplyvňujúce stav triedy</h3>
+<div class="tw"><table class="t">
+<tbody>
+<tr><td>Vek žiakov</td><td><b>vývinové hľadisko</b> – s vekom klesá závislosť od učiteľa, obľúbenosť / vplyv v triede menej súvisí s prospechom; <b>veková rovnorodosť / rôznorodosť</b> – u nás vekovo homogénne triedy (okrem alternatívnych koncepcií); vo vekovo zmiešaných sa starší učia od mladších</td></tr>
+<tr><td>Rod</td><td><b>chlapčenské triedy</b> – súdržnejšie, jasné pozície; vplyv súvisí s výkonom, suverénnosťou k učeniu a skôr s <b>porušovaním</b> pravidiel<br><b>dievčenské triedy</b> – menej súdržné, rozpadajú sa na skupinky, zložitejšia štruktúra, ale <b>konformnejšie</b>; obľúbenosť = prívetivosť, priateľskosť; vplyv = výzor, oblečenie, výkony<br><b>zmiešané</b> – chlapčenská a dievčenská časť môžu fungovať nezávisle (ZŠ, začiatok SŠ)</td></tr>
+<tr><td>Úroveň rozvoja žiakov</td><td>triedy sú zvyčajne <b>heterogénne</b> – výhoda: šikovnejší pomáhajú slabším; nevýhoda <b>homogénnych</b>: napätie, súperivosť, ťažko sa vyrovnať so „stratou“ 1. miesta</td></tr>
+<tr><td>Počet a priestor</td><td>s menšími triedami sa pracuje lepšie; dôležitý <b>zasadací poriadok</b> (beseda v kruhu vs. rady), usporiadanie lavíc, spôsob práce, kombinovanie žiakov (porucha, koncentrácia, výška, okuliare)</td></tr>
+<tr><td>Vedenie triedy učiteľom</td><td>a) <b>priamo (formálne)</b> – organizácia výchovno-vzdelávacieho procesu; b) <b>nepriamo (neformálne)</b> – záujem o vzťahy, podporuje žiaduce, eliminuje nežiaduce, nulté hodiny, záujmové stretnutia, začlenenie do skupín</td></tr>
+</tbody></table></div>
+<div class="box au"><span class="lbl">Sociometria (Moreno)</span>
+<p><b>Akou metódou zistíme sociálne vzťahy v triede?</b> → <span class="h">sociometria</span>. Zistíme <b>obľúbenosť / sympatie</b> a <b>vplyv</b>. Spoznávanie: besedy, výlety, kultúrne podujatia.</p>
+<p><b>Testy:</b> <span class="k">SO-RA-D</span> – sociometricko-ratingový dotazník (<span class="a">Hrabal</span>) · <span class="k">B-3 a B-4</span> (<span class="a">Braun</span>) · neukončené vety · strom s postavami</p></div>
+</section>
+
+<!-- ========== TÉMA 7 ========== -->
+<section class="topic" id="t7">
+<div class="th"><span class="num">TÉMA 07</span><h2>Klíma školy a triedy</h2></div>
+<div class="box def"><span class="lbl">Klíma školy</span>
+<p><i>Klíma</i> (gr.) = oblasť, región, pásmo, podnebie. Synonymá: atmosféra, duch, étos, kultúra, podmienky, prostredie, sociálny systém školy.</p>
+<p><b>Pedagogický slovník:</b> <span class="k">sociálno-psychologická premenná</span> vyjadrujúca kvalitu interpersonálnych vzťahov a sociálnych procesov v škole tak, ako ich <b>hodnotia, vnímajú a prežívajú</b> učitelia, žiaci, prípadne zamestnanci.</p>
+<p><span class="x">Neexistuje</span> univerzálny typ klímy – nie je jednotná ani predurčená.</p></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Typológia školskej klímy</span><ul>
+<li>podľa <b>cieľov</b> – na výkon, vzdelanie a vzťahy</li>
+<li>podľa <b>záujmu o ľudí alebo úlohy</b> – rozvoj vzťahov, výkon, optimálnosť</li>
+<li>podľa <b>výchovných cieľov</b> – autoritatívny, demokratický, liberálny typ</li>
+<li>podľa <b>správania učiteľov v konflikte</b> – <b>konzervatívna</b> (poznámka, ostať po škole) vs. <b>progresívna</b> (edukatívna – uvedomiť si, naučiť)</li>
+</ul></div>
+<div class="box def"><span class="lbl">Klíma školy sa hodnotí z hľadísk</span><ul>
+<li>angažovanosť učiteľov pri plnení povinností</li>
+<li>zaťaženie, výkon, spokojnosť učiteľov</li>
+<li>vzťahy medzi učiteľmi</li>
+<li>charizma riaditeľa a vedenia školy</li>
+</ul></div>
+</div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Klíma triedy – pedagogický slovník</span><p><b>dlhodobejšie</b> sociálno-emocionálne naladenie, zovšeobecnené postoje a vzťahy, emocionálne odpovede žiakov na udalosti v triede</p></div>
+<div class="box au"><span class="lbl">Klíma triedy – Gavora</span><p>do akej miery je žiak <b>spokojný</b>, či si žiaci <b>rozumejú</b>, aký je stupeň <b>súťaživosti</b> a konkurencie a aká je <b>súdržnosť</b> triedy</p></div>
+</div>
+<div class="box sch"><span class="lbl">Schéma · Od najširšieho po najužší pojem</span>
+<div class="ladder">
+<div style="--lc:var(--plum)"><span>1</span><p style="margin:0"><b>Klíma školy</b></p></div>
+<div style="--lc:var(--green)"><span>2</span><p style="margin:0"><b>Klíma triedy</b> – dlhodobé</p></div>
+<div style="--lc:var(--blue)"><span>3</span><p style="margin:0"><b>Učebné prostredie</b> – aj fyzikálne prostredie: vybavenie, osvetlenie, sedenie, vetranie, pomôcky</p></div>
+<div style="--lc:var(--amber)"><span>4</span><p style="margin:0"><b>Atmosféra triedy</b> – momentálna, krátkodobá, mení sa aj počas 1 hodiny</p></div>
+</div>
+<p>Rovnocenné pojmy v literatúre: učebné prostredie, atmosféra triedy. Atmosféra a klíma majú k sebe najbližšie.</p></div>
+<div class="box def"><span class="lbl">Vyučovacia klíma</span><p>= klíma v rámci <b>konkrétneho predmetu</b>, navodená metódami a formami práce učiteľa</p></div>
+
+<h3 class="sub">Pozitívna klíma školy a triedy – charakteristiky</h3>
+<div class="grid3">
+<div class="box def"><span class="lbl">Z pohľadu žiakov</span><ul>
+<li>vyučovanie bez stresu</li><li>spravodliví učitelia</li><li>možnosť sebarealizácie</li><li>pocit, že učiteľovi záleží na ich rozvoji</li><li>akceptácia učiteľmi</li><li>vedia, čo sa od nich žiada</li></ul>
+<p>+ vážia si učiteľov prísnych, ale čestných; náročných, ale chápajúcich; ktorí ich vnímajú ako <b>subjekty</b>, nielen objekty</p></div>
+<div class="box def"><span class="lbl">Z pohľadu učiteľov</span><ul>
+<li>pokojná tvorivá klíma</li><li>demokratické vedenie</li><li>úcta vedenia k pracovníkom</li><li>dobré medziľudské vzťahy</li><li>tvorivá spolupráca v zbore</li><li>možnosť sebarealizácie (štúdium, inovácie)</li></ul></div>
+<div class="box def"><span class="lbl">Z pohľadu rodičov</span><ul>
+<li>spravodlivé správanie učiteľov k žiakom</li><li>pomoc pri problémoch s učením / správaním</li><li>zodpovedný a individuálny prístup k dieťaťu</li><li>objektívne hodnotenie</li><li>vysoká kvalifikovanosť</li><li>záujem o spoluprácu s rodičmi</li></ul></div>
+</div>
+
+<h3 class="sub">Skúmanie klímy školy a triedy</h3>
+<div class="grid2">
+<div><p><b>Pozorovanie a rozhovor</b> (neštruktúrované / štruktúrované), napr.:</p>
+<ul><li>S ktorými spolužiakmi sa najviac / najmenej priatelíš?</li><li>Je niekto / niečo, čo ti v triede prekáža?</li><li>Čo by si v triede chcel/a zmeniť?</li><li>S kým sa stretávaš aj po škole?</li></ul></div>
+<div><p><b>Ďalšie metódy:</b></p>
+<div class="hl2"><ul><li><b>SWOT</b> (prednosti, nedostatky, príležitosti, obavy)</li><li><b>„5-krát prečo?“</b></li><li><b>rybacia kosť</b></li><li>sociometria</li><li>kresby žiakov (nižšie ročníky)</li></ul>
+<ul><li>produkty žiackych prác</li><li>sémantický diferenciál</li><li>„terč“</li><li>experiment</li><li>dotazníky</li></ul></div></div>
+</div>
+<div class="tw"><table class="t">
+<thead><tr><th>Dotazník</th><th>Autor</th><th>Položky / zameranie</th><th>Pre koho</th></tr></thead>
+<tbody>
+<tr><td>Linecký dotazník o školskej a triednej klíme</td><td><span class="a">Eder</span></td><td><span class="y">127</span></td><td>–</td></tr>
+<tr><td>KLIT</td><td><span class="a">Lašek</span></td><td><span class="y">28</span> – suportívna klíma, motivácia k negatívnemu školskému výkonu, sebapresadenie</td><td>2. st. ZŠ, SŠ</td></tr>
+<tr><td>Naša trieda = My Class Inventory (MCI)</td><td><span class="a">Fraser, Fisher</span></td><td><span class="y">25</span> – spokojnosť, nezhody, súťaživosť, ťažkosti v učení, súdržnosť</td><td>3.–6. trieda</td></tr>
+<tr><td>Classroom Environment Scale (CES)</td><td><span class="a">Trickett, Moos, Fraser</span></td><td><span class="y">23</span> – pomoc učiteľa, orientácia na úlohy, vzťahy, záujem o učenie, poriadok, jasnosť pravidiel</td><td>2. st. ZŠ, SŠ</td></tr>
+<tr><td>Klíma školskej triedy</td><td><span class="a">Mareš, Ježek</span></td><td>7 povinných častí (<span class="y">34</span> pol.) + 4 voliteľné (<span class="y">19</span> pol.)</td><td>–</td></tr>
+</tbody></table></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach: „Faser, FIsher“ = <b>Fraser, Fisher</b>; „Trickkett“ = <b>Trickett</b>.</p></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Čo odporučiť učiteľom pre pozitívnu klímu?</b> Pýtať sa, aký majú deň, zaujímať sa o nich, rozdeľovať úlohy, starať sa o triedneho maskota; <b>ranné kruhy</b> (naladenie na spoločný deň).</p></div>
+</section>
+
+<!-- ========== TÉMA 8 ========== -->
+<section class="topic" id="t8">
+<div class="th"><span class="num">TÉMA 08</span><h2>Školská psychológia ako profesia</h2></div>
+<h3 class="sub">Platná školská legislatíva</h3>
+<div class="tw"><table class="t">
+<thead><tr><th>Predpis</th><th>Obsah</th></tr></thead>
+<tbody>
+<tr><td><span class="src">279/1993 Z. z.</span><br>Zákon o školských zariadeniach</td><td><b>§ 25 „školský psychológ“</b> – priamo sa zúčastňuje na práci školy a poskytuje odbornú psychologickú pomoc deťom, zákonným zástupcom a pedagógom pri výchovných a vzdelávacích problémoch; školy mohli prijímať ŠP do <b>trvalého</b> pracovného pomeru</td></tr>
+<tr><td><span class="src">43/1996</span><br>Vyhláška MŠ SR o výchovnom poradenstve a poradenských zariadeniach</td><td>podrobne opisuje koncepciu práce ŠP vo vzťahu k žiakom, pedagógom, rodičom a ku škole; ŠP je a) <b>článok systému výchovného poradenstva</b>, b) <b>samostatný odborný pracovník</b> – v pracovnom pomere s poradenským zariadením alebo so školou (má tam pracovisko), alebo dochádza z CPPPaP; pracuje s <b>celým systémom „škola“</b></td></tr>
+<tr><td><span class="src">245/2008 Z. z.</span><br><b>Školský zákon</b> – o výchove a vzdelávaní</td><td><span class="h">! základný zákon</span>; novelizovaný 1. 9. 2022. Systém poradenstva a prevencie tvoria zariadenia poradenstva a prevencie a v školách pedagógovia, <b>školský podporný tím</b> alebo odborní zamestnanci. Definuje pojmy: kto je žiak a dieťa; dieťa so ŠVVP, so zdravotným znevýhodnením, postihnutím, nadaním, zo SZP; školská dochádzka; individuálne vzdelávanie; počet žiakov v triede; špeciálne výchovné zariadenia; systém poradenstva a prevencie.<br><span class="y">august 2024</span> – balík zákonov <b>„Nežná revolúcia vo vzdelávaní“</b> (kvalita, dostupnosť, efektívnosť); <span class="y">január 2025</span> – novela na podporu duševného zdravia (zákaz mobilov, odvolanie riaditeľa, ak sa nevenuje sociálno-patologickým javom)</td></tr>
+<tr><td><span class="src">138/2019 Z. z.</span><br>Zákon o pedagogických a odborných zamestnancoch</td><td><span class="h">! 2. dôležitý zákon</span> – práva a povinnosti, kariérny postup, kategórie, kariérové stupne, charakteristiky činností</td></tr>
+</tbody></table></div>
+<p><b>Hierarchia legislatívnych opatrení:</b> zákon → vyhláška → smernica → metodický pokyn → usmernenie</p>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach „279/1993 Zb.“ – od roku 1993 sa používa <b>Z. z.</b> (Zbierka zákonov SR).</p></div>
+
+<h3 class="sub">Plat a kariérové stupne</h3>
+<div class="grid2">
+<div class="tw" style="margin:0"><table class="t">
+<thead><tr><th>Trieda</th><th>Tarifa</th><th>Kariérový stupeň</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>1107 €</td><td>začínajúci odborný zamestnanec</td></tr>
+<tr><td>7</td><td>1206,5 €</td><td>samostatný odborný zamestnanec</td></tr>
+<tr><td>8</td><td>1352 €</td><td>s 1. atestáciou</td></tr>
+<tr><td>9</td><td>1514,5 €</td><td>s 2. atestáciou</td></tr>
+</tbody></table><p class="muted" style="font-size:13px">Hrubá mzda od 1. 1. 2023 podľa zákona 553/2003 o odmeňovaní.</p></div>
+<div class="tw" style="margin:0"><table class="t">
+<thead><tr><th>Stupeň</th><th>Ako sa ním stanem</th><th>Čas (138/2019)</th></tr></thead>
+<tbody>
+<tr><td>Začínajúci</td><td>nástupom do 1. zamestnania v škole</td><td>adaptačné vzdelávanie: začať do 5 dní, ukončiť do 2 rokov</td></tr>
+<tr><td>Samostatný</td><td>ukončením adaptačného vzdelávania</td><td>–</td></tr>
+<tr><td>S 1. atestáciou</td><td>1. atestácia (alebo 2. atestácia pre inú kategóriu, alebo VŠ 3. stupňa)</td><td>min. <b>5 rokov</b> ako samostatný</td></tr>
+<tr><td>S 2. atestáciou</td><td>2. atestácia alebo VŠ 3. stupňa</td><td>min. <b>5 rokov</b> s 1. atestáciou</td></tr>
+</tbody></table></div>
+</div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Kto prijíma školského psychológa do pracovného pomeru?</b> <span class="h">Riaditeľ</span>.</p></div>
+
+<h3 class="sub">Dokumenty a vzdelávanie ŠP</h3>
+<div class="tw"><table class="t">
+<tbody>
+<tr><td>Adaptačné vzdelávanie</td><td><span class="src">138/2019 § 51, 52</span> – uvedenie do praxe, nad sebou má iného psychológa</td></tr>
+<tr><td>Profesijné štandardy</td><td><span class="src">Pokyn ministra 39/2017, príl. 15</span> – určujú kompetencie</td></tr>
+<tr><td>Ročný plán profesijného rozvoja</td><td><span class="src">Vyhláška 361/2019 Z. z.</span> – adaptačné / aktualizačné vzdelávanie, čo zlepšiť, semináre, konferencie; predkladá sa <b>riaditeľovi</b></td></tr>
+<tr><td>Plán práce ŠP</td><td>na aktuálny školský rok = <b>„sprievodca školským rokom“</b></td></tr>
+<tr><td>Záverečná / vyhodnocovacia správa</td><td>čo sa podarilo / nepodarilo a prečo; aké problémy, koľko žiakov a stretnutí, práca so skupinou, s kým pracoval; pre školskú radu; hodnotí ročný plán profesijného rozvoja; čo sa zavádza nové</td></tr>
+</tbody></table></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Od čoho závisí náplň práce ŠP?</b> Od typu školy (MŠ, ZŠ, SŠ, ŠŠ), potrieb školy a jej aktérov, zamerania, vedomostí a praxe psychológa a od aktuálnej situácie.</p></div>
+</section>
+
+<!-- ========== TÉMA 9 ========== -->
+<section class="topic" id="t9">
+<div class="th"><span class="num">TÉMA 09</span><h2>Štruktúra práce školského psychológa</h2></div>
+<p>ŠP pripravuje aj <b>individuálne vzdelávacie plány</b>. Štruktúra práce sa delí na:</p>
+<div class="grid2">
+<div class="box def"><span class="lbl">1 · Vertikálna</span><p>odvodená z <b>hierarchie riadenia školy</b> – s kým spolupracuje</p></div>
+<div class="box def"><span class="lbl">2 · Horizontálna</span><p>diferencuje sa podľa <b>oblastí činností</b> (a – d nižšie)</p></div>
+</div>
+<div class="tw"><table class="t">
+<tbody>
+<tr><td>a) Podľa obsahu služieb</td><td>informačné, identifikačno-diagnostické (depistáže), orientačné, modifikačné, rozvíjajúce, optimalizačné, preventívne</td></tr>
+<tr><td>b) Podľa spôsobu realizácie</td><td>individuálne, skupinové, hromadné; priamo alebo sprostredkovane</td></tr>
+<tr><td>c) Forma</td><td>poskytuje služby, rady, návrhy, konzultácie</td></tr>
+<tr><td>d) Podľa problémových oblastí</td><td>poruchy správania · problémy v učení · sociálne vzťahy v triede (odmietaní žiaci, agresori a obete šikany) · tvoriví, nadaní a talentovaní žiaci · integrovaní žiaci s poruchami učenia a správania, príprava IVP · výber do jazykových tried, bilingválnych gymnázií, preraďovanie do špeciálnych ZŠ · kríza a krízová intervencia · rozvíjajúce a preventívne programy · voľba SŠ, VŠ a kariéry · prednášky a osveta pre učiteľov · spolupráca s rodičmi, výchovné postupy · kooperácia školy a rodiny · <b>školská zrelosť</b> · diagnostika (poznávacie schopnosti, kognitívny vývin, osobnosť, postoje, motivácia, záujmy)</td></tr>
+</tbody></table></div>
+<div class="box qa"><span class="lbl">Otázka zo seminára</span><p><b>Ako dochádza k 1. kontaktu ŠP so žiakom?</b> Žiak sám · upozorní pedagóg · kontaktujú rodičia · kontaktuje spolužiak / kamarát · ŠP osloví žiaka (rodiča) na základe pozorovania v triede či na akcii · iné odborné pracovisko požiada o spoluprácu.</p></div>
+
+<h3 class="sub">Práca s triedou</h3>
+<p>Najčastejšie: <span class="k">prevencia</span> = predchádza sociálno-patologickým javom; <span class="k">intervencia</span> = zlepšenie (vzťahov, sebavedomia). Spôsoby práce:</p>
+<div class="tw"><table class="t">
+<tbody>
+<tr><td>Vedenie triedy</td><td>cieľ: nadviazať, posilniť, kultivovať komunikáciu so žiakmi aj medzi nimi; dostať do povedomia, že ŠP existuje; napr. na triednických hodinách</td></tr>
+<tr><td>Zážitkové hodiny</td><td>techniky / hry so psychologickým obsahom; monitorujú situáciu, rozvíjajú potenciál, sú vhodnou <b>primárnou prevenciou</b>; cieľ: práca s emóciami, sebapoznanie, sebauvedomenie, sebaprijatie (zásady <b>SPV</b>).<br><b>3-fázová štruktúra:</b> 1. zahrievacia aktivita → 2. tematická hra → 3. záverečné kolo.<br>Efektivita závisí od príjemnej atmosféry, aktívnych, motivovaných, autentických členov.</td></tr>
+<tr><td>Tematické hry</td><td>poznávacie, sebapoznávacie, komunikačné, na sebavedomie, súdržnosť, spoluprácu; motivácia a vysvetlenie zadania → samostatná činnosť (nikto neruší) → <b>fáza vyťaženia z hry</b> (utriedenie pocitov: „Čo si prežíval?“, „Ako sa ti úloha plnila?“, „Čo ti hra priniesla?“); dôležitá spätná väzba; žiaci majú <b>právo nezúčastniť sa</b>; od 2.–3. ročníka ZŠ (cez pohyb), najefektívnejšie pre <span class="y">12–16</span>-ročných + SŠ; aj drama-, arte-, muzikoterapia, imaginatívne techniky</td></tr>
+<tr><td>Nácvikové hodiny</td><td>osvojenie zručností pre bežný život – tréning, modelové situácie, sociálne zručnosti, relaxácia, komunikácia, asertivita; inštrukcie, smerovanie; odstraňovanie neprimeraného správania, tvorivosť, riešenie konfliktov</td></tr>
+<tr><td>Intervencia</td><td>cieľ: pozitívne zmeny v postojoch, správaní, vzťahoch, klíme; naučiť riešiť problémy, prebrať zodpovednosť, zabrániť patológii; vyžaduje dôkladnú prípravu a poznanie triedy; zásah do skupiny = priblíženie sa žiakom, získanie dôvery</td></tr>
+<tr><td>Krízová intervencia</td><td>pri závažných, náhlych krízach (hromadná devastácia, ublíženie na zdraví, smrť, nehoda); <span class="h">vyžaduje špeciálne vzdelanie</span>; pomoc okamžitá, krátkodobá; štruktúrovaný, aktívny, <b>direktívny</b> prístup, intenzívna práca, prevencia <b>PTSD</b>; existuje aj nadstavba</td></tr>
+<tr><td>Supervízia triedy</td><td>supervízia práce s triedou supervízorom</td></tr>
+</tbody></table></div>
+<div class="box warn"><span class="lbl">Intervencia vs. krízová intervencia</span><p><b>Krízová</b> = náhla, neočakávaná situácia (suicídium, smrť spolužiaka či triedneho učiteľa); má <b>presný protokol</b> práce s triedou, „<span class="k">kruhy zraniteľnosti</span>“ (najbližší ľudia), špeciálne vzdelanie, je krátkodobá; po niekoľkých mesiacoch <b>postkrízové stretnutie</b> na zistenie stavu.</p></div>
+
+<h3 class="sub">Sekvenčný model činnosti ŠP (J. Hvozdík)</h3>
+<p>= kroky v časovej a logickej postupnosti pri riešení problémov žiakov (učenie, správanie, voľba povolania, vzťahy).</p>
+<ol class="steps green">
+<li><b>Identifikácia systému</b> – poznávanie žiakov, učiteľov, rodičov, riadenia, výchovno-vzdelávacieho procesu, mimoškolskej činnosti</li>
+<li><b>Diferenciácia systému</b> na: a) <span class="k">eufunkčný</span> subsystém (funguje bez problémov) · b) <span class="k">dysfunkčný</span> subsystém · c) <span class="k">subsystém možností a rezerv</span> (kapacity, ktoré pomôžu zmene)</li>
+<li><b>Hľadanie alternatív, rozhodovanie, stratégie</b>: a) <b>jednorazová</b> intervencia (napr. zmena zasadacieho poriadku) · b) <b>stredne dlhá</b> (štvrťrok) · c) <b>dlhodobé</b> riešenie (1 školský rok)</li>
+<li><b>Implementácia rozhodnutí</b> – realizácia intervencií; schvaľuje školská rada či učiteľský zbor</li>
+<li><b>Spätná väzba, zhodnotenie efektívnosti</b> – dotazník, priame opýtanie sa, experimentálny plán</li>
+</ol>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">I-D-H-I-S</span> – „<b>I</b>de <b>D</b>ievča <b>H</b>ľadať <b>I</b>ný <b>S</b>ystém“: identifikácia · diferenciácia · hľadanie alternatív · implementácia · spätná väzba</p></div>
+<p>Model trvá <b>1 školský rok</b> (postup platí aj pre kratšie či dlhšie problémy) a zahŕňa 3 druhy činností: <b>preventívnu</b> (predchádzanie problémom), <b>identifikačno-diagnostickú</b> (poznávanie systému a subsystémov), <b>intervenčnú</b> (zmeny v systéme).</p>
+<div class="box au"><span class="lbl">Etika práce ŠP</span><p>Riadi sa <b>Etickým kódexom psychologickej činnosti</b> a <b>Etickými normami práce školského psychológa</b>, ktoré vypracovala <span class="a">AŠP SR a ČR</span>.</p></div>
+</section>
+
+<!-- ========== TÉMA 10 ========== -->
+<section class="topic" id="t10">
+<div class="th"><span class="num">TÉMA 10</span><h2>Diagnostické metódy a postupy</h2></div>
+<div class="grid3">
+<div class="box def"><span class="lbl">Screening / depistáž</span><p><b>hromadné</b> (skupinové) vyšetrenie, rýchly zber údajov – pozorovanie, anketa, dotazník, test, batéria; <b>vedomé, cielené a včasné</b> vyhľadávanie problémových jedincov</p></div>
+<div class="box def"><span class="lbl">Klinické (exploračné)</span><p>pozorovanie, rozhovor, anamnéza, rozbor produktov a pedagogickej dokumentácie</p></div>
+<div class="box def"><span class="lbl">Štatistické (testové)</span><p>ankety, škály, dotazníky, testy (objektivita, reliabilita, validita)</p></div>
+</div>
+<p class="muted" style="font-size:14px">V poznámkach je „baktériou“ – ide o <b>batériu</b> testov.</p>
+
+<h3 class="sub">Pozorovanie</h3>
+<div class="grid2">
+<div class="box au"><span class="lbl">Výhody</span><ul>
+<li>relatívne reprezentatívny obraz o žiakovi</li><li>iné informácie ako od rodičov a učiteľov</li><li>informácie aj o nekomunikatívnych žiakoch</li><li>rozširuje údaje z testov a dotazníkov</li><li>pomáha vybrať účinný intervenčný program</li><li>kontrola efektívnosti nápravných programov</li></ul></div>
+<div class="box warn"><span class="lbl">Nevýhody</span><ul>
+<li>pozorovateľ ovplyvní správanie žiaka (neprirodzené)</li><li>učitelia sa necítia dobre – majú dojem, že sa hodnotia ich postupy</li><li>obmedzené štatistické spracovanie</li></ul></div>
+</div>
+<p><b>Postup:</b> definovať pozorované prejavy → od globálneho k špecifickému → vyčleniť úseky → pozorovať špecifické prejavy; zaznamenať <b>frekvenciu, trvanie, intenzitu, latenciu a konzistenciu</b>.</p>
+<div class="tw"><table class="t">
+<thead><tr><th>Spôsob záznamu</th><th>Podstata</th></tr></thead>
+<tbody>
+<tr><td>Poviedkové</td><td>„čo, kedy, ako“ žiak urobil; <span class="k">molárny</span> (presný opis deja) alebo <span class="k">molekulárny</span> (ten istý prejav detailnejšie) prístup; aj výroky a reakcie ostatných</td></tr>
+<tr><td>Intervalové</td><td>vybrané prejavy, obdobie rozdelené na krátke intervaly (<span class="y">5–30 min</span>); záznam: vek, pohlavie, prostredie, zhoda so spolupozorovateľom</td></tr>
+<tr><td>Zaznamenávanie udalostí</td><td>čaká sa na vopred vybraný prejav a jeho frekvenciu; kategórie vopred; 1 žiak alebo porovnanie 2 žiakov</td></tr>
+<tr><td>Ratingové</td><td>posudzovanie na <span class="y">3–11</span>-bodovej škále; výskyt a miera; možno spracovať štatisticky</td></tr>
+<tr><td>Skrytou kamerou</td><td><span class="x">eticky sporné</span>; možnosť opakovane si prehrať detaily</td></tr>
+</tbody></table></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Často pozorované prejavy</span><ul>
+<li>vyrušovanie, rozptyľovanie inými podnetmi</li><li>malé motorické pohyby (otáčanie, hojdanie)</li><li>veľké motorické pohyby (behanie po triede)</li><li>fyzická a verbálna agresivita</li><li>volanie na učiteľa</li></ul></div>
+<div class="box warn"><span class="lbl">Chyby pri pozorovaní</span><p>centrálna tendencia · sympatia / antipatia · prvý dojem · <b>haló efekt</b> · chyba kontrastu · chyba blízkosti · logická chyba · osobnosť posudzovateľa · vplyv času a dennej doby · efekt očakávania · neverbálne kľúče (pozorovateľ sa usmeje, pridá sa na stranu žiakov)</p>
+<p>+ učiteľ niekedy pošle nesprávneho žiaka, ktorý pomoc nepotrebuje – iba ho <b>nálepkuje</b>.</p></div>
+</div>
+
+<h3 class="sub">Rozhovor (interview)</h3>
+<div class="grid2">
+<div class="box def"><span class="lbl">Od bežnej konverzácie sa líši</span><ul>
+<li>má stanovený <b>cieľ</b></li><li>zodpovednosť za riadenie, obsah a smer má <b>psychológ</b></li><li><b>nerecipročný</b> vzťah (pýtame sa my)</li><li>správanie psychológa je plánované a organizované</li><li>formálne organizované stretnutie</li></ul>
+<p>Bežná komunikácia je spontánna, menej formálna a štruktúrovaná.</p></div>
+<div class="box au"><span class="lbl">Výhody</span><ul>
+<li>priamy prostriedok, bezprostredný kontakt</li><li>flexibilita v kladení otázok</li><li>vidíme verbálne aj neverbálne prejavy (aj ich rozpor)</li><li>okamžité vyjasnenie nedorozumení</li></ul></div>
+</div>
+<p><b>Stratégie rozhovoru so žiakom:</b> a) nastoliť dôveru · b) prejaviť záujem · c) vedieť počúvať a všímať si neverbálne prejavy · d) uľahčiť komunikáciu – ako?</p>
+<div class="tw"><table class="t c">
+<tbody>
+<tr><td>otvorené, široké otázky („Ako ti môžem pomôcť?“); prispôsobiť vek a rozumové schopnosti</td><td>vyjasňovať pojmy žiaka („Čo je to <i>len trochu</i>?“)</td></tr>
+<tr><td>vyhýbať sa otázkam ÁNO / NIE („Čo sa ti v škole páči a čo nie?“)</td><td>vyhýbať sa sugestívnym otázkam</td></tr>
+<tr><td>nevyvolávať rozpaky („Ktoré predmety sú pre teba ťažké?“ namiesto päťiek)</td><td>dodávať odvahu („Viem si predstaviť, aké to bolo ťažké…“)</td></tr>
+<tr><td>nezvyšovať hlas, nekritizovať, nehodnotiť, nemoralizovať</td><td>byť <b>aktívnejší</b> ako pri rozhovore s dospelým</td></tr>
+<tr><td>byť objektívny a úprimný („Učiteľka mi hovorila…, rada by som to počula od teba“)</td><td>pochvala + popisný komentár („Dnes vyzeráš veselšie“)</td></tr>
+<tr><td>otázky v podmieňovacom spôsobe („Čo by si urobil, keby…“)</td><td>ďalšie otázky („Povedz mi o tom viac“)</td></tr>
+<tr><td>zisťovať emócie, kontrolovať svoje – <span class="h">smiať sa môžeme s klientom, nie na ňom</span></td><td>empatia („Vidím, že si veľmi smutný…“)</td></tr>
+<tr><td>zmeniť tému („A teraz prejdime k…“)</td><td>uzavrieť stručnou sumarizáciou</td></tr>
+</tbody></table></div>
+<div class="tw"><table class="t">
+<thead><tr><th>Téma</th><th>Príklady otázok</th></tr></thead>
+<tbody>
+<tr><td>Priateľstvo</td><td>nehodnotí, vytvára záujem: opíš najlepšieho kamaráta, čo sa ti na ňom páči a jemu na tebe, čo robíte, kto sú ďalší kamaráti</td></tr>
+<tr><td>Škola</td><td>ako ti to ide, obľúbený a najmenej obľúbený predmet, čo by si robil radšej, čo sa učiteľovi na tebe páči, kvôli čomu máš ťažkosti a aké majú dôsledky</td></tr>
+<tr><td>Rodina</td><td>opíš každého v rodine, kto je ti podobný / odlišný, čo by bolo iné bez súčasného problému</td></tr>
+<tr><td>Ja</td><td>tri želania, čo by si zmenil, čo ťa zraní a čo vtedy robíš, ako reagujú rodičia a priatelia</td></tr>
+</tbody></table></div>
+<div class="box def"><span class="lbl">Pravidlá rozhovoru s rodičmi</span>
+<ol class="steps plum" style="margin:4px 0">
+<li>privítanie a predstavenie sa; povzbudenie k rozhovoru („Rada by som sa s vami porozprávala o…“)</li>
+<li>rešpektovať pocity rodičov, <b>neobviňovať</b> ich; nevystupovať autoritatívne a dominantne</li>
+<li>vyjadriť porozumenie a ochotu pomôcť; ak treba, hovoriť s každým rodičom zvlášť</li>
+<li>získať anamnestické informácie; informovať o metódach a výsledkoch vyšetrenia</li>
+<li>dohodnúť ďalšie stretnutie</li>
+</ol></div>
+</section>
+
+<!-- ========== TÉMA 11 ========== -->
+<section class="topic" id="t11">
+<div class="th"><span class="num">TÉMA 11</span><h2>Spolupráca s rodičmi a učiteľmi</h2></div>
+<h3 class="sub">Spolupráca s rodičmi</h3>
+<div class="grid2">
+<div class="box def"><span class="lbl">Skupinová</span><p>prednášky a besedy (aj o voľbe povolania), informácie o inováciách a osnovách, výcvikové programy, plán práce ŠP, nové metódy; rodičovské združenia + <b>svojpomocné skupiny rodičov</b> (ADHD, nadanie, poruchy učenia, autizmus – prenos skúseností)</p></div>
+<div class="box def"><span class="lbl">Individuálna</span><p>informácie a konzultácie o stave a výsledkoch</p></div>
+</div>
+<div class="tw"><table class="t">
+<tbody>
+<tr><td>Rodičia majú záujem</td><td>konzultácie, návrh opatrení, plány podpory, výchovné štýly, komunikácia</td></tr>
+<tr><td>Nemajú záujem</td><td>zásah riaditeľa; vysvetliť, podporiť, motivovať, zdôrazniť</td></tr>
+<tr><td>Nemôžu spolupracovať</td><td>riešenie situácie – zdravotný stav, rodič nežije, je vo väzení</td></tr>
+</tbody></table></div>
+<p>Cieľ týchto aktivít: <span class="h">získať rodičov na spoluprácu</span>.</p>
+
+<h3 class="sub">Spolupráca s učiteľmi</h3>
+<p>Cez individuálne konzultácie a zvyšovanie kompetencií pedagógov. Úspešnosť závisí od: dôvery, rešpektu, bezpečia, nedirektívnosti, komunikácie, partnerstva, spoluzodpovednosti, aktivity.</p>
+<div class="flow"><div class="fb bl">objednávka učiteľa</div><span class="arr">→</span><div class="fb bl">spoločný plán</div><span class="arr">→</span><div class="fb hl">spoločná práca</div></div>
+<div class="grid2">
+<div class="box qa"><span class="lbl">Aké obtiažne situácie učitelia riešia?</span><ul>
+<li>zhoršenie školských výkonov</li><li>problematické správanie</li><li>porušovanie pravidiel, zlá disciplína</li><li>žiaci so špeciálnou starostlivosťou</li><li>krízové situácie v triede</li><li>+ nespolupracujúci rodičia</li></ul></div>
+<div class="box qa"><span class="lbl">V čom ŠP podporuje učiteľov?</span><ul>
+<li>začínajúci (triedni) učitelia, pedagogickí asistenti</li>
+<li>pedagogické aktivity – skúšanie, hodnotenie, supervízia triedy</li>
+<li>žiaci so ŠVVP; krízové intervencie</li>
+<li>súkromné problémy pedagógov</li>
+<li>vzdelávanie – workshopy, prípadové konferencie, kurzy, sebaskúsenostný výcvik</li>
+<li><b>autodiagnostika</b> ako súčasť autoevaluácie (záznam hodiny, spätná väzba, dotazník, monitorovanie stresu)</li>
+<li><b>de-briefing</b> – spätná väzba, zhodnotenie</li></ul></div>
+</div>
+<div class="box warn"><span class="lbl">Pozor · Supervízia ≠ hospitácia</span><p><b>Supervízia</b> má charakter kontroly – všíma si, ako učiteľ vedie a zvláda triedu. <b>Hospitácia</b> = účasť niekoho pri vyučovaní, študijná kontrola. ŠP môže byť v roli poradcu až keď je <b>samostatný a dostatočne vyškolený</b>.</p></div>
+<div class="box sch"><span class="lbl">Schéma konzultácie s učiteľom</span>
+<ol class="steps blue" style="margin:4px 0">
+<li>popis udalosti pedagógom; čo prežíval</li>
+<li>čo žiak správaním pravdepodobne sledoval, aké sú možné príčiny</li>
+<li>ako si to žiak dovolil, čo mu to umožnilo; ako sa správa inde (u iných pedagógov)</li>
+<li>ako sa postavili ostatní žiaci</li>
+<li>akú intervenciu učiteľ použil a s akým výsledkom; mohol postupovať inak; zabránila recidíve</li>
+<li>kto môže učiteľovi pomôcť v ďalšej starostlivosti o žiaka</li>
+</ol></div>
+
+<h3 class="sub">Účinné formy spolupráce rodiny a školy</h3>
+<div class="hl2">
+<ul><li><b>DOD</b> pre rodičov a žiakov (1× za 2–3 mesiace); DOD pre rodičov</li><li><b>komunikačný kruh</b> so žiakmi (1× týždenne)</li><li><b>listy rodičom</b> (USA 1× mesačne, SR 1× za 2 mesiace telefonicky) – <span class="x">NIE</span> „Potrestajte XY…“, <b>ÁNO</b> „XY bol prívetivý, nápomocný…“</li></ul>
+<ul><li><b>zrkadlo</b> minulého týždňa / mesiaca – „Správy z našej triedy“</li><li>večerné návštevy ŠP / učiteľa v rodine</li><li><b>Klub rodičov a učiteľov</b></li><li>+ odmeňovanie v škole aj doma</li></ul>
+</div>
+</section>
+
+<!-- ========== TÉMA 12 ========== -->
+<section class="topic" id="t12">
+<div class="th"><span class="num">TÉMA 12</span><h2>Prevencia a intervencia</h2></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Intervencia</span><p>= zásah, <b>aktivita zameraná na ovplyvnenie javu alebo situácie</b>; zákrok, ktorý posunie proces, situáciu či stav klientov.</p>
+<ul><li><b>krátkodobá</b> (jednorazová konzultácia) vs. <b>dlhodobá</b> (práca s triedou so šikanou)</li>
+<li><b>intenzívna</b> (začiatok práce) vs. <b>menej intenzívna</b> (1× mesačne)</li>
+<li><b>zameranie</b>: kríza, sociálne zručnosti, zmena sociálnej situácie, terapia špecifických porúch učenia</li></ul></div>
+<div class="box def"><span class="lbl">Prevencia</span><p>= <b>predchádzanie</b> nežiaducim javom, <b>rizikovému</b> (nejasné, ale radšej mu predchádzame) a <b>problémovému</b> (nepodlieha normám) správaniu – drogovým závislostiam a ďalším sociálno-patologickým javom (<span class="a">Novotný, Ondrejkovič, 1999</span>).</p>
+<p>Zabraňuje vzniku ochorenia, zranenia a následkov; pomáha udržať, posilňovať a rozvíjať zdravie (<span class="a">Hermochová, Vaňková, Drlíková, 2001</span>).</p>
+<ul><li><b>nemanipulatívna</b> metóda</li><li><b>neagresívna</b> metóda</li></ul></div>
+</div>
+<div class="box warn"><span class="lbl">Pozor – nejasné v poznámkach</span><p>Pri „nemanipulatívnej metóde“ je zapísané „s dobrým cieľom podávame nepravdivé informácie…“ – to opisuje <b>manipuláciu</b>, teda to, čo prevencia <b>nemá</b> robiť. Pri „neagresívnej metóde“ a pri „univerzálnej prevencii“ sú vety nedokončené. Over si, čo uvádzala prednášajúca.</p></div>
+<div class="grid2">
+<div class="box def"><span class="lbl">Delenie 1</span><ul>
+<li><b>primárna</b> – ešte nemajú skúsenosť</li>
+<li><b>sekundárna</b> – zvýšené riziko (napr. život v prostredí s alkoholom)</li>
+<li><b>terciárna</b> – skúsenosť už majú</li></ul></div>
+<div class="box def"><span class="lbl">Delenie 2</span><ul>
+<li><b>univerzálna</b> – pre všetkých žiakov</li>
+<li><b>selektívna</b> – len tí vo vyššej miere rizika</li>
+<li><b>indikovaná</b> – problém už je, predchádzame závislosti</li></ul></div>
+</div>
+<div class="box qa"><span class="lbl">Seminár · Prevencia či intervencia?</span>
+<div class="tw" style="margin:4px 0"><table class="t c">
+<tbody>
+<tr><td>V 6. ročníku našli žuvací tabak</td><td class="no">intervencia</td></tr>
+<tr><td>Na začiatku SŠ sa žiaci potrebujú spoznať</td><td class="no">intervencia</td></tr>
+<tr><td>Žiačka 8.A napísala do schránky dôvery, že ju nikto nemá rád</td><td class="no">intervencia</td></tr>
+<tr><td>7. ročník – náročná disciplína, doberanie, potýčky</td><td class="yes">prevencia</td></tr>
+<tr><td>Trieda 2.C plná „silných osobností“ – treba učiť kooperáciu</td><td class="yes">prevencia</td></tr>
+<tr><td>Trieda 9.A prišla o spolužiačku pri nehode</td><td class="no">intervencia</td></tr>
+</tbody></table></div></div>
+
+<h3 class="sub">Ako reálne (ne)funguje prevencia v školách</h3>
+<ol class="steps red">
+<li><b>Etapa intuície</b> – prednášky, svedectvá „narkomanov“, strašenie, letáky, „zober loptu, nie drogy“; výskum: strašenie účinné len <b>krátkodobo</b>, svedectvá <b>ambivalentne</b> – prevencia sa o ne nemá opierať; robí sa to, čo si myslím, že je dobré</li>
+<li><b>Etapa teórie</b> – nachádzame a aplikujeme programy; konkrétne dôkazy, osobnostné vlastnosti</li>
+<li><b>Evaluácia</b> – hodnotenie účinnosti: predtým, ako program robím, zistím, či naozaj funguje</li>
+</ol>
+<div class="box sch"><span class="lbl">Schéma · Kirkpatrickov 4-úrovňový model evaluácie (Belcourt, Wright, 1998; Bristritz, 2000)</span>
+<div class="tw" style="margin:4px 0"><table class="t">
+<thead><tr><th>Úroveň</th><th>Otázka</th><th>Čím sa zaoberá</th><th>Ako sa skúma</th></tr></thead>
+<tbody>
+<tr><td>1 · Reakcia</td><td>Páčilo sa im to?</td><td>odozva na vzdelávací proces a prečo</td><td>dotazník, interview</td></tr>
+<tr><td>2 · Učenie (vedomosti)</td><td>Naučili sa to?</td><td>či a ako sa zlepšili zručnosti a znalosti</td><td>kontrolná skupina, test papier-ceruzka</td></tr>
+<tr><td>3 · Transfer (správanie)</td><td>Použili to?</td><td>vývoj znalostí a zručností v čase</td><td>interview s nadriadenými a podriadenými, dotazníky, pozorovanie ex ante a ex post</td></tr>
+<tr><td>4 · Výsledky</td><td>Došlo k zmene v skupine?</td><td>merateľný výsledok na fungovaní organizácie</td><td>meranie a porovnanie pred a po, dotazník, kontrolná skupina</td></tr>
+</tbody></table></div>
+<p class="muted" style="font-size:13px">Pyramída: Reakcia (základ) → Učenie → Transfer → Výsledky (vrchol). Tabuľka podľa D. a J. Kirkpatrick (2006).</p></div>
+<div class="box mn"><span class="lbl">Mnemotechnika</span><p><span class="code">R-U-T-V</span> – „<b>R</b>ýchlo <b>U</b>čím, <b>T</b>eraz <b>V</b>idím“: reakcia · učenie · transfer · výsledky</p></div>
+
+<h3 class="sub">Účinné stratégie prevencie <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(účinné najmä spolu)</span></h3>
+<div class="grid3">
+<div class="box au"><span class="lbl">1 · Informácie o škodlivosti</span><p>reálne informácie, pozitíva aj negatíva; pôsobí na <b>kognitívnu</b> stránku</p></div>
+<div class="box au"><span class="lbl">2 · Tréning spôsobilostí</span><p>ako niečo odmietať: <b>asertivita</b>, riešenie konfliktov, sebakontrola, zvládanie stresu, sebaúcta, líderstvo, rozhodovanie a riešenie problémov</p></div>
+<div class="box au"><span class="lbl">3 · Scitlivovanie voči sociálnemu vplyvu</span><p>rizikové správanie vzniká, keď na mňa niekto tlačí; normy a normatívne presvedčenia, uvedomenie si <b>tlaku skupiny</b></p></div>
+</div>
+<div class="box au"><span class="lbl">Čo funguje v prevencii? (Nation, Crusto, 2003)</span>
+<div class="hl2">
+<ul><li><b>celosť</b> – kombinácia 3 stratégií</li><li>rôznorodosť metód – <b>interaktívne</b> sú lepšie ako prednášky</li><li>dostatočný počet lekcií</li><li><b>booster sessions</b> – posilňujúce stretnutia</li><li>založené na teórii (sociálne normy, vplyv)</li><li>posilňovanie vzťahov</li></ul>
+<ul><li>vhodne načasované – <b>6. ročník</b> je citlivý na sociálny vplyv</li><li>sociokultúrne relevantné (menšiny)</li><li>zahŕňajú evaluáciu</li><li>trénovaný lektor</li><li>dôvera v program</li><li>integrita lektora, zhoda s filozofiou školy</li></ul>
+</div></div>
+<div class="box warn"><span class="lbl">Pozor</span><p>V poznámkach je „Buster sessions“ – správne <b>booster sessions</b> (z angl. <i>boost</i> = posilniť).</p></div>
+
+<h4 class="mini">Príklad plánu preventívnych aktivít ŠP</h4>
+<div class="tw"><table class="t">
+<thead><tr><th>Ročník</th><th>Prevencia</th><th>Intervencia</th></tr></thead>
+<tbody>
+<tr><td>5. (ZŠ)</td><td>–</td><td>adaptácia na 2. stupeň</td></tr>
+<tr><td>6.</td><td>„gateway drugs“ (odolávanie sociálnemu vplyvu)</td><td>–</td></tr>
+<tr><td>7.</td><td>vzťahy chlapci – dievčatá, komunikácia, online komunikácia</td><td>–</td></tr>
+<tr><td>8.</td><td>sebaobraz, vzťah k telu, poruchy príjmu potravy</td><td>–</td></tr>
+<tr><td>9.</td><td>zvládanie stresu</td><td>sebapoznanie – výber SŠ</td></tr>
+<tr><td>1. (SŠ)</td><td>marihuana…</td><td>adaptácia, spoznávanie, učebný štýl</td></tr>
+<tr><td>2.</td><td>pornografia</td><td>priateľstvo a partnerstvo</td></tr>
+<tr><td>3.</td><td>sebaobraz</td><td>záujmy, voľba povolania</td></tr>
+<tr><td>4.</td><td>zvládanie stresu</td><td>–</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ========== PASCE ========== -->
+<section class="topic traps" id="pasce">
+<div class="th"><span class="num">POZOR</span><h2>Najčastejšie skúškové pasce</h2></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Informatívna vs. formatívna funkcia vyučovania:</b> informatívna = učiteľ odovzdáva hotové poznatky; formatívna = žiak spolupracuje, prináša obsah sám. Nekognitívne stránky (K-E-M-S-A-K) sa rozvíjajú pri <b>formatívnej</b>.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Diferenciačná vs. selektívna funkcia:</b> diferenciačná s chybami <b>pracuje</b> a dáva rovnakú šancu; selektívna chyby <b>hľadá</b> a vyberá najlepších. Dnes je škola <b>rozvíjajúca</b>.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Kurikulum – skryté vs. extrakurikulum:</b> skryté = nepísané pravidlá, klíma, vzťahy; extrakurikulum = aktivity <b>mimo vyučovania</b> (výlety, krúžky).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Kooperatívna trieda vs. kolektív:</b> obe majú spoločné ciele, ale len kolektív má ciele <b>sociálne žiaduce</b>. Kolektív je skôr teoretická fikcia.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Chlapčenské vs. dievčenské triedy:</b> chlapčenské = súdržnejšie, vplyv cez výkon a porušovanie pravidiel; dievčenské = menej súdržné, ale <b>konformnejšie</b>.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Klíma vs. atmosféra triedy:</b> klíma = <b>dlhodobá</b>; atmosféra = <b>krátkodobá</b>, mení sa aj počas jednej hodiny. Učebné prostredie zahŕňa aj fyzické prostredie.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Roky:</b> Stern 1911 · Stejskal 1930 · Ohera 1934 · katedra (Ďurič) 1965 · Kabinet (Blaškovič) 1967 · akceptácia ŠP 1970 · Hvozdíkova učebnica 1986 · AŠP 1990 · ISPC 1972 · ISPA 1982.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Hvozdík 2×:</b> 1986 – škola ako <b>systém</b> (subsystémy, prvky, funkcie) a 1. európska učebnica ŠP; zároveň autor <b>sekvenčného modelu</b> činnosti ŠP (5 krokov).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Zákony:</b> 245/2008 = školský zákon (<b>základný</b>); 138/2019 = o pedagogických a odborných zamestnancoch (<b>2. dôležitý</b>); 279/1993 = § 25 školský psychológ; 43/1996 = vyhláška o výchovnom poradenstve.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Kariérové stupne:</b> na 1. aj na 2. atestáciu treba <b>min. 5 rokov</b> v predchádzajúcom stupni. ŠP prijíma do pracovného pomeru <b>riaditeľ</b>.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Intervencia vs. krízová intervencia:</b> krízová = náhla udalosť, protokol, kruhy zraniteľnosti, <b>špeciálne vzdelanie</b>, direktívny prístup, postkrízové stretnutie.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Primárna / sekundárna / terciárna</b> (podľa skúsenosti) ≠ <b>univerzálna / selektívna / indikovaná</b> (podľa cieľovej skupiny).</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Supervízia ≠ hospitácia.</b> Supervízia = kontrola vedenia triedy; hospitácia = účasť pri vyučovaní, študijná kontrola.</p></div>
+<div class="box warn trap"><span class="lbl">Pasca</span><p><b>Molárny vs. molekulárny záznam:</b> molárny = opis deja; molekulárny = ten istý prejav detailnejšie.</p></div>
+</section>
+
+<footer>Základy školskej psychológie · študijné skriptá · Prešovská univerzita · akad. rok 2026/2027 · spracované z vlastných poznámok z prednášok a seminárov</footer>
+</div>
+
+</body></html>
