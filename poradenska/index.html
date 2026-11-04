@@ -75,6 +75,13 @@ iframe{width:100%;height:78vh;border:1px solid var(--line);border-radius:12px;ba
 .subj button.on{border-color:var(--plum);background:color-mix(in srgb,var(--plum) 14%,var(--paper))}
 .themebtn{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:99px;padding:6px 12px;font:600 13px var(--sans);cursor:pointer;white-space:nowrap}
 small.muted,.muted{color:var(--muted)}
+[hidden]{display:none!important}
+.sem{display:flex;align-items:center;gap:10px;padding:10px 0 2px}
+.semh{font:700 15px var(--serif);color:var(--ink)}
+.semt{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:var(--paper)}
+.semt button{border:0;background:transparent;color:var(--muted);font:600 12.5px var(--mono);letter-spacing:.08em;padding:5px 14px;cursor:pointer}
+.semt button[aria-selected="true"]{background:var(--plum);color:#fff}
+.subj-empty{font-size:14px;color:var(--muted);border:1.5px dashed var(--line);border-radius:10px;padding:12px 14px;margin:8px 0 4px}
 .spsets{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
 .spsets .chip small{font:500 10.5px var(--mono);opacity:.75;margin-left:4px}
 .spsets .chip .ok{color:var(--green);margin-left:4px}.spsets .chip.on .ok{color:#fff}
@@ -97,7 +104,9 @@ small.muted,.muted{color:var(--muted)}
 <body>
 <div class="wrap">
 <div class="top"><span class="eyebrow">📚 Vyber si predmet</span><button class="themebtn" id="themeBtn">🌓 Auto</button></div>
+<div class="sem"><span class="semh">3. ročník</span><div class="semt" role="tablist" aria-label="Semester"><button id="semZS" role="tab">ZS</button><button id="semLS" role="tab">LS</button></div></div>
 <div class="subj" id="subj"></div>
+<div class="subj-empty" id="subjLS" hidden>Letný semester je zatiaľ prázdny. Predmety pribudnú, keď mi pošleš materiály.</div>
 <header>
  <div><div class="eyebrow" id="hEyebrow"></div><h1 id="hTitle"></h1></div>
  <div class="mono" id="hMono"></div>
@@ -829,6 +838,8 @@ function setSubj(k,first){if(!SUBJ[k])k="zpp";cur_subj=k;S.set("subj",k);const x
  document.querySelectorAll('#nav [data-only]').forEach(b=>b.style.display=b.dataset.only===k?"":"none");
  document.title=x.m+" – príprava na A";
  goTab(k==="zpp"?(first?"plan":"plan"):"notes");}
+(function(){function sem(v){S.set("sem",v);$("#semZS").setAttribute("aria-selected",v==="ZS");$("#semLS").setAttribute("aria-selected",v==="LS");$("#subj").hidden=v!=="ZS";$("#subjLS").hidden=v!=="LS"}
+ $("#semZS").onclick=()=>sem("ZS");$("#semLS").onclick=()=>sem("LS");sem(S.get("sem","ZS"))})();
 (function(){const box=$("#subj");Object.entries(SUBJ).forEach(([k,x])=>{const b=document.createElement("button");b.dataset.k=k;b.innerHTML=x.n+"<small>"+x.s+"</small>";b.onclick=()=>setSubj(k);box.appendChild(b)});
  const q=new URLSearchParams(location.search).get("p");setSubj(q&&SUBJ[q]?q:S.get("subj","zpp"),true)})();
 // ===== FAREBNÝ REŽIM =====
